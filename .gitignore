@@ -1,0 +1,30 @@
+# Build directories
+Debug/
+Release/
+x64/
+x86/
+build/
+
+# Compiled files
+*.obj
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
