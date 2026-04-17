@@ -7,6 +7,7 @@
 #include "Vehicle.h"
 #include "Tire.h"
 #include "YMD.h"
+#include "Tire_selection.h"
 
 namespace Project1 {
 
@@ -31,6 +32,7 @@ namespace Project1 {
 		Tire_inputs* rear_tires;
 		Vehicle* vehicle;
 		YMD_Carrier* YMD_carrier;
+		Tire_selection* tire_selection;
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
@@ -554,6 +556,8 @@ private: System::Windows::Forms::Label^ output_debug3;
 
 
 private: System::Windows::Forms::Label^ output_debug2;
+private: System::Windows::Forms::Label^ output_debug4;
+
 
 
 
@@ -571,6 +575,7 @@ private: System::Windows::Forms::Label^ output_debug2;
 			tire_list = gcnew System::Collections::Generic::List<System::String^>();
 			vehicle = new Vehicle();
 			YMD_carrier = new YMD_Carrier();
+			tire_selection = new Tire_selection();
 			//
 			//TODO: Adicione o código do construtor aqui
 			//
@@ -1170,6 +1175,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->output_debug4 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage3->SuspendLayout();
@@ -5940,10 +5946,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 35);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 636);
+			this->tabPage2->Size = System::Drawing::Size(1075, 649);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -5964,7 +5970,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -6630,7 +6636,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 630);
+			this->tabControl2->Size = System::Drawing::Size(565, 643);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -6651,7 +6657,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 591);
+			this->tabPage6->Size = System::Drawing::Size(557, 604);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Outputs";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -7553,13 +7559,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// debugPage
 			// 
+			this->debugPage->Controls->Add(this->output_debug4);
 			this->debugPage->Controls->Add(this->output_debug3);
 			this->debugPage->Controls->Add(this->output_debug2);
 			this->debugPage->Controls->Add(this->output_debug1);
-			this->debugPage->Location = System::Drawing::Point(4, 22);
+			this->debugPage->Location = System::Drawing::Point(4, 35);
 			this->debugPage->Name = L"debugPage";
 			this->debugPage->Padding = System::Windows::Forms::Padding(3);
-			this->debugPage->Size = System::Drawing::Size(1075, 649);
+			this->debugPage->Size = System::Drawing::Size(1075, 636);
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
@@ -7652,6 +7659,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->Size = System::Drawing::Size(1184, 675);
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
+			// 
+			// output_debug4
+			// 
+			this->output_debug4->AutoSize = true;
+			this->output_debug4->Location = System::Drawing::Point(39, 232);
+			this->output_debug4->Name = L"output_debug4";
+			this->output_debug4->Size = System::Drawing::Size(72, 26);
+			this->output_debug4->TabIndex = 3;
+			this->output_debug4->Text = L"DEBUG";
 			// 
 			// MyForm
 			// 
@@ -8275,6 +8291,7 @@ private: System::ComponentModel::IContainer^ components;
 			output_debug1->Text = System::String::Format("Debug 1: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug1));
 			output_debug2->Text = System::String::Format("Debug 2: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug2));
 			output_debug3->Text = System::String::Format("Debug 3: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug3));
+			output_debug4->Text = System::String::Format("Debug 4: {0}", 0);
 #endif
 			}
 
@@ -8373,106 +8390,85 @@ private: System::ComponentModel::IContainer^ components;
 		String^ selected_tire;
 
 		void select_tire() {
-			selected_tire = System::Convert::ToString(tire_name->SelectedItem)->Replace(" ", "_");
+			String^ name = System::Convert::ToString(tire_name->SelectedItem)->Replace(" ", "_");
+			tire_selection->select_tire(msclr::interop::marshal_as<std::string>(name), tire_inputs);
+			write_tire_inputs();
 		}
 
 		void load_tire_list()
 		{
 			tire_list->Clear();
-			if (File::Exists("tire_list.txt")) {
-				tire_list->AddRange(File::ReadAllLines("tire_list.txt"));
-			}
-			for (int i = 0; i < tire_list->Count; i++)
+			for (const auto& s : tire_selection->load_tire_list())
 			{
-				tire_list[i] = tire_list[i]->Replace("_", " ");
+				tire_list->Add((gcnew System::String(s.c_str()))->Replace("_", " "));
 			}
-			tire_list->Sort();  // alphabetical order
 			tire_name->Items->Clear();
 			input_front_tires_selection->Items->Clear();
 			input_rear_tires_selection->Items->Clear();
 			tire_name->Items->AddRange(tire_list->ToArray());
 			input_front_tires_selection->Items->AddRange(tire_list->ToArray());
 			input_rear_tires_selection->Items->AddRange(tire_list->ToArray());
-			for (int i = 0; i < tire_list->Count; i++)
-			{
-				tire_list[i] = tire_list[i]->Replace(" ", "_");
-			}
 		}
 
 		void save_tire() {
-			String^ name = tire_name->Text->Replace(" ", "_");
-			for (int i = 0; i < tire_list->Count; i++)
-			{
-				if (tire_list[i] == selected_tire) {
-					tire_list[i] = name;
-				}
-			}
-			tire_list->Sort();
-			System::IO::File::WriteAllLines("tire_list.txt", tire_list);
+			String^ past_name = Convert::ToString(tire_name->SelectedItem)->Replace(" ", "_");
 			read_tire_inputs();
-			save_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>("Tires\\" + name + ".txt"));
-			if (!tire_list->Contains(selected_tire)) {
-				System::IO::File::Delete("Tires\\" + selected_tire + ".txt");
-			}
-			selected_tire = name;
+			String^ name = tire_name->Text->Replace(" ", "_");
+			tire_selection->save_tire(msclr::interop::marshal_as<std::string>(name), tire_inputs);
 			load_tire_list();
 		}
 
 		void new_tire()
 		{
-			tire_name->Text = "New Tire";
-			String^ name = tire_name->Text->Replace(" ", "_");
-			if (tire_list->Contains(name))
-			{
+			read_tire_inputs();
+			Tire_selection::file_status status = tire_selection->new_tire(tire_inputs);
+			if (status == Tire_selection::file_status::DuplicateItem) {
 				MessageBox::Show("Tire already exists.");
 				return;
 			}
-			String^ path = "Tires\\" + name + ".txt";
-
-			// create folder if it doesn't exist
-			Directory::CreateDirectory("Tires");
-
-			if (File::Exists(path))
-			{
+			else if (status == Tire_selection::file_status::DuplicateFile) {
 				MessageBox::Show("Tire file already exists.");
 				return;
 			}
-			File::WriteAllText(path, "");
-			read_tire_inputs();
-			save_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>(path));
-			tire_list->Add(name);
-			tire_list->Sort();
-			System::IO::File::WriteAllLines("tire_list.txt", tire_list);
-			load_tire_list();
-			selected_tire = name;
+			else if (status == Tire_selection::file_status::Success) {
+				load_tire_list();
+				tire_name->SelectedItem = "New tire";
+			}
 		}
 
 		void delete_tire()
 		{
-			String^ name = tire_name->Text->Replace(" ", "_");
-			if (String::IsNullOrWhiteSpace(name)) {
-				return;
-			}
-			if (!tire_list->Contains(name))
-			{
-				MessageBox::Show("Tire not found.");
-				return;
-			}
-			String^ path = "Tires\\" + name + ".txt";
+			String^ name = tire_name->Text;
+			System::Windows::Forms::DialogResult result =
+				System::Windows::Forms::MessageBox::Show(
+					"Do you want to delete the tire '" + name + "'?",
+					"Warning",
+					System::Windows::Forms::MessageBoxButtons::YesNo,
+					System::Windows::Forms::MessageBoxIcon::Warning
+				);
 
-			if (!File::Exists(path))
+			if (result == System::Windows::Forms::DialogResult::Yes)
 			{
-				MessageBox::Show("File not found.");
-				return;
+				Tire_selection::file_status status = tire_selection->delete_tire(msclr::interop::marshal_as<std::string>(name->Replace(" ", "_")));
+				if (status == Tire_selection::file_status::EmptyItem) {
+					MessageBox::Show("Tire name is empty.");
+					return;
+				}
+				else if (status == Tire_selection::file_status::ItemNotFound) {
+					MessageBox::Show("Tire name not found.");
+					return;
+				}
+				else if (status == Tire_selection::file_status::FileNotFound) {
+					MessageBox::Show("Tire file not found.");
+					return;
+				}
+				else if (status == Tire_selection::file_status::Success) {
+					load_tire_list();
+					tire_name->SelectedItem = tire_list[0];
+					if (input_front_tires_selection->Text == name) { input_front_tires_selection->Text = tire_list[0]; }
+					if (input_rear_tires_selection->Text == name) { input_rear_tires_selection->Text = tire_list[0]; }
+				}
 			}
-			File::Delete(path);
-			tire_list->Remove(name);
-			System::IO::File::WriteAllLines("tire_list.txt", tire_list);
-			load_tire_list();
-			tire_name->Text = tire_list->Count > 0 ? tire_list[0]->Replace("_", " ") : nullptr;
-			selected_tire = tire_name->Text->Replace(" ", "_");
-			load_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>("Tires\\" + selected_tire + ".txt"));
-			write_tire_inputs();
 		}
 
 #pragma endregion
@@ -8529,9 +8525,9 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 	vehicle->set_parameters(*vehicle_inputs);
 	vehicle->solver();
 	vehicle->output(*vehicle_outputs);
-
-	write_outputs();
 	load_tire_list();
+	write_outputs();
+	
 	tire_name->Text = tire_list->Count > 0 ? tire_list[0]->Replace("_", " ") : nullptr;
 	select_tire();
 	load_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>("Tires\\" + selected_tire + ".txt"));
@@ -8542,27 +8538,12 @@ private: System::Void tire_save_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void tire_new_Click(System::Object^ sender, System::EventArgs^ e) {
 	new_tire();
-	load_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>("Tires\\" + selected_tire + ".txt"));
-	write_tire_inputs();
 }
 private: System::Void tire_delete_Click(System::Object^ sender, System::EventArgs^ e) {
-	System::Windows::Forms::DialogResult result =
-		System::Windows::Forms::MessageBox::Show(
-			"Do you want to delete this tire?",
-			"Warning",
-			System::Windows::Forms::MessageBoxButtons::YesNo,
-			System::Windows::Forms::MessageBoxIcon::Warning
-		);
-
-	if (result == System::Windows::Forms::DialogResult::Yes)
-	{
-		delete_tire();
-	}
+	delete_tire();
 }
 private: System::Void tire_name_SelectionChangeCommitted(System::Object^ sender, System::EventArgs^ e) {
 	select_tire();
-	load_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>("Tires\\" + selected_tire + ".txt"));
-	write_tire_inputs();
 }
 };
 }

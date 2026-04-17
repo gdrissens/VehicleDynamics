@@ -1,6 +1,6 @@
 V_input=60
 R_min=9.125
-beta_des=0
+beta_des=0.5
 delta_d_des=20
 kappa_des=8
 lon_ratio_custom=100
@@ -16,7 +16,7 @@ corner_side=1
 pedals_input=2
 steering_input=1
 front_tires=Hoosier_18x7,5-10_10_psi
-rear_tires=Hoosier_18x7,5-10_10_psi
+rear_tires=Hoosier_18x7,5-10_12_psi
 front_arb=1
 rear_arb=5
 force_velocity=1
