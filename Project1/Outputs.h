@@ -13,8 +13,10 @@ struct Vehicle_outputs {
 
 struct YMD_Carrier {
 	std::vector <std::vector<double>> a_lat_isobeta;
+	std::vector <std::vector<double>> a_lon_isobeta;
 	std::vector <std::vector<double>> M_yaw_isobeta;
 	std::vector <std::vector<double>> a_lat_isodelta;
+	std::vector <std::vector<double>> a_lon_isodelta;
 	std::vector <std::vector<double>> M_yaw_isodelta;
 	std::vector <std::vector<double>> control;
 	std::vector <std::vector<double>> stability;

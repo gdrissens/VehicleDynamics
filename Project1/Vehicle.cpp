@@ -916,14 +916,20 @@ Vehicle::Vehicle() {};
     }
 
     void Vehicle::YMD(YMD_Carrier& carrier) {
+
+		Vehicle copy = *this; // Create a copy of the current vehicle state to preserve original values during YMD
+
 		carrier.max_a_lat = carrier.min_a_lat = 0.0; // Reset max and min lateral acceleration for YMD
         max_beta = vehicle_inputs.max_beta;
         num_beta = vehicle_inputs.num_beta;
         max_delta_d = vehicle_inputs.max_delta_d;
         num_delta_d = vehicle_inputs.num_delta_d;
-        force_a_lon = true;
-        if (a_lon_des < 0) { pedals_input = Pedals_input::Braking; }
-        else { pedals_input = Pedals_input::Driving; }
+
+        copy.force_a_lon = true;
+
+        if (copy.a_lon_des < 0) { copy.pedals_input = Pedals_input::Braking; }
+        else { copy.pedals_input = Pedals_input::Driving; }
+
         int control = 0.0;
         int stability = 0.0;
         int delta_d_past = 0.0;
@@ -934,113 +940,143 @@ Vehicle::Vehicle() {};
 
         //delta isolines
         std::vector <std::vector<double>> A_LAT_ISODELTA_2(0);
+        std::vector <std::vector<double>> A_LON_ISODELTA_2(0);
         std::vector <std::vector<double>> M_YAW_ISODELTA_2(0);
         std::vector <std::vector<double>> STABILITY_2(0);
         std::vector <std::vector<double>> BETA_ISODELTA_2(0);
         std::vector <std::vector<double>> DELTA_ISODELTA_2(0);
+
         std::vector<double> A_LAT_ISODELTA(0);
+		std::vector<double> A_LON_ISODELTA(0);
         std::vector<double> M_YAW_ISODELTA(0);
         std::vector<double> STABILITY(0);
         std::vector<double> BETA_ISODELTA(0);
         std::vector<double> DELTA_ISODELTA(0);
+
         for (double j = -max_delta_d; j <= max_delta_d; j += max_delta_d * 2 / num_delta_d) {
-            j < 0.0 ? delta_d_des = -j : delta_d_des = j;
+
+            j < 0.0 ? copy.delta_d_des = -j : copy.delta_d_des = j;
+
 			A_LAT_ISODELTA.clear();
+			A_LON_ISODELTA.clear();
 			M_YAW_ISODELTA.clear();
 			STABILITY.clear();
             BETA_ISODELTA.clear();
             DELTA_ISODELTA.clear();
-            beta_des = -max_beta;
+
+            copy.beta_des = -max_beta;
+
             for (int i = 0; i < 30; i++) {
-                beta_past = beta_des;
-                beta_des += max_beta * 2 / 30;
-				//refresh();
-                //set_parameters(vehicle_inputs);
-                solver();
-                A_LAT_ISODELTA.push_back(round_to(j < 0.0 ? -a_lat : a_lat, 2));
-                M_YAW_ISODELTA.push_back(j < 0.0 ? -M_yaw : M_yaw);
-                BETA_ISODELTA.push_back(beta_des);
+
+                beta_past = copy.beta_des;
+                copy.beta_des += max_beta * 2 / 30;
+
+                copy.solver();
+
+                A_LAT_ISODELTA.push_back(round_to(j < 0.0 ? -copy.a_lat : copy.a_lat, 2));
+				A_LON_ISODELTA.push_back(round_to(copy.a_lon, 2));
+                M_YAW_ISODELTA.push_back(j < 0.0 ? -copy.M_yaw : copy.M_yaw);
+                BETA_ISODELTA.push_back(copy.beta_des);
                 DELTA_ISODELTA.push_back(j);
-                if (i != 0) stability = abs(M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (beta_des - beta_past);
+
+                if (i != 0) stability = abs(M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_des - beta_past);
                 STABILITY.push_back(stability);
-				if ((j < 0.0 ? -a_lat : a_lat) > carrier.max_a_lat) {
-					carrier.max_a_lat = round_to((j < 0.0 ? -a_lat : a_lat), 1); 
+
+				if ((j < 0.0 ? -copy.a_lat : copy.a_lat) > carrier.max_a_lat) {
+					carrier.max_a_lat = round_to((j < 0.0 ? -copy.a_lat : copy.a_lat), 1); 
                     carrier.max_a_lat += (remainder(carrier.max_a_lat, 0.2) == 0.0 ? 0.2 : 0.1);
                 }
-                if ((j < 0.0 ? -a_lat : a_lat) < carrier.min_a_lat) { 
-                    carrier.min_a_lat = round_to((j < 0.0 ? -a_lat : a_lat), 1); 
+                if ((j < 0.0 ? -copy.a_lat : copy.a_lat) < carrier.min_a_lat) { 
+                    carrier.min_a_lat = round_to((j < 0.0 ? -copy.a_lat : copy.a_lat), 1); 
                     carrier.min_a_lat -= (remainder(carrier.min_a_lat, 0.2) == 0.0 ? 0.2 : 0.1);
                 }
             }
+
 			A_LAT_ISODELTA_2.push_back(A_LAT_ISODELTA);
+			A_LON_ISODELTA_2.push_back(A_LON_ISODELTA);
 			M_YAW_ISODELTA_2.push_back(M_YAW_ISODELTA);
             BETA_ISODELTA_2.push_back(BETA_ISODELTA);
             DELTA_ISODELTA_2.push_back(DELTA_ISODELTA);
 			STABILITY_2.push_back(STABILITY);
-            DELTA_ISO.push_back(j < 0.0 ? -delta_d_des : delta_d_des);
+
+            DELTA_ISO.push_back(j < 0.0 ? -copy.delta_d_des : copy.delta_d_des);
         }
+
 		carrier.a_lat_isodelta = A_LAT_ISODELTA_2;
+		carrier.a_lon_isodelta = A_LON_ISODELTA_2;
         carrier.M_yaw_isodelta = M_YAW_ISODELTA_2;
         carrier.beta_isodelta = BETA_ISODELTA_2;
         carrier.delta_isodelta = DELTA_ISODELTA_2;
 		carrier.stability = STABILITY_2;
 		carrier.delta_iso = DELTA_ISO;
 
-        beta_des = vehicle_inputs.beta_des; // Reset to original value after YMD
-        delta_d_des = vehicle_inputs.delta_d_des; // Reset to original value after YMD
-
-        //solver();
+        copy.beta_des = vehicle_inputs.beta_des; // Reset to original value after YMD
+        copy.delta_d_des = vehicle_inputs.delta_d_des; // Reset to original value after YMD
 
         //beta isolines
         std::vector <std::vector<double>> A_LAT_ISOBETA_2(0);
+		std::vector <std::vector<double>> A_LON_ISOBETA_2(0);
         std::vector <std::vector<double>> M_YAW_ISOBETA_2(0);
         std::vector <std::vector<double>> CONTROL_2(0);
         std::vector <std::vector<double>> BETA_ISOBETA_2(0);
         std::vector <std::vector<double>> DELTA_ISOBETA_2(0);
+
         std::vector<double> A_LAT_ISOBETA(0);
+		std::vector<double> A_LON_ISOBETA(0);
         std::vector<double> M_YAW_ISOBETA(0);
         std::vector<double> CONTROL(0);
         std::vector<double> BETA_ISOBETA(0);
         std::vector<double> DELTA_ISOBETA(0);
+
         for (double j = -max_beta / 2; j <= max_beta / 2; j += max_beta / num_beta) {
-            j < 0.0 ? beta_des = -j : beta_des = j;
+
+            j < 0.0 ? copy.beta_des = -j : copy.beta_des = j;
+
             A_LAT_ISOBETA.clear();
+			A_LON_ISOBETA.clear();
 			M_YAW_ISOBETA.clear();
 			CONTROL.clear();
             BETA_ISOBETA.clear();
             DELTA_ISOBETA.clear();
-			delta_d_des = -max_delta_d;
+
+			copy.delta_d_des = -max_delta_d;
+
             for (int i = 0; i < num_delta_d; i++) {
-				delta_d_past = delta_d_des;
-				delta_d_des += max_delta_d * 2 / num_delta_d;
-                //refresh();
-                //set_parameters(vehicle_inputs);
-                solver();
-                A_LAT_ISOBETA.push_back(round_to(j < 0.0 ? -a_lat : a_lat, 2));
-                M_YAW_ISOBETA.push_back(j < 0.0 ? -M_yaw : M_yaw);
+
+				delta_d_past = copy.delta_d_des;
+				copy.delta_d_des += max_delta_d * 2 / num_delta_d;
+
+                copy.solver();
+
+                A_LAT_ISOBETA.push_back(round_to(j < 0.0 ? -copy.a_lat : copy.a_lat, 2));
+				A_LON_ISOBETA.push_back(round_to(copy.a_lon, 2));
+                M_YAW_ISOBETA.push_back(j < 0.0 ? -copy.M_yaw : copy.M_yaw);
                 BETA_ISOBETA.push_back(j);
-                DELTA_ISOBETA.push_back(delta_d_des);
-                if (i != 0) control = abs(M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (delta_d_des - delta_d_past);
+                DELTA_ISOBETA.push_back(copy.delta_d_des);
+
+                if (i != 0) control = abs(M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (copy.delta_d_des - delta_d_past);
 				CONTROL.push_back(control);
             }
+
             A_LAT_ISOBETA_2.push_back(A_LAT_ISOBETA);
+			A_LON_ISOBETA_2.push_back(A_LON_ISOBETA);
             M_YAW_ISOBETA_2.push_back(M_YAW_ISOBETA);
             BETA_ISOBETA_2.push_back(BETA_ISOBETA);
             DELTA_ISOBETA_2.push_back(DELTA_ISOBETA);
 			CONTROL_2.push_back(CONTROL);
-            BETA_ISO.push_back(j < 0.0 ? -beta_des : beta_des);
+            BETA_ISO.push_back(j < 0.0 ? -copy.beta_des : copy.beta_des);
         }
+
         carrier.a_lat_isobeta = A_LAT_ISOBETA_2;
+		carrier.a_lon_isobeta = A_LON_ISOBETA_2;
         carrier.M_yaw_isobeta = M_YAW_ISOBETA_2;
         carrier.beta_isobeta = BETA_ISOBETA_2;
         carrier.delta_isobeta = DELTA_ISOBETA_2;
 		carrier.control = CONTROL_2;
 		carrier.beta_iso = BETA_ISO;
 
-		beta_des = vehicle_inputs.beta_des; // Reset to original value after YMD
-		delta_d_des = vehicle_inputs.delta_d_des; // Reset to original value after YMD
-
         solver();
+
         carrier.single_a_lat = a_lat;
         carrier.single_M_yaw = M_yaw;
     }
