@@ -185,6 +185,30 @@ public:
 
     void set_parameters(const Vehicle_inputs& vehicle_inputs);
 
+	void vehicle_parameters();
+
+    void ackermann_diagram();
+
+    void chassis_stiffnesses();
+
+    void update_tires();
+
+    void accelerations();
+
+    void unsprung_masses();
+
+	void suspension_kinematics();
+
+    void aerodynamics();
+
+	void longitudinal_load_transfer();
+
+    void lateral_load_transfer();
+
+    void update_wheel_loads_and_displacements();
+
+	void yaw_moment();
+
     void solver();
 
     void solve_kappa();

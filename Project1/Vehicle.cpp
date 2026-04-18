@@ -119,6 +119,51 @@ Vehicle::Vehicle() {};
 
         refresh();
 
+        vehicle_parameters();
+
+        ackermann_diagram();
+
+        //Slip angles
+        fi.set_alpha(), fo.set_alpha(), ri.set_alpha(), ro.set_alpha();
+
+        //Slip ratios
+        fi.kappa = fo.kappa = ri.kappa = ro.kappa = kappa_des; // [-] Wheel slip ratios
+
+		chassis_stiffnesses();
+
+        //Main iterative loop
+        iter = 0; // Iteration counters for slip ratio calculations
+        F_z_tol = 0.001; // [N] Acceptable wheel load error for the iterative process
+        max_iter = vehicle_inputs.lon_ratio_custom; // Maximum number of iterations for the iterative process
+
+        do {
+            
+            update_tires();
+
+            accelerations();
+
+            unsprung_masses();
+
+            suspension_kinematics();
+
+            aerodynamics();
+
+            longitudinal_load_transfer();
+
+            lateral_load_transfer();
+
+            update_wheel_loads_and_displacements();
+
+            iter++;
+            if (iter > max_iter) { break; }
+            bias_now = (fi.T + fo.T) / (fi.T + fo.T + ri.T + ro.T);
+
+        } while (fi.F_z_err > F_z_tol || fo.F_z_err > F_z_tol || ri.F_z_err > F_z_tol || ro.F_z_err > F_z_tol);
+
+        yaw_moment();
+    }
+
+    void Vehicle::vehicle_parameters() {
         //Corner input
         corner_type = (steering_input == Steering_input::Straight) ? Corner_type::Transient : corner_type;
 
@@ -166,10 +211,12 @@ Vehicle::Vehicle() {};
         b = L * x / 100; // [m] Distance from the rear axle to the CG
         a_s = (m * a - (m_u_ri + m_u_ro) * L) / m_s; // [m] Distance from the front axle to the sprung mass CG
         b_s = (m * b - (m_u_fi + m_u_fo) * L) / m_s; // [m] Distance from the rear axle to the sprung mass CG
+    }
 
-        //Ackermann geometry
+    void Vehicle::ackermann_diagram() {
+       //Ackermann geometry
 
-        //Actual cornering radius calculation
+       //Actual cornering radius calculation
         R = (corner_type == Corner_type::Steady) ? R_min : R_min / (lat_input + 1E-20); // [m] Cornering radius (from CG)  
         beta_deg = (corner_type == Corner_type::Steady) ? beta_des : beta_des * lat_input; // [deg] Vehicle sideslip angle
         beta = beta_deg < 1E-10 && beta_deg > -1E-10 ? 0 : beta_deg * pi / 180.0; // [rad] Vehicle sideslip angle                 
@@ -187,7 +234,7 @@ Vehicle::Vehicle() {};
         delta_d_deg = (corner_type == Corner_type::Steady) ? delta_d_des : round_to(delta_d_des * lat_input, 2); // [deg] Front outer wheel steering angle
         fi.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) * pi / 180.0; // [rad] Front outer wheel steering angle (INPUT)
         fo.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 - delta_f_static) * pi / 180.0; // [rad] Front inner wheel steering angle (INPUT)
-        ri.delta = (delta_r_static) * pi / 180; // [rad] Rear inner wheel steering angle
+        ri.delta = (delta_r_static)*pi / 180; // [rad] Rear inner wheel steering angle
         ro.delta = (-delta_r_static) * pi / 180; // [rad] Rear outer wheel steering angle
 
         //Effective steering angles
@@ -195,14 +242,9 @@ Vehicle::Vehicle() {};
         fo.theta = atan(S_f / (R_a + t_f / 2)); // [rad] Front outer wheel effective steering angle
         ri.theta = atan(S_r / (R_a - t_r / 2)); // [rad] Rear inner wheel effective steering angle
         ro.theta = atan(S_r / (R_a + t_r / 2)); // [rad] Rear outer wheel effective steering angle
+    }
 
-        //Slip angles
-        fi.set_alpha(), fo.set_alpha(), ri.set_alpha(), ro.set_alpha();
-
-        //Slip ratios
-        fi.kappa = fo.kappa = ri.kappa = ro.kappa = kappa_des; // [-] Wheel slip ratios
-
-        //Suspension stiffnesses
+    void Vehicle::chassis_stiffnesses() {
 
         //Chassis torsional stiffness
         k_r_C = k_r_C_deg * 180.0 / pi; // [N*m/rad] Chassis torsional stiffness
@@ -211,313 +253,314 @@ Vehicle::Vehicle() {};
         k_p_C = k_p_C_deg * 180.0 / pi; // [N*m/rad] Chassis pitching stiffness
         k_p_C_i = k_p_C * k_p_C_dist / 100.0; // [N*m/rad] Chassis pitching stiffness to the inner suspension
         k_p_C_o = k_p_C * (1 - k_p_C_dist / 100.0); // [N*m/rad] Chassis pitching stiffness to the outter suspension
+		}
 
-        //Main iterative loop
-        iter = 0; // Iteration counters for slip ratio calculations
-        F_z_tol = 0.001; // [N] Acceptable wheel load error for the iterative process
-        max_iter = vehicle_inputs.lon_ratio_custom; // Maximum number of iterations for the iterative process
+    void Vehicle::update_tires() {
+        //Tires
 
-        do {
-            //Tires
+           //Radial tire stiffness
+        fi.set_K_T(), fo.set_K_T(), ri.set_K_T(), ro.set_K_T();
 
-            //Radial tire stiffness
-            fi.set_K_T(), fo.set_K_T(), ri.set_K_T(), ro.set_K_T();
+        //Tire radius
+        fi.set_r(), fo.set_r(), ri.set_r(), ro.set_r();
 
-            //Tire radius
-            fi.set_r(), fo.set_r(), ri.set_r(), ro.set_r();
+        //Pacejka parameters
+        fi.set_Pacejka(), fo.set_Pacejka(), ri.set_Pacejka(), ro.set_Pacejka();
 
-            //Pacejka parameters
-            fi.set_Pacejka(), fo.set_Pacejka(), ri.set_Pacejka(), ro.set_Pacejka();
+        //Lateral Pacejka
+        fi.set_F_y(V_ratio), fo.set_F_y(V_ratio), ri.set_F_y(V_ratio), ro.set_F_y(V_ratio);
 
-            //Lateral Pacejka
-            fi.set_F_y(V_ratio), fo.set_F_y(V_ratio), ri.set_F_y(V_ratio), ro.set_F_y(V_ratio);
+        //Longitudinal Pacejka and Longitudinal modified Nicolas-Comstock
+        solve_kappa();
 
-            //Longitudinal Pacejka and Longitudinal modified Nicolas-Comstock
-            solve_kappa();
+        //Lateral modified Nicolas-Comstock
+        fi.set_F_y_comb(), fo.set_F_y_comb(), ri.set_F_y_comb(), ro.set_F_y_comb();
 
-            //Lateral modified Nicolas-Comstock
-            fi.set_F_y_comb(), fo.set_F_y_comb(), ri.set_F_y_comb(), ro.set_F_y_comb();
+        //Reaction torques
+        fi.set_T_r(lon_sign, brake_type_f, diff_type_f), fo.set_T_r(lon_sign, brake_type_f, diff_type_f), ri.set_T_r(lon_sign, brake_type_r, diff_type_r), ro.set_T_r(lon_sign, brake_type_r, diff_type_r);
+    
+        //Tires rolling resistances
+        fi.set_F_rr(V), fo.set_F_rr(V), ri.set_F_rr(V), ro.set_F_rr(V);
+    }
 
-            //Reaction torques
-            fi.set_T_r(lon_sign, brake_type_f, diff_type_f), fo.set_T_r(lon_sign, brake_type_f, diff_type_f), ri.set_T_r(lon_sign, brake_type_r, diff_type_r), ro.set_T_r(lon_sign, brake_type_r, diff_type_r);
-
-            //Accelerations
+    void Vehicle::accelerations() {
+        //Accelerations
 
                 //Lateral accelerations
-            fi.set_F_lat(lon_sign), fo.set_F_lat(lon_sign), ri.set_F_lat(lon_sign), ro.set_F_lat(lon_sign);
-            F_lat = fi.F_lat + fo.F_lat + ri.F_lat + ro.F_lat; // [N] Total lateral force
-            a_lat = F_lat / W; // [g] Vehicle lateral acceleration
+        fi.set_F_lat(lon_sign), fo.set_F_lat(lon_sign), ri.set_F_lat(lon_sign), ro.set_F_lat(lon_sign);
+        F_lat = fi.F_lat + fo.F_lat + ri.F_lat + ro.F_lat; // [N] Total lateral force
+        a_lat = F_lat / W; // [g] Vehicle lateral acceleration
 
-            //Longitudinal accelerations
-            fi.set_F_lon(lon_sign), fo.set_F_lon(lon_sign), ri.set_F_lon(lon_sign), ro.set_F_lon(lon_sign);
-            F_lon = fi.F_lon + fo.F_lon + ri.F_lon + ro.F_lon - F_drag; // [N] Total longitudinal force
-            a_lon = F_lon / W; // [g] Vehicle longitudinal acceleration
+        //Longitudinal accelerations
+        fi.set_F_lon(lon_sign), fo.set_F_lon(lon_sign), ri.set_F_lon(lon_sign), ro.set_F_lon(lon_sign);
+        F_lon = fi.F_lon + fo.F_lon + ri.F_lon + ro.F_lon - F_drag; // [N] Total longitudinal force
+        a_lon = F_lon / W; // [g] Vehicle longitudinal acceleration
 
-            //Cornering radial accelerations
-            fi.set_F_rad(), fo.set_F_rad(), ri.set_F_rad(), ro.set_F_rad();
-            F_rad = fi.F_rad + fo.F_rad + ri.F_rad + ro.F_rad - F_drag * sin(beta); // [N] Total cornering radial force
-            a_rad = std::max(F_rad / W, 1e-10); // [g] Vehicle cornering radial acceleration
+        //Cornering radial accelerations
+        fi.set_F_rad(), fo.set_F_rad(), ri.set_F_rad(), ro.set_F_rad();
+        F_rad = fi.F_rad + fo.F_rad + ri.F_rad + ro.F_rad - F_drag * sin(beta); // [N] Total cornering radial force
+        a_rad = std::max(F_rad / W, 1e-10); // [g] Vehicle cornering radial acceleration
+    }
 
-            //Sprung and unsprung masses CG location
+    void Vehicle::unsprung_masses() {
+        //Sprung and unsprung masses CG location
 
-            h_CG_u_fi = fi.r; // [m] Height of the unsprung mass CG        
-            h_CG_u_fo = fo.r; // [m] Height of the unsprung mass CG        
-            h_CG_u_ri = ri.r; // [m] Height of the unsprung mass CG
-            h_CG_u_ro = ro.r; // [m] Height of the unsprung mass CG    
-            h_CG_u = (h_CG_u_fi * m_u_fi + h_CG_u_fo * m_u_fo + h_CG_u_ri * m_u_ri + h_CG_u_ro * m_u_ro) / m_u; // [m] Height of the unsprung masses CG
-            h_CG_s = (m * h_CG - m_u * h_CG_u) / m_s; // [m] Height of the sprung mass CG                
+        h_CG_u_fi = fi.r; // [m] Height of the unsprung mass CG        
+        h_CG_u_fo = fo.r; // [m] Height of the unsprung mass CG        
+        h_CG_u_ri = ri.r; // [m] Height of the unsprung mass CG
+        h_CG_u_ro = ro.r; // [m] Height of the unsprung mass CG    
+        h_CG_u = (h_CG_u_fi * m_u_fi + h_CG_u_fo * m_u_fo + h_CG_u_ri * m_u_ri + h_CG_u_ro * m_u_ro) / m_u; // [m] Height of the unsprung masses CG
+        h_CG_s = (m * h_CG - m_u * h_CG_u) / m_s; // [m] Height of the sprung mass CG           
+    }
 
-            //Suspension geometry
+    void Vehicle::suspension_kinematics(){
+        //Suspension geometry
 
-                //Roll suspension parameters
-            h_r_f = (psi_deg * psi_deg * vehicle_inputs.h_r_f_2 + psi_deg * vehicle_inputs.h_r_f_1 + vehicle_inputs.h_r_f_0) / 1000.0; // [m] Height of the front roll center                                            INPUT
-            h_r_r = (psi_deg * psi_deg * vehicle_inputs.h_r_r_2 + psi_deg * vehicle_inputs.h_r_r_1 + vehicle_inputs.h_r_r_0) / 1000.0; // [m] Height of the rear roll center                                              INPUT
-            off_r_f = (psi_deg * psi_deg * vehicle_inputs.off_r_f_2 + psi_deg * vehicle_inputs.off_r_f_1 + vehicle_inputs.off_r_f_0) / 1000.0; // [m] Front roll center offset from the vehicle center line (+ inner)            INPUT
-            off_r_r = (psi_deg * psi_deg * vehicle_inputs.off_r_r_2 + psi_deg * vehicle_inputs.off_r_r_1 + vehicle_inputs.off_r_r_0) / 1000.0; // [m] Rear roll center offset from the vehicle center line (+ inner)             INPUT
-            n_r_fi = t_f / 2 - off_r_f; // [m] Front roll center distance from the front inner wheel
-            n_r_fo = t_f / 2 + off_r_f; // [m] Front roll center distance from the front outer wheel
-            n_r_ri = t_r / 2 - off_r_r; // [m] Rear roll center distance from the rear inner wheel
-            n_r_ro = t_r / 2 + off_r_r; // [m] Rear roll center distance from the rear outer wheel
-            p_r_fi = (psi_deg * psi_deg * vehicle_inputs.p_r_f_2 + psi_deg * vehicle_inputs.p_r_f_1 + vehicle_inputs.p_r_f_0) / 1000.0; // [m] Front inner roll instantaneous center height                               INPUT
-            p_r_fo = (-psi_deg * psi_deg * vehicle_inputs.p_r_f_2 - psi_deg * vehicle_inputs.p_r_f_1 + vehicle_inputs.p_r_f_0) / 1000.0; // [m] Front outer roll instantaneous center height                              INPUT
-            p_r_ri = (psi_deg * psi_deg * vehicle_inputs.p_r_r_2 + psi_deg * vehicle_inputs.p_r_r_1 + vehicle_inputs.p_r_r_0) / 1000.0; // [m] Rear inner roll instantaneous center height                                INPUT
-            p_r_ro = (-psi_deg * psi_deg * vehicle_inputs.p_r_r_2 - psi_deg * vehicle_inputs.p_r_r_1 + vehicle_inputs.p_r_r_0) / 1000.0; // [m] Rear outer roll instantaneous center height                               INPUT
-            q_r_fi = p_r_fi / h_r_f * n_r_fi; // [m] Front inner roll instantaneous center distance from the wheel medium plane
-            q_r_fo = p_r_fo / h_r_f * n_r_fo; // [m] Front outer roll instantaneous center distance from the wheel medium plane
-            q_r_ri = p_r_ri / h_r_r * n_r_ri; // [m] Rear inner roll instantaneous center distance from the wheel medium plane
-            q_r_ro = p_r_ro / h_r_r * n_r_ro; // [m] Rear outer roll instantaneous center distance from the wheel medium plane
+        //Roll suspension parameters
+        h_r_f = (psi_deg * psi_deg * vehicle_inputs.h_r_f_2 + psi_deg * vehicle_inputs.h_r_f_1 + vehicle_inputs.h_r_f_0) / 1000.0; // [m] Height of the front roll center                                            INPUT
+        h_r_r = (psi_deg * psi_deg * vehicle_inputs.h_r_r_2 + psi_deg * vehicle_inputs.h_r_r_1 + vehicle_inputs.h_r_r_0) / 1000.0; // [m] Height of the rear roll center                                              INPUT
+        off_r_f = (psi_deg * psi_deg * vehicle_inputs.off_r_f_2 + psi_deg * vehicle_inputs.off_r_f_1 + vehicle_inputs.off_r_f_0) / 1000.0; // [m] Front roll center offset from the vehicle center line (+ inner)            INPUT
+        off_r_r = (psi_deg * psi_deg * vehicle_inputs.off_r_r_2 + psi_deg * vehicle_inputs.off_r_r_1 + vehicle_inputs.off_r_r_0) / 1000.0; // [m] Rear roll center offset from the vehicle center line (+ inner)             INPUT
+        n_r_fi = t_f / 2 - off_r_f; // [m] Front roll center distance from the front inner wheel
+        n_r_fo = t_f / 2 + off_r_f; // [m] Front roll center distance from the front outer wheel
+        n_r_ri = t_r / 2 - off_r_r; // [m] Rear roll center distance from the rear inner wheel
+        n_r_ro = t_r / 2 + off_r_r; // [m] Rear roll center distance from the rear outer wheel
+        p_r_fi = (psi_deg * psi_deg * vehicle_inputs.p_r_f_2 + psi_deg * vehicle_inputs.p_r_f_1 + vehicle_inputs.p_r_f_0) / 1000.0; // [m] Front inner roll instantaneous center height                               INPUT
+        p_r_fo = (-psi_deg * psi_deg * vehicle_inputs.p_r_f_2 - psi_deg * vehicle_inputs.p_r_f_1 + vehicle_inputs.p_r_f_0) / 1000.0; // [m] Front outer roll instantaneous center height                              INPUT
+        p_r_ri = (psi_deg * psi_deg * vehicle_inputs.p_r_r_2 + psi_deg * vehicle_inputs.p_r_r_1 + vehicle_inputs.p_r_r_0) / 1000.0; // [m] Rear inner roll instantaneous center height                                INPUT
+        p_r_ro = (-psi_deg * psi_deg * vehicle_inputs.p_r_r_2 - psi_deg * vehicle_inputs.p_r_r_1 + vehicle_inputs.p_r_r_0) / 1000.0; // [m] Rear outer roll instantaneous center height                               INPUT
+        q_r_fi = p_r_fi / h_r_f * n_r_fi; // [m] Front inner roll instantaneous center distance from the wheel medium plane
+        q_r_fo = p_r_fo / h_r_f * n_r_fo; // [m] Front outer roll instantaneous center distance from the wheel medium plane
+        q_r_ri = p_r_ri / h_r_r * n_r_ri; // [m] Rear inner roll instantaneous center distance from the wheel medium plane
+        q_r_ro = p_r_ro / h_r_r * n_r_ro; // [m] Rear outer roll instantaneous center distance from the wheel medium plane
 
-            //Pitch suspension parameters
-            h_p_i = (phi_deg * phi_deg * vehicle_inputs.h_p_i_2 + phi_deg * vehicle_inputs.h_p_i_1 + vehicle_inputs.h_p_i_0) / 1000.0; // [m] Height of the inner pitch center                                           INPUT
-            h_p_o = (phi_deg * phi_deg * vehicle_inputs.h_p_o_2 + phi_deg * vehicle_inputs.h_p_o_1 + vehicle_inputs.h_p_o_0) / 1000.0; // [m] Height of the outer pitch center                                          INPUT
-            n_p_fi = (phi_deg * phi_deg * vehicle_inputs.n_p_i_2 + phi_deg * vehicle_inputs.n_p_i_1 + vehicle_inputs.n_p_i_0) / 1000.0; // [m] Inner pitch center distance from the front axle                          INPUT
-            n_p_fo = (phi_deg * phi_deg * vehicle_inputs.n_p_i_2 + phi_deg * vehicle_inputs.n_p_i_1 + vehicle_inputs.n_p_i_0) / 1000.0; // [m] Outer pitch center distance from the front axle                         INPUT
-            n_p_ri = (phi_deg * phi_deg * vehicle_inputs.n_p_o_2 + phi_deg * vehicle_inputs.n_p_o_1 + vehicle_inputs.n_p_o_0) / 1000.0; // [m] Inner pitch center distance from the rear axle                           INPUT
-            n_p_ro = (phi_deg * phi_deg * vehicle_inputs.n_p_o_2 + phi_deg * vehicle_inputs.n_p_o_1 + vehicle_inputs.n_p_o_0) / 1000.0; // [m] Outer pitch center distance from the rear axle                          INPUT
-            p_p_fi = (phi_deg * phi_deg * vehicle_inputs.p_p_f_2 + phi_deg * vehicle_inputs.p_p_f_1 + vehicle_inputs.p_p_f_0) / 1000.0; // [m] Front inner pitch instantaneous center height                             INPUT
-            p_p_fo = (phi_deg * phi_deg * vehicle_inputs.p_p_f_2 + phi_deg * vehicle_inputs.p_p_f_1 + vehicle_inputs.p_p_f_0) / 1000.0; // [m] Front outer pitch instantaneous center height                            INPUT
-            p_p_ri = (phi_deg * phi_deg * vehicle_inputs.p_p_r_2 + phi_deg * vehicle_inputs.p_p_r_1 + vehicle_inputs.p_p_r_0) / 1000.0; // [m] Rear inner pitch instantaneous center height                              INPUT
-            p_p_ro = (phi_deg * phi_deg * vehicle_inputs.p_p_r_2 + phi_deg * vehicle_inputs.p_p_r_1 + vehicle_inputs.p_p_r_0) / 1000.0; // [m] Rear outer pitch instantaneous center height                             INPUT
-            q_p_fi = p_p_fi / h_p_i * n_p_fi; // [m] Front inner pitch instantaneous center distance from the front axle
-            q_p_fo = p_p_fo / h_p_o * n_p_fo; // [m] Front outer pitch instantaneous center distance from the front axle
-            q_p_ri = p_p_ri / h_p_i * n_p_ri; // [m] Rear inner pitch instantaneous center distance from the rear axle
-            q_p_ro = p_p_ro / h_p_o * n_p_ro; // [m] Rear outer pitch instantaneous center distance from the rear axle
+        //Pitch suspension parameters
+        h_p_i = (phi_deg * phi_deg * vehicle_inputs.h_p_i_2 + phi_deg * vehicle_inputs.h_p_i_1 + vehicle_inputs.h_p_i_0) / 1000.0; // [m] Height of the inner pitch center                                           INPUT
+        h_p_o = (phi_deg * phi_deg * vehicle_inputs.h_p_o_2 + phi_deg * vehicle_inputs.h_p_o_1 + vehicle_inputs.h_p_o_0) / 1000.0; // [m] Height of the outer pitch center                                          INPUT
+        n_p_fi = (phi_deg * phi_deg * vehicle_inputs.n_p_i_2 + phi_deg * vehicle_inputs.n_p_i_1 + vehicle_inputs.n_p_i_0) / 1000.0; // [m] Inner pitch center distance from the front axle                          INPUT
+        n_p_fo = (phi_deg * phi_deg * vehicle_inputs.n_p_i_2 + phi_deg * vehicle_inputs.n_p_i_1 + vehicle_inputs.n_p_i_0) / 1000.0; // [m] Outer pitch center distance from the front axle                         INPUT
+        n_p_ri = (phi_deg * phi_deg * vehicle_inputs.n_p_o_2 + phi_deg * vehicle_inputs.n_p_o_1 + vehicle_inputs.n_p_o_0) / 1000.0; // [m] Inner pitch center distance from the rear axle                           INPUT
+        n_p_ro = (phi_deg * phi_deg * vehicle_inputs.n_p_o_2 + phi_deg * vehicle_inputs.n_p_o_1 + vehicle_inputs.n_p_o_0) / 1000.0; // [m] Outer pitch center distance from the rear axle                          INPUT
+        p_p_fi = (phi_deg * phi_deg * vehicle_inputs.p_p_f_2 + phi_deg * vehicle_inputs.p_p_f_1 + vehicle_inputs.p_p_f_0) / 1000.0; // [m] Front inner pitch instantaneous center height                             INPUT
+        p_p_fo = (phi_deg * phi_deg * vehicle_inputs.p_p_f_2 + phi_deg * vehicle_inputs.p_p_f_1 + vehicle_inputs.p_p_f_0) / 1000.0; // [m] Front outer pitch instantaneous center height                            INPUT
+        p_p_ri = (phi_deg * phi_deg * vehicle_inputs.p_p_r_2 + phi_deg * vehicle_inputs.p_p_r_1 + vehicle_inputs.p_p_r_0) / 1000.0; // [m] Rear inner pitch instantaneous center height                              INPUT
+        p_p_ro = (phi_deg * phi_deg * vehicle_inputs.p_p_r_2 + phi_deg * vehicle_inputs.p_p_r_1 + vehicle_inputs.p_p_r_0) / 1000.0; // [m] Rear outer pitch instantaneous center height                             INPUT
+        q_p_fi = p_p_fi / h_p_i * n_p_fi; // [m] Front inner pitch instantaneous center distance from the front axle
+        q_p_fo = p_p_fo / h_p_o * n_p_fo; // [m] Front outer pitch instantaneous center distance from the front axle
+        q_p_ri = p_p_ri / h_p_i * n_p_ri; // [m] Rear inner pitch instantaneous center distance from the rear axle
+        q_p_ro = p_p_ro / h_p_o * n_p_ro; // [m] Rear outer pitch instantaneous center distance from the rear axle
 
-            //Suspension stiffnesses
+        //Suspension stiffnesses
 
-                //Motion ratios
-            MR_s_fi = w_fi * w_fi * 1e6 * vehicle_inputs.MR_s_f_2 + w_fi * 1e3 * vehicle_inputs.MR_s_f_1 + vehicle_inputs.MR_s_f_0; // [-] Front inner spring motion ratio              FUNCTION INPUT
-            MR_s_fo = w_fo * w_fo * 1e6 * vehicle_inputs.MR_s_f_2 + w_fo * 1e3 * vehicle_inputs.MR_s_f_1 + vehicle_inputs.MR_s_f_0; // [-] Front outer spring motion ratio             FUNCTION INPUT
-            MR_s_ri = w_ri * w_ri * 1e6 * vehicle_inputs.MR_s_r_2 + w_ri * 1e3 * vehicle_inputs.MR_s_r_1 + vehicle_inputs.MR_s_r_0; // [-] Rear inner spring motion ratio               FUNCTION INPUT
-            MR_s_ro = w_ro * w_ro * 1e6 * vehicle_inputs.MR_s_r_2 + w_ro * 1e3 * vehicle_inputs.MR_s_r_1 + vehicle_inputs.MR_s_r_0; // [-] Rear outer spring motion ratio              FUNCTION INPUT
-            MR_arb_fi = w_fi * w_fi * 1e6 * vehicle_inputs.MR_arb_f_2 + w_fi * 1e3 * vehicle_inputs.MR_arb_f_1 + vehicle_inputs.MR_arb_f_0; // [-] Front inner anti-roll bar motion ratio     FUNCTION INPUT
-            MR_arb_fo = w_fo * w_fo * 1e6 * vehicle_inputs.MR_arb_f_2 + w_fo * 1e3 * vehicle_inputs.MR_arb_f_1 + vehicle_inputs.MR_arb_f_0; // [-] Front outer anti-roll bar motion ratio    FUNCTION INPUT
-            MR_arb_ri = w_ri * w_ri * 1e6 * vehicle_inputs.MR_arb_r_2 + w_ri * 1e3 * vehicle_inputs.MR_arb_r_1 + vehicle_inputs.MR_arb_r_0; // [-] Rear inner anti-roll bar motion ratio      FUNCTION INPUT
-            MR_arb_ro = w_ro * w_ro * 1e6 * vehicle_inputs.MR_arb_r_2 + w_ro * 1e3 * vehicle_inputs.MR_arb_r_1 + vehicle_inputs.MR_arb_r_0; // [-] Rear outer anti-roll bar motion ratio     FUNCTION INPUT
+            //Motion ratios
+        MR_s_fi = w_fi * w_fi * 1e6 * vehicle_inputs.MR_s_f_2 + w_fi * 1e3 * vehicle_inputs.MR_s_f_1 + vehicle_inputs.MR_s_f_0; // [-] Front inner spring motion ratio              FUNCTION INPUT
+        MR_s_fo = w_fo * w_fo * 1e6 * vehicle_inputs.MR_s_f_2 + w_fo * 1e3 * vehicle_inputs.MR_s_f_1 + vehicle_inputs.MR_s_f_0; // [-] Front outer spring motion ratio             FUNCTION INPUT
+        MR_s_ri = w_ri * w_ri * 1e6 * vehicle_inputs.MR_s_r_2 + w_ri * 1e3 * vehicle_inputs.MR_s_r_1 + vehicle_inputs.MR_s_r_0; // [-] Rear inner spring motion ratio               FUNCTION INPUT
+        MR_s_ro = w_ro * w_ro * 1e6 * vehicle_inputs.MR_s_r_2 + w_ro * 1e3 * vehicle_inputs.MR_s_r_1 + vehicle_inputs.MR_s_r_0; // [-] Rear outer spring motion ratio              FUNCTION INPUT
+        MR_arb_fi = w_fi * w_fi * 1e6 * vehicle_inputs.MR_arb_f_2 + w_fi * 1e3 * vehicle_inputs.MR_arb_f_1 + vehicle_inputs.MR_arb_f_0; // [-] Front inner anti-roll bar motion ratio     FUNCTION INPUT
+        MR_arb_fo = w_fo * w_fo * 1e6 * vehicle_inputs.MR_arb_f_2 + w_fo * 1e3 * vehicle_inputs.MR_arb_f_1 + vehicle_inputs.MR_arb_f_0; // [-] Front outer anti-roll bar motion ratio    FUNCTION INPUT
+        MR_arb_ri = w_ri * w_ri * 1e6 * vehicle_inputs.MR_arb_r_2 + w_ri * 1e3 * vehicle_inputs.MR_arb_r_1 + vehicle_inputs.MR_arb_r_0; // [-] Rear inner anti-roll bar motion ratio      FUNCTION INPUT
+        MR_arb_ro = w_ro * w_ro * 1e6 * vehicle_inputs.MR_arb_r_2 + w_ro * 1e3 * vehicle_inputs.MR_arb_r_1 + vehicle_inputs.MR_arb_r_0; // [-] Rear outer anti-roll bar motion ratio     FUNCTION INPUT
 
-            //Wheel rates
-            K_susp_fi = k_susp_f / (MR_s_fi * MR_s_fi); // [N/m] Front inner wheel rate
-            K_susp_fo = k_susp_f / (MR_s_fo * MR_s_fo); // [N/m] Front outer wheel rate
-            K_susp_ri = k_susp_r / (MR_s_ri * MR_s_ri); // [N/m] Rear inner wheel rate
-            K_susp_ro = k_susp_r / (MR_s_ro * MR_s_ro); // [N/m] Rear outer wheel rate
-            K_arb_fi = k_arb_f / (MR_arb_fi * MR_arb_fi); // [N/m] Front inner wheel rate
-            K_arb_fo = k_arb_f / (MR_arb_fo * MR_arb_fo); // [N/m] Front outer wheel rate
-            K_arb_ri = k_arb_r / (MR_arb_ri * MR_arb_ri); // [N/m] Rear inner wheel rate
-            K_arb_ro = k_arb_r / (MR_arb_ro * MR_arb_ro); // [N/m] Rear outer wheel rate
+        //Wheel rates
+        K_susp_fi = k_susp_f / (MR_s_fi * MR_s_fi); // [N/m] Front inner wheel rate
+        K_susp_fo = k_susp_f / (MR_s_fo * MR_s_fo); // [N/m] Front outer wheel rate
+        K_susp_ri = k_susp_r / (MR_s_ri * MR_s_ri); // [N/m] Rear inner wheel rate
+        K_susp_ro = k_susp_r / (MR_s_ro * MR_s_ro); // [N/m] Rear outer wheel rate
+        K_arb_fi = k_arb_f / (MR_arb_fi * MR_arb_fi); // [N/m] Front inner wheel rate
+        K_arb_fo = k_arb_f / (MR_arb_fo * MR_arb_fo); // [N/m] Front outer wheel rate
+        K_arb_ri = k_arb_r / (MR_arb_ri * MR_arb_ri); // [N/m] Rear inner wheel rate
+        K_arb_ro = k_arb_r / (MR_arb_ro * MR_arb_ro); // [N/m] Rear outer wheel rate
 
-            //Roll stiffnesses
-            K_r_C_f = k_r_C_f * t_f * t_f; // [N/m] Front roll stiffness due to the chassis
-            K_r_C_r = k_r_C_r * t_r * t_r; // [N/m] Rear roll stiffness due to the chassis
-            K_r_tot_f = 1 / (1 / K_r_C_f + 1 / fi.K_T + 1 / fo.K_T + 1 / (K_susp_fi + K_arb_fi) + 1 / (K_susp_fo + K_arb_fo)); // [N/m] Front total roll stiffness
-            K_r_tot_r = 1 / (1 / K_r_C_r + 1 / ri.K_T + 1 / ro.K_T + 1 / (K_susp_ri + K_arb_ri) + 1 / (K_susp_ro + K_arb_ro)); // [N/m] Rear total roll stiffness
+        //Roll stiffnesses
+        K_r_C_f = k_r_C_f * t_f * t_f; // [N/m] Front roll stiffness due to the chassis
+        K_r_C_r = k_r_C_r * t_r * t_r; // [N/m] Rear roll stiffness due to the chassis
+        K_r_tot_f = 1 / (1 / K_r_C_f + 1 / fi.K_T + 1 / fo.K_T + 1 / (K_susp_fi + K_arb_fi) + 1 / (K_susp_fo + K_arb_fo)); // [N/m] Front total roll stiffness
+        K_r_tot_r = 1 / (1 / K_r_C_r + 1 / ri.K_T + 1 / ro.K_T + 1 / (K_susp_ri + K_arb_ri) + 1 / (K_susp_ro + K_arb_ro)); // [N/m] Rear total roll stiffness
 
-            //Pitch stiffnesses
-            K_p_C_i = k_p_C_i * L * L; // [N/m] Inner pitch stiffness due to the chassis
-            K_p_C_o = k_p_C_o * L * L; // [N/m] Outer pitch stiffness due to the chassis
-            K_p_tot_i = 1 / (1 / K_p_C_i + 1 / fi.K_T + 1 / ri.K_T + 1 / K_susp_fi + 1 / K_susp_ri); // [N/m] Inner total pitch stiffness
-            K_p_tot_o = 1 / (1 / K_p_C_o + 1 / fo.K_T + 1 / ro.K_T + 1 / K_susp_fo + 1 / K_susp_ro); // [N/m] Outer total pitch stiffness
+        //Pitch stiffnesses
+        K_p_C_i = k_p_C_i * L * L; // [N/m] Inner pitch stiffness due to the chassis
+        K_p_C_o = k_p_C_o * L * L; // [N/m] Outer pitch stiffness due to the chassis
+        K_p_tot_i = 1 / (1 / K_p_C_i + 1 / fi.K_T + 1 / ri.K_T + 1 / K_susp_fi + 1 / K_susp_ri); // [N/m] Inner total pitch stiffness
+        K_p_tot_o = 1 / (1 / K_p_C_o + 1 / fo.K_T + 1 / ro.K_T + 1 / K_susp_fo + 1 / K_susp_ro); // [N/m] Outer total pitch stiffness
+    }
 
-            //Aerodynamics
+    void Vehicle::aerodynamics() {
+        //Aerodynamics
 
-                //Vehicle speed
-            V_skid = sqrt(a_rad * g * R); // [m/s] Vehicle skid speed
-            V = std::min(V_input / 3.6, V_skid); // [m/s] Vehicle speed
-            V_kmh = V * 3.6; // [km/h] Vehicle speed
-            /*
-            if (V_skid > V_input / 3.6) {
-                V_ratio = V_input / 3.6 * V_input / 3.6 / V_skid / V_skid;
-            }
-            */
-            if (vehicle_inputs.force_velocity) {
-				V = V_input / 3.6; // [m/s] Vehicle speed
-                R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
-                R_a = R * cos(beta); // [m] Actual cornering radius
-                S_f = a + R * sin(beta); // [m]
-                S_r = L - S_f; // [m]
-                fi.R = sqrt((R_a - t_f / 2) * (R_a - t_f / 2) + S_f * S_f); // [m] Front inner wheel cornering radius
-                fo.R = sqrt((R_a + t_f / 2) * (R_a + t_f / 2) + S_f * S_f); // [m] Front outer wheel cornering radius
-                ri.R = sqrt((R_a - t_r / 2) * (R_a - t_r / 2) + S_r * S_r); // [m] Rear inner wheel cornering radius
-                ro.R = sqrt((R_a + t_r / 2) * (R_a + t_r / 2) + S_r * S_r); // [m] Rear outer wheel cornering radius
-                fi.theta = atan(S_f / (R_a - t_f / 2)); // [rad] Front inner wheel effective steering angle
-                fo.theta = atan(S_f / (R_a + t_f / 2)); // [rad] Front outer wheel effective steering angle
-                ri.theta = atan(S_r / (R_a - t_r / 2)); // [rad] Rear inner wheel effective steering angle
-                ro.theta = atan(S_r / (R_a + t_r / 2)); // [rad] Rear outer wheel effective steering angle
-                fi.set_alpha(), fo.set_alpha(), ri.set_alpha(), ro.set_alpha();
-            }
+               //Vehicle speed
+        V_skid = sqrt(a_rad * g * R); // [m/s] Vehicle skid speed
+        V = std::min(V_input / 3.6, V_skid); // [m/s] Vehicle speed
+        V_kmh = V * 3.6; // [km/h] Vehicle speed
+        if (vehicle_inputs.force_velocity) {
+            V = V_input / 3.6; // [m/s] Vehicle speed
+            R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
+            R_a = R * cos(beta); // [m] Actual cornering radius
+            S_f = a + R * sin(beta); // [m]
+            S_r = L - S_f; // [m]
+            fi.R = sqrt((R_a - t_f / 2) * (R_a - t_f / 2) + S_f * S_f); // [m] Front inner wheel cornering radius
+            fo.R = sqrt((R_a + t_f / 2) * (R_a + t_f / 2) + S_f * S_f); // [m] Front outer wheel cornering radius
+            ri.R = sqrt((R_a - t_r / 2) * (R_a - t_r / 2) + S_r * S_r); // [m] Rear inner wheel cornering radius
+            ro.R = sqrt((R_a + t_r / 2) * (R_a + t_r / 2) + S_r * S_r); // [m] Rear outer wheel cornering radius
+            fi.theta = atan(S_f / (R_a - t_f / 2)); // [rad] Front inner wheel effective steering angle
+            fo.theta = atan(S_f / (R_a + t_f / 2)); // [rad] Front outer wheel effective steering angle
+            ri.theta = atan(S_r / (R_a - t_r / 2)); // [rad] Rear inner wheel effective steering angle
+            ro.theta = atan(S_r / (R_a + t_r / 2)); // [rad] Rear outer wheel effective steering angle
+            fi.set_alpha(), fo.set_alpha(), ri.set_alpha(), ro.set_alpha();
+        }
 
-            //Downforce
-            F_down = (V_kmh * V_kmh * vehicle_inputs.F_down_2 + V_kmh * vehicle_inputs.F_down_1); // [N] Total downforce                         FUNCTION INPUT
-            F_down_x = (V_kmh * V_kmh * vehicle_inputs.F_down_x_2 + V_kmh * vehicle_inputs.F_down_x_1 + vehicle_inputs.F_down_x_0); // [%front] Downforce distribution to the front axle FUNCTION INPUT
-            F_down_y = V_kmh * V_kmh * vehicle_inputs.F_down_y_2 + V_kmh * vehicle_inputs.F_down_y_1 + vehicle_inputs.F_down_y_0; // [%inner] Downforce distribution to the inner side                      FUNCTION INPUT
-            F_down_fi = F_down * F_down_x / 100.0 * F_down_y / 100.0; // [N] Front inner downforce
-            F_down_fo = F_down * F_down_x / 100.0 * (1 - F_down_y / 100.0); // [N] Front outter downforce
-            F_down_ri = F_down * (1 - F_down_x / 100.0) * F_down_y / 100.0; // [N] Rear inner downforce
-            F_down_ro = F_down * (1 - F_down_x / 100.0) * (1 - F_down_y / 100.0); // [N] Rear outter downforce
+        //Downforce
+        F_down = (V_kmh * V_kmh * vehicle_inputs.F_down_2 + V_kmh * vehicle_inputs.F_down_1); // [N] Total downforce                         FUNCTION INPUT
+        F_down_x = (V_kmh * V_kmh * vehicle_inputs.F_down_x_2 + V_kmh * vehicle_inputs.F_down_x_1 + vehicle_inputs.F_down_x_0); // [%front] Downforce distribution to the front axle FUNCTION INPUT
+        F_down_y = V_kmh * V_kmh * vehicle_inputs.F_down_y_2 + V_kmh * vehicle_inputs.F_down_y_1 + vehicle_inputs.F_down_y_0; // [%inner] Downforce distribution to the inner side                      FUNCTION INPUT
+        F_down_fi = F_down * F_down_x / 100.0 * F_down_y / 100.0; // [N] Front inner downforce
+        F_down_fo = F_down * F_down_x / 100.0 * (1 - F_down_y / 100.0); // [N] Front outter downforce
+        F_down_ri = F_down * (1 - F_down_x / 100.0) * F_down_y / 100.0; // [N] Rear inner downforce
+        F_down_ro = F_down * (1 - F_down_x / 100.0) * (1 - F_down_y / 100.0); // [N] Rear outter downforce
 
-            //Drag
-            F_drag = (V_kmh * V_kmh * vehicle_inputs.F_drag_2 + V_kmh * vehicle_inputs.F_drag_1); // [N] Total drag force                    FUNCTION INPUT
-            F_drag_z = (V_kmh * V_kmh * vehicle_inputs.F_drag_z_2 + V_kmh * vehicle_inputs.F_drag_z_1 + vehicle_inputs.F_drag_z_0) / 1000.0; // [m] Height of the drag force application point                   INPUT
-            F_drag_y = V_kmh * V_kmh * vehicle_inputs.F_drag_y_2 + V_kmh * vehicle_inputs.F_drag_y_1 + vehicle_inputs.F_drag_y_0; // [%inner] Inner position of the drag force application point         INPUT
-            h_drag = F_drag_z - h_p_o + (0.5 + 2 * c_s / (t_f + t_r)) * (h_p_i - h_p_o); // [m] Distance from the drag force application point to the pitch axis
+        //Drag
+        F_drag = (V_kmh * V_kmh * vehicle_inputs.F_drag_2 + V_kmh * vehicle_inputs.F_drag_1); // [N] Total drag force                    FUNCTION INPUT
+        F_drag_z = (V_kmh * V_kmh * vehicle_inputs.F_drag_z_2 + V_kmh * vehicle_inputs.F_drag_z_1 + vehicle_inputs.F_drag_z_0) / 1000.0; // [m] Height of the drag force application point                   INPUT
+        F_drag_y = V_kmh * V_kmh * vehicle_inputs.F_drag_y_2 + V_kmh * vehicle_inputs.F_drag_y_1 + vehicle_inputs.F_drag_y_0; // [%inner] Inner position of the drag force application point         INPUT
+        h_drag = F_drag_z - h_p_o + (0.5 + 2 * c_s / (t_f + t_r)) * (h_p_i - h_p_o); // [m] Distance from the drag force application point to the pitch axis
+    }
 
-            //Tires rolling resistances
+    void Vehicle::longitudinal_load_transfer() {
+        //Longitudinal load transfer
 
-            fi.set_F_rr(V), fo.set_F_rr(V), ri.set_F_rr(V), ro.set_F_rr(V);
+        //Sprung masses longitudinal load transfer
+        dW_lon_s_fi = m_s / m * (fi.F_lon * h_p_i - fi.T_r) / n_p_fi; // [N] Front inner sprung mass longitudinal load transfer
+        dW_lon_s_fo = m_s / m * (fo.F_lon * h_p_o - fo.T_r) / n_p_fo; // [N] Front outer sprung mass longitudinal load transfer
+        dW_lon_s_ri = m_s / m * (ri.F_lon * h_p_i - ri.T_r) / n_p_ri; // [N] Rear inner sprung mass longitudinal load transfer
+        dW_lon_s_ro = m_s / m * (ro.F_lon * h_p_o - ro.T_r) / n_p_ro; // [N] Rear outer sprung mass longitudinal load transfer
 
-            //Longitudinal load transfer
+        //Unsprung masses longitudinal load transfer
+        dW_lon_u_fi = m_u / m * (fi.F_lon * h_CG_u - fi.T_r) / q_p_fi; // [N] Front inner unsprung mass longitudinal load transfer
+        dW_lon_u_fo = m_u / m * (fo.F_lon * h_CG_u - fo.T_r) / q_p_fo; // [N] Front outer unsprung mass longitudinal load transfer
+        dW_lon_u_ri = m_u / m * (ri.F_lon * h_CG_u - ri.T_r) / q_p_ri; // [N] Rear inner unsprung mass longitudinal load transfer
+        dW_lon_u_ro = m_u / m * (ro.F_lon * h_CG_u - ro.T_r) / q_p_ro; // [N] Rear outer unsprung mass longitudinal load transfer
 
-                //Sprung masses longitudinal load transfer
-            dW_lon_s_fi = m_s / m * (fi.F_lon * h_p_i - fi.T_r) / n_p_fi; // [N] Front inner sprung mass longitudinal load transfer
-            dW_lon_s_fo = m_s / m * (fo.F_lon * h_p_o - fo.T_r) / n_p_fo; // [N] Front outer sprung mass longitudinal load transfer
-            dW_lon_s_ri = m_s / m * (ri.F_lon * h_p_i - ri.T_r) / n_p_ri; // [N] Rear inner sprung mass longitudinal load transfer
-            dW_lon_s_ro = m_s / m * (ro.F_lon * h_p_o - ro.T_r) / n_p_ro; // [N] Rear outer sprung mass longitudinal load transfer
+        //Geometric longitudinal load transfer
+        dW_lon_g_fi = dW_lon_s_fi + dW_lon_u_fi; // [N] Front inner geometric longitudinal load transfer
+        dW_lon_g_fo = dW_lon_s_fo + dW_lon_u_fo; // [N] Front outer geometric longitudinal load transfer
+        dW_lon_g_ri = dW_lon_s_ri + dW_lon_u_ri; // [N] Rear inner geometric longitudinal load transfer
+        dW_lon_g_ro = dW_lon_s_ro + dW_lon_u_ro; // [N] Rear outer geometric longitudinal load transfer
 
-            //Unsprung masses longitudinal load transfer
-            dW_lon_u_fi = m_u / m * (fi.F_lon * h_CG_u - fi.T_r) / q_p_fi; // [N] Front inner unsprung mass longitudinal load transfer
-            dW_lon_u_fo = m_u / m * (fo.F_lon * h_CG_u - fo.T_r) / q_p_fo; // [N] Front outer unsprung mass longitudinal load transfer
-            dW_lon_u_ri = m_u / m * (ri.F_lon * h_CG_u - ri.T_r) / q_p_ri; // [N] Rear inner unsprung mass longitudinal load transfer
-            dW_lon_u_ro = m_u / m * (ro.F_lon * h_CG_u - ro.T_r) / q_p_ro; // [N] Rear outer unsprung mass longitudinal load transfer
+        //Pitch moments
+        M_p_s_fi = m_s / m * fi.F_lon * (h_CG_s - h_p_i); // [N*m] Front inner sprung mass pitch moment
+        M_p_s_fo = m_s / m * fo.F_lon * (h_CG_s - h_p_o); // [N*m] Front outer sprung mass pitch moment
+        M_p_s_ri = m_s / m * ri.F_lon * (h_CG_s - h_p_i); // [N*m] Rear inner sprung mass pitch moment
+        M_p_s_ro = m_s / m * ro.F_lon * (h_CG_s - h_p_o); // [N*m] Rear outer sprung mass pitch moment
+        M_p_u_fi = dW_lon_u_fi * (q_p_fi - n_p_fi); // [N*m] Front inner unsprung mass pitch moment
+        M_p_u_fo = dW_lon_u_fo * (q_p_fo - n_p_fo); // [N*m] Front outer unsprung mass pitch moment
+        M_p_u_ri = dW_lon_u_ri * (q_p_ri - n_p_ri); // [N*m] Rear inner unsprung mass pitch moment
+        M_p_u_ro = dW_lon_u_ro * (q_p_ro - n_p_ro); // [N*m] Rear outer unsprung mass pitch moment
+        M_p_s = M_p_s_fi + M_p_s_fo + M_p_s_ri + M_p_s_ro; // [N*m] Total sprung mass pitch moment
+        M_p_u = M_p_u_fi + M_p_u_fo + M_p_u_ri + M_p_u_ro; // [N*m] Total unsprung mass pitch moment
+        T = fi.T_r + fo.T_r + ri.T_r + ro.T_r; // [N*m] Total reaction torque
 
-            //Geometric longitudinal load transfer
-            dW_lon_g_fi = dW_lon_s_fi + dW_lon_u_fi; // [N] Front inner geometric longitudinal load transfer
-            dW_lon_g_fo = dW_lon_s_fo + dW_lon_u_fo; // [N] Front outer geometric longitudinal load transfer
-            dW_lon_g_ri = dW_lon_s_ri + dW_lon_u_ri; // [N] Rear inner geometric longitudinal load transfer
-            dW_lon_g_ro = dW_lon_s_ro + dW_lon_u_ro; // [N] Rear outer geometric longitudinal load transfer
+        //Drag longitudinal load transfer
+        M_p_drag = F_drag * h_drag; // [N*m] Pitch moment due to drag
+        dW_lon_drag = F_drag * F_drag_z / L; // [N] Longitudinal load transfer due to drag
 
-            //Pitch moments
-            M_p_s_fi = m_s / m * fi.F_lon * (h_CG_s - h_p_i); // [N*m] Front inner sprung mass pitch moment
-            M_p_s_fo = m_s / m * fo.F_lon * (h_CG_s - h_p_o); // [N*m] Front outer sprung mass pitch moment
-            M_p_s_ri = m_s / m * ri.F_lon * (h_CG_s - h_p_i); // [N*m] Rear inner sprung mass pitch moment
-            M_p_s_ro = m_s / m * ro.F_lon * (h_CG_s - h_p_o); // [N*m] Rear outer sprung mass pitch moment
-            M_p_u_fi = dW_lon_u_fi * (q_p_fi - n_p_fi); // [N*m] Front inner unsprung mass pitch moment
-            M_p_u_fo = dW_lon_u_fo * (q_p_fo - n_p_fo); // [N*m] Front outer unsprung mass pitch moment
-            M_p_u_ri = dW_lon_u_ri * (q_p_ri - n_p_ri); // [N*m] Rear inner unsprung mass pitch moment
-            M_p_u_ro = dW_lon_u_ro * (q_p_ro - n_p_ro); // [N*m] Rear outer unsprung mass pitch moment
-            M_p_s = M_p_s_fi + M_p_s_fo + M_p_s_ri + M_p_s_ro; // [N*m] Total sprung mass pitch moment
-            M_p_u = M_p_u_fi + M_p_u_fo + M_p_u_ri + M_p_u_ro; // [N*m] Total unsprung mass pitch moment
-            T = fi.T_r + fo.T_r + ri.T_r + ro.T_r; // [N*m] Total reaction torque
+        //Pitch angle
+        phi = (T + M_p_drag + M_p_s + M_p_u + dW_lon_g_fi * n_p_fi + dW_lon_g_fo * n_p_fo + dW_lon_g_ri * n_p_ri + dW_lon_g_ro * n_p_ro
+            - L * (K_p_tot_i * (dW_lon_g_fi / K_susp_fi + dW_lon_g_ri / K_susp_ri) + K_p_tot_o * (dW_lon_g_fo / K_susp_fo + dW_lon_g_ro / K_susp_ro))) / (K_p_tot_i + K_p_tot_o) / L / L; // [rad] Pitch angle
+        phi_deg = phi * 180.0 / pi; // [deg] Pitch angle
 
-            //Drag longitudinal load transfer
-            M_p_drag = F_drag * h_drag; // [N*m] Pitch moment due to drag
-            dW_lon_drag = F_drag * F_drag_z / L; // [N] Longitudinal load transfer due to drag
+        //Total longitudinal load transfer
+        dW_lon_i = phi * L * K_p_tot_i + (dW_lon_g_fi / K_susp_fi + dW_lon_g_ri / K_susp_ri) * K_p_tot_i; // [N] Inner longitudinal load transfer
+        dW_lon_o = phi * L * K_p_tot_o + (dW_lon_g_fo / K_susp_fo + dW_lon_g_ro / K_susp_ro) * K_p_tot_o; // [N] Outer longitudinal load transfer
 
-            //Pitch angle
-            phi = (T + M_p_drag + M_p_s + M_p_u + dW_lon_g_fi * n_p_fi + dW_lon_g_fo * n_p_fo + dW_lon_g_ri * n_p_ri + dW_lon_g_ro * n_p_ro
-                - L * (K_p_tot_i * (dW_lon_g_fi / K_susp_fi + dW_lon_g_ri / K_susp_ri) + K_p_tot_o * (dW_lon_g_fo / K_susp_fo + dW_lon_g_ro / K_susp_ro))) / (K_p_tot_i + K_p_tot_o) / L / L; // [rad] Pitch angle
-            phi_deg = phi * 180.0 / pi; // [deg] Pitch angle
+        //Elastic longitudinal load transfer
+        dW_lon_k_fi = dW_lon_i - dW_lon_g_fi - dW_lon_drag / 2; // [N] Front inner elastic longitudinal load transfer
+        dW_lon_k_fo = dW_lon_o - dW_lon_g_fo - dW_lon_drag / 2; // [N] Front outer elastic longitudinal load transfer
+        dW_lon_k_ri = dW_lon_i - dW_lon_g_ri - dW_lon_drag / 2; // [N] Rear inner elastic longitudinal load transfer
+        dW_lon_k_ro = dW_lon_o - dW_lon_g_ro - dW_lon_drag / 2; // [N] Rear outer elastic longitudinal load transfer
+    }
 
-            //Total longitudinal load transfer
-            dW_lon_i = phi * L * K_p_tot_i + (dW_lon_g_fi / K_susp_fi + dW_lon_g_ri / K_susp_ri) * K_p_tot_i; // [N] Inner longitudinal load transfer
-            dW_lon_o = phi * L * K_p_tot_o + (dW_lon_g_fo / K_susp_fo + dW_lon_g_ro / K_susp_ro) * K_p_tot_o; // [N] Outer longitudinal load transfer
-
-            //Elastic longitudinal load transfer
-            dW_lon_k_fi = dW_lon_i - dW_lon_g_fi - dW_lon_drag / 2; // [N] Front inner elastic longitudinal load transfer
-            dW_lon_k_fo = dW_lon_o - dW_lon_g_fo - dW_lon_drag / 2; // [N] Front outer elastic longitudinal load transfer
-            dW_lon_k_ri = dW_lon_i - dW_lon_g_ri - dW_lon_drag / 2; // [N] Rear inner elastic longitudinal load transfer
-            dW_lon_k_ro = dW_lon_o - dW_lon_g_ro - dW_lon_drag / 2; // [N] Rear outer elastic longitudinal load transfer
-
-            //Lateral load transfer
+    void Vehicle::lateral_load_transfer() {
+        //Lateral load transfer
 
                 //Sprung masses lateral load transfer
-            dW_lat_s_fi = m_s / m * fi.F_lat * h_r_f / n_r_fi; // [N] Front inner sprung mass lateral load transfer
-            dW_lat_s_fo = m_s / m * fo.F_lat * h_r_f / n_r_fo; // [N] Front outer sprung mass lateral load transfer
-            dW_lat_s_ri = m_s / m * ri.F_lat * h_r_r / n_r_ri; // [N] Rear inner sprung mass lateral load transfer
-            dW_lat_s_ro = m_s / m * ro.F_lat * h_r_r / n_r_ro; // [N] Rear outer sprung mass lateral load transfer
+        dW_lat_s_fi = m_s / m * fi.F_lat * h_r_f / n_r_fi; // [N] Front inner sprung mass lateral load transfer
+        dW_lat_s_fo = m_s / m * fo.F_lat * h_r_f / n_r_fo; // [N] Front outer sprung mass lateral load transfer
+        dW_lat_s_ri = m_s / m * ri.F_lat * h_r_r / n_r_ri; // [N] Rear inner sprung mass lateral load transfer
+        dW_lat_s_ro = m_s / m * ro.F_lat * h_r_r / n_r_ro; // [N] Rear outer sprung mass lateral load transfer
 
-            //Unsprung masses lateral load transfer
-            dW_lat_u_fi = m_u / m * fi.F_lat * h_CG_u / q_r_fi; // [N] Front inner unsprung mass lateral load transfer
-            dW_lat_u_fo = m_u / m * fo.F_lat * h_CG_u / q_r_fo; // [N] Front outer unsprung mass lateral load transfer
-            dW_lat_u_ri = m_u / m * ri.F_lat * h_CG_u / q_r_ri; // [N] Rear inner unsprung mass lateral load transfer
-            dW_lat_u_ro = m_u / m * ro.F_lat * h_CG_u / q_r_ro; // [N] Rear outer unsprung mass lateral load transfer
+        //Unsprung masses lateral load transfer
+        dW_lat_u_fi = m_u / m * fi.F_lat * h_CG_u / q_r_fi; // [N] Front inner unsprung mass lateral load transfer
+        dW_lat_u_fo = m_u / m * fo.F_lat * h_CG_u / q_r_fo; // [N] Front outer unsprung mass lateral load transfer
+        dW_lat_u_ri = m_u / m * ri.F_lat * h_CG_u / q_r_ri; // [N] Rear inner unsprung mass lateral load transfer
+        dW_lat_u_ro = m_u / m * ro.F_lat * h_CG_u / q_r_ro; // [N] Rear outer unsprung mass lateral load transfer
 
-            //Geometric lateral load transfer
-            dW_lat_g_fi = dW_lat_s_fi + dW_lat_u_fi; // [N] Front inner geometric lateral load transfer
-            dW_lat_g_fo = dW_lat_s_fo + dW_lat_u_fo; // [N] Front outer geometric lateral load transfer
-            dW_lat_g_ri = dW_lat_s_ri + dW_lat_u_ri; // [N] Rear inner geometric lateral load transfer
-            dW_lat_g_ro = dW_lat_s_ro + dW_lat_u_ro; // [N] Rear outer geometric lateral load transfer
+        //Geometric lateral load transfer
+        dW_lat_g_fi = dW_lat_s_fi + dW_lat_u_fi; // [N] Front inner geometric lateral load transfer
+        dW_lat_g_fo = dW_lat_s_fo + dW_lat_u_fo; // [N] Front outer geometric lateral load transfer
+        dW_lat_g_ri = dW_lat_s_ri + dW_lat_u_ri; // [N] Rear inner geometric lateral load transfer
+        dW_lat_g_ro = dW_lat_s_ro + dW_lat_u_ro; // [N] Rear outer geometric lateral load transfer
 
-            //Roll moments
-            M_r_s_fi = m_s / m * fi.F_lat * (h_CG_s - h_r_f); // [N*m] Front inner sprung mass roll moment
-            M_r_s_fo = m_s / m * fo.F_lat * (h_CG_s - h_r_f); // [N*m] Front outer sprung mass roll moment
-            M_r_s_ri = m_s / m * ri.F_lat * (h_CG_s - h_r_r); // [N*m] Rear inner sprung mass roll moment
-            M_r_s_ro = m_s / m * ro.F_lat * (h_CG_s - h_r_r); // [N*m] Rear outer sprung mass roll moment
-            M_r_u_fi = dW_lat_u_fi * (q_r_fi - n_r_fi); // [N*m] Front inner unsprung mass roll moment
-            M_r_u_fo = dW_lat_u_fo * (q_r_fo - n_r_fo); // [N*m] Front outer unsprung mass roll moment
-            M_r_u_ri = dW_lat_u_ri * (q_r_ri - n_r_ri); // [N*m] Rear inner unsprung mass roll moment
-            M_r_u_ro = dW_lat_u_ro * (q_r_ro - n_r_ro); // [N*m] Rear outer unsprung mass roll moment
-            M_r_s = M_r_s_fi + M_r_s_fo + M_r_s_ri + M_r_s_ro; // [N*m] Total sprung mass roll moment
-            M_r_u = M_r_u_fi + M_r_u_fo + M_r_u_ri + M_r_u_ro; // [N*m] Total unsprung mass roll moment
+        //Roll moments
+        M_r_s_fi = m_s / m * fi.F_lat * (h_CG_s - h_r_f); // [N*m] Front inner sprung mass roll moment
+        M_r_s_fo = m_s / m * fo.F_lat * (h_CG_s - h_r_f); // [N*m] Front outer sprung mass roll moment
+        M_r_s_ri = m_s / m * ri.F_lat * (h_CG_s - h_r_r); // [N*m] Rear inner sprung mass roll moment
+        M_r_s_ro = m_s / m * ro.F_lat * (h_CG_s - h_r_r); // [N*m] Rear outer sprung mass roll moment
+        M_r_u_fi = dW_lat_u_fi * (q_r_fi - n_r_fi); // [N*m] Front inner unsprung mass roll moment
+        M_r_u_fo = dW_lat_u_fo * (q_r_fo - n_r_fo); // [N*m] Front outer unsprung mass roll moment
+        M_r_u_ri = dW_lat_u_ri * (q_r_ri - n_r_ri); // [N*m] Rear inner unsprung mass roll moment
+        M_r_u_ro = dW_lat_u_ro * (q_r_ro - n_r_ro); // [N*m] Rear outer unsprung mass roll moment
+        M_r_s = M_r_s_fi + M_r_s_fo + M_r_s_ri + M_r_s_ro; // [N*m] Total sprung mass roll moment
+        M_r_u = M_r_u_fi + M_r_u_fo + M_r_u_ri + M_r_u_ro; // [N*m] Total unsprung mass roll moment
 
-            //Roll angle
-            psi = abs(M_r_s + M_r_u + dW_lat_g_fi * n_r_fi + dW_lat_g_fo * n_r_fo + dW_lat_g_ri * n_r_ri + dW_lat_g_ro * n_r_ro
-                - t_f * K_r_tot_f * (dW_lat_g_fi / (K_susp_fi + K_arb_fi) + dW_lat_g_fo / (K_susp_fo + K_arb_fo)) - t_r * K_r_tot_r * (dW_lat_g_ri / (K_susp_ri + K_arb_ri) + dW_lat_g_ro / (K_susp_ro + K_arb_ro)))
-                / (K_r_tot_f * t_f * t_f + K_r_tot_r * t_r * t_r); // [rad] Roll angle
-            psi_deg = psi * 180.0 / pi; // [deg] Roll angle
+        //Roll angle
+        psi = abs(M_r_s + M_r_u + dW_lat_g_fi * n_r_fi + dW_lat_g_fo * n_r_fo + dW_lat_g_ri * n_r_ri + dW_lat_g_ro * n_r_ro
+            - t_f * K_r_tot_f * (dW_lat_g_fi / (K_susp_fi + K_arb_fi) + dW_lat_g_fo / (K_susp_fo + K_arb_fo)) - t_r * K_r_tot_r * (dW_lat_g_ri / (K_susp_ri + K_arb_ri) + dW_lat_g_ro / (K_susp_ro + K_arb_ro)))
+            / (K_r_tot_f * t_f * t_f + K_r_tot_r * t_r * t_r); // [rad] Roll angle
+        psi_deg = psi * 180.0 / pi; // [deg] Roll angle
 
-            //Total lateral load transfer
-            dW_lat_f = round_to(psi * K_r_tot_f * t_f + abs(dW_lat_g_fi / (K_susp_fi + K_arb_fi) + dW_lat_g_fo / (K_susp_fo + K_arb_fo)) * K_r_tot_f, 2); // [N] Front lateral load transfer
-            dW_lat_r = round_to(psi * K_r_tot_r * t_r + abs(dW_lat_g_ri / (K_susp_ri + K_arb_ri) + dW_lat_g_ro / (K_susp_ro + K_arb_ro)) * K_r_tot_r, 2); // [N] Rear lateral load transfer
+        //Total lateral load transfer
+        dW_lat_f = round_to(psi * K_r_tot_f * t_f + abs(dW_lat_g_fi / (K_susp_fi + K_arb_fi) + dW_lat_g_fo / (K_susp_fo + K_arb_fo)) * K_r_tot_f, 2); // [N] Front lateral load transfer
+        dW_lat_r = round_to(psi * K_r_tot_r * t_r + abs(dW_lat_g_ri / (K_susp_ri + K_arb_ri) + dW_lat_g_ro / (K_susp_ro + K_arb_ro)) * K_r_tot_r, 2); // [N] Rear lateral load transfer
 
-            //Elastic lateral load transfer
-            dW_lat_k_fi = abs(dW_lat_f - dW_lat_g_fi); // [N] Front inner elastic lateral load transfer
-            dW_lat_k_fo = abs(dW_lat_f - dW_lat_g_fo); // [N] Front outer elastic lateral load transfer
-            dW_lat_k_ri = abs(dW_lat_r - dW_lat_g_ri); // [N] Rear inner elastic lateral load transfer
-            dW_lat_k_ro = abs(dW_lat_r - dW_lat_g_ro); // [N] Rear outer elastic lateral load transfer
+        //Elastic lateral load transfer
+        dW_lat_k_fi = abs(dW_lat_f - dW_lat_g_fi); // [N] Front inner elastic lateral load transfer
+        dW_lat_k_fo = abs(dW_lat_f - dW_lat_g_fo); // [N] Front outer elastic lateral load transfer
+        dW_lat_k_ri = abs(dW_lat_r - dW_lat_g_ri); // [N] Rear inner elastic lateral load transfer
+        dW_lat_k_ro = abs(dW_lat_r - dW_lat_g_ro); // [N] Rear outer elastic lateral load transfer
+    }
 
-            //Wheel loads
+    void Vehicle::update_wheel_loads_and_displacements() {
+        //Wheel loads
 
-            fi.set_F_z_past(), fo.set_F_z_past(), ri.set_F_z_past(), ro.set_F_z_past();
+        fi.set_F_z_past(), fo.set_F_z_past(), ri.set_F_z_past(), ro.set_F_z_past();
 
-            fi.F_z = round_to(W_fi - dW_lon_i - abs(dW_lat_f) + F_down_fi - dW_lon_drag / 2, 3); // [N] Front inner tire vertical load
-            fo.F_z = round_to(W_fo - dW_lon_o + abs(dW_lat_f) + F_down_fo - dW_lon_drag / 2, 3); // [N] Front outer tire vertical load
-            ri.F_z = round_to(W_ri + dW_lon_i - abs(dW_lat_r) + F_down_ri + dW_lon_drag / 2, 3); // [N] Rear inner tire vertical load
-            ro.F_z = round_to(W_ro + dW_lon_o + abs(dW_lat_r) + F_down_ro + dW_lon_drag / 2, 3); // [N] Rear outer tire vertical load
+        fi.F_z = round_to(W_fi - dW_lon_i - abs(dW_lat_f) + F_down_fi - dW_lon_drag / 2, 3); // [N] Front inner tire vertical load
+        fo.F_z = round_to(W_fo - dW_lon_o + abs(dW_lat_f) + F_down_fo - dW_lon_drag / 2, 3); // [N] Front outer tire vertical load
+        ri.F_z = round_to(W_ri + dW_lon_i - abs(dW_lat_r) + F_down_ri + dW_lon_drag / 2, 3); // [N] Rear inner tire vertical load
+        ro.F_z = round_to(W_ro + dW_lon_o + abs(dW_lat_r) + F_down_ro + dW_lon_drag / 2, 3); // [N] Rear outer tire vertical load
 
-            fi.set_F_z_err(), fo.set_F_z_err(), ri.set_F_z_err(), ro.set_F_z_err();
+        fi.set_F_z_err(), fo.set_F_z_err(), ri.set_F_z_err(), ro.set_F_z_err();
 
-            //Wheel displacements
+        //Wheel displacements
 
-            w_fi = round_to(-(dW_lat_k_fi) / (K_susp_fi + K_arb_fi) + (F_down_fi - dW_lon_k_fi) / K_susp_fi, 5); // [m] Front inner tire vertical displacement
-            w_fo = round_to((dW_lat_k_fo) / (K_susp_fo + K_arb_fo) + (F_down_fo - dW_lon_k_fo) / K_susp_fo, 5); // [m] Front outer tire vertical displacement
-            w_ri = round_to(-(dW_lat_k_ri) / (K_susp_ri + K_arb_ri) + (F_down_ri + dW_lon_k_ri) / K_susp_ri, 5); // [m] Rear inner tire vertical displacement
-            w_ro = round_to((dW_lat_k_ro) / (K_susp_ro + K_arb_ro) + (F_down_ro + dW_lon_k_ro) / K_susp_ro, 5); // [m] Rear outer tire vertical displacement
+        w_fi = round_to(-(dW_lat_k_fi) / (K_susp_fi + K_arb_fi) + (F_down_fi - dW_lon_k_fi) / K_susp_fi, 5); // [m] Front inner tire vertical displacement
+        w_fo = round_to((dW_lat_k_fo) / (K_susp_fo + K_arb_fo) + (F_down_fo - dW_lon_k_fo) / K_susp_fo, 5); // [m] Front outer tire vertical displacement
+        w_ri = round_to(-(dW_lat_k_ri) / (K_susp_ri + K_arb_ri) + (F_down_ri + dW_lon_k_ri) / K_susp_ri, 5); // [m] Rear inner tire vertical displacement
+        w_ro = round_to((dW_lat_k_ro) / (K_susp_ro + K_arb_ro) + (F_down_ro + dW_lon_k_ro) / K_susp_ro, 5); // [m] Rear outer tire vertical displacement
 
-            fi.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) + delta_f_static + (w_fi * w_fi * 1e6 * vehicle_inputs.bs_f_2 + w_fi * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front outer wheel steering angle
-            fo.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) - delta_f_static + (w_fo * w_fo * 1e6 * vehicle_inputs.bs_f_2 + w_fo * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front inner wheel steering angle                      FUNCTION INPUT
-            ri.delta = round_to((0.0 + delta_r_static + (w_ri * w_ri * vehicle_inputs.bs_r_2 + w_ri * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5); // [rad] Rear inner wheel steering angle
-            ro.delta = round_to((0.0 - delta_r_static + (w_ro * w_ro * vehicle_inputs.bs_r_2 + w_ro * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5);// [rad] Rear outer wheel steering angle
+        fi.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) + delta_f_static + (w_fi * w_fi * 1e6 * vehicle_inputs.bs_f_2 + w_fi * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front outer wheel steering angle
+        fo.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) - delta_f_static + (w_fo * w_fo * 1e6 * vehicle_inputs.bs_f_2 + w_fo * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front inner wheel steering angle                      FUNCTION INPUT
+        ri.delta = round_to((0.0 + delta_r_static + (w_ri * w_ri * vehicle_inputs.bs_r_2 + w_ri * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5); // [rad] Rear inner wheel steering angle
+        ro.delta = round_to((0.0 - delta_r_static + (w_ro * w_ro * vehicle_inputs.bs_r_2 + w_ro * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5);// [rad] Rear outer wheel steering angle
 
-            fi.gamma = round_to(-psi + gamma_f_static + ((w_fi * w_fi * 1e6 * vehicle_inputs.bc_f_2 + w_fi * 1e3 * vehicle_inputs.bc_f_1) + (fi.delta * fi.delta * 180 * 180 / pi / pi * vehicle_inputs.sc_f_2 + fi.delta * 180 / pi * vehicle_inputs.sc_f_1)) * pi / 180.0, 5); // [rad] Front inner tire camber angle
-            fo.gamma = round_to(psi + gamma_f_static + ((w_fo * w_fo * 1e6 * vehicle_inputs.bc_f_2 + w_fo * 1e3 * vehicle_inputs.bc_f_1) - (fo.delta * fo.delta * 180 * 180 / pi / pi * vehicle_inputs.sc_f_2 + fo.delta * 180 / pi * vehicle_inputs.sc_f_1)) * pi / 180.0, 5); // [rad] Front outer tire camber angle
-            ri.gamma = round_to(-psi + gamma_r_static + (w_ri * w_ri * 1e6 * vehicle_inputs.bc_r_2 + w_ri * 1e3 * vehicle_inputs.bc_r_1) * pi / 180.0, 5); // [rad] Rear inner tire camber angle
-            ro.gamma = round_to(psi + gamma_r_static + (w_ro * w_ro * 1e6 * vehicle_inputs.bc_r_2 + w_ro * 1e3 * vehicle_inputs.bc_r_1) * pi / 180.0, 5); // [rad] Rear outer tire camber angle
+        fi.gamma = round_to(-psi + gamma_f_static + ((w_fi * w_fi * 1e6 * vehicle_inputs.bc_f_2 + w_fi * 1e3 * vehicle_inputs.bc_f_1) + (fi.delta * fi.delta * 180 * 180 / pi / pi * vehicle_inputs.sc_f_2 + fi.delta * 180 / pi * vehicle_inputs.sc_f_1)) * pi / 180.0, 5); // [rad] Front inner tire camber angle
+        fo.gamma = round_to(psi + gamma_f_static + ((w_fo * w_fo * 1e6 * vehicle_inputs.bc_f_2 + w_fo * 1e3 * vehicle_inputs.bc_f_1) - (fo.delta * fo.delta * 180 * 180 / pi / pi * vehicle_inputs.sc_f_2 + fo.delta * 180 / pi * vehicle_inputs.sc_f_1)) * pi / 180.0, 5); // [rad] Front outer tire camber angle
+        ri.gamma = round_to(-psi + gamma_r_static + (w_ri * w_ri * 1e6 * vehicle_inputs.bc_r_2 + w_ri * 1e3 * vehicle_inputs.bc_r_1) * pi / 180.0, 5); // [rad] Rear inner tire camber angle
+        ro.gamma = round_to(psi + gamma_r_static + (w_ro * w_ro * 1e6 * vehicle_inputs.bc_r_2 + w_ro * 1e3 * vehicle_inputs.bc_r_1) * pi / 180.0, 5); // [rad] Rear outer tire camber angle
 
-            iter++;
-            if (iter > max_iter) { break; }
-            bias_now = (fi.T + fo.T) / (fi.T + fo.T + ri.T + ro.T);
+    }
 
-        } while (fi.F_z_err > F_z_tol || fo.F_z_err > F_z_tol || ri.F_z_err > F_z_tol || ro.F_z_err > F_z_tol);
-
+    void Vehicle::yaw_moment() {
         //Yaw moment
         M_yaw_fl = fi.F_lat * a - fi.F_lon * t_f / 2; // [N*m] Front inner tire yaw moment
         M_yaw_fr = fo.F_lat * a + fo.F_lon * t_f / 2; // [N*m] Front outer tire yaw moment
@@ -525,6 +568,9 @@ Vehicle::Vehicle() {};
         M_yaw_rr = -ro.F_lat * b + ro.F_lon * t_r / 2; // [N*m] Rear outer tire yaw moment
         M_yaw = M_yaw_fl + M_yaw_fr + M_yaw_rl + M_yaw_rr; // [N*m] Vehicle yaw moment
     }
+
+
+
 
     // Solver function for slip ratios to comply with axle torque and bias constraints
     void Vehicle::solve_kappa() {
@@ -820,7 +866,7 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_ro = ro.T;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = a_lat;
+        vehicle_outputs.debug1 = dW_lon_i;
         vehicle_outputs.debug2 = M_yaw;
         vehicle_outputs.debug3 = a_lon;
 #endif

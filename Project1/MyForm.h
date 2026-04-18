@@ -8,6 +8,7 @@
 #include "Tire.h"
 #include "YMD.h"
 #include "Tire_selection.h"
+#include "Simulation_controller.h"
 
 namespace Project1 {
 
@@ -33,6 +34,7 @@ namespace Project1 {
 		Vehicle* vehicle;
 		YMD_Carrier* YMD_carrier;
 		Tire_selection* tire_selection;
+		Simulation_controller* sim_controller;
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
@@ -576,6 +578,7 @@ private: System::Windows::Forms::Label^ output_debug4;
 			vehicle = new Vehicle();
 			YMD_carrier = new YMD_Carrier();
 			tire_selection = new Tire_selection();
+			sim_controller = new Simulation_controller();
 			//
 			//TODO: Adicione o código do construtor aqui
 			//
@@ -8474,38 +8477,16 @@ private: System::ComponentModel::IContainer^ components;
 #pragma endregion
 private: System::Void RUN_Click(System::Object^ sender, System::EventArgs^ e) {
 	read_inputs();
-	save_inputs(*vehicle_inputs, "Vehicle_params_1.txt");
-
-	delete vehicle;
-	vehicle = new Vehicle();
-
-	vehicle->set_tires(msclr::interop::marshal_as<std::string>("Tires\\" + input_front_tires_selection->Text->Replace(" ", "_") + ".txt"),
-					   msclr::interop::marshal_as<std::string>("Tires\\" + input_rear_tires_selection->Text->Replace(" ", "_") + ".txt"));
-	vehicle->set_parameters(*vehicle_inputs);
-
-	vehicle->solver();
-	vehicle->output(*vehicle_outputs);
+	sim_controller->run_simulation(*vehicle_inputs, *vehicle_outputs);
 	write_outputs();
 }
 
 private: System::Void RUN_YMD_Click(System::Object^ sender, System::EventArgs^ e) {
 	read_inputs();
-	save_inputs(*vehicle_inputs, "Vehicle_params_1.txt");
-
-	delete vehicle;
-	vehicle = new Vehicle();
-
-	vehicle->set_tires(msclr::interop::marshal_as<std::string>("Tires\\" + input_front_tires_selection->Text->Replace(" ", "_") + ".txt"),
-					   msclr::interop::marshal_as<std::string>("Tires\\" + input_rear_tires_selection->Text->Replace(" ", "_") + ".txt"));
-	vehicle->set_parameters(*vehicle_inputs);
-
-	vehicle->YMD(*YMD_carrier);
+	sim_controller->run_YMD(*vehicle_inputs, *vehicle_outputs, *YMD_carrier);
 	YMD_setup(YMD, *YMD_carrier);
 	YMD_clear(YMD);
 	YMD_plot(YMD, *YMD_carrier);
-
-	vehicle->solver();
-	vehicle->output(*vehicle_outputs);
 	write_outputs();
 }
 
@@ -8517,21 +8498,11 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 #ifndef _DEBUG
 	this->tabControl1->TabPages->Remove(this->debugPage);
 #endif
-	if (load_inputs (*vehicle_inputs, "Vehicle_params_1.txt"))
+	sim_controller->load_form(*vehicle_inputs, *vehicle_outputs);
 	write_inputs();
-
-	vehicle->set_tires(msclr::interop::marshal_as<std::string>("Tires\\" + input_front_tires_selection->Text->Replace(" ", "_") + ".txt"),
-					   msclr::interop::marshal_as<std::string>("Tires\\" + input_rear_tires_selection->Text->Replace(" ", "_") + ".txt"));
-	vehicle->set_parameters(*vehicle_inputs);
-	vehicle->solver();
-	vehicle->output(*vehicle_outputs);
-	load_tire_list();
 	write_outputs();
-	
-	tire_name->Text = tire_list->Count > 0 ? tire_list[0]->Replace("_", " ") : nullptr;
+	load_tire_list();
 	select_tire();
-	load_tire_inputs(*tire_inputs, msclr::interop::marshal_as<std::string>("Tires\\" + selected_tire + ".txt"));
-	if (tire_list->Count > 0) {write_tire_inputs();}
 }
 private: System::Void tire_save_Click(System::Object^ sender, System::EventArgs^ e) {
 	save_tire();

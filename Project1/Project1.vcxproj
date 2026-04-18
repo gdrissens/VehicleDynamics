@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Inputs.cpp" />
+    <ClCompile Include="Simulation_controller.cpp" />
     <ClCompile Include="Tire.cpp" />
     <ClCompile Include="Tire_selection.cpp" />
     <ClCompile Include="Vehicle.cpp">
@@ -149,6 +150,7 @@
     <ClCompile Include="YMD.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Simulation_controller.h" />
     <ClInclude Include="State_variables.h" />
     <ClInclude Include="Outputs.h" />
     <ClInclude Include="Inputs.h" />
