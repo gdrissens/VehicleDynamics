@@ -147,6 +147,7 @@
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
     </ClCompile>
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Vehicle_repository.cpp" />
     <ClCompile Include="YMD.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="Tire.h" />
     <ClInclude Include="Tire_selection.h" />
     <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="Vehicle_repository.h" />
     <ClInclude Include="YMD.h" />
   </ItemGroup>
   <ItemGroup>

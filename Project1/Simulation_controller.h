@@ -2,11 +2,13 @@
 #include "Vehicle.h"
 #include "Inputs.h"
 #include "Outputs.h"
+#include "Vehicle_repository.h"
 
 class Simulation_controller
 {
 	private: 
 		Vehicle vehicle;
+		Vehicle_repository vehicle_repository;
 
 	public:
 

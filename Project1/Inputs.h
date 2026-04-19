@@ -11,6 +11,9 @@ struct Tire_inputs {
 };
 
 struct Vehicle_inputs {
+
+	int version;
+
 	//Simulation inputs
 	double R_min, V_input, beta_des, delta_d_des, kappa_des, lon_ratio_custom, lat_ratio_custom;
 	double BB_input, DB_input, delta_f_static, delta_r_static, gamma_f_static, gamma_r_static;
