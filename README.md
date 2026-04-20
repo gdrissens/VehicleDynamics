@@ -23,9 +23,7 @@ The project must be opened and built using a Visual Studio installation that sup
 
 The project follows a simple directory organization.
 
-Typical directory structure:
-
-```
+---
 VehicleDynamics/
 
     Project1/
@@ -53,6 +51,8 @@ VehicleDynamics/
     README
     VehicleDynamics.slnx
 
+---
+    
 # Build Instructions
 
 Follow these steps to build and run the software.
