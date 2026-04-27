@@ -1,20 +1,20 @@
 #include "Vehicle_repository.h"
 
 
-void Vehicle_repository::upgrade_version(Vehicle_inputs& inputs) {
+void Vehicle_repository::upgrade_version(Vehicle_inputs& vehicle_inputs) {
 	// Implement logic to upgrade older versions of the configuration to the current version
 	// This may involve setting default values for new fields, converting units, etc.
-	if (inputs.version < CURRENT_VERSION) {
+	if (vehicle_inputs.version < CURRENT_VERSION) {
 		// Example: If a new field was added in version 1, set a default value for it
-		if (inputs.version < 1) {
+		if (vehicle_inputs.version < 1) {
 			// Set default values for any new fields added in version 1
 		}
 		// Add more upgrade logic as needed for future versions
-		inputs.version = CURRENT_VERSION; // Update version after upgrading
+		vehicle_inputs.version = CURRENT_VERSION; // Update version after upgrading
 	}
 }
 
-void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs, const Tire_inputs& tire_inputs) {
+void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs) {
 	// Implement validation logic for the vehicle configuration
 	// Check for required fields, value ranges, and consistency
 
@@ -88,15 +88,5 @@ void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs, const Ti
 		throw ("Tire selections cannot be empty.");
 	}
 
-	//Tire inputs
-	if (tire_inputs.K_T <= 0) {
-		throw ("Tire stiffness must be greater than zero.");
-	}
-	if (tire_inputs.r_u <= 0) {
-		throw ("Tire radius must be greater than zero.");
-	}
-	if (tire_inputs.F_z_o <= 0) {
-		throw ("Tire reference load must be greater than zero.");
-	}
 	// Add more validation checks as needed
 }

@@ -35,7 +35,7 @@ public:
 
     void set_parameters(Tire_inputs& input);
 
-    void set_alpha();
+    void set_alpha(double a_rad);
 
     void set_K_T();
 
@@ -51,15 +51,15 @@ public:
 
     void set_F_x_comb(int lon_sign);
 
-    void set_F_y_comb();
+    void set_F_y_comb(double a_rad);
 
     void set_T();
 
     void set_T_r(int lon_sign, Actuator_type brakes, Actuator_type diff);
 
-    void set_F_lat(int lon_sign);
+    void set_F_lat();
 
-    void set_F_lon(int lon_sign);
+    void set_F_lon();
 
     void set_F_rad();
 

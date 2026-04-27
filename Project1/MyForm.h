@@ -559,6 +559,11 @@ private: System::Windows::Forms::Label^ output_debug3;
 
 private: System::Windows::Forms::Label^ output_debug2;
 private: System::Windows::Forms::Label^ output_debug4;
+private: System::Windows::Forms::Label^ output_golden_total;
+private: System::Windows::Forms::Label^ output_golden_single;
+private: System::Windows::Forms::Label^ output_brents_total;
+private: System::Windows::Forms::Label^ output_brents_single;
+private: System::Windows::Forms::Label^ output_iter_total;
 
 
 
@@ -1169,6 +1174,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_beta = (gcnew System::Windows::Forms::NumericUpDown());
 			this->YMD = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->debugPage = (gcnew System::Windows::Forms::TabPage());
+			this->output_golden_total = (gcnew System::Windows::Forms::Label());
+			this->output_golden_single = (gcnew System::Windows::Forms::Label());
+			this->output_brents_total = (gcnew System::Windows::Forms::Label());
+			this->output_brents_single = (gcnew System::Windows::Forms::Label());
 			this->output_debug4 = (gcnew System::Windows::Forms::Label());
 			this->output_debug3 = (gcnew System::Windows::Forms::Label());
 			this->output_debug2 = (gcnew System::Windows::Forms::Label());
@@ -1179,6 +1188,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->output_iter_total = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage3->SuspendLayout();
@@ -1464,10 +1474,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3->Controls->Add(this->groupBox3);
 			this->tabPage3->Controls->Add(this->groupBox2);
 			this->tabPage3->Controls->Add(this->groupBox1);
-			this->tabPage3->Location = System::Drawing::Point(4, 35);
+			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(1075, 636);
+			this->tabPage3->Size = System::Drawing::Size(1075, 649);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Vehicle";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -2399,7 +2409,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(157, 47);
 			this->textBox3->TabIndex = 6;
-			this->textBox3->Text = L"Lateral mass distribution [%inner]";
+			this->textBox3->Text = L"Lateral mass distribution [%right]";
+			this->textBox3->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// input_y
 			// 
@@ -5949,10 +5960,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 35);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 636);
+			this->tabPage2->Size = System::Drawing::Size(1075, 649);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -5973,7 +5984,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -6552,10 +6563,12 @@ private: System::ComponentModel::IContainer^ components;
 				static_cast<System::Byte>(0)));
 			this->input_R_min->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
 			this->input_R_min->Location = System::Drawing::Point(169, 95);
+			this->input_R_min->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
 			this->input_R_min->Name = L"input_R_min";
 			this->input_R_min->Size = System::Drawing::Size(66, 27);
 			this->input_R_min->TabIndex = 3;
 			this->input_R_min->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			this->input_R_min->ValueChanged += gcnew System::EventHandler(this, &MyForm::input_R_min_ValueChanged);
 			// 
 			// textBox33
 			// 
@@ -6640,7 +6653,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 630);
+			this->tabControl2->Size = System::Drawing::Size(565, 643);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -6661,7 +6674,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 591);
+			this->tabPage6->Size = System::Drawing::Size(557, 604);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Outputs";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -7388,7 +7401,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage7->Location = System::Drawing::Point(4, 22);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(557, 604);
+			this->tabPage7->Size = System::Drawing::Size(557, 617);
 			this->tabPage7->TabIndex = 1;
 			this->tabPage7->Text = L"YMD";
 			this->tabPage7->UseVisualStyleBackColor = true;
@@ -7407,8 +7420,8 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer4.Panel2
 			// 
 			this->splitContainer4->Panel2->Controls->Add(this->YMD);
-			this->splitContainer4->Size = System::Drawing::Size(551, 598);
-			this->splitContainer4->SplitterDistance = 92;
+			this->splitContainer4->Size = System::Drawing::Size(551, 611);
+			this->splitContainer4->SplitterDistance = 94;
 			this->splitContainer4->TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -7440,7 +7453,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 92);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 94);
 			this->tableLayoutPanel2->TabIndex = 13;
 			// 
 			// input_num_delta_d
@@ -7449,7 +7462,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_delta_d->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->input_num_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_num_delta_d->Location = System::Drawing::Point(276, 49);
+			this->input_num_delta_d->Location = System::Drawing::Point(276, 50);
 			this->input_num_delta_d->Name = L"input_num_delta_d";
 			this->input_num_delta_d->Size = System::Drawing::Size(85, 27);
 			this->input_num_delta_d->TabIndex = 11;
@@ -7461,10 +7474,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox182->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox182->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox182->Location = System::Drawing::Point(185, 49);
+			this->textBox182->Location = System::Drawing::Point(185, 50);
 			this->textBox182->Multiline = true;
 			this->textBox182->Name = L"textBox182";
-			this->textBox182->Size = System::Drawing::Size(85, 40);
+			this->textBox182->Size = System::Drawing::Size(85, 41);
 			this->textBox182->TabIndex = 12;
 			this->textBox182->Text = L"Number of δd isolines";
 			// 
@@ -7490,7 +7503,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox180->Location = System::Drawing::Point(3, 3);
 			this->textBox180->Multiline = true;
 			this->textBox180->Name = L"textBox180";
-			this->textBox180->Size = System::Drawing::Size(85, 40);
+			this->textBox180->Size = System::Drawing::Size(85, 41);
 			this->textBox180->TabIndex = 6;
 			this->textBox180->Text = L"Maximum β [°]";
 			// 
@@ -7500,10 +7513,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox181->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox181->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox181->Location = System::Drawing::Point(3, 49);
+			this->textBox181->Location = System::Drawing::Point(3, 50);
 			this->textBox181->Multiline = true;
 			this->textBox181->Name = L"textBox181";
-			this->textBox181->Size = System::Drawing::Size(85, 40);
+			this->textBox181->Size = System::Drawing::Size(85, 41);
 			this->textBox181->TabIndex = 8;
 			this->textBox181->Text = L"Number of β isolines";
 			// 
@@ -7516,7 +7529,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox183->Location = System::Drawing::Point(185, 3);
 			this->textBox183->Multiline = true;
 			this->textBox183->Name = L"textBox183";
-			this->textBox183->Size = System::Drawing::Size(85, 40);
+			this->textBox183->Size = System::Drawing::Size(85, 41);
 			this->textBox183->TabIndex = 10;
 			this->textBox183->Text = L"Maximum δd [°]";
 			// 
@@ -7538,7 +7551,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_beta->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->input_num_beta->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_num_beta->Location = System::Drawing::Point(94, 49);
+			this->input_num_beta->Location = System::Drawing::Point(94, 50);
 			this->input_num_beta->Name = L"input_num_beta";
 			this->input_num_beta->Size = System::Drawing::Size(85, 27);
 			this->input_num_beta->TabIndex = 7;
@@ -7555,7 +7568,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			this->YMD->Size = System::Drawing::Size(551, 502);
+			this->YMD->Size = System::Drawing::Size(551, 513);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
 			title1->Name = L"Title1";
@@ -7563,22 +7576,63 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// debugPage
 			// 
+			this->debugPage->Controls->Add(this->output_iter_total);
+			this->debugPage->Controls->Add(this->output_golden_total);
+			this->debugPage->Controls->Add(this->output_golden_single);
+			this->debugPage->Controls->Add(this->output_brents_total);
+			this->debugPage->Controls->Add(this->output_brents_single);
 			this->debugPage->Controls->Add(this->output_debug4);
 			this->debugPage->Controls->Add(this->output_debug3);
 			this->debugPage->Controls->Add(this->output_debug2);
 			this->debugPage->Controls->Add(this->output_debug1);
-			this->debugPage->Location = System::Drawing::Point(4, 22);
+			this->debugPage->Location = System::Drawing::Point(4, 35);
 			this->debugPage->Name = L"debugPage";
 			this->debugPage->Padding = System::Windows::Forms::Padding(3);
-			this->debugPage->Size = System::Drawing::Size(1075, 649);
+			this->debugPage->Size = System::Drawing::Size(1075, 636);
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
 			// 
+			// output_golden_total
+			// 
+			this->output_golden_total->AutoSize = true;
+			this->output_golden_total->Location = System::Drawing::Point(39, 537);
+			this->output_golden_total->Name = L"output_golden_total";
+			this->output_golden_total->Size = System::Drawing::Size(72, 26);
+			this->output_golden_total->TabIndex = 7;
+			this->output_golden_total->Text = L"DEBUG";
+			// 
+			// output_golden_single
+			// 
+			this->output_golden_single->AutoSize = true;
+			this->output_golden_single->Location = System::Drawing::Point(39, 472);
+			this->output_golden_single->Name = L"output_golden_single";
+			this->output_golden_single->Size = System::Drawing::Size(72, 26);
+			this->output_golden_single->TabIndex = 6;
+			this->output_golden_single->Text = L"DEBUG";
+			// 
+			// output_brents_total
+			// 
+			this->output_brents_total->AutoSize = true;
+			this->output_brents_total->Location = System::Drawing::Point(39, 407);
+			this->output_brents_total->Name = L"output_brents_total";
+			this->output_brents_total->Size = System::Drawing::Size(72, 26);
+			this->output_brents_total->TabIndex = 5;
+			this->output_brents_total->Text = L"DEBUG";
+			// 
+			// output_brents_single
+			// 
+			this->output_brents_single->AutoSize = true;
+			this->output_brents_single->Location = System::Drawing::Point(39, 351);
+			this->output_brents_single->Name = L"output_brents_single";
+			this->output_brents_single->Size = System::Drawing::Size(72, 26);
+			this->output_brents_single->TabIndex = 4;
+			this->output_brents_single->Text = L"DEBUG";
+			// 
 			// output_debug4
 			// 
 			this->output_debug4->AutoSize = true;
-			this->output_debug4->Location = System::Drawing::Point(39, 232);
+			this->output_debug4->Location = System::Drawing::Point(39, 203);
 			this->output_debug4->Name = L"output_debug4";
 			this->output_debug4->Size = System::Drawing::Size(72, 26);
 			this->output_debug4->TabIndex = 3;
@@ -7672,6 +7726,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->Size = System::Drawing::Size(1184, 675);
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
+			// 
+			// output_iter_total
+			// 
+			this->output_iter_total->AutoSize = true;
+			this->output_iter_total->Location = System::Drawing::Point(39, 284);
+			this->output_iter_total->Name = L"output_iter_total";
+			this->output_iter_total->Size = System::Drawing::Size(72, 26);
+			this->output_iter_total->TabIndex = 8;
+			this->output_iter_total->Text = L"DEBUG";
 			// 
 			// MyForm
 			// 
@@ -8295,7 +8358,13 @@ private: System::ComponentModel::IContainer^ components;
 			output_debug1->Text = System::String::Format("Debug 1: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug1));
 			output_debug2->Text = System::String::Format("Debug 2: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug2));
 			output_debug3->Text = System::String::Format("Debug 3: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug3));
-			output_debug4->Text = System::String::Format("Debug 4: {0}", 0);
+			output_debug4->Text = System::String::Format("Debug 4: {0:F2}", System::Convert::ToDouble(vehicle_outputs->debug4));
+
+			output_brents_single->Text = System::String::Format("Brent's Method single run iterations: {0}", System::Convert::ToInt32(vehicle_outputs->brents_single));
+			output_brents_total->Text = System::String::Format("Brent's Method total iterations: {0}", System::Convert::ToInt32(vehicle_outputs->brents_total));
+			output_golden_single->Text = System::String::Format("Golden Section single run iterations: {0}", System::Convert::ToInt32(vehicle_outputs->golden_single));
+			output_golden_total->Text = System::String::Format("Golden Section total iterations: {0}", System::Convert::ToInt32(vehicle_outputs->golden_total));
+			output_iter_total->Text = System::String::Format("Total main solver iterations: {0}", System::Convert::ToInt32(vehicle_outputs->iter_total));
 #endif
 			}
 
@@ -8478,13 +8547,23 @@ private: System::ComponentModel::IContainer^ components;
 #pragma endregion
 private: System::Void RUN_Click(System::Object^ sender, System::EventArgs^ e) {
 	read_inputs();
-	sim_controller->run_simulation(*vehicle_inputs, *vehicle_outputs);
+	try {
+		sim_controller->run_simulation(*vehicle_inputs, *vehicle_outputs);
+	}
+	catch (const std::exception& e) {
+		MessageBox::Show(gcnew System::String(e.what()), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 	write_outputs();
 }
 
 private: System::Void RUN_YMD_Click(System::Object^ sender, System::EventArgs^ e) {
 	read_inputs();
-	sim_controller->run_YMD(*vehicle_inputs, *vehicle_outputs, *YMD_carrier);
+	try {
+		sim_controller->run_YMD(*vehicle_inputs, *vehicle_outputs, *YMD_carrier);
+	}
+	catch (const std::exception& e) {
+		MessageBox::Show(gcnew System::String(e.what()), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 	YMD_setup(YMD, *YMD_carrier);
 	YMD_clear(YMD);
 	YMD_plot(YMD, *YMD_carrier);
@@ -8499,7 +8578,12 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 #ifndef _DEBUG
 	this->tabControl1->TabPages->Remove(this->debugPage);
 #endif
-	sim_controller->load_form(*vehicle_inputs, *vehicle_outputs);
+	try {
+		sim_controller->load_form(*vehicle_inputs, *vehicle_outputs);
+	}
+	catch (const std::exception& e) {
+		MessageBox::Show(gcnew System::String(e.what()), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 	write_inputs();
 	write_outputs();
 	load_tire_list();
@@ -8517,6 +8601,8 @@ private: System::Void tire_delete_Click(System::Object^ sender, System::EventArg
 private: System::Void tire_name_SelectionChangeCommitted(System::Object^ sender, System::EventArgs^ e) {
 	select_tire();
 }
+private: System::Void input_R_min_ValueChanged(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {}
 };
 }
 

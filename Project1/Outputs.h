@@ -7,7 +7,9 @@ struct Vehicle_outputs {
 	double F_z_fi, F_z_fo, F_z_ri, F_z_ro, T_fi, T_fo, T_ri, T_ro;
 
 #ifdef _DEBUG	
-	double debug1, debug2, debug3;
+	double debug1, debug2, debug3, debug4;
+	int brents_single, brents_total, golden_single, golden_total;
+	int iter_total;
 #endif
 };
 

@@ -14,6 +14,7 @@ std::string _tos(std::string string) {
 }
 
 void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
+
     std::ofstream ostream(file_name);
 
     //Simulation inputs

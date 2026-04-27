@@ -23,6 +23,8 @@ private:
     Corner_type corner_type = Corner_type::Steady;
     Corner_side corner_side = Corner_side::Right;
 
+	int CORNER_SIGN = 1; // Sign for cornering direction (1 for right, -1 for left)
+
     //Driver input
     Pedals_input pedals_input = Pedals_input::Coasting;
     Steering_input steering_input = Steering_input::Straight;
@@ -57,7 +59,7 @@ private:
     double m_s = 0.0;
 
     //CG location
-    double h_CG = 0.0, a = 0.0, b = 0.0, a_s = 0.0, b_s = 0.0, c = 0.0, c_s = 0.0;
+    double h_CG = 0.0, a = 0.0, b = 0.0, a_s = 0.0, b_s = 0.0;
 
     //Wheel displacements
     double w_fi = 0.0, w_fo = 0.0, w_ri = 0.0, w_ro = 0.0;
@@ -172,11 +174,14 @@ private:
     double M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
 
     //Solver parameters
-    int iter = 0.0;
+	int iter = 0, iter_total = 0;
     double max_iter = 0.0, F_z_tol = 0.0;
 
     //YMD parameters
     double max_beta = 0.0, num_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0;
+
+	//Debug variables
+	int brents_iter_single = 0, brents_iter_total = 0, golden_iter_single = 0, golden_iter_total = 0;
 
 public:
     Vehicle();

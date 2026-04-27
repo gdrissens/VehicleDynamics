@@ -8,11 +8,11 @@
     public:
         static constexpr int CURRENT_VERSION = 1;
 
-        void validate(const Vehicle_inputs& inputs);
+        void validate(const Vehicle_inputs& vehicle_inputs);
 
     private:
 
-        void upgrade_version(Vehicle_inputs& inputs);
+        void upgrade_version(Vehicle_inputs& vehicle_inputs);
     };
 
 

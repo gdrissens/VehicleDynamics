@@ -58,7 +58,10 @@ void Tire::set_parameters(Tire_inputs& input) {
     K_T = input.K_T * 1000.0;
 }
 
-void Tire::set_alpha() { alpha = (delta - theta) * AXLE * SIDE; }
+void Tire::set_alpha(double a_rad) {
+    alpha = (delta - theta) * AXLE * SIDE;
+    if (a_rad < 0) {alpha = -alpha;}
+}
 
 void Tire::set_K_T() { K_T = K_T; } // [N/m] Tire stiffness     FUNCTION INPUT
 
@@ -106,8 +109,9 @@ void Tire::set_F_x_comb(int lon_sign) {
     F_x_comb = lon_sign * F_x * abs(F_y) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_x * F_x + kappa_x * kappa_x * K_y_alpha * K_y_alpha) / (K_y_alpha); // [N] Tire combined longitudinal force
 }
 
-void Tire::set_F_y_comb() {
+void Tire::set_F_y_comb(double a_rad) {
     F_y_comb = SIDE * F_y * abs(F_x) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_y * F_y + sin(alpha_y) * sin(alpha_y) * K_x_kappa * K_x_kappa) / (K_x_kappa * cos(alpha_y)); // [N] Tire combined lateral force
+	if (a_rad < 0) { F_y_comb = -F_y_comb; }
 }
 
 void Tire::set_T() { T = F_x_comb * r; }
@@ -117,9 +121,9 @@ void Tire::set_T_r(int lon_sign, Actuator_type brakes, Actuator_type diff) {
     else { T_r = 0; }
 }
 
-void Tire::set_F_lat(int lon_sign) { F_lat = F_y_comb * cos(delta) + AXLE * (F_x_comb - F_rr) * sin(delta); } // [N] Lateral force        
+void Tire::set_F_lat() { F_lat = F_y_comb * cos(delta) + AXLE * (F_x_comb - F_rr) * sin(delta); } // [N] Lateral force        
 
-void Tire::set_F_lon(int lon_sign) { F_lon = -AXLE * F_y_comb * sin(delta) + (F_x_comb - F_rr) * cos(delta); } // [N] Longitudinal force
+void Tire::set_F_lon() { F_lon = -AXLE * F_y_comb * sin(delta) + (F_x_comb - F_rr) * cos(delta); } // [N] Longitudinal force
 
 void Tire::set_F_rad() { F_rad = F_lat * cos(theta) - AXLE * F_lon * sin(theta); } // [N] Cornering radial force
 
