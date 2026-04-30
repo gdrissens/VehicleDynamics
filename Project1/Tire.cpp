@@ -111,7 +111,7 @@ void Tire::set_F_x_comb(int lon_sign) {
 
 void Tire::set_F_y_comb(double a_rad) {
     F_y_comb = SIDE * F_y * abs(F_x) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_y * F_y + sin(alpha_y) * sin(alpha_y) * K_x_kappa * K_x_kappa) / (K_x_kappa * cos(alpha_y)); // [N] Tire combined lateral force
-	if (a_rad < 0) { F_y_comb = -F_y_comb; }
+	//if (a_rad < 0) { F_y_comb = -F_y_comb; }
 }
 
 void Tire::set_T() { T = F_x_comb * r; }

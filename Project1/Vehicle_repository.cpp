@@ -21,7 +21,7 @@ void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs) {
 	upgrade_version(const_cast<Vehicle_inputs&>(vehicle_inputs)); // Upgrade version if needed
 	
 	//Vehicle inputs
-	if (vehicle_inputs.R_min <= 0) {
+	if (vehicle_inputs.R <= 0) {
 		throw ("Minimum turning radius must be greater than zero.");
 	}
 	if (vehicle_inputs.V_input <= 0) {

@@ -19,20 +19,16 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
 
     //Simulation inputs
     ostream << "V_input" << '=' << vehicle_inputs.V_input << '\n';
-    ostream << "R_min" << '=' << vehicle_inputs.R_min << '\n';
-    ostream << "beta_des" << '=' << vehicle_inputs.beta_des << '\n';
-    ostream << "delta_d_des" << '=' << vehicle_inputs.delta_d_des << '\n';
+    ostream << "R" << '=' << vehicle_inputs.R << '\n';
+    ostream << "beta_deg" << '=' << vehicle_inputs.beta_deg << '\n';
+    ostream << "delta_d_deg" << '=' << vehicle_inputs.delta_d_deg << '\n';
     ostream << "kappa_des" << '=' << vehicle_inputs.kappa_des << '\n';
-    ostream << "lon_ratio_custom" << '=' << vehicle_inputs.lon_ratio_custom << '\n';
-    ostream << "lat_ratio_custom" << '=' << vehicle_inputs.lat_ratio_custom << '\n';
     ostream << "delta_f_static" << '=' << vehicle_inputs.delta_f_static << '\n';
     ostream << "delta_r_static" << '=' << vehicle_inputs.delta_r_static << '\n';
     ostream << "gamma_f_static" << '=' << vehicle_inputs.gamma_f_static << '\n';
     ostream << "gamma_r_static" << '=' << vehicle_inputs.gamma_r_static << '\n';
     ostream << "BB_input" << '=' << vehicle_inputs.BB_input << '\n';
     ostream << "DB_input" << '=' << vehicle_inputs.DB_input << '\n';
-    ostream << "corner_type" << '=' << static_cast<int>(vehicle_inputs.corner_type) << '\n';
-    ostream << "corner_side" << '=' << static_cast<int>(vehicle_inputs.corner_side) << '\n';
     ostream << "pedals_input" << '=' << static_cast<int>(vehicle_inputs.pedals_input) << '\n';
     ostream << "steering_input" << '=' << static_cast<int>(vehicle_inputs.steering_input) << '\n';
     ostream << "front_tires" << '=' << vehicle_inputs.front_tires_selection << '\n';
@@ -184,20 +180,16 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
 
         //Simulation inputs
         if (name == "V_input") vehicle_inputs.V_input = std::stod(value);
-        else if (name == "R_min") vehicle_inputs.R_min = std::stod(value);
-        else if (name == "beta_des") vehicle_inputs.beta_des = std::stod(value);
-        else if (name == "delta_d_des") vehicle_inputs.delta_d_des = std::stod(value);
+        else if (name == "R") vehicle_inputs.R = std::stod(value);
+        else if (name == "beta_deg") vehicle_inputs.beta_deg = std::stod(value);
+        else if (name == "delta_d_deg") vehicle_inputs.delta_d_deg = std::stod(value);
         else if (name == "kappa_des") vehicle_inputs.kappa_des = std::stod(value);
-        else if (name == "lon_ratio_custom") vehicle_inputs.lon_ratio_custom = std::stod(value);
-        else if (name == "lat_ratio_custom") vehicle_inputs.lat_ratio_custom = std::stod(value);
         else if (name == "delta_f_static") vehicle_inputs.delta_f_static = std::stod(value);
         else if (name == "delta_r_static") vehicle_inputs.delta_r_static = std::stod(value);
         else if (name == "gamma_f_static") vehicle_inputs.gamma_f_static = std::stod(value);
         else if (name == "gamma_r_static") vehicle_inputs.gamma_r_static = std::stod(value);
         else if (name == "BB_input") vehicle_inputs.BB_input = std::stod(value);
         else if (name == "DB_input") vehicle_inputs.DB_input = std::stod(value);
-        else if (name == "corner_type") vehicle_inputs.corner_type = static_cast<Corner_type>(std::stoi(value));
-        else if (name == "corner_side") vehicle_inputs.corner_side = static_cast<Corner_side>(std::stoi(value));
         else if (name == "pedals_input") vehicle_inputs.pedals_input = static_cast<Pedals_input>(std::stoi(value));
         else if (name == "steering_input") vehicle_inputs.steering_input = static_cast<Steering_input>(std::stoi(value));
         else if (name == "front_tires") vehicle_inputs.front_tires_selection = (value);

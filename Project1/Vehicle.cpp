@@ -21,15 +21,10 @@ Vehicle::Vehicle() {};
 
         vehicle_inputs = inputs;
 
-        //Corner input
-        corner_type = vehicle_inputs.corner_type; // (INPUT)
-        corner_side = vehicle_inputs.corner_side; // (INPUT)
 
         //Driver input
         pedals_input = vehicle_inputs.pedals_input; // (INPUT)
         steering_input = vehicle_inputs.steering_input; // (INPUT)
-        lon_ratio_custom = vehicle_inputs.lon_ratio_custom / 100.0; // [-] Custom longitudinal acceleration ratio (-1 to 1) (INPUT)
-        lat_ratio_custom = vehicle_inputs.lat_ratio_custom / 100.0; // [-] Custom lateral acceleration ratio (1 = max) (INPUT)
 
         //Drive and Brake bias
         drive_config = vehicle_inputs.drive_config; // (INPUT)
@@ -73,16 +68,14 @@ Vehicle::Vehicle() {};
         //Ackermann geometry
 
         //Actual cornering radius calculation
-        R_min = vehicle_inputs.R_min; // [m] Minimum cornering radius (from CG) (INPUT)
-        beta_des = vehicle_inputs.beta_des; // [deg] Desired vehicle sideslip angle (INPUT)
+        R = vehicle_inputs.R; // [m] Minimum cornering radius (from CG) (INPUT)
+        beta_deg = vehicle_inputs.beta_deg; // [deg] Desired vehicle sideslip angle (INPUT)
 
         //Steering angles
-        delta_d_des = vehicle_inputs.delta_d_des; // [deg] Desired front outer wheel steering angle (MAX 115)                            INPUT
-        fi.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) * pi / 180.0; // [rad] Front outer wheel steering angle (INPUT)
-        fo.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 - delta_f_static) * pi / 180.0; // [rad] Front inner wheel steering angle (INPUT)
+        delta_d_deg = vehicle_inputs.delta_d_deg; // [deg] Desired front outer wheel steering angle (MAX 115)                            INPUT
 
         //Slip ratios
-        kappa_des = vehicle_inputs.kappa_des / 100.0 * ((corner_type == Corner_type::Steady) ? 1 : lon_input); // [-] Desired slip ratio (INPUT)
+        kappa_des = vehicle_inputs.kappa_des / 100.0; // [-] Desired slip ratio (INPUT)
 
         //Chassis torsional stiffness
         k_r_C_deg = vehicle_inputs.k_r_C_deg; // [N*m/deg] Chassis torsional stiffness (INPUT)
@@ -117,7 +110,7 @@ Vehicle::Vehicle() {};
 
     void Vehicle::solver() {
 
-        refresh();
+        //refresh();
 
         vehicle_parameters();
 
@@ -134,7 +127,7 @@ Vehicle::Vehicle() {};
         //Main iterative loop
         iter = 0; // Iteration counters for slip ratio calculations
         F_z_tol = 0.01; // [N] Acceptable wheel load error for the iterative process
-        max_iter = vehicle_inputs.lon_ratio_custom; // Maximum number of iterations for the iterative process
+        max_iter = 50; // Maximum number of iterations for the iterative process
 
         do {
             
@@ -164,37 +157,27 @@ Vehicle::Vehicle() {};
     }
 
     void Vehicle::vehicle_parameters() {
-        //Corner input
-        corner_type = (steering_input == Steering_input::Straight) ? Corner_type::Transient : corner_type;
-		CORNER_SIGN = (corner_side == Corner_side::Right) ? 1 : -1; // Sign for cornering direction (1 for right, -1 for left)
 
         //Driver input
         if (vehicle_inputs.force_a_lon) {
             force_a_lon = true;
             a_lon_des = vehicle_inputs.a_lon_des * g;
         }
-        lon_ratio = (pedals_input == Pedals_input::Driving) ? 1.0 : (pedals_input == Pedals_input::Braking) ? -1.0 : lon_ratio_custom; // [-] Longitudinal acceleration ratio
-        if (pedals_input == Pedals_input::Cruising) { force_a_lon = true; lon_ratio = 1.0; a_lon_des = 0.0; }
-        if (pedals_input == Pedals_input::Coasting) { force_a_lon = false; lon_ratio = 1.0; kappa_des = 0.0; }
-        lat_ratio = (steering_input == Steering_input::Steering) ? 1.0 : (steering_input == Steering_input::Straight) ? 1e-10 : lat_ratio_custom; // [-] Lateral acceleration ratio
-        lon_input = lon_ratio * lon_ratio / sqrt(lon_ratio * lon_ratio + lat_ratio * lat_ratio); // [-] Longitudinal acceleration input
-        lat_input = lat_ratio * lat_ratio / sqrt(lon_ratio * lon_ratio + lat_ratio * lat_ratio); // [-] Lateral acceleration input
-        lon_sign = copysign(1.0, lon_ratio);
+        if (pedals_input == Pedals_input::Cruising) { force_a_lon = true; a_lon_des = 0.0; }
+        if (pedals_input == Pedals_input::Coasting) { force_a_lon = false; kappa_des = 0.0; }
+		if (pedals_input == Pedals_input::Driving) { lon_sign  = 1.0; }
+		if (pedals_input == Pedals_input::Braking) { lon_sign = -1.0; }
 
         //Drive and Brake bias
         DB = (drive_config == Actuator_config::Front) ? 100.0 : (drive_config == Actuator_config::Rear) ? 0.0 : DB_input; // [%front] Torque bias
         BB = (brake_config == Actuator_config::Front) ? 100.0 : (brake_config == Actuator_config::Rear) ? 0.0 : BB_input; // [%front] Brake bias
-        bias = (lon_ratio >= 0) ? DB / 100.0 : BB / 100.0; // [%front] Torque or brake bias
+        bias = (lon_sign >= 0) ? DB / 100.0 : BB / 100.0; // [%front] Torque or brake bias
 
         //Masses and weights
 
         //Total masses and weights
         W = m * g; // [N] Total weight of the vehicle (w/driver)
-		if (corner_side == Corner_side::Left) { y = 100.0 - y; } // Adjust left load distribution if cornering to the left
-        W_fi = W * x / 100.0 * y / 100.0; // [N] Front inner weight
-        W_fo = W * x / 100.0 * (1 - y / 100.0); // [N] Front outer weight
-        W_ri = W * (1 - x / 100.0) * y / 100.0; // [N] Rear inner weight
-        W_ro = W * (1 - x / 100.0) * (1 - y / 100.0); // [N] Rear outer weight
+        wheel_loads();
 
         //Unsprung masses
         m_u = m_u_fi + m_u_fo + m_u_ri + m_u_ro; // [kg] Total unsprung mass
@@ -215,13 +198,19 @@ Vehicle::Vehicle() {};
         b_s = (m * b - (m_u_fi + m_u_fo) * L) / m_s; // [m] Distance from the rear axle to the sprung mass CG
     }
 
+    void Vehicle::wheel_loads() {
+        W_fi = W * x / 100.0 * y / 100.0; // [N] Front inner weight
+        W_fo = W * x / 100.0 * (1 - y / 100.0); // [N] Front outer weight
+        W_ri = W * (1 - x / 100.0) * y / 100.0; // [N] Rear inner weight
+        W_ro = W * (1 - x / 100.0) * (1 - y / 100.0); // [N] Rear outer weight
+    }
+
     void Vehicle::ackermann_diagram() {
        //Ackermann geometry
 
        //Actual cornering radius calculation
-        R = (corner_type == Corner_type::Steady) ? R_min : R_min / (lat_input + 1E-20); // [m] Cornering radius (from CG) 
-        beta_deg = (corner_type == Corner_type::Steady) ? beta_des : beta_des * lat_input; // [deg] Vehicle sideslip angle
-        beta = beta_deg < 1E-10 && beta_deg > -1E-10 ? 0 : beta_deg * pi / 180.0; // [rad] Vehicle sideslip angle                 
+        beta_deg = vehicle_inputs.beta_deg;
+        beta = beta_deg < 1E-10 && beta_deg > -1E-10 ? 0 : beta_deg * pi / 180.0; // [rad] Vehicle sideslip angle   
         R_a = R * cos(beta); // [m] Actual cornering radius
         S_f = a + R * sin(beta); // [m]
         S_r = L - S_f; // [m]
@@ -233,9 +222,9 @@ Vehicle::Vehicle() {};
         ro.R = sqrt((R_a + t_r / 2) * (R_a + t_r / 2) + S_r * S_r); // [m] Rear outer wheel cornering radius
 
         //Steering angles
-        delta_d_deg = (corner_type == Corner_type::Steady) ? delta_d_des : round_to(delta_d_des * lat_input, 2); // [deg] Front outer wheel steering angle
-        fi.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) * pi / 180.0; // [rad] Front outer wheel steering angle (INPUT)
-        fo.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) * pi / 180.0; // [rad] Front inner wheel steering angle (INPUT)
+        delta_d_deg = vehicle_inputs.delta_d_deg;
+        fi.delta = (abs(delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) + delta_f_static) * pi / 180.0 * copysign(1.0, delta_d_deg); // [rad] Front outer wheel steering angle (INPUT)
+        fo.delta = (abs(delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) - delta_f_static) * pi / 180.0 * copysign(1.0, delta_d_deg); // [rad] Front inner wheel steering angle (INPUT)
         ri.delta = (delta_r_static) * pi / 180; // [rad] Rear inner wheel steering angle
         ro.delta = (delta_r_static) * pi / 180; // [rad] Rear outer wheel steering angle
 
@@ -302,6 +291,21 @@ Vehicle::Vehicle() {};
         fi.set_F_rad(), fo.set_F_rad(), ri.set_F_rad(), ro.set_F_rad();
         F_rad = fi.F_rad + fo.F_rad + ri.F_rad + ro.F_rad - F_drag * sin(beta); // [N] Total cornering radial force
         a_rad = (abs(F_rad / W) < 1e-10) ? 1e-10 : F_rad / W; // [g] Vehicle cornering radial acceleration
+
+        //Set corner side
+        if (a_lat < 0) { 
+            if (iter == 0) {
+                y = 100.0 - y; // Adjust left load distribution if cornering to the left
+                wheel_loads(); // Update wheel loads based on the new cornering direction
+            }
+
+            if (!vehicle_inputs.force_velocity) {
+                R = -abs(R); // [m] Cornering radius (from CG)
+                ackermann_diagram();
+                fi.set_alpha(a_lat), fo.set_alpha(a_lat), ri.set_alpha(a_lat), ro.set_alpha(a_lat);
+                fi.set_F_y_comb(a_lat), fo.set_F_y_comb(a_lat), ri.set_F_y_comb(a_lat), ro.set_F_y_comb(a_lat);
+            }
+        }
     }
 
     void Vehicle::unsprung_masses() {
@@ -394,6 +398,7 @@ Vehicle::Vehicle() {};
         V_skid = sqrt(a_rad * g * R); // [m/s] Vehicle skid speed
         V = std::min(V_input / 3.6, V_skid); // [m/s] Vehicle speed
         V_kmh = V * 3.6; // [km/h] Vehicle speed
+
         if (vehicle_inputs.force_velocity) {
             V = V_input / 3.6; // [m/s] Vehicle speed
             R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
@@ -551,10 +556,10 @@ Vehicle::Vehicle() {};
         w_ri = round_to(-(dW_lat_k_ri) / (K_susp_ri + K_arb_ri) + (F_down_ri + dW_lon_k_ri) / K_susp_ri, 5); // [m] Rear inner tire vertical displacement
         w_ro = round_to((dW_lat_k_ro) / (K_susp_ro + K_arb_ro) + (F_down_ro + dW_lon_k_ro) / K_susp_ro, 5); // [m] Rear outer tire vertical displacement
 
-        fi.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) + delta_f_static + (w_fi * w_fi * 1e6 * vehicle_inputs.bs_f_2 + w_fi * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front outer wheel steering angle
-        fo.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1) - delta_f_static + (w_fo * w_fo * 1e6 * vehicle_inputs.bs_f_2 + w_fo * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front inner wheel steering angle                      FUNCTION INPUT
-        ri.delta = round_to((0.0 + delta_r_static + (w_ri * w_ri * vehicle_inputs.bs_r_2 + w_ri * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5); // [rad] Rear inner wheel steering angle
-        ro.delta = round_to((0.0 - delta_r_static + (w_ro * w_ro * vehicle_inputs.bs_r_2 + w_ro * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5);// [rad] Rear outer wheel steering angle
+        //fi.delta = round_to(((delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) + (w_fi * w_fi * 1e6 * vehicle_inputs.bs_f_2 + w_fi * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front outer wheel steering angle
+        //fo.delta = round_to((-(delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) + (w_fo * w_fo * 1e6 * vehicle_inputs.bs_f_2 + w_fo * 1e3 * vehicle_inputs.bs_f_1) * 0) * pi / 180.0, 5); // [rad] Front inner wheel steering angle                      FUNCTION INPUT
+        //ri.delta = round_to((delta_r_static + (w_ri * w_ri * vehicle_inputs.bs_r_2 + w_ri * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5); // [rad] Rear inner wheel steering angle
+        //ro.delta = round_to((-delta_r_static + (w_ro * w_ro * vehicle_inputs.bs_r_2 + w_ro * vehicle_inputs.bs_r_1) * 0) * pi / 180.0, 5);// [rad] Rear outer wheel steering angle
 
         fi.gamma = round_to(-psi + gamma_f_static + ((w_fi * w_fi * 1e6 * vehicle_inputs.bc_f_2 + w_fi * 1e3 * vehicle_inputs.bc_f_1) + (fi.delta * fi.delta * 180 * 180 / pi / pi * vehicle_inputs.sc_f_2 + fi.delta * 180 / pi * vehicle_inputs.sc_f_1)) * pi / 180.0, 5); // [rad] Front inner tire camber angle
         fo.gamma = round_to(psi + gamma_f_static + ((w_fo * w_fo * 1e6 * vehicle_inputs.bc_f_2 + w_fo * 1e3 * vehicle_inputs.bc_f_1) - (fo.delta * fo.delta * 180 * 180 / pi / pi * vehicle_inputs.sc_f_2 + fo.delta * 180 / pi * vehicle_inputs.sc_f_1)) * pi / 180.0, 5); // [rad] Front outer tire camber angle
@@ -588,20 +593,37 @@ Vehicle::Vehicle() {};
         fi.set_T(), fo.set_T(), ri.set_T(), ro.set_T();
 
         if (bias > 0.5 && iter != 0) {
-            
-            if (force_a_lon) {
-                fi.F_x_comb_tar = (m * a_lon_des + F_drag + fi.F_y_comb * sin(fi.delta) + fo.F_y_comb * sin(fo.delta) - ri.F_y_comb * sin(ri.delta) - ro.F_y_comb * sin(ro.delta) + fi.F_rr * cos(fi.delta) + fo.F_rr * cos(fo.delta) + ri.F_rr * cos(ri.delta) + ro.F_rr * cos(ro.delta)) / (cos(fi.delta) + cos(fo.delta) * fi.r / fo.r + cos(ri.delta) * fi.r / ri.r * (1 - bias) / bias + cos(ro.delta) * fi.r / ro.r * (1 - bias) / bias);
-                brents_method(fi, 0.0, 1.0);
-                kappa_des = fi.kappa;
+            if (W_fi < W_fo) {
+                if (force_a_lon) {
+                    fi.F_x_comb_tar = (m * a_lon_des + F_drag + fi.F_y_comb * sin(fi.delta) + fo.F_y_comb * sin(fo.delta) - ri.F_y_comb * sin(ri.delta) - ro.F_y_comb * sin(ro.delta) + fi.F_rr * cos(fi.delta) + fo.F_rr * cos(fo.delta) + ri.F_rr * cos(ri.delta) + ro.F_rr * cos(ro.delta)) / (cos(fi.delta) + cos(fo.delta) * fi.r / fo.r + cos(ri.delta) * fi.r / ri.r * (1 - bias) / bias + cos(ro.delta) * fi.r / ro.r * (1 - bias) / bias);
+                    brents_method(fi, 0.0, 1.0);
+                    kappa_des = fi.kappa;
+                }
+
+                fi.kappa = kappa_des;
+                fo.F_x_comb_tar = fi.T / fo.r;
+                peak_kappa(fo);
+                if (fo.peak_kappa > kappa_des) { brents_method(fo, -0.1, 1); }
+                else {
+                    brents_method(fo, fo.peak_kappa, 1);
+                    if (fo.kappa > kappa_des + 0.001) { brents_method(fo, -0.1, fo.peak_kappa); }
+                }
             }
-            
-            fi.kappa = kappa_des;
-            fo.F_x_comb_tar = fi.T / fo.r;
-            peak_kappa(fo);
-            if (fo.peak_kappa > kappa_des) { brents_method(fo, -0.1, 1); }
-            else {
-                brents_method(fo, fo.peak_kappa, 1);
-                if (fo.kappa > kappa_des + 0.001) { brents_method(fo, -0.1, fo.peak_kappa); }
+            else if (W_fi >= W_fo) {
+                if (force_a_lon) {
+                    fo.F_x_comb_tar = (m * a_lon_des + F_drag + fi.F_y_comb * sin(fi.delta) + fo.F_y_comb * sin(fo.delta) - ri.F_y_comb * sin(ri.delta) - ro.F_y_comb * sin(ro.delta) + fi.F_rr * cos(fi.delta) + fo.F_rr * cos(fo.delta) + ri.F_rr * cos(ri.delta) + ro.F_rr * cos(ro.delta)) / (cos(fo.delta) + cos(fi.delta) * fo.r / fi.r + cos(ri.delta) * fo.r / ri.r * (1 - bias) / bias + cos(ro.delta) * fo.r / ro.r * (1 - bias) / bias);
+                    brents_method(fo, 0.0, 1.0);
+                    kappa_des = fo.kappa;
+                }
+
+                fo.kappa = kappa_des;
+                fi.F_x_comb_tar = fo.T / fi.r;
+                peak_kappa(fi);
+                if (fi.peak_kappa > kappa_des) { brents_method(fi, -0.1, 1); }
+                else {
+                    brents_method(fi, fi.peak_kappa, 1);
+                    if (fi.kappa > kappa_des + 0.001) { brents_method(fi, -0.1, fi.peak_kappa); }
+                }
             }
             ri.F_x_comb_tar = (1 - bias) / bias * (fi.T + fo.T) / (2 * ri.r);
             ro.F_x_comb_tar = (1 - bias) / bias * (fi.T + fo.T) / (2 * ro.r);
@@ -613,20 +635,36 @@ Vehicle::Vehicle() {};
             else { brents_method(ro, ro.peak_kappa, 1); }
         }
         else if (bias <= 0.5 && iter != 0) {
-            
-            if (force_a_lon) {
-                ri.F_x_comb_tar = (m * a_lon_des + F_drag + fi.F_y_comb * sin(fi.delta) + fo.F_y_comb * sin(fo.delta) - ri.F_y_comb * sin(ri.delta) - ro.F_y_comb * sin(ro.delta) + fi.F_rr * cos(fi.delta) + fo.F_rr * cos(fo.delta) + ri.F_rr * cos(ri.delta) + ro.F_rr * cos(ro.delta)) / (cos(ri.delta) + cos(ro.delta) * ri.r / ro.r + cos(fi.delta) * ri.r / fi.r * bias / (1 - bias) + cos(fo.delta) * ri.r / fo.r * bias / (1 - bias));
-                brents_method(ri, 0.0, 1.0);
-                kappa_des = ri.kappa;
+            if (W_ri < W_ro) {
+                if (force_a_lon) {
+                    ri.F_x_comb_tar = (m * a_lon_des + F_drag + fi.F_y_comb * sin(fi.delta) + fo.F_y_comb * sin(fo.delta) - ri.F_y_comb * sin(ri.delta) - ro.F_y_comb * sin(ro.delta) + fi.F_rr * cos(fi.delta) + fo.F_rr * cos(fo.delta) + ri.F_rr * cos(ri.delta) + ro.F_rr * cos(ro.delta)) / (cos(ri.delta) + cos(ro.delta) * ri.r / ro.r + cos(fi.delta) * ri.r / fi.r * bias / (1 - bias) + cos(fo.delta) * ri.r / fo.r * bias / (1 - bias));
+                    brents_method(ri, 0.0, 1.0);
+                    kappa_des = ri.kappa;
+                }
+
+                ri.kappa = kappa_des;
+                ro.F_x_comb_tar = ri.T / ro.r;
+                peak_kappa(ro);
+                if (ro.peak_kappa > kappa_des) { brents_method(ro, -0.1, 1); }
+                else {
+                    brents_method(ro, ro.peak_kappa, 1);
+                    if (ro.kappa > kappa_des + 0.001) { brents_method(ro, -0.1, ro.peak_kappa); }
+                }
             }
-            
-            ri.kappa = kappa_des;
-            ro.F_x_comb_tar = ri.T / ro.r;
-            peak_kappa(ro);
-            if (ro.peak_kappa > kappa_des) { brents_method(ro, -0.1, 1); }
-            else {
-                brents_method(ro, ro.peak_kappa, 1);
-                if (ro.kappa > kappa_des + 0.001) { brents_method(ro, -0.1, ro.peak_kappa); }
+            else if (W_ri >= W_ro) {
+                if (force_a_lon) {
+                    ro.F_x_comb_tar = (m * a_lon_des + F_drag + fi.F_y_comb * sin(fi.delta) + fo.F_y_comb * sin(fo.delta) - ri.F_y_comb * sin(ri.delta) - ro.F_y_comb * sin(ro.delta) + fi.F_rr * cos(fi.delta) + fo.F_rr * cos(fo.delta) + ri.F_rr * cos(ri.delta) + ro.F_rr * cos(ro.delta)) / (cos(ro.delta) + cos(ri.delta) * ro.r / ri.r + cos(fi.delta) * ro.r / fi.r * bias / (1 - bias) + cos(fo.delta) * ro.r / fo.r * bias / (1 - bias));
+                    brents_method(ro, 0.0, 1.0);
+                    kappa_des = ro.kappa;
+                }
+                ro.kappa = kappa_des;
+                ri.F_x_comb_tar = ro.T / ri.r;
+                peak_kappa(ri);
+                if (ri.peak_kappa > kappa_des) { brents_method(ri, -0.1, 1); }
+                else {
+                    brents_method(ri, ri.peak_kappa, 1);
+                    if (ri.kappa > kappa_des + 0.001) { brents_method(ri, -0.1, ri.peak_kappa); }
+                }
             }
             fi.F_x_comb_tar = bias / (1 - bias) * (ri.T + ro.T) / (2 * fi.r);
             fo.F_x_comb_tar = bias / (1 - bias) * (ri.T + ro.T) / (2 * fo.r);
@@ -641,7 +679,7 @@ Vehicle::Vehicle() {};
 
     // Brent's method for finding root of f(x) = target
     void Vehicle::brents_method(Tire& tire, double a, double b) {
-        double tol = 1e-6; int max_iter = 100;
+        double tol = 1e-4; int max_iter = 40;
 
         auto f = [&](double x) {
             tire.kappa = x;
@@ -772,7 +810,7 @@ Vehicle::Vehicle() {};
             return tire.F_x_comb;
             };
 
-        double tolerance = 1e-6;
+        double tolerance = 1e-4;
         double x1 = x_l + goldenRatio * (x_u - x_l);
         double x2 = x_u - goldenRatio * (x_u - x_l);
 
@@ -798,7 +836,7 @@ Vehicle::Vehicle() {};
                 f2 = f(x2);
             }
             iter++;
-            if (iter > 100) {
+            if (iter > 40) {
                 break;
             }
         }
@@ -869,10 +907,10 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_ro = ro.T;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = M_yaw_fl;
-        vehicle_outputs.debug2 = M_yaw_fr;
-        vehicle_outputs.debug3 = M_yaw_rl;
-        vehicle_outputs.debug4 = M_yaw_rr;
+        vehicle_outputs.debug1 = fi.delta * 180 / pi;
+        vehicle_outputs.debug2 = fo.delta * 180 / pi;
+        vehicle_outputs.debug3 = ri.delta * 180 / pi;
+        vehicle_outputs.debug4 = ro.delta * 180 / pi;
 
 		vehicle_outputs.brents_single = brents_iter_single;
 		vehicle_outputs.brents_total = brents_iter_total;
@@ -883,8 +921,7 @@ Vehicle::Vehicle() {};
     };
 
     void Vehicle::refresh() {
-        lon_ratio = 0.0, lat_ratio = 0.0, lon_input = 0.0, lat_input = 0.0;
-        lon_sign = 0.0;
+        lon_sign = 1.0;
         BB = 0.0, DB = 0.0, bias = 0.0, bias_first = 0.0, bias_now = 0.0;
         W = 0.0, W_fi = 0.0, W_fo = 0.0, W_ri = 0.0, W_ro = 0.0;
         m_u = 0.0;
@@ -970,7 +1007,7 @@ Vehicle::Vehicle() {};
 
         for (double j = -max_delta_d; j <= max_delta_d; j += max_delta_d * 2 / num_delta_d) {
 
-            copy.delta_d_des = j;
+            copy.delta_d_deg = j;
 
 			A_LAT_ISODELTA.clear();
 			A_LON_ISODELTA.clear();
@@ -979,12 +1016,12 @@ Vehicle::Vehicle() {};
             BETA_ISODELTA.clear();
             DELTA_ISODELTA.clear();
 
-            copy.beta_des = -max_beta;
+            copy.beta_deg = -max_beta;
 
             for (int i = 0; i <= 50; i++) {
 
-                beta_past = copy.beta_des;
-                copy.beta_des += max_beta * 2 / 50;
+                beta_past = copy.beta_deg;
+                copy.beta_deg += max_beta * 2 / 50;
 
                 copy.solver();
 				brents_iter_total += copy.brents_iter_single;
@@ -996,10 +1033,10 @@ Vehicle::Vehicle() {};
                 A_LON_ISODELTA.push_back(round_to(copy.a_lon, 2));
                 //M_YAW_ISODELTA.push_back(j < 0.0 ? -copy.M_yaw : copy.M_yaw);
                 M_YAW_ISODELTA.push_back(copy.M_yaw);
-                BETA_ISODELTA.push_back(copy.beta_des);
+                BETA_ISODELTA.push_back(copy.beta_deg);
                 DELTA_ISODELTA.push_back(j);
 
-                if (i != 0) stability = abs(M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_des - beta_past);
+                if (i != 0) stability = abs(M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_deg - beta_past);
                 STABILITY.push_back(stability);
 
 				if ((j < 0.0 ? -copy.a_lat : copy.a_lat) > carrier.max_a_lat) {
@@ -1020,7 +1057,7 @@ Vehicle::Vehicle() {};
 			STABILITY_2.push_back(STABILITY);
 
             //DELTA_ISO.push_back(j < 0.0 ? -copy.delta_d_des : copy.delta_d_des);
-            DELTA_ISO.push_back(copy.delta_d_des);
+            DELTA_ISO.push_back(copy.delta_d_deg);
         }
 
 		carrier.a_lat_isodelta = A_LAT_ISODELTA_2;
@@ -1031,8 +1068,8 @@ Vehicle::Vehicle() {};
 		carrier.stability = STABILITY_2;
 		carrier.delta_iso = DELTA_ISO;
 
-        copy.beta_des = vehicle_inputs.beta_des; // Reset to original value after YMD
-        copy.delta_d_des = vehicle_inputs.delta_d_des; // Reset to original value after YMD
+        copy.beta_deg = vehicle_inputs.beta_deg; // Reset to original value after YMD
+        copy.delta_d_deg = vehicle_inputs.delta_d_deg; // Reset to original value after YMD
 
         //beta isolines
         std::vector <std::vector<double>> A_LAT_ISOBETA_2(0);
@@ -1052,7 +1089,7 @@ Vehicle::Vehicle() {};
         for (double j = -max_beta / 2; j <= max_beta / 2; j += max_beta / num_beta) {
 
             //j < 0.0 ? copy.beta_des = -j : copy.beta_des = j;
-            copy.beta_des = j;
+            copy.beta_deg = j;
 
             A_LAT_ISOBETA.clear();
 			A_LON_ISOBETA.clear();
@@ -1061,12 +1098,12 @@ Vehicle::Vehicle() {};
             BETA_ISOBETA.clear();
             DELTA_ISOBETA.clear();
 
-			copy.delta_d_des = -max_delta_d;
+			copy.delta_d_deg = -max_delta_d;
 
             for (int i = 0; i < num_delta_d; i++) {
 
-				delta_d_past = copy.delta_d_des;
-				copy.delta_d_des += max_delta_d * 2 / num_delta_d;
+				delta_d_past = copy.delta_d_deg;
+				copy.delta_d_deg += max_delta_d * 2 / num_delta_d;
 
                 copy.solver();
                 brents_iter_total += copy.brents_iter_single;
@@ -1078,9 +1115,9 @@ Vehicle::Vehicle() {};
 				A_LON_ISOBETA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISOBETA.push_back(copy.M_yaw);
                 BETA_ISOBETA.push_back(j);
-                DELTA_ISOBETA.push_back(copy.delta_d_des);
+                DELTA_ISOBETA.push_back(copy.delta_d_deg);
 
-                if (i != 0) control = abs(M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (copy.delta_d_des - delta_d_past);
+                if (i != 0) control = abs(M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (copy.delta_d_deg - delta_d_past);
 				CONTROL.push_back(control);
             }
 
@@ -1091,7 +1128,7 @@ Vehicle::Vehicle() {};
             DELTA_ISOBETA_2.push_back(DELTA_ISOBETA);
 			CONTROL_2.push_back(CONTROL);
             //BETA_ISO.push_back(j < 0.0 ? -copy.beta_des : copy.beta_des);
-            BETA_ISO.push_back(copy.beta_des);
+            BETA_ISO.push_back(copy.beta_deg);
         }
 
         carrier.a_lat_isobeta = A_LAT_ISOBETA_2;

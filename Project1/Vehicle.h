@@ -19,17 +19,10 @@ private:
     //Tires
     Tire fi, fo, ri, ro;
 
-    //Corner input
-    Corner_type corner_type = Corner_type::Steady;
-    Corner_side corner_side = Corner_side::Right;
-
-	int CORNER_SIGN = 1; // Sign for cornering direction (1 for right, -1 for left)
-
     //Driver input
     Pedals_input pedals_input = Pedals_input::Coasting;
     Steering_input steering_input = Steering_input::Straight;
-    double lon_ratio_custom = 0.0, lat_ratio_custom = 0.0, lon_ratio = 0.0, lat_ratio = 0.0, lon_input = 0.0, lat_input = 0.0;
-    int lon_sign = 0.0;
+    int lon_sign = 1.0;
 
     //Drive and Brake bias
 	Actuator_config drive_config = Actuator_config::All, brake_config = Actuator_config::All;
@@ -67,10 +60,10 @@ private:
     //Ackermann geometry
 
         //Actual cornering radius calculation
-    double R_min = 0.0, R = 0.0, beta_des = 0.0, beta_deg = 0.0, beta = 0.0, R_a = 0.0, S_f = 0.0, S_r = 0.0;
+    double R = 0.0, beta_deg = 0.0, beta = 0.0, R_a = 0.0, S_f = 0.0, S_r = 0.0;
 
     //Steering angles
-    double delta_d_des = 0.0, delta_d_deg = 0.0;
+    double delta_d_deg = 0.0;
 
     //Slip ratios
     double kappa_des = 0.0;
@@ -191,6 +184,8 @@ public:
     void set_parameters(const Vehicle_inputs& vehicle_inputs);
 
 	void vehicle_parameters();
+
+    void wheel_loads();
 
     void ackermann_diagram();
 

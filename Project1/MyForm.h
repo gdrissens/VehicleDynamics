@@ -45,13 +45,16 @@ namespace Project1 {
 	private: System::Windows::Forms::SplitContainer^ splitContainer1;
 	private: System::Windows::Forms::GroupBox^ groupBox8;
 	private: System::Windows::Forms::TextBox^ textBox26;
-	private: System::Windows::Forms::NumericUpDown^ input_delta_d_des;
+	private: System::Windows::Forms::NumericUpDown^ input_delta_d_deg;
+
 	private: System::Windows::Forms::TextBox^ textBox30;
 	private: System::Windows::Forms::NumericUpDown^ input_kappa_des;
 	private: System::Windows::Forms::TextBox^ textBox31;
-	private: System::Windows::Forms::NumericUpDown^ input_beta_des;
+	private: System::Windows::Forms::NumericUpDown^ input_beta_deg;
+
 	private: System::Windows::Forms::TextBox^ textBox32;
-	private: System::Windows::Forms::NumericUpDown^ input_R_min;
+	private: System::Windows::Forms::NumericUpDown^ input_R;
+
 	private: System::Windows::Forms::TextBox^ textBox33;
 	private: System::Windows::Forms::NumericUpDown^ input_V_input;
 	private: System::Windows::Forms::GroupBox^ groupBox9;
@@ -67,19 +70,19 @@ namespace Project1 {
 	private: System::Windows::Forms::NumericUpDown^ input_delta_f_static;
 	private: System::Windows::Forms::TextBox^ textBox36;
 	private: System::Windows::Forms::NumericUpDown^ input_DB_input;
-	private: System::Windows::Forms::NumericUpDown^ input_lat_ratio_custom;
-	private: System::Windows::Forms::TextBox^ textBox39;
-	private: System::Windows::Forms::NumericUpDown^ input_lon_ratio_custom;
+
+
+
 	private: System::Windows::Forms::ComboBox^ input_steering_input;
 	private: System::Windows::Forms::TextBox^ textBox38;
 	private: System::Windows::Forms::ComboBox^ input_pedals_input;
 	private: System::Windows::Forms::TextBox^ textBox37;
-	private: System::Windows::Forms::GroupBox^ groupBox10;
-	private: System::Windows::Forms::TextBox^ textBox40;
-	private: System::Windows::Forms::ComboBox^ input_corner_side;
-	private: System::Windows::Forms::TextBox^ textBox41;
-	private: System::Windows::Forms::ComboBox^ input_corner_type;
-	private: System::Windows::Forms::TextBox^ textBox42;
+
+
+
+
+
+
 	private: System::Windows::Forms::GroupBox^ groupBox11;
 	private: System::Windows::Forms::NumericUpDown^ input_p_Dy1;
 	private: System::Windows::Forms::TextBox^ textBox43;
@@ -1080,28 +1083,19 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox184 = (gcnew System::Windows::Forms::TextBox());
 			this->input_V_input = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_force_velocity = (gcnew System::Windows::Forms::CheckBox());
-			this->textBox40 = (gcnew System::Windows::Forms::TextBox());
-			this->input_lat_ratio_custom = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox39 = (gcnew System::Windows::Forms::TextBox());
-			this->input_lon_ratio_custom = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_steering_input = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox38 = (gcnew System::Windows::Forms::TextBox());
 			this->input_pedals_input = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox37 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
-			this->input_delta_d_des = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_delta_d_deg = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox30 = (gcnew System::Windows::Forms::TextBox());
 			this->input_kappa_des = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox31 = (gcnew System::Windows::Forms::TextBox());
-			this->input_beta_des = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_beta_deg = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox32 = (gcnew System::Windows::Forms::TextBox());
-			this->input_R_min = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_R = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox33 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox10 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_corner_side = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox41 = (gcnew System::Windows::Forms::TextBox());
-			this->input_corner_type = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox42 = (gcnew System::Windows::Forms::TextBox());
 			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->output_R = (gcnew System::Windows::Forms::Label());
@@ -1174,6 +1168,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_beta = (gcnew System::Windows::Forms::NumericUpDown());
 			this->YMD = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->debugPage = (gcnew System::Windows::Forms::TabPage());
+			this->output_iter_total = (gcnew System::Windows::Forms::Label());
 			this->output_golden_total = (gcnew System::Windows::Forms::Label());
 			this->output_golden_single = (gcnew System::Windows::Forms::Label());
 			this->output_brents_total = (gcnew System::Windows::Forms::Label());
@@ -1188,7 +1183,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
-			this->output_iter_total = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage3->SuspendLayout();
@@ -1379,13 +1373,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox8->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_a_lon_des))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_V_input))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_lat_ratio_custom))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_lon_ratio_custom))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_d_des))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_d_deg))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_kappa_des))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_beta_des))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_R_min))->BeginInit();
-			this->groupBox10->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_beta_deg))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_R))->BeginInit();
 			this->tabControl2->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
@@ -5960,10 +5951,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Location = System::Drawing::Point(4, 35);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 649);
+			this->tabPage2->Size = System::Drawing::Size(1075, 636);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -5978,13 +5969,12 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->splitContainer2->Panel1->Controls->Add(this->groupBox9);
 			this->splitContainer2->Panel1->Controls->Add(this->groupBox8);
-			this->splitContainer2->Panel1->Controls->Add(this->groupBox10);
 			this->splitContainer2->Panel1MinSize = 450;
 			// 
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -6273,22 +6263,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox8->Controls->Add(this->textBox184);
 			this->groupBox8->Controls->Add(this->input_V_input);
 			this->groupBox8->Controls->Add(this->input_force_velocity);
-			this->groupBox8->Controls->Add(this->textBox40);
-			this->groupBox8->Controls->Add(this->input_lat_ratio_custom);
-			this->groupBox8->Controls->Add(this->textBox39);
-			this->groupBox8->Controls->Add(this->input_lon_ratio_custom);
 			this->groupBox8->Controls->Add(this->input_steering_input);
 			this->groupBox8->Controls->Add(this->textBox38);
 			this->groupBox8->Controls->Add(this->input_pedals_input);
 			this->groupBox8->Controls->Add(this->textBox37);
 			this->groupBox8->Controls->Add(this->textBox26);
-			this->groupBox8->Controls->Add(this->input_delta_d_des);
+			this->groupBox8->Controls->Add(this->input_delta_d_deg);
 			this->groupBox8->Controls->Add(this->textBox30);
 			this->groupBox8->Controls->Add(this->input_kappa_des);
 			this->groupBox8->Controls->Add(this->textBox31);
-			this->groupBox8->Controls->Add(this->input_beta_des);
+			this->groupBox8->Controls->Add(this->input_beta_deg);
 			this->groupBox8->Controls->Add(this->textBox32);
-			this->groupBox8->Controls->Add(this->input_R_min);
+			this->groupBox8->Controls->Add(this->input_R);
 			this->groupBox8->Controls->Add(this->textBox33);
 			this->groupBox8->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -6363,63 +6349,12 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_force_velocity->Text = L"Force velocity";
 			this->input_force_velocity->UseVisualStyleBackColor = true;
 			// 
-			// textBox40
-			// 
-			this->textBox40->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox40->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox40->Location = System::Drawing::Point(6, 529);
-			this->textBox40->Multiline = true;
-			this->textBox40->Name = L"textBox40";
-			this->textBox40->Size = System::Drawing::Size(157, 40);
-			this->textBox40->TabIndex = 24;
-			this->textBox40->Text = L"Custom lateral ratio [%]";
-			// 
-			// input_lat_ratio_custom
-			// 
-			this->input_lat_ratio_custom->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_lat_ratio_custom->DecimalPlaces = 2;
-			this->input_lat_ratio_custom->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_lat_ratio_custom->Location = System::Drawing::Point(169, 529);
-			this->input_lat_ratio_custom->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
-			this->input_lat_ratio_custom->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, System::Int32::MinValue });
-			this->input_lat_ratio_custom->Name = L"input_lat_ratio_custom";
-			this->input_lat_ratio_custom->Size = System::Drawing::Size(66, 27);
-			this->input_lat_ratio_custom->TabIndex = 23;
-			this->input_lat_ratio_custom->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
-			// 
-			// textBox39
-			// 
-			this->textBox39->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox39->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox39->Location = System::Drawing::Point(6, 483);
-			this->textBox39->Multiline = true;
-			this->textBox39->Name = L"textBox39";
-			this->textBox39->Size = System::Drawing::Size(157, 40);
-			this->textBox39->TabIndex = 22;
-			this->textBox39->Text = L"Custom longitudinal ratio [%]";
-			// 
-			// input_lon_ratio_custom
-			// 
-			this->input_lon_ratio_custom->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_lon_ratio_custom->DecimalPlaces = 2;
-			this->input_lon_ratio_custom->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_lon_ratio_custom->Location = System::Drawing::Point(169, 485);
-			this->input_lon_ratio_custom->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_lon_ratio_custom->Name = L"input_lon_ratio_custom";
-			this->input_lon_ratio_custom->Size = System::Drawing::Size(66, 27);
-			this->input_lon_ratio_custom->TabIndex = 21;
-			this->input_lon_ratio_custom->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
-			// 
 			// input_steering_input
 			// 
 			this->input_steering_input->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_steering_input->FormattingEnabled = true;
-			this->input_steering_input->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Steering", L"Straight", L"Custom" });
+			this->input_steering_input->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Steering", L"Straight" });
 			this->input_steering_input->Location = System::Drawing::Point(114, 433);
 			this->input_steering_input->Name = L"input_steering_input";
 			this->input_steering_input->Size = System::Drawing::Size(121, 27);
@@ -6443,10 +6378,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_pedals_input->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_pedals_input->FormattingEnabled = true;
-			this->input_pedals_input->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Braking", L"Driving", L"Coasting", L"Cruising",
-					L"Custom"
-			});
+			this->input_pedals_input->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Braking", L"Driving", L"Coasting", L"Cruising" });
 			this->input_pedals_input->Location = System::Drawing::Point(114, 375);
 			this->input_pedals_input->Name = L"input_pedals_input";
 			this->input_pedals_input->Size = System::Drawing::Size(121, 27);
@@ -6477,20 +6409,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox26->TabIndex = 16;
 			this->textBox26->Text = L"Steering wheel angle [°]";
 			// 
-			// input_delta_d_des
+			// input_delta_d_deg
 			// 
-			this->input_delta_d_des->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_delta_d_des->DecimalPlaces = 2;
-			this->input_delta_d_des->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_delta_d_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_delta_d_deg->DecimalPlaces = 2;
+			this->input_delta_d_deg->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_delta_d_des->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->input_delta_d_des->Location = System::Drawing::Point(169, 210);
-			this->input_delta_d_des->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_delta_d_des->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_delta_d_des->Name = L"input_delta_d_des";
-			this->input_delta_d_des->Size = System::Drawing::Size(66, 27);
-			this->input_delta_d_des->TabIndex = 15;
-			this->input_delta_d_des->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 60, 0, 0, 0 });
+			this->input_delta_d_deg->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
+			this->input_delta_d_deg->Location = System::Drawing::Point(169, 210);
+			this->input_delta_d_deg->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_delta_d_deg->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_delta_d_deg->Name = L"input_delta_d_deg";
+			this->input_delta_d_deg->Size = System::Drawing::Size(66, 27);
+			this->input_delta_d_deg->TabIndex = 15;
+			this->input_delta_d_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 60, 0, 0, 0 });
 			// 
 			// textBox30
 			// 
@@ -6528,20 +6460,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox31->TabIndex = 6;
 			this->textBox31->Text = L"Chassis slip angle (β) [°]";
 			// 
-			// input_beta_des
+			// input_beta_deg
 			// 
-			this->input_beta_des->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_beta_des->DecimalPlaces = 2;
-			this->input_beta_des->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_beta_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_beta_deg->DecimalPlaces = 2;
+			this->input_beta_deg->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_beta_des->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 65536 });
-			this->input_beta_des->Location = System::Drawing::Point(169, 153);
-			this->input_beta_des->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 89, 0, 0, 0 });
-			this->input_beta_des->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 89, 0, 0, System::Int32::MinValue });
-			this->input_beta_des->Name = L"input_beta_des";
-			this->input_beta_des->Size = System::Drawing::Size(66, 27);
-			this->input_beta_des->TabIndex = 5;
-			this->input_beta_des->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			this->input_beta_deg->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 65536 });
+			this->input_beta_deg->Location = System::Drawing::Point(169, 153);
+			this->input_beta_deg->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 89, 0, 0, 0 });
+			this->input_beta_deg->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 89, 0, 0, System::Int32::MinValue });
+			this->input_beta_deg->Name = L"input_beta_deg";
+			this->input_beta_deg->Size = System::Drawing::Size(66, 27);
+			this->input_beta_deg->TabIndex = 5;
+			this->input_beta_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
 			// 
 			// textBox32
 			// 
@@ -6555,20 +6487,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox32->TabIndex = 4;
 			this->textBox32->Text = L"Corner radius [m]";
 			// 
-			// input_R_min
+			// input_R
 			// 
-			this->input_R_min->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_R_min->DecimalPlaces = 2;
-			this->input_R_min->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_R->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_R->DecimalPlaces = 2;
+			this->input_R->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_R_min->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			this->input_R_min->Location = System::Drawing::Point(169, 95);
-			this->input_R_min->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
-			this->input_R_min->Name = L"input_R_min";
-			this->input_R_min->Size = System::Drawing::Size(66, 27);
-			this->input_R_min->TabIndex = 3;
-			this->input_R_min->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
-			this->input_R_min->ValueChanged += gcnew System::EventHandler(this, &MyForm::input_R_min_ValueChanged);
+			this->input_R->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->input_R->Location = System::Drawing::Point(169, 95);
+			this->input_R->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
+			this->input_R->Name = L"input_R";
+			this->input_R->Size = System::Drawing::Size(66, 27);
+			this->input_R->TabIndex = 3;
+			this->input_R->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			this->input_R->ValueChanged += gcnew System::EventHandler(this, &MyForm::input_R_min_ValueChanged);
 			// 
 			// textBox33
 			// 
@@ -6582,69 +6514,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox33->TabIndex = 2;
 			this->textBox33->Text = L"Desired velocity [km/h]";
 			// 
-			// groupBox10
-			// 
-			this->groupBox10->Controls->Add(this->input_corner_side);
-			this->groupBox10->Controls->Add(this->textBox41);
-			this->groupBox10->Controls->Add(this->input_corner_type);
-			this->groupBox10->Controls->Add(this->textBox42);
-			this->groupBox10->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox10->Location = System::Drawing::Point(250, 455);
-			this->groupBox10->Name = L"groupBox10";
-			this->groupBox10->Size = System::Drawing::Size(241, 143);
-			this->groupBox10->TabIndex = 19;
-			this->groupBox10->TabStop = false;
-			this->groupBox10->Text = L"Corner";
-			// 
-			// input_corner_side
-			// 
-			this->input_corner_side->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_corner_side->FormattingEnabled = true;
-			this->input_corner_side->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Right", L"Left" });
-			this->input_corner_side->Location = System::Drawing::Point(114, 95);
-			this->input_corner_side->Name = L"input_corner_side";
-			this->input_corner_side->Size = System::Drawing::Size(121, 27);
-			this->input_corner_side->TabIndex = 24;
-			this->input_corner_side->Text = L"Select";
-			// 
-			// textBox41
-			// 
-			this->textBox41->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox41->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox41->Location = System::Drawing::Point(6, 98);
-			this->textBox41->Multiline = true;
-			this->textBox41->Name = L"textBox41";
-			this->textBox41->Size = System::Drawing::Size(102, 30);
-			this->textBox41->TabIndex = 23;
-			this->textBox41->Text = L"Corner side";
-			// 
-			// input_corner_type
-			// 
-			this->input_corner_type->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_corner_type->FormattingEnabled = true;
-			this->input_corner_type->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Steady-state", L"Transient" });
-			this->input_corner_type->Location = System::Drawing::Point(114, 37);
-			this->input_corner_type->Name = L"input_corner_type";
-			this->input_corner_type->Size = System::Drawing::Size(121, 27);
-			this->input_corner_type->TabIndex = 22;
-			this->input_corner_type->Text = L"Select";
-			// 
-			// textBox42
-			// 
-			this->textBox42->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox42->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox42->Location = System::Drawing::Point(6, 40);
-			this->textBox42->Multiline = true;
-			this->textBox42->Name = L"textBox42";
-			this->textBox42->Size = System::Drawing::Size(102, 19);
-			this->textBox42->TabIndex = 21;
-			this->textBox42->Text = L"Corner type";
-			// 
 			// tabControl2
 			// 
 			this->tabControl2->Controls->Add(this->tabPage6);
@@ -6653,7 +6522,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 643);
+			this->tabControl2->Size = System::Drawing::Size(565, 630);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -6674,7 +6543,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 604);
+			this->tabPage6->Size = System::Drawing::Size(557, 591);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Outputs";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -7401,7 +7270,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage7->Location = System::Drawing::Point(4, 22);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(557, 617);
+			this->tabPage7->Size = System::Drawing::Size(557, 604);
 			this->tabPage7->TabIndex = 1;
 			this->tabPage7->Text = L"YMD";
 			this->tabPage7->UseVisualStyleBackColor = true;
@@ -7420,8 +7289,8 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer4.Panel2
 			// 
 			this->splitContainer4->Panel2->Controls->Add(this->YMD);
-			this->splitContainer4->Size = System::Drawing::Size(551, 611);
-			this->splitContainer4->SplitterDistance = 94;
+			this->splitContainer4->Size = System::Drawing::Size(551, 598);
+			this->splitContainer4->SplitterDistance = 92;
 			this->splitContainer4->TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -7453,7 +7322,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 94);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 92);
 			this->tableLayoutPanel2->TabIndex = 13;
 			// 
 			// input_num_delta_d
@@ -7462,7 +7331,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_delta_d->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->input_num_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_num_delta_d->Location = System::Drawing::Point(276, 50);
+			this->input_num_delta_d->Location = System::Drawing::Point(276, 49);
 			this->input_num_delta_d->Name = L"input_num_delta_d";
 			this->input_num_delta_d->Size = System::Drawing::Size(85, 27);
 			this->input_num_delta_d->TabIndex = 11;
@@ -7474,10 +7343,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox182->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox182->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox182->Location = System::Drawing::Point(185, 50);
+			this->textBox182->Location = System::Drawing::Point(185, 49);
 			this->textBox182->Multiline = true;
 			this->textBox182->Name = L"textBox182";
-			this->textBox182->Size = System::Drawing::Size(85, 41);
+			this->textBox182->Size = System::Drawing::Size(85, 40);
 			this->textBox182->TabIndex = 12;
 			this->textBox182->Text = L"Number of δd isolines";
 			// 
@@ -7503,7 +7372,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox180->Location = System::Drawing::Point(3, 3);
 			this->textBox180->Multiline = true;
 			this->textBox180->Name = L"textBox180";
-			this->textBox180->Size = System::Drawing::Size(85, 41);
+			this->textBox180->Size = System::Drawing::Size(85, 40);
 			this->textBox180->TabIndex = 6;
 			this->textBox180->Text = L"Maximum β [°]";
 			// 
@@ -7513,10 +7382,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox181->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox181->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox181->Location = System::Drawing::Point(3, 50);
+			this->textBox181->Location = System::Drawing::Point(3, 49);
 			this->textBox181->Multiline = true;
 			this->textBox181->Name = L"textBox181";
-			this->textBox181->Size = System::Drawing::Size(85, 41);
+			this->textBox181->Size = System::Drawing::Size(85, 40);
 			this->textBox181->TabIndex = 8;
 			this->textBox181->Text = L"Number of β isolines";
 			// 
@@ -7529,7 +7398,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox183->Location = System::Drawing::Point(185, 3);
 			this->textBox183->Multiline = true;
 			this->textBox183->Name = L"textBox183";
-			this->textBox183->Size = System::Drawing::Size(85, 41);
+			this->textBox183->Size = System::Drawing::Size(85, 40);
 			this->textBox183->TabIndex = 10;
 			this->textBox183->Text = L"Maximum δd [°]";
 			// 
@@ -7551,7 +7420,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_beta->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->input_num_beta->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_num_beta->Location = System::Drawing::Point(94, 50);
+			this->input_num_beta->Location = System::Drawing::Point(94, 49);
 			this->input_num_beta->Name = L"input_num_beta";
 			this->input_num_beta->Size = System::Drawing::Size(85, 27);
 			this->input_num_beta->TabIndex = 7;
@@ -7568,7 +7437,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			this->YMD->Size = System::Drawing::Size(551, 513);
+			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
 			title1->Name = L"Title1";
@@ -7585,13 +7454,22 @@ private: System::ComponentModel::IContainer^ components;
 			this->debugPage->Controls->Add(this->output_debug3);
 			this->debugPage->Controls->Add(this->output_debug2);
 			this->debugPage->Controls->Add(this->output_debug1);
-			this->debugPage->Location = System::Drawing::Point(4, 35);
+			this->debugPage->Location = System::Drawing::Point(4, 22);
 			this->debugPage->Name = L"debugPage";
 			this->debugPage->Padding = System::Windows::Forms::Padding(3);
-			this->debugPage->Size = System::Drawing::Size(1075, 636);
+			this->debugPage->Size = System::Drawing::Size(1075, 649);
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
+			// 
+			// output_iter_total
+			// 
+			this->output_iter_total->AutoSize = true;
+			this->output_iter_total->Location = System::Drawing::Point(39, 284);
+			this->output_iter_total->Name = L"output_iter_total";
+			this->output_iter_total->Size = System::Drawing::Size(72, 26);
+			this->output_iter_total->TabIndex = 8;
+			this->output_iter_total->Text = L"DEBUG";
 			// 
 			// output_golden_total
 			// 
@@ -7726,15 +7604,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->Size = System::Drawing::Size(1184, 675);
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
-			// 
-			// output_iter_total
-			// 
-			this->output_iter_total->AutoSize = true;
-			this->output_iter_total->Location = System::Drawing::Point(39, 284);
-			this->output_iter_total->Name = L"output_iter_total";
-			this->output_iter_total->Size = System::Drawing::Size(72, 26);
-			this->output_iter_total->TabIndex = 8;
-			this->output_iter_total->Text = L"DEBUG";
 			// 
 			// MyForm
 			// 
@@ -7958,14 +7827,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox8->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_a_lon_des))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_V_input))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_lat_ratio_custom))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_lon_ratio_custom))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_d_des))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_d_deg))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_kappa_des))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_beta_des))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_R_min))->EndInit();
-			this->groupBox10->ResumeLayout(false);
-			this->groupBox10->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_beta_deg))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_R))->EndInit();
 			this->tabControl2->ResumeLayout(false);
 			this->tabPage6->ResumeLayout(false);
 			this->tabPage6->PerformLayout();
@@ -7997,20 +7862,16 @@ private: System::ComponentModel::IContainer^ components;
 		{
 			//Simulation inputs
 			vehicle_inputs->V_input = System::Convert::ToDouble(input_V_input->Value);
-			vehicle_inputs->R_min = System::Convert::ToDouble(input_R_min->Value);
-			vehicle_inputs->beta_des = System::Convert::ToDouble(input_beta_des->Value);
-			vehicle_inputs->delta_d_des = System::Convert::ToDouble(input_delta_d_des->Value);
+			vehicle_inputs->R = System::Convert::ToDouble(input_R->Value);
+			vehicle_inputs->beta_deg = System::Convert::ToDouble(input_beta_deg->Value);
+			vehicle_inputs->delta_d_deg = System::Convert::ToDouble(input_delta_d_deg->Value);
 			vehicle_inputs->kappa_des = System::Convert::ToDouble(input_kappa_des->Value);
-			vehicle_inputs->lon_ratio_custom = System::Convert::ToDouble(input_lon_ratio_custom->Value);
-			vehicle_inputs->lat_ratio_custom = System::Convert::ToDouble(input_lat_ratio_custom->Value);
 			vehicle_inputs->delta_f_static = System::Convert::ToDouble(input_delta_f_static->Value);
 			vehicle_inputs->delta_r_static = System::Convert::ToDouble(input_delta_r_static->Value);
 			vehicle_inputs->gamma_f_static = System::Convert::ToDouble(input_gamma_f_static->Value);
 			vehicle_inputs->gamma_r_static = System::Convert::ToDouble(input_gamma_r_static->Value);
 			vehicle_inputs->BB_input = System::Convert::ToDouble(input_BB_input->Value);
 			vehicle_inputs->DB_input = System::Convert::ToDouble(input_DB_input->Value);
-			vehicle_inputs->corner_type = static_cast<Corner_type>(input_corner_type->SelectedIndex + 1);
-			vehicle_inputs->corner_side = static_cast<Corner_side>(input_corner_side->SelectedIndex + 1);
 			vehicle_inputs->pedals_input = static_cast<Pedals_input>(input_pedals_input->SelectedIndex + 1);
 			vehicle_inputs->steering_input = static_cast<Steering_input>(input_steering_input->SelectedIndex + 1);
 			vehicle_inputs->front_tires_selection = sto_(msclr::interop::marshal_as<std::string>(input_front_tires_selection->Text));
@@ -8150,20 +8011,16 @@ private: System::ComponentModel::IContainer^ components;
 		{
 			//Simulation inputs
 			input_V_input->Value = System::Convert::ToDecimal(vehicle_inputs->V_input);
-			input_R_min->Value = System::Convert::ToDecimal(vehicle_inputs->R_min);
-			input_beta_des->Value = System::Convert::ToDecimal(vehicle_inputs->beta_des);
-			input_delta_d_des->Value = System::Convert::ToDecimal(vehicle_inputs->delta_d_des);
+			input_R->Value = System::Convert::ToDecimal(vehicle_inputs->R);
+			input_beta_deg->Value = System::Convert::ToDecimal(vehicle_inputs->beta_deg);
+			input_delta_d_deg->Value = System::Convert::ToDecimal(vehicle_inputs->delta_d_deg);
 			input_kappa_des->Value = System::Convert::ToDecimal(vehicle_inputs->kappa_des);
-			input_lon_ratio_custom->Value = System::Convert::ToDecimal(vehicle_inputs->lon_ratio_custom);
-			input_lat_ratio_custom->Value = System::Convert::ToDecimal(vehicle_inputs->lat_ratio_custom);
 			input_delta_f_static->Value = System::Convert::ToDecimal(vehicle_inputs->delta_f_static);
 			input_delta_r_static->Value = System::Convert::ToDecimal(vehicle_inputs->delta_r_static);
 			input_gamma_f_static->Value = System::Convert::ToDecimal(vehicle_inputs->gamma_f_static);
 			input_gamma_r_static->Value = System::Convert::ToDecimal(vehicle_inputs->gamma_r_static);
 			input_BB_input->Value = System::Convert::ToDecimal(vehicle_inputs->BB_input);
 			input_DB_input->Value = System::Convert::ToDecimal(vehicle_inputs->DB_input);
-			input_corner_type->SelectedIndex = static_cast<int>(vehicle_inputs->corner_type) - 1;
-			input_corner_side->SelectedIndex = static_cast<int>(vehicle_inputs->corner_side) - 1;
 			input_pedals_input->SelectedIndex = static_cast<int>(vehicle_inputs->pedals_input) - 1;
 			input_steering_input->SelectedIndex = static_cast<int>(vehicle_inputs->steering_input) - 1;
 			input_front_tires_selection->Text = gcnew System::String(_tos(vehicle_inputs->front_tires_selection).c_str());
@@ -8364,7 +8221,7 @@ private: System::ComponentModel::IContainer^ components;
 			output_brents_total->Text = System::String::Format("Brent's Method total iterations: {0}", System::Convert::ToInt32(vehicle_outputs->brents_total));
 			output_golden_single->Text = System::String::Format("Golden Section single run iterations: {0}", System::Convert::ToInt32(vehicle_outputs->golden_single));
 			output_golden_total->Text = System::String::Format("Golden Section total iterations: {0}", System::Convert::ToInt32(vehicle_outputs->golden_total));
-			output_iter_total->Text = System::String::Format("Total main solver iterations: {0}", System::Convert::ToInt32(vehicle_outputs->iter_total));
+			output_iter_total->Text = System::String::Format("Main solver total iterations: {0}", System::Convert::ToInt32(vehicle_outputs->iter_total));
 #endif
 			}
 

@@ -16,15 +16,13 @@ struct Vehicle_inputs {
 	int version;
 
 	//Simulation inputs
-	double R_min, V_input, beta_des, delta_d_des, kappa_des, lon_ratio_custom, lat_ratio_custom;
+	double R, V_input, beta_deg, delta_d_deg, kappa_des;
 	double BB_input, DB_input, delta_f_static, delta_r_static, gamma_f_static, gamma_r_static;
 	bool force_velocity, force_a_lon;
 	double max_beta, num_beta, max_delta_d, num_delta_d, a_lon_des;
 	std::string front_tires_selection, rear_tires_selection;
 	Actuator_type brake_type_f, brake_type_r, diff_type_f, diff_type_r;
 	Actuator_config brake_config, drive_config;
-	Corner_side corner_side;
-	Corner_type corner_type;
 	Pedals_input pedals_input;
 	Steering_input steering_input;
 	Arb_setup front_arb, rear_arb;
