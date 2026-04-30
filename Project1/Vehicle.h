@@ -17,7 +17,7 @@ private:
     const double pi = 3.14159265358979323846; // Define Pi constant
 
     //Tires
-    Tire fi, fo, ri, ro;
+    Tire fl, fr, rl, rr;
 
     //Driver input
     Pedals_input pedals_input = Pedals_input::Coasting;
@@ -43,10 +43,10 @@ private:
     const double g = 9.81; // [m/s^2]
 
     //Total masses and weights
-    double m = 0.0, x = 0.0, y = 0.0, W = 0.0, W_fi = 0.0, W_fo = 0.0, W_ri = 0.0, W_ro = 0.0;
+    double m = 0.0, x = 0.0, y = 0.0, W = 0.0, W_fl = 0.0, W_fr = 0.0, W_rl = 0.0, W_rr = 0.0;
 
     //Unsprung masses
-    double m_u_fi = 0.0, m_u_fo = 0.0, m_u_ri = 0.0, m_u_ro = 0.0, m_u = 0.0;
+    double m_u_fl = 0.0, m_u_fr = 0.0, m_u_rl = 0.0, m_u_rr = 0.0, m_u = 0.0;
 
     //Sprung masses
     double m_s = 0.0;
@@ -55,7 +55,7 @@ private:
     double h_CG = 0.0, a = 0.0, b = 0.0, a_s = 0.0, b_s = 0.0;
 
     //Wheel displacements
-    double w_fi = 0.0, w_fo = 0.0, w_ri = 0.0, w_ro = 0.0;
+    double w_fl = 0.0, w_fr = 0.0, w_rl = 0.0, w_rr = 0.0;
 
     //Ackermann geometry
 
@@ -81,17 +81,17 @@ private:
     double F_rad = 0.0, a_rad = 0.0;
 
     //Sprung and unsprung masses CG location
-    double h_CG_s = 0.0, h_CG_u_fi = 0.0, h_CG_u_fo = 0.0, h_CG_u_ri = 0.0, h_CG_u_ro = 0.0, h_CG_u = 0.0;
+    double h_CG_s = 0.0, h_CG_u_fl = 0.0, h_CG_u_fr = 0.0, h_CG_u_rl = 0.0, h_CG_u_rr = 0.0, h_CG_u = 0.0;
 
     //Suspension geometry
 
         //Roll suspension parameters
-    double h_r_f = 0.0, h_r_r = 0.0, off_r_f = 0.0, off_r_r = 0.0, n_r_fi = 0.0, n_r_fo = 0.0, n_r_ri = 0.0, n_r_ro = 0.0,
-        p_r_fi = 0.0, p_r_fo = 0.0, p_r_ri = 0.0, p_r_ro = 0.0, q_r_fi = 0.0, q_r_fo = 0.0, q_r_ri = 0.0, q_r_ro = 0.0;
+    double h_r_f = 0.0, h_r_r = 0.0, off_r_f = 0.0, off_r_r = 0.0, n_r_fl = 0.0, n_r_fr = 0.0, n_r_rl = 0.0, n_r_rr = 0.0,
+        p_r_fl = 0.0, p_r_fr = 0.0, p_r_rl = 0.0, p_r_rr = 0.0, q_r_fl = 0.0, q_r_fr = 0.0, q_r_rl = 0.0, q_r_rr = 0.0;
 
     //Pitch suspension parameters
-    double h_p_i = 0.0, h_p_o = 0.0, n_p_fi = 0.0, n_p_fo = 0.0, n_p_ri = 0.0, n_p_ro = 0.0,
-        p_p_fi = 0.0, p_p_fo = 0.0, p_p_ri = 0.0, p_p_ro = 0.0, q_p_fi = 0.0, q_p_fo = 0.0, q_p_ri = 0.0, q_p_ro = 0.0;
+    double h_p_l = 0.0, h_p_r = 0.0, n_p_fl = 0.0, n_p_fr = 0.0, n_p_rl = 0.0, n_p_rr = 0.0,
+        p_p_fl = 0.0, p_p_fr = 0.0, p_p_rl = 0.0, p_p_rr = 0.0, q_p_fl = 0.0, q_p_fr = 0.0, q_p_rl = 0.0, q_p_rr = 0.0;
 
     //Suspension stiffnesses
 
@@ -102,16 +102,16 @@ private:
     double k_susp_f = 0.0, k_susp_r = 0.0, k_arb_f = 0.0, k_arb_r = 0.0;
 
     //Motion ratios
-    double MR_s_fi = 0.0, MR_s_fo = 0.0, MR_s_ri = 0.0, MR_s_ro = 0.0, MR_arb_fi = 0.0, MR_arb_fo = 0.0, MR_arb_ri = 0.0, MR_arb_ro = 0.0;
+    double MR_s_fl = 0.0, MR_s_fr = 0.0, MR_s_rl = 0.0, MR_s_rr = 0.0, MR_arb_fl = 0.0, MR_arb_fr = 0.0, MR_arb_rl = 0.0, MR_arb_rr = 0.0;
 
     //Wheel rates
-    double K_susp_fi = 0.0, K_susp_fo = 0.0, K_susp_ri = 0.0, K_susp_ro = 0.0, K_arb_fi = 0.0, K_arb_fo = 0.0, K_arb_ri = 0.0, K_arb_ro = 0.0;
+    double K_susp_fl = 0.0, K_susp_fr = 0.0, K_susp_rl = 0.0, K_susp_rr = 0.0, K_arb_fl = 0.0, K_arb_fr = 0.0, K_arb_rl = 0.0, K_arb_rr = 0.0;
 
     //Roll stiffnesses
     double K_r_C_f = 0.0, K_r_C_r = 0.0, K_r_tot_f = 0.0, K_r_tot_r = 0.0;
 
     //Pitch stiffnesses
-    double K_p_C_i = 0.0, K_p_C_o = 0.0, K_p_tot_i = 0.0, K_p_tot_o = 0.0;
+    double K_p_C_l = 0.0, K_p_C_r = 0.0, K_p_tot_l = 0.0, K_p_tot_r = 0.0;
 
     //Vehicle speed
     double V = 0.0, V_input = 0.0, V_skid = 0.0, V_kmh = 0.0, V_ratio = 0.0;
@@ -119,7 +119,7 @@ private:
     //Aerodynamics
 
         //Downforce
-    double F_down = 0.0, F_down_x = 0.0, F_down_y = 0.0, F_down_fi = 0.0, F_down_fo = 0.0, F_down_ri = 0.0, F_down_ro = 0.0;
+    double F_down = 0.0, F_down_x = 0.0, F_down_y = 0.0, F_down_fl = 0.0, F_down_fr = 0.0, F_down_rl = 0.0, F_down_rr = 0.0;
 
     //Drag
     double F_drag = 0.0, F_drag_z = 0.0, F_drag_y = 0.0, h_drag = 0.0;
@@ -127,12 +127,11 @@ private:
     //Longitudinal load transfer
 
         //Geometrical longitudinal load transfer
-    double dW_lon_s_fi = 0.0, dW_lon_s_fo = 0.0, dW_lon_s_ri = 0.0, dW_lon_s_ro = 0.0, dW_lon_u_fi = 0.0, dW_lon_u_fo = 0.0, dW_lon_u_ri = 0.0, dW_lon_u_ro = 0.0,
-        dW_lon_g_fi = 0.0, dW_lon_g_fo = 0.0, dW_lon_g_ri = 0.0, dW_lon_g_ro = 0.0;
+    double dW_lon_s_fl = 0.0, dW_lon_s_fr = 0.0, dW_lon_s_rl = 0.0, dW_lon_s_rr = 0.0, dW_lon_u_fl = 0.0, dW_lon_u_fr = 0.0, dW_lon_u_rl = 0.0, dW_lon_u_rr = 0.0,
+        dW_lon_g_fl = 0.0, dW_lon_g_fr = 0.0, dW_lon_g_rl = 0.0, dW_lon_g_rr = 0.0;
 
     //Pitch moments
-    double M_p_s_fi = 0.0, M_p_s_fo = 0.0, M_p_s_ri = 0.0, M_p_s_ro = 0.0, M_p_u_fi = 0.0, M_p_u_fo = 0.0, M_p_u_ri = 0.0, M_p_u_ro = 0.0, M_p_s = 0.0, M_p_u = 0.0, T = 0.0;
-
+    double M_p_s_fl = 0.0, M_p_s_fr = 0.0, M_p_s_rl = 0.0, M_p_s_rr = 0.0, M_p_u_fl = 0.0, M_p_u_fr = 0.0, M_p_u_rl = 0.0, M_p_u_rr = 0.0, M_p_s = 0.0, M_p_u = 0.0, T = 0.0;
     //Pitch angle
     double phi = 0.0, phi_deg = 0.0;
 
@@ -140,20 +139,19 @@ private:
     double M_p_drag = 0.0, dW_lon_drag = 0.0;
 
     //Total longitudinal load transfer
-    double dW_lon_i = 0.0, dW_lon_o = 0.0;
+    double dW_lon_l = 0.0, dW_lon_r = 0.0;
 
     //Elastic longitudinal load transfer
-    double dW_lon_k_fi = 0.0, dW_lon_k_fo = 0.0, dW_lon_k_ri = 0.0, dW_lon_k_ro = 0.0;
+    double dW_lon_k_fl = 0.0, dW_lon_k_fr = 0.0, dW_lon_k_rl = 0.0, dW_lon_k_rr = 0.0;
 
     //Lateral load transfer
 
         //Geometrical lateral load transfer
-    double dW_lat_s_fi = 0.0, dW_lat_s_fo = 0.0, dW_lat_s_ri = 0.0, dW_lat_s_ro = 0.0, dW_lat_u_fi = 0.0, dW_lat_u_fo = 0.0, dW_lat_u_ri = 0.0, dW_lat_u_ro = 0.0,
-        dW_lat_g_fi = 0.0, dW_lat_g_fo = 0.0, dW_lat_g_ri = 0.0, dW_lat_g_ro = 0.0;
+    double dW_lat_s_fl = 0.0, dW_lat_s_fr = 0.0, dW_lat_s_rl = 0.0, dW_lat_s_rr = 0.0, dW_lat_u_fl = 0.0, dW_lat_u_fr = 0.0, dW_lat_u_rl = 0.0, dW_lat_u_rr = 0.0,
+        dW_lat_g_fl = 0.0, dW_lat_g_fr = 0.0, dW_lat_g_rl = 0.0, dW_lat_g_rr = 0.0;
 
     //Roll moments
-    double M_r_s_fi = 0.0, M_r_s_fo = 0.0, M_r_s_ri = 0.0, M_r_s_ro = 0.0, M_r_u_fi = 0.0, M_r_u_fo = 0.0, M_r_u_ri = 0.0, M_r_u_ro = 0.0, M_r_s = 0.0, M_r_u = 0.0;
-
+    double M_r_s_fl = 0.0, M_r_s_fr = 0.0, M_r_s_rl = 0.0, M_r_s_rr = 0.0, M_r_u_fl = 0.0, M_r_u_fr = 0.0, M_r_u_rl = 0.0, M_r_u_rr = 0.0, M_r_s = 0.0, M_r_u = 0.0;
     //Roll angle
     double psi = 0.0, psi_deg = 0.0;
 
@@ -161,7 +159,7 @@ private:
     double dW_lat_f = 0.0, dW_lat_r = 0.0;
 
     //Elastic lateral load transfer
-    double dW_lat_k_fi = 0.0, dW_lat_k_fo = 0.0, dW_lat_k_ri = 0.0, dW_lat_k_ro = 0.0;
+    double dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0;
 
     //Yaw moment
     double M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;

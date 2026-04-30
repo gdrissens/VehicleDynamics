@@ -8,7 +8,7 @@ Tire::Tire() {};
 
 void Tire::set_position(char axle, char side) {
     AXLE = (axle == 'F') ? 1 : -1; // 1 for front axle, -1 for rear axle
-    SIDE = (side == 'I') ? 1 : -1; // 1 for inner tire, -1 for outer tire
+    SIDE = (side == 'L') ? 1 : -1; // 1 for inner tire, -1 for outer tire
 }
 
 void Tire::set_parameters(Tire_inputs& input) {

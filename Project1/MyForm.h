@@ -196,38 +196,70 @@ private: System::Windows::Forms::Label^ label14;
 private: System::Windows::Forms::Label^ label15;
 private: System::Windows::Forms::Label^ label16;
 private: System::Windows::Forms::Label^ label17;
-private: System::Windows::Forms::Label^ output_F_z_fi;
-private: System::Windows::Forms::Label^ output_F_z_fo;
-private: System::Windows::Forms::Label^ output_F_z_ri;
-private: System::Windows::Forms::Label^ output_F_z_ro;
-private: System::Windows::Forms::Label^ output_F_x_comb_fi;
-private: System::Windows::Forms::Label^ output_F_x_comb_fo;
-private: System::Windows::Forms::Label^ output_F_x_comb_ri;
-private: System::Windows::Forms::Label^ output_F_x_comb_ro;
-private: System::Windows::Forms::Label^ output_F_y_comb_fi;
-private: System::Windows::Forms::Label^ output_F_y_comb_fo;
-private: System::Windows::Forms::Label^ output_F_y_comb_ri;
-private: System::Windows::Forms::Label^ output_F_y_comb_ro;
-private: System::Windows::Forms::Label^ output_F_lon_fi;
-private: System::Windows::Forms::Label^ output_F_lon_fo;
-private: System::Windows::Forms::Label^ output_F_lon_ri;
-private: System::Windows::Forms::Label^ output_F_lon_ro;
-private: System::Windows::Forms::Label^ output_F_lat_fi;
-private: System::Windows::Forms::Label^ output_F_lat_fo;
-private: System::Windows::Forms::Label^ output_F_lat_ri;
-private: System::Windows::Forms::Label^ output_F_lat_ro;
-private: System::Windows::Forms::Label^ output_kappa_fi;
-private: System::Windows::Forms::Label^ output_kappa_fo;
-private: System::Windows::Forms::Label^ output_kappa_ri;
-private: System::Windows::Forms::Label^ output_kappa_ro;
-private: System::Windows::Forms::Label^ output_alpha_fi;
-private: System::Windows::Forms::Label^ output_alpha_fo;
-private: System::Windows::Forms::Label^ output_alpha_ri;
-private: System::Windows::Forms::Label^ output_alpha_ro;
-private: System::Windows::Forms::Label^ output_T_fi;
-private: System::Windows::Forms::Label^ output_T_fo;
-private: System::Windows::Forms::Label^ output_T_ri;
-private: System::Windows::Forms::Label^ output_T_ro;
+private: System::Windows::Forms::Label^ output_F_z_fl;
+private: System::Windows::Forms::Label^ output_F_z_fr;
+private: System::Windows::Forms::Label^ output_F_z_rl;
+private: System::Windows::Forms::Label^ output_F_z_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_F_x_comb_fl;
+private: System::Windows::Forms::Label^ output_F_x_comb_fr;
+private: System::Windows::Forms::Label^ output_F_x_comb_rl;
+private: System::Windows::Forms::Label^ output_F_x_comb_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_F_y_comb_fl;
+private: System::Windows::Forms::Label^ output_F_y_comb_fr;
+private: System::Windows::Forms::Label^ output_F_y_comb_rl;
+private: System::Windows::Forms::Label^ output_F_y_comb_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_F_lon_fl;
+private: System::Windows::Forms::Label^ output_F_lon_fr;
+private: System::Windows::Forms::Label^ output_F_lon_rl;
+private: System::Windows::Forms::Label^ output_F_lon_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_F_lat_fl;
+private: System::Windows::Forms::Label^ output_F_lat_fr;
+private: System::Windows::Forms::Label^ output_F_lat_rl;
+private: System::Windows::Forms::Label^ output_F_lat_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_kappa_fl;
+private: System::Windows::Forms::Label^ output_kappa_fr;
+private: System::Windows::Forms::Label^ output_kappa_rl;
+private: System::Windows::Forms::Label^ output_kappa_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_alpha_fl;
+private: System::Windows::Forms::Label^ output_alpha_fr;
+private: System::Windows::Forms::Label^ output_alpha_rl;
+private: System::Windows::Forms::Label^ output_alpha_rr;
+
+
+
+
+private: System::Windows::Forms::Label^ output_T_fl;
+private: System::Windows::Forms::Label^ output_T_fr;
+private: System::Windows::Forms::Label^ output_T_rl;
+private: System::Windows::Forms::Label^ output_T_rr;
+
+
+
+
 private: System::Windows::Forms::Label^ output_V;
 private: System::Windows::Forms::Label^ output_bias_now;
 private: System::Windows::Forms::Label^ output_iter;
@@ -634,16 +666,20 @@ protected:
 	private: System::Windows::Forms::NumericUpDown^ input_x;
 
 	private: System::Windows::Forms::TextBox^ textBox7;
-	private: System::Windows::Forms::NumericUpDown^ input_m_u_ro;
+private: System::Windows::Forms::NumericUpDown^ input_m_u_rr;
+
 
 	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::NumericUpDown^ input_m_u_ri;
+private: System::Windows::Forms::NumericUpDown^ input_m_u_rl;
+
 
 	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::NumericUpDown^ input_m_u_fo;
+private: System::Windows::Forms::NumericUpDown^ input_m_u_fr;
+
 
 	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::NumericUpDown^ input_m_u_fi;
+private: System::Windows::Forms::NumericUpDown^ input_m_u_fl;
+
 
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::NumericUpDown^ input_y;
@@ -708,9 +744,9 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -778,14 +814,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_ro = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_m_u_rr = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_h_CG = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_ri = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_m_u_rl = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_fo = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_m_u_fr = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_fi = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_m_u_fl = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->input_y = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -1117,38 +1153,38 @@ private: System::ComponentModel::IContainer^ components;
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->output_F_z_fi = (gcnew System::Windows::Forms::Label());
-			this->output_F_z_fo = (gcnew System::Windows::Forms::Label());
-			this->output_F_z_ri = (gcnew System::Windows::Forms::Label());
-			this->output_F_z_ro = (gcnew System::Windows::Forms::Label());
-			this->output_F_x_comb_fi = (gcnew System::Windows::Forms::Label());
-			this->output_F_x_comb_fo = (gcnew System::Windows::Forms::Label());
-			this->output_F_x_comb_ri = (gcnew System::Windows::Forms::Label());
-			this->output_F_x_comb_ro = (gcnew System::Windows::Forms::Label());
-			this->output_F_y_comb_fi = (gcnew System::Windows::Forms::Label());
-			this->output_F_y_comb_fo = (gcnew System::Windows::Forms::Label());
-			this->output_F_y_comb_ri = (gcnew System::Windows::Forms::Label());
-			this->output_F_y_comb_ro = (gcnew System::Windows::Forms::Label());
-			this->output_F_lon_fi = (gcnew System::Windows::Forms::Label());
-			this->output_F_lon_fo = (gcnew System::Windows::Forms::Label());
-			this->output_F_lon_ri = (gcnew System::Windows::Forms::Label());
-			this->output_F_lon_ro = (gcnew System::Windows::Forms::Label());
-			this->output_F_lat_fi = (gcnew System::Windows::Forms::Label());
-			this->output_F_lat_fo = (gcnew System::Windows::Forms::Label());
-			this->output_F_lat_ri = (gcnew System::Windows::Forms::Label());
-			this->output_F_lat_ro = (gcnew System::Windows::Forms::Label());
-			this->output_kappa_fi = (gcnew System::Windows::Forms::Label());
-			this->output_kappa_fo = (gcnew System::Windows::Forms::Label());
-			this->output_kappa_ri = (gcnew System::Windows::Forms::Label());
-			this->output_kappa_ro = (gcnew System::Windows::Forms::Label());
-			this->output_alpha_fi = (gcnew System::Windows::Forms::Label());
-			this->output_alpha_fo = (gcnew System::Windows::Forms::Label());
-			this->output_alpha_ri = (gcnew System::Windows::Forms::Label());
-			this->output_alpha_ro = (gcnew System::Windows::Forms::Label());
-			this->output_T_fi = (gcnew System::Windows::Forms::Label());
-			this->output_T_fo = (gcnew System::Windows::Forms::Label());
-			this->output_T_ri = (gcnew System::Windows::Forms::Label());
-			this->output_T_ro = (gcnew System::Windows::Forms::Label());
+			this->output_F_z_fl = (gcnew System::Windows::Forms::Label());
+			this->output_F_z_fr = (gcnew System::Windows::Forms::Label());
+			this->output_F_z_rl = (gcnew System::Windows::Forms::Label());
+			this->output_F_z_rr = (gcnew System::Windows::Forms::Label());
+			this->output_F_x_comb_fl = (gcnew System::Windows::Forms::Label());
+			this->output_F_x_comb_fr = (gcnew System::Windows::Forms::Label());
+			this->output_F_x_comb_rl = (gcnew System::Windows::Forms::Label());
+			this->output_F_x_comb_rr = (gcnew System::Windows::Forms::Label());
+			this->output_F_y_comb_fl = (gcnew System::Windows::Forms::Label());
+			this->output_F_y_comb_fr = (gcnew System::Windows::Forms::Label());
+			this->output_F_y_comb_rl = (gcnew System::Windows::Forms::Label());
+			this->output_F_y_comb_rr = (gcnew System::Windows::Forms::Label());
+			this->output_F_lon_fl = (gcnew System::Windows::Forms::Label());
+			this->output_F_lon_fr = (gcnew System::Windows::Forms::Label());
+			this->output_F_lon_rl = (gcnew System::Windows::Forms::Label());
+			this->output_F_lon_rr = (gcnew System::Windows::Forms::Label());
+			this->output_F_lat_fl = (gcnew System::Windows::Forms::Label());
+			this->output_F_lat_fr = (gcnew System::Windows::Forms::Label());
+			this->output_F_lat_rl = (gcnew System::Windows::Forms::Label());
+			this->output_F_lat_rr = (gcnew System::Windows::Forms::Label());
+			this->output_kappa_fl = (gcnew System::Windows::Forms::Label());
+			this->output_kappa_fr = (gcnew System::Windows::Forms::Label());
+			this->output_kappa_rl = (gcnew System::Windows::Forms::Label());
+			this->output_kappa_rr = (gcnew System::Windows::Forms::Label());
+			this->output_alpha_fl = (gcnew System::Windows::Forms::Label());
+			this->output_alpha_fr = (gcnew System::Windows::Forms::Label());
+			this->output_alpha_rl = (gcnew System::Windows::Forms::Label());
+			this->output_alpha_rr = (gcnew System::Windows::Forms::Label());
+			this->output_T_fl = (gcnew System::Windows::Forms::Label());
+			this->output_T_fr = (gcnew System::Windows::Forms::Label());
+			this->output_T_rl = (gcnew System::Windows::Forms::Label());
+			this->output_T_rr = (gcnew System::Windows::Forms::Label());
 			this->output_M_yaw = (gcnew System::Windows::Forms::Label());
 			this->output_F_lat = (gcnew System::Windows::Forms::Label());
 			this->output_phi_deg = (gcnew System::Windows::Forms::Label());
@@ -1212,11 +1248,11 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_f))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->BeginInit();
 			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_ro))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_ri))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fo))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fi))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->BeginInit();
@@ -1465,10 +1501,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3->Controls->Add(this->groupBox3);
 			this->tabPage3->Controls->Add(this->groupBox2);
 			this->tabPage3->Controls->Add(this->groupBox1);
-			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Location = System::Drawing::Point(4, 35);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(1075, 649);
+			this->tabPage3->Size = System::Drawing::Size(1075, 636);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Vehicle";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -2242,14 +2278,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->groupBox1->Controls->Add(this->textBox8);
 			this->groupBox1->Controls->Add(this->textBox7);
-			this->groupBox1->Controls->Add(this->input_m_u_ro);
+			this->groupBox1->Controls->Add(this->input_m_u_rr);
 			this->groupBox1->Controls->Add(this->input_h_CG);
 			this->groupBox1->Controls->Add(this->textBox6);
-			this->groupBox1->Controls->Add(this->input_m_u_ri);
+			this->groupBox1->Controls->Add(this->input_m_u_rl);
 			this->groupBox1->Controls->Add(this->textBox5);
-			this->groupBox1->Controls->Add(this->input_m_u_fo);
+			this->groupBox1->Controls->Add(this->input_m_u_fr);
 			this->groupBox1->Controls->Add(this->textBox4);
-			this->groupBox1->Controls->Add(this->input_m_u_fi);
+			this->groupBox1->Controls->Add(this->input_m_u_fl);
 			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->input_y);
 			this->groupBox1->Controls->Add(this->textBox2);
@@ -2289,18 +2325,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox7->TabIndex = 14;
 			this->textBox7->Text = L"Rear outer unsprung masses [kg]";
 			// 
-			// input_m_u_ro
+			// input_m_u_rr
 			// 
-			this->input_m_u_ro->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_ro->DecimalPlaces = 2;
-			this->input_m_u_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_m_u_rr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_rr->DecimalPlaces = 2;
+			this->input_m_u_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_m_u_ro->Location = System::Drawing::Point(169, 418);
-			this->input_m_u_ro->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_ro->Name = L"input_m_u_ro";
-			this->input_m_u_ro->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_ro->TabIndex = 13;
-			this->input_m_u_ro->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			this->input_m_u_rr->Location = System::Drawing::Point(169, 418);
+			this->input_m_u_rr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_rr->Name = L"input_m_u_rr";
+			this->input_m_u_rr->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_rr->TabIndex = 13;
+			this->input_m_u_rr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
 			// 
 			// input_h_CG
 			// 
@@ -2327,18 +2363,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox6->TabIndex = 12;
 			this->textBox6->Text = L"Rear inner unsprung masses [kg]";
 			// 
-			// input_m_u_ri
+			// input_m_u_rl
 			// 
-			this->input_m_u_ri->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_ri->DecimalPlaces = 2;
-			this->input_m_u_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_m_u_rl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_rl->DecimalPlaces = 2;
+			this->input_m_u_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_m_u_ri->Location = System::Drawing::Point(169, 367);
-			this->input_m_u_ri->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_ri->Name = L"input_m_u_ri";
-			this->input_m_u_ri->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_ri->TabIndex = 11;
-			this->input_m_u_ri->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			this->input_m_u_rl->Location = System::Drawing::Point(169, 367);
+			this->input_m_u_rl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_rl->Name = L"input_m_u_rl";
+			this->input_m_u_rl->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_rl->TabIndex = 11;
+			this->input_m_u_rl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
 			// 
 			// textBox5
 			// 
@@ -2352,18 +2388,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox5->TabIndex = 10;
 			this->textBox5->Text = L"Front outer unsprung masses [kg]";
 			// 
-			// input_m_u_fo
+			// input_m_u_fr
 			// 
-			this->input_m_u_fo->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_fo->DecimalPlaces = 2;
-			this->input_m_u_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_m_u_fr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_fr->DecimalPlaces = 2;
+			this->input_m_u_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_m_u_fo->Location = System::Drawing::Point(169, 316);
-			this->input_m_u_fo->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_fo->Name = L"input_m_u_fo";
-			this->input_m_u_fo->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_fo->TabIndex = 9;
-			this->input_m_u_fo->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			this->input_m_u_fr->Location = System::Drawing::Point(169, 316);
+			this->input_m_u_fr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_fr->Name = L"input_m_u_fr";
+			this->input_m_u_fr->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_fr->TabIndex = 9;
+			this->input_m_u_fr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
 			// 
 			// textBox4
 			// 
@@ -2377,18 +2413,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox4->TabIndex = 8;
 			this->textBox4->Text = L"Front inner unsprung masses [kg]";
 			// 
-			// input_m_u_fi
+			// input_m_u_fl
 			// 
-			this->input_m_u_fi->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_fi->DecimalPlaces = 2;
-			this->input_m_u_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_m_u_fl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_fl->DecimalPlaces = 2;
+			this->input_m_u_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_m_u_fi->Location = System::Drawing::Point(169, 263);
-			this->input_m_u_fi->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_fi->Name = L"input_m_u_fi";
-			this->input_m_u_fi->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_fi->TabIndex = 7;
-			this->input_m_u_fi->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			this->input_m_u_fl->Location = System::Drawing::Point(169, 263);
+			this->input_m_u_fl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_fl->Name = L"input_m_u_fl";
+			this->input_m_u_fl->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_fl->TabIndex = 7;
+			this->input_m_u_fl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
 			// 
 			// textBox3
 			// 
@@ -2467,10 +2503,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage4
 			// 
 			this->tabPage4->Controls->Add(this->splitContainer3);
-			this->tabPage4->Location = System::Drawing::Point(4, 22);
+			this->tabPage4->Location = System::Drawing::Point(4, 35);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(1075, 649);
+			this->tabPage4->Size = System::Drawing::Size(1075, 636);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Suspension";
 			this->tabPage4->UseVisualStyleBackColor = true;
@@ -2491,7 +2527,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer3.Panel2
 			// 
 			this->splitContainer3->Panel2->Controls->Add(this->tabControl3);
-			this->splitContainer3->Size = System::Drawing::Size(1069, 643);
+			this->splitContainer3->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer3->SplitterDistance = 500;
 			this->splitContainer3->TabIndex = 23;
 			// 
@@ -2977,7 +3013,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl3->Location = System::Drawing::Point(0, 0);
 			this->tabControl3->Name = L"tabControl3";
 			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(565, 643);
+			this->tabControl3->Size = System::Drawing::Size(565, 630);
 			this->tabControl3->TabIndex = 23;
 			// 
 			// tabPage8
@@ -2987,7 +3023,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage8->Location = System::Drawing::Point(4, 35);
 			this->tabPage8->Name = L"tabPage8";
 			this->tabPage8->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage8->Size = System::Drawing::Size(557, 604);
+			this->tabPage8->Size = System::Drawing::Size(557, 591);
 			this->tabPage8->TabIndex = 0;
 			this->tabPage8->Text = L"Geometric centers";
 			this->tabPage8->UseVisualStyleBackColor = true;
@@ -4821,10 +4857,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage5->Controls->Add(this->groupBox13);
 			this->tabPage5->Controls->Add(this->groupBox12);
 			this->tabPage5->Controls->Add(this->groupBox11);
-			this->tabPage5->Location = System::Drawing::Point(4, 22);
+			this->tabPage5->Location = System::Drawing::Point(4, 35);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1075, 649);
+			this->tabPage5->Size = System::Drawing::Size(1075, 636);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Tires";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -6630,38 +6666,38 @@ private: System::ComponentModel::IContainer^ components;
 			this->tableLayoutPanel1->Controls->Add(this->label15, 0, 6);
 			this->tableLayoutPanel1->Controls->Add(this->label16, 0, 7);
 			this->tableLayoutPanel1->Controls->Add(this->label17, 0, 8);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_z_fi, 1, 1);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_z_fo, 2, 1);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_z_ri, 3, 1);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_z_ro, 4, 1);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_fi, 1, 2);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_fo, 2, 2);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_ri, 3, 2);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_ro, 4, 2);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_fi, 1, 3);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_fo, 2, 3);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_ri, 3, 3);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_ro, 4, 3);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_fi, 1, 4);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_fo, 2, 4);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_ri, 3, 4);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_ro, 4, 4);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_fi, 1, 5);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_fo, 2, 5);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_ri, 3, 5);
-			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_ro, 4, 5);
-			this->tableLayoutPanel1->Controls->Add(this->output_kappa_fi, 1, 6);
-			this->tableLayoutPanel1->Controls->Add(this->output_kappa_fo, 2, 6);
-			this->tableLayoutPanel1->Controls->Add(this->output_kappa_ri, 3, 6);
-			this->tableLayoutPanel1->Controls->Add(this->output_kappa_ro, 4, 6);
-			this->tableLayoutPanel1->Controls->Add(this->output_alpha_fi, 1, 7);
-			this->tableLayoutPanel1->Controls->Add(this->output_alpha_fo, 2, 7);
-			this->tableLayoutPanel1->Controls->Add(this->output_alpha_ri, 3, 7);
-			this->tableLayoutPanel1->Controls->Add(this->output_alpha_ro, 4, 7);
-			this->tableLayoutPanel1->Controls->Add(this->output_T_fi, 1, 8);
-			this->tableLayoutPanel1->Controls->Add(this->output_T_fo, 2, 8);
-			this->tableLayoutPanel1->Controls->Add(this->output_T_ri, 3, 8);
-			this->tableLayoutPanel1->Controls->Add(this->output_T_ro, 4, 8);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_z_fl, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_z_fr, 2, 1);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_z_rl, 3, 1);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_z_rr, 4, 1);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_fl, 1, 2);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_fr, 2, 2);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_rl, 3, 2);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_x_comb_rr, 4, 2);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_fl, 1, 3);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_fr, 2, 3);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_rl, 3, 3);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_y_comb_rr, 4, 3);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_fl, 1, 4);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_fr, 2, 4);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_rl, 3, 4);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lon_rr, 4, 4);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_fl, 1, 5);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_fr, 2, 5);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_rl, 3, 5);
+			this->tableLayoutPanel1->Controls->Add(this->output_F_lat_rr, 4, 5);
+			this->tableLayoutPanel1->Controls->Add(this->output_kappa_fl, 1, 6);
+			this->tableLayoutPanel1->Controls->Add(this->output_kappa_fr, 2, 6);
+			this->tableLayoutPanel1->Controls->Add(this->output_kappa_rl, 3, 6);
+			this->tableLayoutPanel1->Controls->Add(this->output_kappa_rr, 4, 6);
+			this->tableLayoutPanel1->Controls->Add(this->output_alpha_fl, 1, 7);
+			this->tableLayoutPanel1->Controls->Add(this->output_alpha_fr, 2, 7);
+			this->tableLayoutPanel1->Controls->Add(this->output_alpha_rl, 3, 7);
+			this->tableLayoutPanel1->Controls->Add(this->output_alpha_rr, 4, 7);
+			this->tableLayoutPanel1->Controls->Add(this->output_T_fl, 1, 8);
+			this->tableLayoutPanel1->Controls->Add(this->output_T_fr, 2, 8);
+			this->tableLayoutPanel1->Controls->Add(this->output_T_rl, 3, 8);
+			this->tableLayoutPanel1->Controls->Add(this->output_T_rr, 4, 8);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->tableLayoutPanel1->Font = (gcnew System::Drawing::Font(L"Calibri", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -6825,390 +6861,390 @@ private: System::ComponentModel::IContainer^ components;
 			this->label17->Text = L"Torque";
 			this->label17->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_z_fi
+			// output_F_z_fl
 			// 
-			this->output_F_z_fi->AutoSize = true;
-			this->output_F_z_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_z_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_z_fi->Location = System::Drawing::Point(114, 36);
-			this->output_F_z_fi->Name = L"output_F_z_fi";
-			this->output_F_z_fi->Size = System::Drawing::Size(103, 34);
-			this->output_F_z_fi->TabIndex = 12;
-			this->output_F_z_fi->Text = L"OUTPUT";
-			this->output_F_z_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_z_fl->AutoSize = true;
+			this->output_F_z_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_z_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_z_fl->Location = System::Drawing::Point(114, 36);
+			this->output_F_z_fl->Name = L"output_F_z_fl";
+			this->output_F_z_fl->Size = System::Drawing::Size(103, 34);
+			this->output_F_z_fl->TabIndex = 12;
+			this->output_F_z_fl->Text = L"OUTPUT";
+			this->output_F_z_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_z_fo
+			// output_F_z_fr
 			// 
-			this->output_F_z_fo->AutoSize = true;
-			this->output_F_z_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_z_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_z_fo->Location = System::Drawing::Point(224, 36);
-			this->output_F_z_fo->Name = L"output_F_z_fo";
-			this->output_F_z_fo->Size = System::Drawing::Size(103, 34);
-			this->output_F_z_fo->TabIndex = 13;
-			this->output_F_z_fo->Text = L"OUTPUT";
-			this->output_F_z_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_z_fr->AutoSize = true;
+			this->output_F_z_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_z_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_z_fr->Location = System::Drawing::Point(224, 36);
+			this->output_F_z_fr->Name = L"output_F_z_fr";
+			this->output_F_z_fr->Size = System::Drawing::Size(103, 34);
+			this->output_F_z_fr->TabIndex = 13;
+			this->output_F_z_fr->Text = L"OUTPUT";
+			this->output_F_z_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_z_ri
+			// output_F_z_rl
 			// 
-			this->output_F_z_ri->AutoSize = true;
-			this->output_F_z_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_z_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_z_ri->Location = System::Drawing::Point(334, 36);
-			this->output_F_z_ri->Name = L"output_F_z_ri";
-			this->output_F_z_ri->Size = System::Drawing::Size(103, 34);
-			this->output_F_z_ri->TabIndex = 14;
-			this->output_F_z_ri->Text = L"OUTPUT";
-			this->output_F_z_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_z_rl->AutoSize = true;
+			this->output_F_z_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_z_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_z_rl->Location = System::Drawing::Point(334, 36);
+			this->output_F_z_rl->Name = L"output_F_z_rl";
+			this->output_F_z_rl->Size = System::Drawing::Size(103, 34);
+			this->output_F_z_rl->TabIndex = 14;
+			this->output_F_z_rl->Text = L"OUTPUT";
+			this->output_F_z_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_z_ro
+			// output_F_z_rr
 			// 
-			this->output_F_z_ro->AutoSize = true;
-			this->output_F_z_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_z_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_z_ro->Location = System::Drawing::Point(444, 36);
-			this->output_F_z_ro->Name = L"output_F_z_ro";
-			this->output_F_z_ro->Size = System::Drawing::Size(103, 34);
-			this->output_F_z_ro->TabIndex = 15;
-			this->output_F_z_ro->Text = L"OUTPUT";
-			this->output_F_z_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_z_rr->AutoSize = true;
+			this->output_F_z_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_z_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_z_rr->Location = System::Drawing::Point(444, 36);
+			this->output_F_z_rr->Name = L"output_F_z_rr";
+			this->output_F_z_rr->Size = System::Drawing::Size(103, 34);
+			this->output_F_z_rr->TabIndex = 15;
+			this->output_F_z_rr->Text = L"OUTPUT";
+			this->output_F_z_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_x_comb_fi
+			// output_F_x_comb_fl
 			// 
-			this->output_F_x_comb_fi->AutoSize = true;
-			this->output_F_x_comb_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_x_comb_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_x_comb_fi->Location = System::Drawing::Point(114, 71);
-			this->output_F_x_comb_fi->Name = L"output_F_x_comb_fi";
-			this->output_F_x_comb_fi->Size = System::Drawing::Size(103, 34);
-			this->output_F_x_comb_fi->TabIndex = 16;
-			this->output_F_x_comb_fi->Text = L"OUTPUT";
-			this->output_F_x_comb_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_x_comb_fl->AutoSize = true;
+			this->output_F_x_comb_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_x_comb_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_x_comb_fl->Location = System::Drawing::Point(114, 71);
+			this->output_F_x_comb_fl->Name = L"output_F_x_comb_fl";
+			this->output_F_x_comb_fl->Size = System::Drawing::Size(103, 34);
+			this->output_F_x_comb_fl->TabIndex = 16;
+			this->output_F_x_comb_fl->Text = L"OUTPUT";
+			this->output_F_x_comb_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_x_comb_fo
+			// output_F_x_comb_fr
 			// 
-			this->output_F_x_comb_fo->AutoSize = true;
-			this->output_F_x_comb_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_x_comb_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_x_comb_fo->Location = System::Drawing::Point(224, 71);
-			this->output_F_x_comb_fo->Name = L"output_F_x_comb_fo";
-			this->output_F_x_comb_fo->Size = System::Drawing::Size(103, 34);
-			this->output_F_x_comb_fo->TabIndex = 17;
-			this->output_F_x_comb_fo->Text = L"OUTPUT";
-			this->output_F_x_comb_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_x_comb_fr->AutoSize = true;
+			this->output_F_x_comb_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_x_comb_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_x_comb_fr->Location = System::Drawing::Point(224, 71);
+			this->output_F_x_comb_fr->Name = L"output_F_x_comb_fr";
+			this->output_F_x_comb_fr->Size = System::Drawing::Size(103, 34);
+			this->output_F_x_comb_fr->TabIndex = 17;
+			this->output_F_x_comb_fr->Text = L"OUTPUT";
+			this->output_F_x_comb_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_x_comb_ri
+			// output_F_x_comb_rl
 			// 
-			this->output_F_x_comb_ri->AutoSize = true;
-			this->output_F_x_comb_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_x_comb_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_x_comb_ri->Location = System::Drawing::Point(334, 71);
-			this->output_F_x_comb_ri->Name = L"output_F_x_comb_ri";
-			this->output_F_x_comb_ri->Size = System::Drawing::Size(103, 34);
-			this->output_F_x_comb_ri->TabIndex = 18;
-			this->output_F_x_comb_ri->Text = L"OUTPUT";
-			this->output_F_x_comb_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_x_comb_rl->AutoSize = true;
+			this->output_F_x_comb_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_x_comb_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_x_comb_rl->Location = System::Drawing::Point(334, 71);
+			this->output_F_x_comb_rl->Name = L"output_F_x_comb_rl";
+			this->output_F_x_comb_rl->Size = System::Drawing::Size(103, 34);
+			this->output_F_x_comb_rl->TabIndex = 18;
+			this->output_F_x_comb_rl->Text = L"OUTPUT";
+			this->output_F_x_comb_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_x_comb_ro
+			// output_F_x_comb_rr
 			// 
-			this->output_F_x_comb_ro->AutoSize = true;
-			this->output_F_x_comb_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_x_comb_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_x_comb_ro->Location = System::Drawing::Point(444, 71);
-			this->output_F_x_comb_ro->Name = L"output_F_x_comb_ro";
-			this->output_F_x_comb_ro->Size = System::Drawing::Size(103, 34);
-			this->output_F_x_comb_ro->TabIndex = 19;
-			this->output_F_x_comb_ro->Text = L"OUTPUT";
-			this->output_F_x_comb_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_x_comb_rr->AutoSize = true;
+			this->output_F_x_comb_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_x_comb_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_x_comb_rr->Location = System::Drawing::Point(444, 71);
+			this->output_F_x_comb_rr->Name = L"output_F_x_comb_rr";
+			this->output_F_x_comb_rr->Size = System::Drawing::Size(103, 34);
+			this->output_F_x_comb_rr->TabIndex = 19;
+			this->output_F_x_comb_rr->Text = L"OUTPUT";
+			this->output_F_x_comb_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_y_comb_fi
+			// output_F_y_comb_fl
 			// 
-			this->output_F_y_comb_fi->AutoSize = true;
-			this->output_F_y_comb_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_y_comb_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_y_comb_fi->Location = System::Drawing::Point(114, 106);
-			this->output_F_y_comb_fi->Name = L"output_F_y_comb_fi";
-			this->output_F_y_comb_fi->Size = System::Drawing::Size(103, 34);
-			this->output_F_y_comb_fi->TabIndex = 20;
-			this->output_F_y_comb_fi->Text = L"OUTPUT";
-			this->output_F_y_comb_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_y_comb_fl->AutoSize = true;
+			this->output_F_y_comb_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_y_comb_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_y_comb_fl->Location = System::Drawing::Point(114, 106);
+			this->output_F_y_comb_fl->Name = L"output_F_y_comb_fl";
+			this->output_F_y_comb_fl->Size = System::Drawing::Size(103, 34);
+			this->output_F_y_comb_fl->TabIndex = 20;
+			this->output_F_y_comb_fl->Text = L"OUTPUT";
+			this->output_F_y_comb_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_y_comb_fo
+			// output_F_y_comb_fr
 			// 
-			this->output_F_y_comb_fo->AutoSize = true;
-			this->output_F_y_comb_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_y_comb_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_y_comb_fo->Location = System::Drawing::Point(224, 106);
-			this->output_F_y_comb_fo->Name = L"output_F_y_comb_fo";
-			this->output_F_y_comb_fo->Size = System::Drawing::Size(103, 34);
-			this->output_F_y_comb_fo->TabIndex = 21;
-			this->output_F_y_comb_fo->Text = L"OUTPUT";
-			this->output_F_y_comb_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_y_comb_fr->AutoSize = true;
+			this->output_F_y_comb_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_y_comb_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_y_comb_fr->Location = System::Drawing::Point(224, 106);
+			this->output_F_y_comb_fr->Name = L"output_F_y_comb_fr";
+			this->output_F_y_comb_fr->Size = System::Drawing::Size(103, 34);
+			this->output_F_y_comb_fr->TabIndex = 21;
+			this->output_F_y_comb_fr->Text = L"OUTPUT";
+			this->output_F_y_comb_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_y_comb_ri
+			// output_F_y_comb_rl
 			// 
-			this->output_F_y_comb_ri->AutoSize = true;
-			this->output_F_y_comb_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_y_comb_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_y_comb_ri->Location = System::Drawing::Point(334, 106);
-			this->output_F_y_comb_ri->Name = L"output_F_y_comb_ri";
-			this->output_F_y_comb_ri->Size = System::Drawing::Size(103, 34);
-			this->output_F_y_comb_ri->TabIndex = 22;
-			this->output_F_y_comb_ri->Text = L"OUTPUT";
-			this->output_F_y_comb_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_y_comb_rl->AutoSize = true;
+			this->output_F_y_comb_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_y_comb_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_y_comb_rl->Location = System::Drawing::Point(334, 106);
+			this->output_F_y_comb_rl->Name = L"output_F_y_comb_rl";
+			this->output_F_y_comb_rl->Size = System::Drawing::Size(103, 34);
+			this->output_F_y_comb_rl->TabIndex = 22;
+			this->output_F_y_comb_rl->Text = L"OUTPUT";
+			this->output_F_y_comb_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_y_comb_ro
+			// output_F_y_comb_rr
 			// 
-			this->output_F_y_comb_ro->AutoSize = true;
-			this->output_F_y_comb_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_y_comb_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_y_comb_ro->Location = System::Drawing::Point(444, 106);
-			this->output_F_y_comb_ro->Name = L"output_F_y_comb_ro";
-			this->output_F_y_comb_ro->Size = System::Drawing::Size(103, 34);
-			this->output_F_y_comb_ro->TabIndex = 23;
-			this->output_F_y_comb_ro->Text = L"OUTPUT";
-			this->output_F_y_comb_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_y_comb_rr->AutoSize = true;
+			this->output_F_y_comb_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_y_comb_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_y_comb_rr->Location = System::Drawing::Point(444, 106);
+			this->output_F_y_comb_rr->Name = L"output_F_y_comb_rr";
+			this->output_F_y_comb_rr->Size = System::Drawing::Size(103, 34);
+			this->output_F_y_comb_rr->TabIndex = 23;
+			this->output_F_y_comb_rr->Text = L"OUTPUT";
+			this->output_F_y_comb_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lon_fi
+			// output_F_lon_fl
 			// 
-			this->output_F_lon_fi->AutoSize = true;
-			this->output_F_lon_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lon_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lon_fi->Location = System::Drawing::Point(114, 141);
-			this->output_F_lon_fi->Name = L"output_F_lon_fi";
-			this->output_F_lon_fi->Size = System::Drawing::Size(103, 34);
-			this->output_F_lon_fi->TabIndex = 24;
-			this->output_F_lon_fi->Text = L"OUTPUT";
-			this->output_F_lon_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lon_fl->AutoSize = true;
+			this->output_F_lon_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lon_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lon_fl->Location = System::Drawing::Point(114, 141);
+			this->output_F_lon_fl->Name = L"output_F_lon_fl";
+			this->output_F_lon_fl->Size = System::Drawing::Size(103, 34);
+			this->output_F_lon_fl->TabIndex = 24;
+			this->output_F_lon_fl->Text = L"OUTPUT";
+			this->output_F_lon_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lon_fo
+			// output_F_lon_fr
 			// 
-			this->output_F_lon_fo->AutoSize = true;
-			this->output_F_lon_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lon_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lon_fo->Location = System::Drawing::Point(224, 141);
-			this->output_F_lon_fo->Name = L"output_F_lon_fo";
-			this->output_F_lon_fo->Size = System::Drawing::Size(103, 34);
-			this->output_F_lon_fo->TabIndex = 25;
-			this->output_F_lon_fo->Text = L"OUTPUT";
-			this->output_F_lon_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lon_fr->AutoSize = true;
+			this->output_F_lon_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lon_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lon_fr->Location = System::Drawing::Point(224, 141);
+			this->output_F_lon_fr->Name = L"output_F_lon_fr";
+			this->output_F_lon_fr->Size = System::Drawing::Size(103, 34);
+			this->output_F_lon_fr->TabIndex = 25;
+			this->output_F_lon_fr->Text = L"OUTPUT";
+			this->output_F_lon_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lon_ri
+			// output_F_lon_rl
 			// 
-			this->output_F_lon_ri->AutoSize = true;
-			this->output_F_lon_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lon_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lon_ri->Location = System::Drawing::Point(334, 141);
-			this->output_F_lon_ri->Name = L"output_F_lon_ri";
-			this->output_F_lon_ri->Size = System::Drawing::Size(103, 34);
-			this->output_F_lon_ri->TabIndex = 26;
-			this->output_F_lon_ri->Text = L"OUTPUT";
-			this->output_F_lon_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lon_rl->AutoSize = true;
+			this->output_F_lon_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lon_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lon_rl->Location = System::Drawing::Point(334, 141);
+			this->output_F_lon_rl->Name = L"output_F_lon_rl";
+			this->output_F_lon_rl->Size = System::Drawing::Size(103, 34);
+			this->output_F_lon_rl->TabIndex = 26;
+			this->output_F_lon_rl->Text = L"OUTPUT";
+			this->output_F_lon_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lon_ro
+			// output_F_lon_rr
 			// 
-			this->output_F_lon_ro->AutoSize = true;
-			this->output_F_lon_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lon_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lon_ro->Location = System::Drawing::Point(444, 141);
-			this->output_F_lon_ro->Name = L"output_F_lon_ro";
-			this->output_F_lon_ro->Size = System::Drawing::Size(103, 34);
-			this->output_F_lon_ro->TabIndex = 27;
-			this->output_F_lon_ro->Text = L"OUTPUT";
-			this->output_F_lon_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lon_rr->AutoSize = true;
+			this->output_F_lon_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lon_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lon_rr->Location = System::Drawing::Point(444, 141);
+			this->output_F_lon_rr->Name = L"output_F_lon_rr";
+			this->output_F_lon_rr->Size = System::Drawing::Size(103, 34);
+			this->output_F_lon_rr->TabIndex = 27;
+			this->output_F_lon_rr->Text = L"OUTPUT";
+			this->output_F_lon_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lat_fi
+			// output_F_lat_fl
 			// 
-			this->output_F_lat_fi->AutoSize = true;
-			this->output_F_lat_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lat_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lat_fi->Location = System::Drawing::Point(114, 176);
-			this->output_F_lat_fi->Name = L"output_F_lat_fi";
-			this->output_F_lat_fi->Size = System::Drawing::Size(103, 34);
-			this->output_F_lat_fi->TabIndex = 28;
-			this->output_F_lat_fi->Text = L"OUTPUT";
-			this->output_F_lat_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lat_fl->AutoSize = true;
+			this->output_F_lat_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lat_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lat_fl->Location = System::Drawing::Point(114, 176);
+			this->output_F_lat_fl->Name = L"output_F_lat_fl";
+			this->output_F_lat_fl->Size = System::Drawing::Size(103, 34);
+			this->output_F_lat_fl->TabIndex = 28;
+			this->output_F_lat_fl->Text = L"OUTPUT";
+			this->output_F_lat_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lat_fo
+			// output_F_lat_fr
 			// 
-			this->output_F_lat_fo->AutoSize = true;
-			this->output_F_lat_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lat_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lat_fo->Location = System::Drawing::Point(224, 176);
-			this->output_F_lat_fo->Name = L"output_F_lat_fo";
-			this->output_F_lat_fo->Size = System::Drawing::Size(103, 34);
-			this->output_F_lat_fo->TabIndex = 29;
-			this->output_F_lat_fo->Text = L"OUTPUT";
-			this->output_F_lat_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lat_fr->AutoSize = true;
+			this->output_F_lat_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lat_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lat_fr->Location = System::Drawing::Point(224, 176);
+			this->output_F_lat_fr->Name = L"output_F_lat_fr";
+			this->output_F_lat_fr->Size = System::Drawing::Size(103, 34);
+			this->output_F_lat_fr->TabIndex = 29;
+			this->output_F_lat_fr->Text = L"OUTPUT";
+			this->output_F_lat_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lat_ri
+			// output_F_lat_rl
 			// 
-			this->output_F_lat_ri->AutoSize = true;
-			this->output_F_lat_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lat_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lat_ri->Location = System::Drawing::Point(334, 176);
-			this->output_F_lat_ri->Name = L"output_F_lat_ri";
-			this->output_F_lat_ri->Size = System::Drawing::Size(103, 34);
-			this->output_F_lat_ri->TabIndex = 30;
-			this->output_F_lat_ri->Text = L"OUTPUT";
-			this->output_F_lat_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lat_rl->AutoSize = true;
+			this->output_F_lat_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lat_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lat_rl->Location = System::Drawing::Point(334, 176);
+			this->output_F_lat_rl->Name = L"output_F_lat_rl";
+			this->output_F_lat_rl->Size = System::Drawing::Size(103, 34);
+			this->output_F_lat_rl->TabIndex = 30;
+			this->output_F_lat_rl->Text = L"OUTPUT";
+			this->output_F_lat_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_F_lat_ro
+			// output_F_lat_rr
 			// 
-			this->output_F_lat_ro->AutoSize = true;
-			this->output_F_lat_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_F_lat_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_F_lat_ro->Location = System::Drawing::Point(444, 176);
-			this->output_F_lat_ro->Name = L"output_F_lat_ro";
-			this->output_F_lat_ro->Size = System::Drawing::Size(103, 34);
-			this->output_F_lat_ro->TabIndex = 31;
-			this->output_F_lat_ro->Text = L"OUTPUT";
-			this->output_F_lat_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_F_lat_rr->AutoSize = true;
+			this->output_F_lat_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_F_lat_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_F_lat_rr->Location = System::Drawing::Point(444, 176);
+			this->output_F_lat_rr->Name = L"output_F_lat_rr";
+			this->output_F_lat_rr->Size = System::Drawing::Size(103, 34);
+			this->output_F_lat_rr->TabIndex = 31;
+			this->output_F_lat_rr->Text = L"OUTPUT";
+			this->output_F_lat_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_kappa_fi
+			// output_kappa_fl
 			// 
-			this->output_kappa_fi->AutoSize = true;
-			this->output_kappa_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_kappa_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_kappa_fi->Location = System::Drawing::Point(114, 211);
-			this->output_kappa_fi->Name = L"output_kappa_fi";
-			this->output_kappa_fi->Size = System::Drawing::Size(103, 34);
-			this->output_kappa_fi->TabIndex = 32;
-			this->output_kappa_fi->Text = L"OUTPUT";
-			this->output_kappa_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_kappa_fl->AutoSize = true;
+			this->output_kappa_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_kappa_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_kappa_fl->Location = System::Drawing::Point(114, 211);
+			this->output_kappa_fl->Name = L"output_kappa_fl";
+			this->output_kappa_fl->Size = System::Drawing::Size(103, 34);
+			this->output_kappa_fl->TabIndex = 32;
+			this->output_kappa_fl->Text = L"OUTPUT";
+			this->output_kappa_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_kappa_fo
+			// output_kappa_fr
 			// 
-			this->output_kappa_fo->AutoSize = true;
-			this->output_kappa_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_kappa_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_kappa_fo->Location = System::Drawing::Point(224, 211);
-			this->output_kappa_fo->Name = L"output_kappa_fo";
-			this->output_kappa_fo->Size = System::Drawing::Size(103, 34);
-			this->output_kappa_fo->TabIndex = 33;
-			this->output_kappa_fo->Text = L"OUTPUT";
-			this->output_kappa_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_kappa_fr->AutoSize = true;
+			this->output_kappa_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_kappa_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_kappa_fr->Location = System::Drawing::Point(224, 211);
+			this->output_kappa_fr->Name = L"output_kappa_fr";
+			this->output_kappa_fr->Size = System::Drawing::Size(103, 34);
+			this->output_kappa_fr->TabIndex = 33;
+			this->output_kappa_fr->Text = L"OUTPUT";
+			this->output_kappa_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_kappa_ri
+			// output_kappa_rl
 			// 
-			this->output_kappa_ri->AutoSize = true;
-			this->output_kappa_ri->BackColor = System::Drawing::Color::Transparent;
-			this->output_kappa_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_kappa_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_kappa_ri->Location = System::Drawing::Point(334, 211);
-			this->output_kappa_ri->Name = L"output_kappa_ri";
-			this->output_kappa_ri->Size = System::Drawing::Size(103, 34);
-			this->output_kappa_ri->TabIndex = 34;
-			this->output_kappa_ri->Text = L"OUTPUT";
-			this->output_kappa_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_kappa_rl->AutoSize = true;
+			this->output_kappa_rl->BackColor = System::Drawing::Color::Transparent;
+			this->output_kappa_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_kappa_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_kappa_rl->Location = System::Drawing::Point(334, 211);
+			this->output_kappa_rl->Name = L"output_kappa_rl";
+			this->output_kappa_rl->Size = System::Drawing::Size(103, 34);
+			this->output_kappa_rl->TabIndex = 34;
+			this->output_kappa_rl->Text = L"OUTPUT";
+			this->output_kappa_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_kappa_ro
+			// output_kappa_rr
 			// 
-			this->output_kappa_ro->AutoSize = true;
-			this->output_kappa_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_kappa_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_kappa_ro->Location = System::Drawing::Point(444, 211);
-			this->output_kappa_ro->Name = L"output_kappa_ro";
-			this->output_kappa_ro->Size = System::Drawing::Size(103, 34);
-			this->output_kappa_ro->TabIndex = 35;
-			this->output_kappa_ro->Text = L"OUTPUT";
-			this->output_kappa_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_kappa_rr->AutoSize = true;
+			this->output_kappa_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_kappa_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_kappa_rr->Location = System::Drawing::Point(444, 211);
+			this->output_kappa_rr->Name = L"output_kappa_rr";
+			this->output_kappa_rr->Size = System::Drawing::Size(103, 34);
+			this->output_kappa_rr->TabIndex = 35;
+			this->output_kappa_rr->Text = L"OUTPUT";
+			this->output_kappa_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_alpha_fi
+			// output_alpha_fl
 			// 
-			this->output_alpha_fi->AutoSize = true;
-			this->output_alpha_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_alpha_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_alpha_fi->Location = System::Drawing::Point(114, 246);
-			this->output_alpha_fi->Name = L"output_alpha_fi";
-			this->output_alpha_fi->Size = System::Drawing::Size(103, 34);
-			this->output_alpha_fi->TabIndex = 36;
-			this->output_alpha_fi->Text = L"OUTPUT";
-			this->output_alpha_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_alpha_fl->AutoSize = true;
+			this->output_alpha_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_alpha_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_alpha_fl->Location = System::Drawing::Point(114, 246);
+			this->output_alpha_fl->Name = L"output_alpha_fl";
+			this->output_alpha_fl->Size = System::Drawing::Size(103, 34);
+			this->output_alpha_fl->TabIndex = 36;
+			this->output_alpha_fl->Text = L"OUTPUT";
+			this->output_alpha_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_alpha_fo
+			// output_alpha_fr
 			// 
-			this->output_alpha_fo->AutoSize = true;
-			this->output_alpha_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_alpha_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_alpha_fo->Location = System::Drawing::Point(224, 246);
-			this->output_alpha_fo->Name = L"output_alpha_fo";
-			this->output_alpha_fo->Size = System::Drawing::Size(103, 34);
-			this->output_alpha_fo->TabIndex = 37;
-			this->output_alpha_fo->Text = L"OUTPUT";
-			this->output_alpha_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_alpha_fr->AutoSize = true;
+			this->output_alpha_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_alpha_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_alpha_fr->Location = System::Drawing::Point(224, 246);
+			this->output_alpha_fr->Name = L"output_alpha_fr";
+			this->output_alpha_fr->Size = System::Drawing::Size(103, 34);
+			this->output_alpha_fr->TabIndex = 37;
+			this->output_alpha_fr->Text = L"OUTPUT";
+			this->output_alpha_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_alpha_ri
+			// output_alpha_rl
 			// 
-			this->output_alpha_ri->AutoSize = true;
-			this->output_alpha_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_alpha_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_alpha_ri->Location = System::Drawing::Point(334, 246);
-			this->output_alpha_ri->Name = L"output_alpha_ri";
-			this->output_alpha_ri->Size = System::Drawing::Size(103, 34);
-			this->output_alpha_ri->TabIndex = 38;
-			this->output_alpha_ri->Text = L"OUTPUT";
-			this->output_alpha_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_alpha_rl->AutoSize = true;
+			this->output_alpha_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_alpha_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_alpha_rl->Location = System::Drawing::Point(334, 246);
+			this->output_alpha_rl->Name = L"output_alpha_rl";
+			this->output_alpha_rl->Size = System::Drawing::Size(103, 34);
+			this->output_alpha_rl->TabIndex = 38;
+			this->output_alpha_rl->Text = L"OUTPUT";
+			this->output_alpha_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_alpha_ro
+			// output_alpha_rr
 			// 
-			this->output_alpha_ro->AutoSize = true;
-			this->output_alpha_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_alpha_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_alpha_ro->Location = System::Drawing::Point(444, 246);
-			this->output_alpha_ro->Name = L"output_alpha_ro";
-			this->output_alpha_ro->Size = System::Drawing::Size(103, 34);
-			this->output_alpha_ro->TabIndex = 39;
-			this->output_alpha_ro->Text = L"OUTPUT";
-			this->output_alpha_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_alpha_rr->AutoSize = true;
+			this->output_alpha_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_alpha_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_alpha_rr->Location = System::Drawing::Point(444, 246);
+			this->output_alpha_rr->Name = L"output_alpha_rr";
+			this->output_alpha_rr->Size = System::Drawing::Size(103, 34);
+			this->output_alpha_rr->TabIndex = 39;
+			this->output_alpha_rr->Text = L"OUTPUT";
+			this->output_alpha_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_T_fi
+			// output_T_fl
 			// 
-			this->output_T_fi->AutoSize = true;
-			this->output_T_fi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_T_fi->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_T_fi->Location = System::Drawing::Point(114, 281);
-			this->output_T_fi->Name = L"output_T_fi";
-			this->output_T_fi->Size = System::Drawing::Size(103, 38);
-			this->output_T_fi->TabIndex = 40;
-			this->output_T_fi->Text = L"OUTPUT";
-			this->output_T_fi->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_T_fl->AutoSize = true;
+			this->output_T_fl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_T_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_T_fl->Location = System::Drawing::Point(114, 281);
+			this->output_T_fl->Name = L"output_T_fl";
+			this->output_T_fl->Size = System::Drawing::Size(103, 38);
+			this->output_T_fl->TabIndex = 40;
+			this->output_T_fl->Text = L"OUTPUT";
+			this->output_T_fl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_T_fo
+			// output_T_fr
 			// 
-			this->output_T_fo->AutoSize = true;
-			this->output_T_fo->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_T_fo->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_T_fo->Location = System::Drawing::Point(224, 281);
-			this->output_T_fo->Name = L"output_T_fo";
-			this->output_T_fo->Size = System::Drawing::Size(103, 38);
-			this->output_T_fo->TabIndex = 41;
-			this->output_T_fo->Text = L"OUTPUT";
-			this->output_T_fo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_T_fr->AutoSize = true;
+			this->output_T_fr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_T_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_T_fr->Location = System::Drawing::Point(224, 281);
+			this->output_T_fr->Name = L"output_T_fr";
+			this->output_T_fr->Size = System::Drawing::Size(103, 38);
+			this->output_T_fr->TabIndex = 41;
+			this->output_T_fr->Text = L"OUTPUT";
+			this->output_T_fr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_T_ri
+			// output_T_rl
 			// 
-			this->output_T_ri->AutoSize = true;
-			this->output_T_ri->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_T_ri->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_T_ri->Location = System::Drawing::Point(334, 281);
-			this->output_T_ri->Name = L"output_T_ri";
-			this->output_T_ri->Size = System::Drawing::Size(103, 38);
-			this->output_T_ri->TabIndex = 42;
-			this->output_T_ri->Text = L"OUTPUT";
-			this->output_T_ri->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_T_rl->AutoSize = true;
+			this->output_T_rl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_T_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_T_rl->Location = System::Drawing::Point(334, 281);
+			this->output_T_rl->Name = L"output_T_rl";
+			this->output_T_rl->Size = System::Drawing::Size(103, 38);
+			this->output_T_rl->TabIndex = 42;
+			this->output_T_rl->Text = L"OUTPUT";
+			this->output_T_rl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// output_T_ro
+			// output_T_rr
 			// 
-			this->output_T_ro->AutoSize = true;
-			this->output_T_ro->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->output_T_ro->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
-			this->output_T_ro->Location = System::Drawing::Point(444, 281);
-			this->output_T_ro->Name = L"output_T_ro";
-			this->output_T_ro->Size = System::Drawing::Size(103, 38);
-			this->output_T_ro->TabIndex = 43;
-			this->output_T_ro->Text = L"OUTPUT";
-			this->output_T_ro->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->output_T_rr->AutoSize = true;
+			this->output_T_rr->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->output_T_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 10));
+			this->output_T_rr->Location = System::Drawing::Point(444, 281);
+			this->output_T_rr->Name = L"output_T_rr";
+			this->output_T_rr->Size = System::Drawing::Size(103, 38);
+			this->output_T_rr->TabIndex = 43;
+			this->output_T_rr->Text = L"OUTPUT";
+			this->output_T_rr->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// output_M_yaw
 			// 
@@ -7428,20 +7464,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea1->BackColor = System::Drawing::Color::White;
-			chartArea1->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea1);
+			chartArea2->BackColor = System::Drawing::Color::White;
+			chartArea2->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea2);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend1->Name = L"Legend1";
-			this->YMD->Legends->Add(legend1);
+			legend2->Name = L"Legend1";
+			this->YMD->Legends->Add(legend2);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title1->Name = L"Title1";
-			this->YMD->Titles->Add(title1);
+			title2->Name = L"Title1";
+			this->YMD->Titles->Add(title2);
 			// 
 			// debugPage
 			// 
@@ -7454,10 +7490,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->debugPage->Controls->Add(this->output_debug3);
 			this->debugPage->Controls->Add(this->output_debug2);
 			this->debugPage->Controls->Add(this->output_debug1);
-			this->debugPage->Location = System::Drawing::Point(4, 22);
+			this->debugPage->Location = System::Drawing::Point(4, 35);
 			this->debugPage->Name = L"debugPage";
 			this->debugPage->Padding = System::Windows::Forms::Padding(3);
-			this->debugPage->Size = System::Drawing::Size(1075, 649);
+			this->debugPage->Size = System::Drawing::Size(1075, 636);
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
@@ -7652,11 +7688,11 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_ro))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_ri))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fo))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fi))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->EndInit();
@@ -7893,10 +7929,10 @@ private: System::ComponentModel::IContainer^ components;
 			vehicle_inputs->y = System::Convert::ToDouble(input_y->Value);
 			vehicle_inputs->t_f = System::Convert::ToDouble(input_t_f->Value);
 			vehicle_inputs->t_r = System::Convert::ToDouble(input_t_r->Value);
-			vehicle_inputs->m_u_fi = System::Convert::ToDouble(input_m_u_fi->Value);
-			vehicle_inputs->m_u_fo = System::Convert::ToDouble(input_m_u_fo->Value);
-			vehicle_inputs->m_u_ri = System::Convert::ToDouble(input_m_u_ri->Value);
-			vehicle_inputs->m_u_ro = System::Convert::ToDouble(input_m_u_ro->Value);
+			vehicle_inputs->m_u_fl = System::Convert::ToDouble(input_m_u_fl->Value);
+			vehicle_inputs->m_u_fr = System::Convert::ToDouble(input_m_u_fr->Value);
+			vehicle_inputs->m_u_rl = System::Convert::ToDouble(input_m_u_rl->Value);
+			vehicle_inputs->m_u_rr = System::Convert::ToDouble(input_m_u_rr->Value);
 			vehicle_inputs->h_CG = System::Convert::ToDouble(input_h_CG->Value);
 			vehicle_inputs->brake_config = static_cast<Actuator_config>(input_brake_config->SelectedIndex + 1);
 			vehicle_inputs->brake_type_f = static_cast<Actuator_type>(input_brake_type_f->SelectedIndex + 1);
@@ -8043,10 +8079,10 @@ private: System::ComponentModel::IContainer^ components;
 			input_t_f->Value = System::Convert::ToDecimal(vehicle_inputs->t_f);
 			input_t_r->Value = System::Convert::ToDecimal(vehicle_inputs->t_r);
 			input_h_CG->Value = System::Convert::ToDecimal(vehicle_inputs->h_CG);
-			input_m_u_fi->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_fi);
-			input_m_u_fo->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_fo);
-			input_m_u_ri->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_ri);
-			input_m_u_ro->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_ro);
+			input_m_u_fl->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_fl);
+			input_m_u_fr->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_fr);
+			input_m_u_rl->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_rl);
+			input_m_u_rr->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_rr);
 			input_brake_config->SelectedIndex = static_cast<int>(vehicle_inputs->brake_config) - 1;
 			input_brake_type_f->SelectedIndex = static_cast<int>(vehicle_inputs->brake_type_f) - 1;
 			input_brake_type_r->SelectedIndex = static_cast<int>(vehicle_inputs->brake_type_r) - 1;
@@ -8170,45 +8206,45 @@ private: System::ComponentModel::IContainer^ components;
 			output_R->Text = (vehicle_outputs->R < 1e5) ? System::String::Format("Turn radius: {0:F2} m", System::Convert::ToDouble(vehicle_outputs->R)) : "Turn radius: straight line";
 			output_bias_now->Text = System::String::Format("Current bias: {0:F2}%", System::Convert::ToDouble(vehicle_outputs->bias_now));
 
-			output_alpha_fi->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_fi));
-			output_alpha_fo->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_fo));
-			output_alpha_ri->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_ri));
-			output_alpha_ro->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_ro));
+			output_alpha_fl->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_fl));
+			output_alpha_fr->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_fr));
+			output_alpha_rl->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_rl));
+			output_alpha_rr->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_rr));
 			
-			output_kappa_fi->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_fi));
-			output_kappa_fo->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_fo));
-			output_kappa_ri->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_ri));
-			output_kappa_ro->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_ro));
+			output_kappa_fl->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_fl));
+			output_kappa_fr->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_fr));
+			output_kappa_rl->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_rl));
+			output_kappa_rr->Text = System::String::Format("{0:F2}%", System::Convert::ToDouble(vehicle_outputs->kappa_rr));
 			
-			output_F_z_fi->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_fi));
-			output_F_z_fo->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_fo));
-			output_F_z_ri->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_ri));
-			output_F_z_ro->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_ro));
+			output_F_z_fl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_fl));
+			output_F_z_fr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_fr));
+			output_F_z_rl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_rl));
+			output_F_z_rr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_z_rr));
 
-			output_F_x_comb_fi->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_fi));
-			output_F_x_comb_fo->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_fo));
-			output_F_x_comb_ri->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_ri));
-			output_F_x_comb_ro->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_ro));
+			output_F_x_comb_fl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_fl));
+			output_F_x_comb_fr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_fr));
+			output_F_x_comb_rl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_rl));
+			output_F_x_comb_rr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_x_comb_rr));
 
-			output_F_y_comb_fi->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_fi));
-			output_F_y_comb_fo->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_fo));
-			output_F_y_comb_ri->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_ri));
-			output_F_y_comb_ro->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_ro));
+			output_F_y_comb_fl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_fl));
+			output_F_y_comb_fr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_fr));
+			output_F_y_comb_rl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_rl));
+			output_F_y_comb_rr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_y_comb_rr));
 
-			output_F_lat_fi->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_fi));
-			output_F_lat_fo->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_fo));
-			output_F_lat_ri->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_ri));
-			output_F_lat_ro->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_ro));
+			output_F_lat_fl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_fl));
+			output_F_lat_fr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_fr));
+			output_F_lat_rl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_rl));
+			output_F_lat_rr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lat_rr));
 
-			output_F_lon_fi->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_fi));
-			output_F_lon_fo->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_fo));
-			output_F_lon_ri->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_ri));
-			output_F_lon_ro->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_ro));
+			output_F_lon_fl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_fl));
+			output_F_lon_fr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_fr));
+			output_F_lon_rl->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_rl));
+			output_F_lon_rr->Text = System::String::Format("{0:F2} N", System::Convert::ToDouble(vehicle_outputs->F_lon_rr));
 
-			output_T_fi->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_fi));
-			output_T_fo->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_fo));
-			output_T_ri->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_ri));
-			output_T_ro->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_ro));
+			output_T_fl->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_fl));
+			output_T_fr->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_fr));
+			output_T_rl->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_rl));
+			output_T_rr->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_rr));
 		
 #ifdef _DEBUG
 			//Debug outputs

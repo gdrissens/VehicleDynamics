@@ -57,7 +57,7 @@ void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs) {
 	if (vehicle_inputs.h_CG <= 0) {
 		throw ("Center of gravity height must be greater than zero.");
 	}
-	if (vehicle_inputs.m_u_fi <= 0 || vehicle_inputs.m_u_fo <= 0 || vehicle_inputs.m_u_ri <= 0 || vehicle_inputs.m_u_ro <= 0) {
+	if (vehicle_inputs.m_u_fl <= 0 || vehicle_inputs.m_u_fr <= 0 || vehicle_inputs.m_u_rl <= 0 || vehicle_inputs.m_u_rr <= 0) {
 		throw ("Unsprung masses must be greater than zero.");
 	}
 	if (vehicle_inputs.k_susp_f <= 0) {

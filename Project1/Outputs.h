@@ -1,10 +1,10 @@
 #pragma once
 struct Vehicle_outputs {
 	double phi_deg, psi_deg, M_yaw, F_lat, F_lon, a_lat, a_lon, a_rad, iter, V, R, bias_now;
-	double kappa_fi, kappa_fo, kappa_ri, kappa_ro, alpha_fi, alpha_fo, alpha_ri, alpha_ro;
-	double F_x_comb_fi, F_x_comb_fo, F_x_comb_ri, F_x_comb_ro, F_y_comb_fi, F_y_comb_fo, F_y_comb_ri, F_y_comb_ro;
-	double F_lon_fi, F_lon_fo, F_lon_ri, F_lon_ro, F_lat_fi, F_lat_fo, F_lat_ri, F_lat_ro;
-	double F_z_fi, F_z_fo, F_z_ri, F_z_ro, T_fi, T_fo, T_ri, T_ro;
+	double kappa_fl, kappa_fr, kappa_rl, kappa_rr, alpha_fl, alpha_fr, alpha_rl, alpha_rr;
+	double F_x_comb_fl, F_x_comb_fr, F_x_comb_rl, F_x_comb_rr, F_y_comb_fl, F_y_comb_fr, F_y_comb_rl, F_y_comb_rr;
+	double F_lon_fl, F_lon_fr, F_lon_rl, F_lon_rr, F_lat_fl, F_lat_fr, F_lat_rl, F_lat_rr;
+	double F_z_fl, F_z_fr, F_z_rl, F_z_rr, T_fl, T_fr, T_rl, T_rr;
 
 #ifdef _DEBUG	
 	double debug1, debug2, debug3, debug4;

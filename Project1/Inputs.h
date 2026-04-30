@@ -28,7 +28,7 @@ struct Vehicle_inputs {
 	Arb_setup front_arb, rear_arb;
 
 	//Vehicle inputs
-	double m, x, y, L, t_f, t_r, h_CG, m_u_fi, m_u_fo, m_u_ri, m_u_ro;
+	double m, x, y, L, t_f, t_r, h_CG, m_u_fl, m_u_fr, m_u_rl, m_u_rr;
 
 	//Suspension inputs
 	double k_susp_f, k_susp_r, k_r_C_deg, k_r_C_dist, k_p_C_deg, k_p_C_dist;
