@@ -8,7 +8,7 @@ Tire::Tire() {};
 
 void Tire::set_position(char axle, char side) {
     AXLE = (axle == 'F') ? 1 : -1; // 1 for front axle, -1 for rear axle
-    SIDE = (side == 'L') ? 1 : -1; // 1 for inner tire, -1 for outer tire
+    SIDE = (side == 'R') ? 1 : -1; // 1 for right tire, -1 for left tire
 }
 
 void Tire::set_parameters(Tire_inputs& input) {
@@ -58,9 +58,9 @@ void Tire::set_parameters(Tire_inputs& input) {
     K_T = input.K_T * 1000.0;
 }
 
-void Tire::set_alpha(double a_rad) {
+void Tire::set_alpha(double lat_sign) {
     alpha = (delta - theta) * AXLE * SIDE;
-    if (a_rad < 0) {alpha = -alpha;}
+    //if (lat_sign < 0) {alpha = -alpha;}
 }
 
 void Tire::set_K_T() { K_T = K_T; } // [N/m] Tire stiffness     FUNCTION INPUT
@@ -109,9 +109,9 @@ void Tire::set_F_x_comb(int lon_sign) {
     F_x_comb = lon_sign * F_x * abs(F_y) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_x * F_x + kappa_x * kappa_x * K_y_alpha * K_y_alpha) / (K_y_alpha); // [N] Tire combined longitudinal force
 }
 
-void Tire::set_F_y_comb(double a_rad) {
+void Tire::set_F_y_comb(double lat_sign) {
     F_y_comb = SIDE * F_y * abs(F_x) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_y * F_y + sin(alpha_y) * sin(alpha_y) * K_x_kappa * K_x_kappa) / (K_x_kappa * cos(alpha_y)); // [N] Tire combined lateral force
-	//if (a_rad < 0) { F_y_comb = -F_y_comb; }
+	//if (lat_sign < 0) { F_y_comb = -F_y_comb; }
 }
 
 void Tire::set_T() { T = F_x_comb * r; }

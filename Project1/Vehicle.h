@@ -22,7 +22,7 @@ private:
     //Driver input
     Pedals_input pedals_input = Pedals_input::Coasting;
     Steering_input steering_input = Steering_input::Straight;
-    int lon_sign = 1.0;
+	int lon_sign = 1.0, lat_sign = 1.0;
 
     //Drive and Brake bias
 	Actuator_config drive_config = Actuator_config::All, brake_config = Actuator_config::All;
@@ -182,8 +182,6 @@ public:
     void set_parameters(const Vehicle_inputs& vehicle_inputs);
 
 	void vehicle_parameters();
-
-    void wheel_loads();
 
     void ackermann_diagram();
 

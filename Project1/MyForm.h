@@ -744,9 +744,9 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -1501,10 +1501,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3->Controls->Add(this->groupBox3);
 			this->tabPage3->Controls->Add(this->groupBox2);
 			this->tabPage3->Controls->Add(this->groupBox1);
-			this->tabPage3->Location = System::Drawing::Point(4, 35);
+			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(1075, 636);
+			this->tabPage3->Size = System::Drawing::Size(1075, 649);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Vehicle";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -2503,10 +2503,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage4
 			// 
 			this->tabPage4->Controls->Add(this->splitContainer3);
-			this->tabPage4->Location = System::Drawing::Point(4, 35);
+			this->tabPage4->Location = System::Drawing::Point(4, 22);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(1075, 636);
+			this->tabPage4->Size = System::Drawing::Size(1075, 649);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Suspension";
 			this->tabPage4->UseVisualStyleBackColor = true;
@@ -2527,7 +2527,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer3.Panel2
 			// 
 			this->splitContainer3->Panel2->Controls->Add(this->tabControl3);
-			this->splitContainer3->Size = System::Drawing::Size(1069, 630);
+			this->splitContainer3->Size = System::Drawing::Size(1069, 643);
 			this->splitContainer3->SplitterDistance = 500;
 			this->splitContainer3->TabIndex = 23;
 			// 
@@ -3013,7 +3013,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl3->Location = System::Drawing::Point(0, 0);
 			this->tabControl3->Name = L"tabControl3";
 			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(565, 630);
+			this->tabControl3->Size = System::Drawing::Size(565, 643);
 			this->tabControl3->TabIndex = 23;
 			// 
 			// tabPage8
@@ -3023,7 +3023,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage8->Location = System::Drawing::Point(4, 35);
 			this->tabPage8->Name = L"tabPage8";
 			this->tabPage8->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage8->Size = System::Drawing::Size(557, 591);
+			this->tabPage8->Size = System::Drawing::Size(557, 604);
 			this->tabPage8->TabIndex = 0;
 			this->tabPage8->Text = L"Geometric centers";
 			this->tabPage8->UseVisualStyleBackColor = true;
@@ -4026,7 +4026,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage9->Location = System::Drawing::Point(4, 22);
 			this->tabPage9->Name = L"tabPage9";
 			this->tabPage9->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage9->Size = System::Drawing::Size(557, 617);
+			this->tabPage9->Size = System::Drawing::Size(557, 604);
 			this->tabPage9->TabIndex = 1;
 			this->tabPage9->Text = L"Other kinematics";
 			this->tabPage9->UseVisualStyleBackColor = true;
@@ -4857,10 +4857,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage5->Controls->Add(this->groupBox13);
 			this->tabPage5->Controls->Add(this->groupBox12);
 			this->tabPage5->Controls->Add(this->groupBox11);
-			this->tabPage5->Location = System::Drawing::Point(4, 35);
+			this->tabPage5->Location = System::Drawing::Point(4, 22);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1075, 636);
+			this->tabPage5->Size = System::Drawing::Size(1075, 649);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Tires";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -6726,7 +6726,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(103, 34);
 			this->label6->TabIndex = 0;
-			this->label6->Text = L"Front inner";
+			this->label6->Text = L"Front Left";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label7
@@ -6738,7 +6738,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(103, 34);
 			this->label7->TabIndex = 1;
-			this->label7->Text = L"Front outer";
+			this->label7->Text = L"Front Right";
 			this->label7->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label8
@@ -6750,7 +6750,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(103, 34);
 			this->label8->TabIndex = 2;
-			this->label8->Text = L"Rear inner";
+			this->label8->Text = L"Rear Left";
 			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label9
@@ -6762,7 +6762,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(103, 34);
 			this->label9->TabIndex = 3;
-			this->label9->Text = L"Rear outer";
+			this->label9->Text = L"Rear Right";
 			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label10
@@ -7464,20 +7464,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea2->BackColor = System::Drawing::Color::White;
-			chartArea2->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea2);
+			chartArea1->BackColor = System::Drawing::Color::White;
+			chartArea1->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea1);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend2->Name = L"Legend1";
-			this->YMD->Legends->Add(legend2);
+			legend1->Name = L"Legend1";
+			this->YMD->Legends->Add(legend1);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title2->Name = L"Title1";
-			this->YMD->Titles->Add(title2);
+			title1->Name = L"Title1";
+			this->YMD->Titles->Add(title1);
 			// 
 			// debugPage
 			// 
@@ -7490,10 +7490,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->debugPage->Controls->Add(this->output_debug3);
 			this->debugPage->Controls->Add(this->output_debug2);
 			this->debugPage->Controls->Add(this->output_debug1);
-			this->debugPage->Location = System::Drawing::Point(4, 35);
+			this->debugPage->Location = System::Drawing::Point(4, 22);
 			this->debugPage->Name = L"debugPage";
 			this->debugPage->Padding = System::Windows::Forms::Padding(3);
-			this->debugPage->Size = System::Drawing::Size(1075, 636);
+			this->debugPage->Size = System::Drawing::Size(1075, 649);
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
