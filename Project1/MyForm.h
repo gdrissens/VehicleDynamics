@@ -744,9 +744,9 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -1501,10 +1501,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3->Controls->Add(this->groupBox3);
 			this->tabPage3->Controls->Add(this->groupBox2);
 			this->tabPage3->Controls->Add(this->groupBox1);
-			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Location = System::Drawing::Point(4, 35);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(1075, 649);
+			this->tabPage3->Size = System::Drawing::Size(1075, 636);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Vehicle";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -1627,7 +1627,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox164->Name = L"textBox164";
 			this->textBox164->Size = System::Drawing::Size(165, 44);
 			this->textBox164->TabIndex = 77;
-			this->textBox164->Text = L"Lateral drag distribution [%inner]";
+			this->textBox164->Text = L"Lateral drag distribution [%right]";
 			// 
 			// input_F_drag_z_0
 			// 
@@ -1852,7 +1852,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox173->Name = L"textBox173";
 			this->textBox173->Size = System::Drawing::Size(165, 44);
 			this->textBox173->TabIndex = 59;
-			this->textBox173->Text = L"Lateral downforcer distribution [%inner]";
+			this->textBox173->Text = L"Lateral downforcer distribution [%right]";
 			// 
 			// input_F_down_x_0
 			// 
@@ -2323,7 +2323,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(157, 38);
 			this->textBox7->TabIndex = 14;
-			this->textBox7->Text = L"Rear outer unsprung masses [kg]";
+			this->textBox7->Text = L"Rear right unsprung masses [kg]";
 			// 
 			// input_m_u_rr
 			// 
@@ -2361,7 +2361,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(157, 47);
 			this->textBox6->TabIndex = 12;
-			this->textBox6->Text = L"Rear inner unsprung masses [kg]";
+			this->textBox6->Text = L"Rear left unsprung masses [kg]";
 			// 
 			// input_m_u_rl
 			// 
@@ -2386,7 +2386,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(157, 47);
 			this->textBox5->TabIndex = 10;
-			this->textBox5->Text = L"Front outer unsprung masses [kg]";
+			this->textBox5->Text = L"Front right unsprung masses [kg]";
 			// 
 			// input_m_u_fr
 			// 
@@ -2411,7 +2411,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(157, 47);
 			this->textBox4->TabIndex = 8;
-			this->textBox4->Text = L"Front inner unsprung masses [kg]";
+			this->textBox4->Text = L"Front left unsprung masses [kg]";
 			// 
 			// input_m_u_fl
 			// 
@@ -2503,10 +2503,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage4
 			// 
 			this->tabPage4->Controls->Add(this->splitContainer3);
-			this->tabPage4->Location = System::Drawing::Point(4, 22);
+			this->tabPage4->Location = System::Drawing::Point(4, 35);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(1075, 649);
+			this->tabPage4->Size = System::Drawing::Size(1075, 636);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Suspension";
 			this->tabPage4->UseVisualStyleBackColor = true;
@@ -2527,7 +2527,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer3.Panel2
 			// 
 			this->splitContainer3->Panel2->Controls->Add(this->tabControl3);
-			this->splitContainer3->Size = System::Drawing::Size(1069, 643);
+			this->splitContainer3->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer3->SplitterDistance = 500;
 			this->splitContainer3->TabIndex = 23;
 			// 
@@ -2771,7 +2771,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox24->Name = L"textBox24";
 			this->textBox24->Size = System::Drawing::Size(138, 64);
 			this->textBox24->TabIndex = 8;
-			this->textBox24->Text = L"Chassis pitching stiffness distribution [%front]";
+			this->textBox24->Text = L"Chassis pitching stiffness distribution [%right]";
 			// 
 			// input_k_p_C_dist
 			// 
@@ -2796,7 +2796,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_k_p_C_deg->Name = L"input_k_p_C_deg";
 			this->input_k_p_C_deg->Size = System::Drawing::Size(74, 27);
 			this->input_k_p_C_deg->TabIndex = 5;
-			this->input_k_p_C_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->input_k_p_C_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9000, 0, 0, 0 });
 			// 
 			// textBox25
 			// 
@@ -3013,7 +3013,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl3->Location = System::Drawing::Point(0, 0);
 			this->tabControl3->Name = L"tabControl3";
 			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(565, 643);
+			this->tabControl3->Size = System::Drawing::Size(565, 630);
 			this->tabControl3->TabIndex = 23;
 			// 
 			// tabPage8
@@ -3023,7 +3023,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage8->Location = System::Drawing::Point(4, 35);
 			this->tabPage8->Name = L"tabPage8";
 			this->tabPage8->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage8->Size = System::Drawing::Size(557, 604);
+			this->tabPage8->Size = System::Drawing::Size(557, 591);
 			this->tabPage8->TabIndex = 0;
 			this->tabPage8->Text = L"Geometric centers";
 			this->tabPage8->UseVisualStyleBackColor = true;
@@ -4857,10 +4857,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage5->Controls->Add(this->groupBox13);
 			this->tabPage5->Controls->Add(this->groupBox12);
 			this->tabPage5->Controls->Add(this->groupBox11);
-			this->tabPage5->Location = System::Drawing::Point(4, 22);
+			this->tabPage5->Location = System::Drawing::Point(4, 35);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1075, 649);
+			this->tabPage5->Size = System::Drawing::Size(1075, 636);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Tires";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -4957,7 +4957,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox80->Name = L"textBox80";
 			this->textBox80->Size = System::Drawing::Size(138, 45);
 			this->textBox80->TabIndex = 10;
-			this->textBox80->Text = L"Tire radial stiffness [N/mm]";
+			this->textBox80->Text = L"Tire vertical stiffness [N/mm]";
 			// 
 			// input_K_T
 			// 
@@ -5070,7 +5070,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox79->Name = L"textBox79";
 			this->textBox79->Size = System::Drawing::Size(138, 45);
 			this->textBox79->TabIndex = 2;
-			this->textBox79->Text = L"Undeflected tire radius [mm]";
+			this->textBox79->Text = L"Unloaded tire radius [mm]";
 			// 
 			// groupBox12
 			// 
@@ -6589,54 +6589,54 @@ private: System::ComponentModel::IContainer^ components;
 			this->output_R->AutoSize = true;
 			this->output_R->Location = System::Drawing::Point(365, 496);
 			this->output_R->Name = L"output_R";
-			this->output_R->Size = System::Drawing::Size(64, 26);
+			this->output_R->Size = System::Drawing::Size(126, 26);
 			this->output_R->TabIndex = 30;
-			this->output_R->Text = L"label7";
+			this->output_R->Text = L"Corner radius";
 			// 
 			// output_V
 			// 
 			this->output_V->AutoSize = true;
 			this->output_V->Location = System::Drawing::Point(365, 466);
 			this->output_V->Name = L"output_V";
-			this->output_V->Size = System::Drawing::Size(64, 26);
+			this->output_V->Size = System::Drawing::Size(80, 26);
 			this->output_V->TabIndex = 26;
-			this->output_V->Text = L"label7";
+			this->output_V->Text = L"Velocity";
 			// 
 			// output_bias_now
 			// 
 			this->output_bias_now->AutoSize = true;
 			this->output_bias_now->Location = System::Drawing::Point(365, 432);
 			this->output_bias_now->Name = L"output_bias_now";
-			this->output_bias_now->Size = System::Drawing::Size(64, 26);
+			this->output_bias_now->Size = System::Drawing::Size(46, 26);
 			this->output_bias_now->TabIndex = 25;
-			this->output_bias_now->Text = L"label7";
+			this->output_bias_now->Text = L"bias";
 			// 
 			// output_iter
 			// 
 			this->output_iter->AutoSize = true;
 			this->output_iter->Location = System::Drawing::Point(365, 399);
 			this->output_iter->Name = L"output_iter";
-			this->output_iter->Size = System::Drawing::Size(64, 26);
+			this->output_iter->Size = System::Drawing::Size(41, 26);
 			this->output_iter->TabIndex = 24;
-			this->output_iter->Text = L"label7";
+			this->output_iter->Text = L"iter";
 			// 
 			// output_a_rad
 			// 
 			this->output_a_rad->AutoSize = true;
 			this->output_a_rad->Location = System::Drawing::Point(6, 431);
 			this->output_a_rad->Name = L"output_a_rad";
-			this->output_a_rad->Size = System::Drawing::Size(64, 26);
+			this->output_a_rad->Size = System::Drawing::Size(77, 26);
 			this->output_a_rad->TabIndex = 23;
-			this->output_a_rad->Text = L"label8";
+			this->output_a_rad->Text = L"Rad acc";
 			// 
 			// output_a_lat
 			// 
 			this->output_a_lat->AutoSize = true;
 			this->output_a_lat->Location = System::Drawing::Point(5, 399);
 			this->output_a_lat->Name = L"output_a_lat";
-			this->output_a_lat->Size = System::Drawing::Size(64, 26);
+			this->output_a_lat->Size = System::Drawing::Size(71, 26);
 			this->output_a_lat->TabIndex = 4;
-			this->output_a_lat->Text = L"label8";
+			this->output_a_lat->Text = L"Lat acc";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -7251,62 +7251,62 @@ private: System::ComponentModel::IContainer^ components;
 			this->output_M_yaw->AutoSize = true;
 			this->output_M_yaw->Location = System::Drawing::Point(6, 326);
 			this->output_M_yaw->Name = L"output_M_yaw";
-			this->output_M_yaw->Size = System::Drawing::Size(64, 26);
+			this->output_M_yaw->Size = System::Drawing::Size(124, 26);
 			this->output_M_yaw->TabIndex = 1;
-			this->output_M_yaw->Text = L"label1";
+			this->output_M_yaw->Text = L"Yaw moment";
 			// 
 			// output_F_lat
 			// 
 			this->output_F_lat->AutoSize = true;
 			this->output_F_lat->Location = System::Drawing::Point(6, 501);
 			this->output_F_lat->Name = L"output_F_lat";
-			this->output_F_lat->Size = System::Drawing::Size(64, 26);
+			this->output_F_lat->Size = System::Drawing::Size(86, 26);
 			this->output_F_lat->TabIndex = 2;
-			this->output_F_lat->Text = L"label6";
+			this->output_F_lat->Text = L"Lat force";
 			// 
 			// output_phi_deg
 			// 
 			this->output_phi_deg->AutoSize = true;
 			this->output_phi_deg->Location = System::Drawing::Point(365, 364);
 			this->output_phi_deg->Name = L"output_phi_deg";
-			this->output_phi_deg->Size = System::Drawing::Size(64, 26);
+			this->output_phi_deg->Size = System::Drawing::Size(106, 26);
 			this->output_phi_deg->TabIndex = 7;
-			this->output_phi_deg->Text = L"label7";
+			this->output_phi_deg->Text = L"pitch angle";
 			// 
 			// output_F_lon
 			// 
 			this->output_F_lon->AutoSize = true;
 			this->output_F_lon->Location = System::Drawing::Point(6, 466);
 			this->output_F_lon->Name = L"output_F_lon";
-			this->output_F_lon->Size = System::Drawing::Size(64, 26);
+			this->output_F_lon->Size = System::Drawing::Size(91, 26);
 			this->output_F_lon->TabIndex = 3;
-			this->output_F_lon->Text = L"label7";
+			this->output_F_lon->Text = L"Lon force";
 			// 
 			// output_psi_deg
 			// 
 			this->output_psi_deg->AutoSize = true;
 			this->output_psi_deg->Location = System::Drawing::Point(365, 326);
 			this->output_psi_deg->Name = L"output_psi_deg";
-			this->output_psi_deg->Size = System::Drawing::Size(64, 26);
+			this->output_psi_deg->Size = System::Drawing::Size(91, 26);
 			this->output_psi_deg->TabIndex = 6;
-			this->output_psi_deg->Text = L"label6";
+			this->output_psi_deg->Text = L"roll angle";
 			// 
 			// output_a_lon
 			// 
 			this->output_a_lon->AutoSize = true;
 			this->output_a_lon->Location = System::Drawing::Point(6, 364);
 			this->output_a_lon->Name = L"output_a_lon";
-			this->output_a_lon->Size = System::Drawing::Size(64, 26);
+			this->output_a_lon->Size = System::Drawing::Size(76, 26);
 			this->output_a_lon->TabIndex = 5;
-			this->output_a_lon->Text = L"label9";
+			this->output_a_lon->Text = L"Lon acc";
 			// 
 			// tabPage7
 			// 
 			this->tabPage7->Controls->Add(this->splitContainer4);
-			this->tabPage7->Location = System::Drawing::Point(4, 22);
+			this->tabPage7->Location = System::Drawing::Point(4, 35);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(557, 604);
+			this->tabPage7->Size = System::Drawing::Size(557, 591);
 			this->tabPage7->TabIndex = 1;
 			this->tabPage7->Text = L"YMD";
 			this->tabPage7->UseVisualStyleBackColor = true;
@@ -7325,8 +7325,8 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer4.Panel2
 			// 
 			this->splitContainer4->Panel2->Controls->Add(this->YMD);
-			this->splitContainer4->Size = System::Drawing::Size(551, 598);
-			this->splitContainer4->SplitterDistance = 92;
+			this->splitContainer4->Size = System::Drawing::Size(551, 585);
+			this->splitContainer4->SplitterDistance = 90;
 			this->splitContainer4->TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -7358,20 +7358,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 92);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 90);
 			this->tableLayoutPanel2->TabIndex = 13;
 			// 
 			// input_num_delta_d
 			// 
-			this->input_num_delta_d->DecimalPlaces = 2;
 			this->input_num_delta_d->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->input_num_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_num_delta_d->Location = System::Drawing::Point(276, 49);
+			this->input_num_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
+			this->input_num_delta_d->Location = System::Drawing::Point(276, 48);
 			this->input_num_delta_d->Name = L"input_num_delta_d";
 			this->input_num_delta_d->Size = System::Drawing::Size(85, 27);
 			this->input_num_delta_d->TabIndex = 11;
-			this->input_num_delta_d->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			this->input_num_delta_d->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			// 
 			// textBox182
 			// 
@@ -7379,10 +7379,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox182->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox182->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox182->Location = System::Drawing::Point(185, 49);
+			this->textBox182->Location = System::Drawing::Point(185, 48);
 			this->textBox182->Multiline = true;
 			this->textBox182->Name = L"textBox182";
-			this->textBox182->Size = System::Drawing::Size(85, 40);
+			this->textBox182->Size = System::Drawing::Size(85, 39);
 			this->textBox182->TabIndex = 12;
 			this->textBox182->Text = L"Number of δd isolines";
 			// 
@@ -7397,7 +7397,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_max_delta_d->Name = L"input_max_delta_d";
 			this->input_max_delta_d->Size = System::Drawing::Size(85, 27);
 			this->input_max_delta_d->TabIndex = 9;
-			this->input_max_delta_d->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			this->input_max_delta_d->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 40, 0, 0, 0 });
 			// 
 			// textBox180
 			// 
@@ -7408,7 +7408,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox180->Location = System::Drawing::Point(3, 3);
 			this->textBox180->Multiline = true;
 			this->textBox180->Name = L"textBox180";
-			this->textBox180->Size = System::Drawing::Size(85, 40);
+			this->textBox180->Size = System::Drawing::Size(85, 39);
 			this->textBox180->TabIndex = 6;
 			this->textBox180->Text = L"Maximum β [°]";
 			// 
@@ -7418,10 +7418,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox181->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox181->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox181->Location = System::Drawing::Point(3, 49);
+			this->textBox181->Location = System::Drawing::Point(3, 48);
 			this->textBox181->Multiline = true;
 			this->textBox181->Name = L"textBox181";
-			this->textBox181->Size = System::Drawing::Size(85, 40);
+			this->textBox181->Size = System::Drawing::Size(85, 39);
 			this->textBox181->TabIndex = 8;
 			this->textBox181->Text = L"Number of β isolines";
 			// 
@@ -7434,7 +7434,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox183->Location = System::Drawing::Point(185, 3);
 			this->textBox183->Multiline = true;
 			this->textBox183->Name = L"textBox183";
-			this->textBox183->Size = System::Drawing::Size(85, 40);
+			this->textBox183->Size = System::Drawing::Size(85, 39);
 			this->textBox183->TabIndex = 10;
 			this->textBox183->Text = L"Maximum δd [°]";
 			// 
@@ -7448,36 +7448,36 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_max_beta->Name = L"input_max_beta";
 			this->input_max_beta->Size = System::Drawing::Size(85, 27);
 			this->input_max_beta->TabIndex = 5;
-			this->input_max_beta->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			this->input_max_beta->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
 			// 
 			// input_num_beta
 			// 
-			this->input_num_beta->DecimalPlaces = 2;
 			this->input_num_beta->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->input_num_beta->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_num_beta->Location = System::Drawing::Point(94, 49);
+			this->input_num_beta->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
+			this->input_num_beta->Location = System::Drawing::Point(94, 48);
 			this->input_num_beta->Name = L"input_num_beta";
 			this->input_num_beta->Size = System::Drawing::Size(85, 27);
 			this->input_num_beta->TabIndex = 7;
-			this->input_num_beta->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			this->input_num_beta->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			// 
 			// YMD
 			// 
-			chartArea1->BackColor = System::Drawing::Color::White;
-			chartArea1->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea1);
+			chartArea3->BackColor = System::Drawing::Color::White;
+			chartArea3->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea3);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend1->Name = L"Legend1";
-			this->YMD->Legends->Add(legend1);
+			legend3->Name = L"Legend1";
+			this->YMD->Legends->Add(legend3);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			this->YMD->Size = System::Drawing::Size(551, 502);
+			this->YMD->Size = System::Drawing::Size(551, 491);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title1->Name = L"Title1";
-			this->YMD->Titles->Add(title1);
+			title3->Name = L"Title1";
+			this->YMD->Titles->Add(title3);
 			// 
 			// debugPage
 			// 
@@ -8203,7 +8203,7 @@ private: System::ComponentModel::IContainer^ components;
 			output_psi_deg->Text = System::String::Format("Roll angle: {0:F2}°", System::Convert::ToDouble(vehicle_outputs->psi_deg));
 			output_iter->Text = System::String::Format("Iterations: {0}", System::Convert::ToInt32(vehicle_outputs->iter));
 			output_V->Text = System::String::Format("Velocity: {0:F2} km/h", System::Convert::ToDouble(vehicle_outputs->V));
-			output_R->Text = (vehicle_outputs->R < 1e5) ? System::String::Format("Turn radius: {0:F2} m", System::Convert::ToDouble(vehicle_outputs->R)) : "Turn radius: straight line";
+			output_R->Text = (abs(vehicle_outputs->R) < 1e5) ? System::String::Format("Corner radius: {0:F2} m", System::Convert::ToDouble(vehicle_outputs->R)) : "Corner radius: 100000+ m";
 			output_bias_now->Text = System::String::Format("Current bias: {0:F2}%", System::Convert::ToDouble(vehicle_outputs->bias_now));
 
 			output_alpha_fl->Text = System::String::Format("{0:F2}°", System::Convert::ToDouble(vehicle_outputs->alpha_fl));

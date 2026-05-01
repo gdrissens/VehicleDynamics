@@ -952,11 +952,11 @@ Vehicle::Vehicle() {};
 		golden_iter_total = 0;
         iter_total = 0;
 
-		carrier.max_a_lat = carrier.min_a_lat = 0.0; // Reset max and min lateral acceleration for YMD
+		carrier.max_a_lat = carrier.max_M_yaw = 0.0; // Reset max lateral acceleration and yaw moment for YMD
         max_beta = vehicle_inputs.max_beta;
-        num_beta = vehicle_inputs.num_beta;
+        num_beta = vehicle_inputs.num_beta - 1;
         max_delta_d = vehicle_inputs.max_delta_d;
-        num_delta_d = vehicle_inputs.num_delta_d;
+        num_delta_d = vehicle_inputs.num_delta_d - 1;
 
         copy.force_a_lon = true;
 
@@ -986,9 +986,9 @@ Vehicle::Vehicle() {};
         std::vector<double> BETA_ISODELTA(0);
         std::vector<double> DELTA_ISODELTA(0);
 
-        for (double j = -max_delta_d; j <= max_delta_d; j += max_delta_d * 2 / num_delta_d) {
+        for (double j = 0; j <= num_delta_d; j++) {
 
-            copy.delta_d_deg = j;
+            copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * j / num_delta_d - 1), 1.3), 2 * j / num_delta_d - 1);
 
 			A_LAT_ISODELTA.clear();
 			A_LON_ISODELTA.clear();
@@ -997,13 +997,11 @@ Vehicle::Vehicle() {};
             BETA_ISODELTA.clear();
             DELTA_ISODELTA.clear();
 
-            copy.beta_deg = -max_beta;
-
-            for (int i = 0; i <= 50; i++) {
+            for (int i = 0; i <= num_beta * 2; i++) {
 
                 beta_past = copy.beta_deg;
-                copy.beta_deg += max_beta * 2 / 50;
-
+                copy.beta_deg = max_beta * copysign(pow(abs(2 * i / num_beta / 2 - 1), 1.5), 2 * i / num_beta / 2 - 1);
+                
                 copy.solver();
 				brents_iter_total += copy.brents_iter_single;
 				golden_iter_total += copy.golden_iter_single;
@@ -1013,18 +1011,17 @@ Vehicle::Vehicle() {};
                 A_LON_ISODELTA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISODELTA.push_back(copy.M_yaw);
                 BETA_ISODELTA.push_back(copy.beta_deg);
-                DELTA_ISODELTA.push_back(j);
+                DELTA_ISODELTA.push_back(copy.delta_d_deg);
 
                 if (i != 0) stability = abs(M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_deg - beta_past);
                 STABILITY.push_back(stability);
 
-				if ((j < 0.0 ? -copy.a_lat : copy.a_lat) > carrier.max_a_lat) {
-					carrier.max_a_lat = round_to((j < 0.0 ? -copy.a_lat : copy.a_lat), 1); 
+				if (abs(copy.a_lat) > carrier.max_a_lat) {
+					carrier.max_a_lat = round_to(abs(copy.a_lat), 1); 
                     carrier.max_a_lat += (remainder(carrier.max_a_lat, 0.2) == 0.0 ? 0.2 : 0.1);
                 }
-                if ((j < 0.0 ? -copy.a_lat : copy.a_lat) < carrier.min_a_lat) { 
-                    carrier.min_a_lat = round_to((j < 0.0 ? -copy.a_lat : copy.a_lat), 1); 
-                    carrier.min_a_lat -= (remainder(carrier.min_a_lat, 0.2) == 0.0 ? 0.2 : 0.1);
+                if (abs(copy.M_yaw) > carrier.max_M_yaw) { 
+                    carrier.max_M_yaw = round_to(abs(copy.M_yaw) / 10000.0, 1) * 10000.0; 
                 }
             }
 
@@ -1035,7 +1032,7 @@ Vehicle::Vehicle() {};
             DELTA_ISODELTA_2.push_back(DELTA_ISODELTA);
 			STABILITY_2.push_back(STABILITY);
 
-            DELTA_ISO.push_back(j);
+            DELTA_ISO.push_back(copy.delta_d_deg);
         }
 
 		carrier.a_lat_isodelta = A_LAT_ISODELTA_2;
@@ -1064,9 +1061,9 @@ Vehicle::Vehicle() {};
         std::vector<double> BETA_ISOBETA(0);
         std::vector<double> DELTA_ISOBETA(0);
 
-        for (double j = -max_beta / 2; j <= max_beta / 2; j += max_beta / num_beta) {
+        for (double j = 0; j <= num_beta; j++) {
 
-            copy.beta_deg = j;
+            copy.beta_deg = max_beta * copysign(pow(abs(2 * j / num_beta - 1), 1.5), 2 * j / num_beta - 1);
 
             A_LAT_ISOBETA.clear();
 			A_LON_ISOBETA.clear();
@@ -1075,12 +1072,10 @@ Vehicle::Vehicle() {};
             BETA_ISOBETA.clear();
             DELTA_ISOBETA.clear();
 
-			copy.delta_d_deg = -max_delta_d;
+            for (int i = 1; i <= num_delta_d * 2; i += 2) {
 
-            for (int i = 0; i < num_delta_d; i++) {
-
-				delta_d_past = copy.delta_d_deg;
-				copy.delta_d_deg += max_delta_d * 2 / num_delta_d;
+                delta_d_past = copy.delta_d_deg;
+                copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * i / num_delta_d / 2 - 1), 1.3), 2 * i / num_delta_d / 2 - 1);
 
                 copy.solver();
                 brents_iter_total += copy.brents_iter_single;
@@ -1090,10 +1085,10 @@ Vehicle::Vehicle() {};
                 A_LAT_ISOBETA.push_back(round_to(copy.a_lat, 2));
 				A_LON_ISOBETA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISOBETA.push_back(copy.M_yaw);
-                BETA_ISOBETA.push_back(j);
+                BETA_ISOBETA.push_back(copy.beta_deg);
                 DELTA_ISOBETA.push_back(copy.delta_d_deg);
 
-                if (i != 0) control = abs(M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (copy.delta_d_deg - delta_d_past);
+                if (i != 1) control = abs(M_YAW_ISOBETA[i / 2] - M_YAW_ISOBETA[i / 2 - 1]) / (copy.delta_d_deg - delta_d_past);
 				CONTROL.push_back(control);
             }
 
@@ -1104,7 +1099,7 @@ Vehicle::Vehicle() {};
             DELTA_ISOBETA_2.push_back(DELTA_ISOBETA);
 			CONTROL_2.push_back(CONTROL);
 
-            BETA_ISO.push_back(j);
+            BETA_ISO.push_back(copy.beta_deg);
         }
 
         carrier.a_lat_isobeta = A_LAT_ISOBETA_2;

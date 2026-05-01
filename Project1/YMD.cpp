@@ -19,8 +19,11 @@ void YMD_setup(Chart^ chart, YMD_Carrier& carrier)
     area->AxisX->MajorGrid->LineColor = System::Drawing::Color::LightGray;
     area->AxisY->MajorGrid->LineColor = System::Drawing::Color::LightGray;
 
-    area->AxisX->Minimum = carrier.min_a_lat - 0.2;
+    area->AxisX->Minimum = -carrier.max_a_lat - 0.2;
     area->AxisX->Maximum = carrier.max_a_lat + 0.2;
+
+	area->AxisY->Minimum = -carrier.max_M_yaw - 1000.0;
+	area->AxisY->Maximum = carrier.max_M_yaw + 1000.0;
 
     area->AxisX->Interval = 0.2;
     area->AxisX->IntervalOffset = 0.0;
