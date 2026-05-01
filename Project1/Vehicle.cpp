@@ -661,7 +661,7 @@ Vehicle::Vehicle() {};
 
     // Brent's method for finding root of f(x) = target
     void Vehicle::brents_method(Tire& tire, double a, double b) {
-        double tol = 1e-4; int max_iter = 40;
+        double tol = 1e-2; int max_iter = 40;
 
         auto f = [&](double x) {
             tire.kappa = x;
@@ -792,7 +792,7 @@ Vehicle::Vehicle() {};
             return tire.F_x_comb;
             };
 
-        double tolerance = 1e-4;
+        double tolerance = 1e-3;
         double x1 = x_l + goldenRatio * (x_u - x_l);
         double x2 = x_u - goldenRatio * (x_u - x_l);
 
@@ -955,8 +955,10 @@ Vehicle::Vehicle() {};
 		carrier.max_a_lat = carrier.max_M_yaw = 0.0; // Reset max lateral acceleration and yaw moment for YMD
         max_beta = vehicle_inputs.max_beta;
         num_beta = vehicle_inputs.num_beta - 1;
+        con_beta = vehicle_inputs.con_beta;
         max_delta_d = vehicle_inputs.max_delta_d;
         num_delta_d = vehicle_inputs.num_delta_d - 1;
+        con_delta_d = vehicle_inputs.con_delta_d;
 
         copy.force_a_lon = true;
 
@@ -988,7 +990,7 @@ Vehicle::Vehicle() {};
 
         for (double j = 0; j <= num_delta_d; j++) {
 
-            copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * j / num_delta_d - 1), 1.3), 2 * j / num_delta_d - 1);
+            copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * j / num_delta_d - 1), con_delta_d), 2 * j / num_delta_d - 1);
 
 			A_LAT_ISODELTA.clear();
 			A_LON_ISODELTA.clear();
@@ -1000,7 +1002,7 @@ Vehicle::Vehicle() {};
             for (int i = 0; i <= num_beta * 2; i++) {
 
                 beta_past = copy.beta_deg;
-                copy.beta_deg = max_beta * copysign(pow(abs(2 * i / num_beta / 2 - 1), 1.5), 2 * i / num_beta / 2 - 1);
+                copy.beta_deg = max_beta * copysign(pow(abs(2 * i / num_beta / 2 - 1), con_beta), 2 * i / num_beta / 2 - 1);
                 
                 copy.solver();
 				brents_iter_total += copy.brents_iter_single;
@@ -1063,7 +1065,7 @@ Vehicle::Vehicle() {};
 
         for (double j = 0; j <= num_beta; j++) {
 
-            copy.beta_deg = max_beta * copysign(pow(abs(2 * j / num_beta - 1), 1.5), 2 * j / num_beta - 1);
+            copy.beta_deg = max_beta * copysign(pow(abs(2 * j / num_beta - 1), con_beta), 2 * j / num_beta - 1);
 
             A_LAT_ISOBETA.clear();
 			A_LON_ISOBETA.clear();
@@ -1075,7 +1077,7 @@ Vehicle::Vehicle() {};
             for (int i = 1; i <= num_delta_d * 2; i += 2) {
 
                 delta_d_past = copy.delta_d_deg;
-                copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * i / num_delta_d / 2 - 1), 1.3), 2 * i / num_delta_d / 2 - 1);
+                copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * i / num_delta_d / 2 - 1), con_delta_d), 2 * i / num_delta_d / 2 - 1);
 
                 copy.solver();
                 brents_iter_total += copy.brents_iter_single;

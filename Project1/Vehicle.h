@@ -169,7 +169,7 @@ private:
     double max_iter = 0.0, F_z_tol = 0.0;
 
     //YMD parameters
-    double max_beta = 0.0, num_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0;
+    double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0;
 
 	//Debug variables
 	int brents_iter_single = 0, brents_iter_total = 0, golden_iter_single = 0, golden_iter_total = 0;

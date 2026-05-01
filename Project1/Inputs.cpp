@@ -39,8 +39,10 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "force_a_lon" << '=' << vehicle_inputs.force_a_lon << '\n';
     ostream << "max_beta" << '=' << vehicle_inputs.max_beta << '\n';
 	ostream << "num_beta" << '=' << vehicle_inputs.num_beta << '\n';
+    ostream << "con_beta" << '=' << vehicle_inputs.con_beta << '\n';
 	ostream << "max_delta_d" << '=' << vehicle_inputs.max_delta_d << '\n';
 	ostream << "num_delta_d" << '=' << vehicle_inputs.num_delta_d << '\n';
+    ostream << "con_delta_d" << '=' << vehicle_inputs.con_delta_d << '\n';
     ostream << "a_lon_des" << '=' << vehicle_inputs.a_lon_des << '\n';
 
     //Vehicle inputs
@@ -200,8 +202,10 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "force_a_lon") vehicle_inputs.force_a_lon = (value == "1" || value == "true" || value == "True" || value == "TRUE");
         else if (name == "max_beta") vehicle_inputs.max_beta = std::stod(value);
 		else if (name == "num_beta") vehicle_inputs.num_beta = std::stod(value);
+		else if (name == "con_beta") vehicle_inputs.con_beta = std::stod(value);
 		else if (name == "max_delta_d") vehicle_inputs.max_delta_d = std::stod(value);
 		else if (name == "num_delta_d") vehicle_inputs.num_delta_d = std::stod(value);
+		else if (name == "con_delta_d") vehicle_inputs.con_delta_d = std::stod(value);
         else if (name == "a_lon_des") vehicle_inputs.a_lon_des = std::stod(value);
 
         //Vehicle inputs
