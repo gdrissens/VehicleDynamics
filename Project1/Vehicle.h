@@ -32,6 +32,15 @@ private:
 	Actuator_type brake_type_f = Actuator_type::Inboard, brake_type_r = Actuator_type::Inboard,
         diff_type_f = Actuator_type::Inboard, diff_type_r = Actuator_type::Inboard;
 
+    struct diff {
+		Actuator_lock lock = Actuator_lock::Open;
+		double bTBR = 1.0; // Braking torque bias ratio (TBR) for Torsen differentials
+		double dTBR = 1.0; // Driving torque bias ratio (TBR) for Torsen differentials
+    };
+
+	diff front_diff{}, rear_diff{};
+    double mdT = 0.0, sdT = 0.0;
+
     //Setup parameters
     double delta_f_static = 0.0, delta_r_static = 0.0, gamma_f_static = 0.0, gamma_r_static = 0.0;
 
@@ -114,7 +123,7 @@ private:
     double K_p_C_l = 0.0, K_p_C_r = 0.0, K_p_tot_l = 0.0, K_p_tot_r = 0.0;
 
     //Vehicle speed
-    double V = 0.0, V_input = 0.0, V_skid = 0.0, V_kmh = 0.0, V_ratio = 0.0;
+    double V = 0.0, V_input = 0.0, V_skid = 0.0, V_kmh = 0.0;
 
     //Aerodynamics
 
@@ -170,6 +179,7 @@ private:
 
     //YMD parameters
     double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0;
+    bool cancel_run = false;
 
 	//Debug variables
 	int brents_iter_single = 0, brents_iter_total = 0, golden_iter_single = 0, golden_iter_total = 0;

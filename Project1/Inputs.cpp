@@ -63,6 +63,8 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "drive_config" << '=' << static_cast<int>(vehicle_inputs.drive_config) << '\n';
     ostream << "diff_type_f" << '=' << static_cast<int>(vehicle_inputs.diff_type_f) << '\n';
     ostream << "diff_type_r" << '=' << static_cast<int>(vehicle_inputs.diff_type_r) << '\n';
+    ostream << "diff_lock_f" << '=' << static_cast<int>(vehicle_inputs.diff_lock_f) << '\n';
+    ostream << "diff_lock_r" << '=' << static_cast<int>(vehicle_inputs.diff_lock_r) << '\n';
 
 	ostream << "F_down_2" << '=' << vehicle_inputs.F_down_2 << '\n';
 	ostream << "F_down_1" << '=' << vehicle_inputs.F_down_1 << '\n';
@@ -226,6 +228,8 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "drive_config") vehicle_inputs.drive_config = static_cast<Actuator_config>(std::stoi(value));
         else if (name == "diff_type_f") vehicle_inputs.diff_type_f = static_cast<Actuator_type>(std::stoi(value));
         else if (name == "diff_type_r") vehicle_inputs.diff_type_r = static_cast<Actuator_type>(std::stoi(value));
+        else if (name == "diff_lock_f") vehicle_inputs.diff_lock_f = static_cast<Actuator_lock>(std::stoi(value));
+        else if (name == "diff_lock_r") vehicle_inputs.diff_lock_r = static_cast<Actuator_lock>(std::stoi(value));
 
         else if (name == "F_down_2") vehicle_inputs.F_down_2 = std::stod(value);
         else if (name == "F_down_1") vehicle_inputs.F_down_1 = std::stod(value);

@@ -6,23 +6,26 @@
 #include "State_variables.h"
 
 struct Tire_inputs {
-	double p_Cy1, p_Dy1, p_Dy2, p_Dy3, p_Ey1, p_Ey2, p_Ey3, p_Ey4, p_Ky1, p_Ky2, p_Ky3, p_Hy1, p_Hy2, p_Hy3, p_Vy1, p_Vy2, p_Vy3, p_Vy4;
-	double p_Cx1, p_Dx1, p_Dx2, p_Dx3, p_Ex1, p_Ex2, p_Ex3, p_Ex4, p_Kx1, p_Kx2, p_Kx3, p_Hx1, p_Hx2, p_Vx1, p_Vx2;
-	double r_u, a_rr, b_rr, F_z_o, K_T;
+	double p_Cy1 = 0.0, p_Dy1 = 0.0, p_Dy2 = 0.0, p_Dy3 = 0.0, p_Ey1 = 0.0, p_Ey2 = 0.0, p_Ey3 = 0.0, p_Ey4 = 0.0, 
+		p_Ky1 = 0.0, p_Ky2 = 0.0, p_Ky3 = 0.0, p_Hy1 = 0.0, p_Hy2 = 0.0, p_Hy3 = 0.0, p_Vy1 = 0.0, p_Vy2 = 0.0, p_Vy3 = 0.0, p_Vy4 = 0.0;
+	double p_Cx1 = 0.0, p_Dx1 = 0.0, p_Dx2 = 0.0, p_Dx3 = 0.0, p_Ex1 = 0.0, p_Ex2 = 0.0, p_Ex3 = 0.0, p_Ex4 = 0.0,
+		p_Kx1 = 0.0, p_Kx2 = 0.0, p_Kx3 = 0.0, p_Hx1 = 0.0, p_Hx2 = 0.0, p_Vx1 = 0.0, p_Vx2 = 0.0;
+	double r_u = 0.0, a_rr = 0.0, b_rr = 0.0, F_z_o = 0.0, K_T = 0.0;
 };
 
 struct Vehicle_inputs {
 
-	int version;
+	int version = 0.0;
 
 	//Simulation inputs
-	double R, V_input, beta_deg, delta_d_deg, kappa_des;
-	double BB_input, DB_input, delta_f_static, delta_r_static, gamma_f_static, gamma_r_static;
-	bool force_velocity, force_a_lon;
-	double max_beta, num_beta, con_beta, max_delta_d, num_delta_d, con_delta_d, a_lon_des;
+	double R = 0.0, V_input = 0.0, beta_deg = 0.0, delta_d_deg = 0.0, kappa_des = 0.0;
+	double BB_input = 0.0, DB_input = 0.0, delta_f_static = 0.0, delta_r_static = 0.0, gamma_f_static = 0.0, gamma_r_static = 0.0;
+	bool force_velocity = 0.0, force_a_lon = 0.0;
+	double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0, a_lon_des = 0.0;
 	std::string front_tires_selection, rear_tires_selection;
 	Actuator_type brake_type_f, brake_type_r, diff_type_f, diff_type_r;
 	Actuator_config brake_config, drive_config;
+	Actuator_lock diff_lock_f, diff_lock_r;
 	Pedals_input pedals_input;
 	Steering_input steering_input;
 	Arb_setup front_arb, rear_arb;
@@ -60,6 +63,11 @@ struct Vehicle_inputs {
 	double F_drag_2, F_drag_1, F_drag_0; //Drag force (function of velocity)
 	double F_drag_z_2, F_drag_z_1, F_drag_z_0; //Drag force vertical shift (function of velocity)
 	double F_drag_y_2, F_drag_y_1, F_drag_y_0; //Drag force lateral shift (function of velocity)
+
+#ifdef _DEBUG
+	int debug_iter = 0;
+	bool force_debug_iter = 0;
+#endif
 };
 
 std::string _tos(std::string string);

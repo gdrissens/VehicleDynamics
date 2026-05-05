@@ -101,16 +101,16 @@ void Tire::set_F_x() {
     F_x = D_x * sin(C_x * atan(B_x * ((1 - E_x) * kappa_x + E_x / B_x * atan(B_x * kappa_x)))); // [N] Tire longitudinal force
 }
 
-void Tire::set_F_y(double V_ratio) {
-    F_y = S_Vy + D_y * sin(C_y * atan(B_y * ((1 - E_y) * alpha_y + E_y / B_y * atan(B_y * alpha_y)))) * V_ratio; // [N] Tire lateral force        
+void Tire::set_F_y() {
+    F_y = S_Vy + D_y * sin(C_y * atan(B_y * ((1 - E_y) * alpha_y + E_y / B_y * atan(B_y * alpha_y)))); // [N] Tire lateral force        
 }
 
 void Tire::set_F_x_comb(int lon_sign) {
-    F_x_comb = lon_sign * F_x * abs(F_y) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_x * F_x + kappa_x * kappa_x * K_y_alpha * K_y_alpha) / (K_y_alpha); // [N] Tire combined longitudinal force
+    F_x_comb = lon_sign * round_to(F_x * abs(F_y) / sqrt(kappa * kappa * F_y * F_y + F_x * F_x * tan(alpha) * tan(alpha)) * sqrt((1 - abs(kappa)) * (1 - abs(kappa)) * cos(alpha) * cos(alpha) * F_x * F_x + kappa * kappa * K_y_alpha * K_y_alpha) / (K_y_alpha), 3); // [N] Tire combined longitudinal force
 }
 
 void Tire::set_F_y_comb(double lat_sign) {
-    F_y_comb = SIDE * F_y * abs(F_x) / sqrt(kappa_x * kappa_x * F_y * F_y + F_x * F_x * tan(alpha_y) * tan(alpha_y)) * sqrt((1 - abs(kappa_x)) * (1 - abs(kappa_x)) * cos(alpha_y) * cos(alpha_y) * F_y * F_y + sin(alpha_y) * sin(alpha_y) * K_x_kappa * K_x_kappa) / (K_x_kappa * cos(alpha_y)); // [N] Tire combined lateral force
+    F_y_comb = SIDE * round_to(F_y * abs(F_x) / sqrt(kappa * kappa * F_y * F_y + F_x * F_x * tan(alpha) * tan(alpha)) * sqrt((1 - abs(kappa)) * (1 - abs(kappa)) * cos(alpha) * cos(alpha) * F_y * F_y + sin(alpha) * sin(alpha) * K_x_kappa * K_x_kappa) / (K_x_kappa * cos(alpha)), 3); // [N] Tire combined lateral force
 	//if (lat_sign < 0) { F_y_comb = -F_y_comb; }
 }
 
@@ -127,10 +127,17 @@ void Tire::set_F_lon() { F_lon = -AXLE * F_y_comb * sin(delta) + (F_x_comb - F_r
 
 void Tire::set_F_rad() { F_rad = F_lat * cos(theta) - AXLE * F_lon * sin(theta); } // [N] Cornering radial force
 
-void Tire::set_V_x(double V, double R_v) { V_x = V * R / R_v * cos(alpha); } // [m/s] Tire longitudinal speed
+void Tire::set_V_x(double V, double R_v) { V_x = abs(V * R / R_v) * cos(delta); } // [m/s] Tire longitudinal speed
 
-void Tire::set_F_rr(double V) { F_rr = (a_rr + b_rr * V * V * 1E-4) * F_z; } // [N] Longitudinal rolling resistance force
+void Tire::set_omega(Pedals_input pedals) { omega = V_x / r * (pedals == Pedals_input::Braking ? 1 / (1 - kappa) : 1 - kappa); } // [rad/s] Tire angular velocity
+
+void Tire::set_F_rr() { F_rr = (a_rr + b_rr * V_x * V_x * 1E-4) * F_z; } // [N] Longitudinal rolling resistance force
 
 void Tire::set_F_z_past() { F_z_past = F_z; } // [N] Wheel load on previous iteration
 
 void Tire::set_F_z_err() { F_z_err = F_z - F_z_past; } // [N] Wheel load variation between iterations
+
+inline double Tire::round_to(double value, int decimals) {
+    double scale = std::pow(10.0, decimals);
+    return round(value * scale) / scale;
+}

@@ -15,7 +15,7 @@ public:
 
     void set_position(char axle, char side);
 
-    double R = 0.0, V_x = 0.0, F_z = 0.0, F_z_past = 0.0, F_z_err = 0.0, r = 0.0, T = 0.0, T_r = 0.0, df_z = 0.0,
+    double R = 0.0, V_x = 0.0, omega = 0.0, F_z = 0.0, F_z_past = 0.0, F_z_err = 0.0, r = 0.0, T = 0.0, T_r = 0.0, df_z = 0.0,
         alpha = 0.0, alpha_y = 0.0, delta = 0.0, theta = 0.0, kappa = 0.0, kappa_x = 0.0, peak_kappa = 0.0,
         F_x = 0.0, F_y = 0.0, F_x_comb = 0.0, F_y_comb = 0.0, F_x_comb_tar = 0.0, F_lat = 0.0, F_lon = 0.0, F_rad = 0.0;
     double r_u = 0.0, a_rr = 0.0, b_rr = 0.0, F_z_o = 0.0, K_T = 0.0;
@@ -47,7 +47,7 @@ public:
 
     void set_F_x();
 
-    void set_F_y(double V_ratio);
+    void set_F_y();
 
     void set_F_x_comb(int lon_sign);
 
@@ -65,9 +65,13 @@ public:
 
     void set_V_x(double V, double R_v);
 
-    void set_F_rr(double V);
+    void set_omega(Pedals_input pedals);
+
+    void set_F_rr();
 
     void set_F_z_past();
 
     void set_F_z_err();
+
+    inline double round_to(double value, int decimals);
 };
