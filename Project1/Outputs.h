@@ -26,6 +26,8 @@ struct YMD_Carrier {
 	std::vector <std::vector<double>> beta_isodelta;
 	std::vector <std::vector<double>> delta_isobeta;
 	std::vector <std::vector<double>> beta_isobeta;
+	std::vector <std::vector<int>> cancel_isodelta;
+	std::vector <std::vector<int>> cancel_isobeta;
 	std::vector<double> beta_iso;
 	std::vector<double> delta_iso;
 	double single_a_lat = 0.0, single_M_yaw = 0.0;
