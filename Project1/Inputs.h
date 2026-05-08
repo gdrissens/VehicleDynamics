@@ -18,9 +18,9 @@ struct Vehicle_inputs {
 	int version = 0.0;
 
 	//Simulation inputs
-	double R = 0.0, V_input = 0.0, beta_deg = 0.0, delta_d_deg = 0.0, kappa_des = 0.0;
+	double R = 0.0, V_input = 0.0, beta_deg = 0.0, delta_d_deg = 0.0;
 	double BB_input = 0.0, DB_input = 0.0, delta_f_static = 0.0, delta_r_static = 0.0, gamma_f_static = 0.0, gamma_r_static = 0.0;
-	bool force_velocity = 0.0, force_a_lon = 0.0;
+	bool force_velocity = 0.0;
 	double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0, a_lon_des = 0.0;
 	std::string front_tires_selection, rear_tires_selection;
 	Actuator_type brake_type_f, brake_type_r, diff_type_f, diff_type_r;

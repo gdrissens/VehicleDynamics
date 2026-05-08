@@ -74,4 +74,6 @@ public:
     void set_F_z_err();
 
     inline double round_to(double value, int decimals);
+
+    void refresh();
 };

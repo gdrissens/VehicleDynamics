@@ -27,9 +27,6 @@ void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs) {
 	if (vehicle_inputs.V_input <= 0) {
 		throw ("Input velocity must be greater than zero.");
 	}
-	if (abs(vehicle_inputs.kappa_des) > 100) {
-		throw ("Slip ratio must be between -100% and 100%.");
-	}
 	if (vehicle_inputs.BB_input < 0 || vehicle_inputs.BB_input > 100) {
 		throw ("Break bias must be between 0% and 100%.");
 	}

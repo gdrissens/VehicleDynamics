@@ -22,7 +22,6 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "R" << '=' << vehicle_inputs.R << '\n';
     ostream << "beta_deg" << '=' << vehicle_inputs.beta_deg << '\n';
     ostream << "delta_d_deg" << '=' << vehicle_inputs.delta_d_deg << '\n';
-    ostream << "kappa_des" << '=' << vehicle_inputs.kappa_des << '\n';
     ostream << "delta_f_static" << '=' << vehicle_inputs.delta_f_static << '\n';
     ostream << "delta_r_static" << '=' << vehicle_inputs.delta_r_static << '\n';
     ostream << "gamma_f_static" << '=' << vehicle_inputs.gamma_f_static << '\n';
@@ -36,7 +35,6 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "front_arb" << '=' << static_cast<int>(vehicle_inputs.front_arb) << '\n';
     ostream << "rear_arb" << '=' << static_cast<int>(vehicle_inputs.rear_arb) << '\n';
 	ostream << "force_velocity" << '=' << vehicle_inputs.force_velocity << '\n';
-    ostream << "force_a_lon" << '=' << vehicle_inputs.force_a_lon << '\n';
     ostream << "max_beta" << '=' << vehicle_inputs.max_beta << '\n';
 	ostream << "num_beta" << '=' << vehicle_inputs.num_beta << '\n';
     ostream << "con_beta" << '=' << vehicle_inputs.con_beta << '\n';
@@ -187,7 +185,6 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "R") vehicle_inputs.R = std::stod(value);
         else if (name == "beta_deg") vehicle_inputs.beta_deg = std::stod(value);
         else if (name == "delta_d_deg") vehicle_inputs.delta_d_deg = std::stod(value);
-        else if (name == "kappa_des") vehicle_inputs.kappa_des = std::stod(value);
         else if (name == "delta_f_static") vehicle_inputs.delta_f_static = std::stod(value);
         else if (name == "delta_r_static") vehicle_inputs.delta_r_static = std::stod(value);
         else if (name == "gamma_f_static") vehicle_inputs.gamma_f_static = std::stod(value);
@@ -201,7 +198,6 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "front_arb") vehicle_inputs.front_arb = static_cast<Arb_setup>(std::stoi(value));
         else if (name == "rear_arb") vehicle_inputs.rear_arb = static_cast<Arb_setup>(std::stoi(value));
 		else if (name == "force_velocity") vehicle_inputs.force_velocity = (value == "1" || value == "true" || value == "True" || value == "TRUE");
-        else if (name == "force_a_lon") vehicle_inputs.force_a_lon = (value == "1" || value == "true" || value == "True" || value == "TRUE");
         else if (name == "max_beta") vehicle_inputs.max_beta = std::stod(value);
 		else if (name == "num_beta") vehicle_inputs.num_beta = std::stod(value);
 		else if (name == "con_beta") vehicle_inputs.con_beta = std::stod(value);

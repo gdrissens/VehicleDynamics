@@ -22,10 +22,8 @@ struct YMD_Carrier {
 	std::vector <std::vector<double>> M_yaw_isodelta;
 	std::vector <std::vector<double>> control;
 	std::vector <std::vector<double>> stability;
-	std::vector <std::vector<double>> delta_isodelta;
 	std::vector <std::vector<double>> beta_isodelta;
 	std::vector <std::vector<double>> delta_isobeta;
-	std::vector <std::vector<double>> beta_isobeta;
 	std::vector <std::vector<int>> cancel_isodelta;
 	std::vector <std::vector<int>> cancel_isobeta;
 	std::vector<double> beta_iso;

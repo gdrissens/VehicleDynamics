@@ -141,3 +141,17 @@ inline double Tire::round_to(double value, int decimals) {
     double scale = std::pow(10.0, decimals);
     return round(value * scale) / scale;
 }
+
+void Tire::refresh() {
+    R = 0.0, V_x = 0.0, omega = 0.0, F_z = 0.0, F_z_past = 0.0, F_z_err = 0.0, r = 0.0, T = 0.0, T_r = 0.0, df_z = 0.0,
+        alpha = 0.0, alpha_y = 0.0, delta = 0.0, theta = 0.0, kappa = 0.0, kappa_x = 0.0, peak_kappa = 0.0,
+        F_x = 0.0, F_y = 0.0, F_x_comb = 0.0, F_y_comb = 0.0, F_x_comb_tar = 0.0, F_lat = 0.0, F_lon = 0.0, F_rad = 0.0;
+    gamma = 0.0; // [rad] Camber angle                                       INPUT
+    F_rr = 0.0; // [N] Rolling resistance
+
+    //Lateral Pacejka parameters
+    mu_y = 0.0, B_y = 0.0, C_y = 0.0, D_y = 0.0, E_y = 0.0, K_y_alpha = 0.0, S_Hy = 0.0, S_Vy = 0.0, S_Vy_gamma = 0.0;
+
+    //Longitudinal Pacejka parameters
+    mu_x = 0.0, B_x = 0.0, C_x = 0.0, D_x = 0.0, E_x = 0.0, K_x_kappa = 0.0, S_Hx = 0.0, S_Vx = 0.0;
+}

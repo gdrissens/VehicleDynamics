@@ -98,9 +98,6 @@ Vehicle::Vehicle() {};
         if (steering_input == Steering_input::Steering) { delta_d_deg = vehicle_inputs.delta_d_deg; } // [deg] Desired front outer wheel steering angle (MAX 115)
 		else { delta_d_deg = 0.0; }
 
-        //Slip ratios
-        kappa_des = vehicle_inputs.kappa_des / 100.0; // [-] Desired slip ratio (INPUT)
-
 		//Longitudinal acceleration
 		a_lon_des = vehicle_inputs.a_lon_des; // [g] Desired longitudinal acceleration (INPUT)
 
@@ -137,6 +134,8 @@ Vehicle::Vehicle() {};
 
     void Vehicle::solver() {
 
+        fl.refresh(), fr.refresh(), rl.refresh(), rr.refresh();
+
         refresh();
 
         vehicle_parameters();
@@ -144,7 +143,7 @@ Vehicle::Vehicle() {};
         ackermann_diagram();
 
         //Slip ratios
-        fl.kappa = fr.kappa = rl.kappa = rr.kappa = kappa_des; // [-] Wheel slip ratios
+        fl.kappa = fr.kappa = rl.kappa = rr.kappa = 0.0; // [-] Wheel slip ratios
 
 		chassis_stiffnesses();
 
@@ -181,7 +180,9 @@ Vehicle::Vehicle() {};
             bias_now = (fl.T + fr.T) / (fl.T + fr.T + rl.T + rr.T);
             iter++;
             if (iter > max_iter) { break; }
-            if (iter > 2 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; break; }
+            if (iter > 5 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
+
+			if (cancel_run == 1) { break; }
 
         } while (fl.F_z_err > F_z_tol || fr.F_z_err > F_z_tol || rl.F_z_err > F_z_tol || rr.F_z_err > F_z_tol);
 
@@ -191,12 +192,11 @@ Vehicle::Vehicle() {};
     void Vehicle::vehicle_parameters() {
 
         //Driver input
-        if (vehicle_inputs.force_a_lon) {
-            force_a_lon = true;
-            a_lon_des = vehicle_inputs.a_lon_des;
-        }
+        force_a_lon = true;
+        a_lon_des = vehicle_inputs.a_lon_des;
+
         if (pedals_input == Pedals_input::Cruising) { force_a_lon = true; a_lon_des = 0.0; }
-        if (pedals_input == Pedals_input::Coasting) { force_a_lon = false; kappa_des = 0.0; }
+        if (pedals_input == Pedals_input::Coasting) { force_a_lon = false; }
 		if (pedals_input == Pedals_input::Driving) { lon_sign  = 1; }
 		if (pedals_input == Pedals_input::Braking) { lon_sign = -1; }
 
@@ -337,6 +337,10 @@ Vehicle::Vehicle() {};
         if (vehicle_inputs.force_velocity) {
             R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
 			ackermann_diagram();
+        }
+        else {
+            R = abs(R) * lat_sign;
+            ackermann_diagram();
         }
     }
 
@@ -614,20 +618,20 @@ Vehicle::Vehicle() {};
 
         // Adjust function to find root of f(x) - target = 0
         auto solve_diffs = [&](diff md, diff sd, Tire& t1, Tire& t2, Tire& t3, Tire& t4) {
-			//md = main differential, sd = secondary differential
-			//t1 = main tire, t2 = secondary tire on the same axle, t3 and t4 = tires on the other axle
+            //md = main differential, sd = secondary differential
+            //t1 = main tire, t2 = secondary tire on the same axle, t3 and t4 = tires on the other axle
 
-			double t1_tar_num = (m * a_lon_des * g + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)); //Numerator for the longitudinal force target of the main tire
+            double t1_tar_num = (m * a_lon_des * g + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)); //Numerator for the longitudinal force target of the main tire
 
             //Main tire
-            
+          
             if (md.lock != Actuator_lock::Locked) {
 
-                mdT = std::min((abs(t2.omega - t1.omega) < 1e-3 ? 0.0 : abs(t2.omega - t1.omega)) * 50, t1.T * (pedals_input == Pedals_input::Braking ? (1 - 1 / md.bTBR) : (1 - 1 / md.dTBR)));
+                mdT = std::min((abs(t2.omega - t1.omega) < 1e-3 ? 0.0 : abs(t2.omega - t1.omega) * 20), t1.T * (pedals_input == Pedals_input::Braking ? (1 - 1 / md.bTBR) : (1 - 1 / md.dTBR)));
                 
                 if (sd.lock != Actuator_lock::Locked) {
 
-                    sdT = std::min((abs(t4.omega - t3.omega) < 1e-3 ? 0.0 : abs(t4.omega - t3.omega)) * 50, t3.T * (pedals_input == Pedals_input::Braking ? (1 - 1 / sd.bTBR) : (1 - 1 / sd.dTBR)));
+                    sdT = std::min((abs(t4.omega - t3.omega) < 1e-3 ? 0.0 : abs(t4.omega - t3.omega) * 20), t3.T * (pedals_input == Pedals_input::Braking ? (1 - 1 / sd.bTBR) : (1 - 1 / sd.dTBR)));
                     
                     if (bias > 0.5) {
                         t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * (1 - bias) / bias) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * (1 - bias) / bias) * cos(t4.delta) / (2 * t4.r))
@@ -724,113 +728,44 @@ Vehicle::Vehicle() {};
             
         };
 
-        
-        if (iter != 0) {
+        if (iter != 0 && pedals_input != Pedals_input::Coasting) {
             if (bias > 0.5) {
                 if (fl.F_z < fr.F_z) {
-                    solve_diffs(front_diff, rear_diff, fl, fr, rl ,rr);
+                    if (rl.F_z < rr.F_z) {
+                        solve_diffs(front_diff, rear_diff, fl, fr, rl, rr);
+                    }
+                    else {
+                        solve_diffs(front_diff, rear_diff, fl, fr, rr, rl);
+                    }
                 }
                 else {
-                    solve_diffs(front_diff, rear_diff, fr, fl, rr, rl);
+                    if (rr.F_z < rl.F_z) {
+                        solve_diffs(front_diff, rear_diff, fr, fl, rr, rl);
+                    }
+                    else {
+						solve_diffs(front_diff, rear_diff, fr, fl, rl, rr);
+                    }
                 }
             }
             else if (bias <= 0.5) {
                 if (rl.F_z < rr.F_z) {
-                    solve_diffs(rear_diff, front_diff, rl, rr, fl, fr);
+                    if (fl.F_z < fr.F_z) {
+                        solve_diffs(rear_diff, front_diff, rl, rr, fl, fr);
+                    }
+                    else {
+                        solve_diffs(rear_diff, front_diff, rl, rr, fr, fl);
+                    }
                 }
                 else {
-                    solve_diffs(rear_diff, front_diff, rr, rl, fr, fl);
+                    if (fr.F_z < fl.F_z) {
+                        solve_diffs(rear_diff, front_diff, rr, rl, fr, fl);
+                    }
+                    else {
+                        solve_diffs(rear_diff, front_diff, rr, rl, fl, fr);
+                    }
                 }
             }
         }
-        
-
-        /*
-        if (bias > 0.5 && iter != 0) {
-            if (W_fl < W_fr) {
-                if (force_a_lon) {
-                    fl.F_x_comb_tar = (m * a_lon_des + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)) / (cos(fl.delta) + cos(fr.delta) * fl.r / fr.r + cos(rl.delta) * fl.r / rl.r * (1 - bias) / bias + cos(rr.delta) * fl.r / rr.r * (1 - bias) / bias);
-                    brents_method(fl, 0.0, 1.0);
-                    kappa_des = fl.kappa;
-                }
-
-                fl.kappa = kappa_des;
-                fr.F_x_comb_tar = fl.T / fr.r;
-                peak_kappa(fr);
-                if (fr.peak_kappa > kappa_des) { brents_method(fr, -0.1, 1); }
-                else {
-                    brents_method(fr, fr.peak_kappa, 1);
-                    if (fr.kappa > kappa_des + 0.001) { brents_method(fr, -0.1, fr.peak_kappa); }
-                }
-            }
-            else if (W_fl >= W_fr) {
-                if (force_a_lon) {
-                    fr.F_x_comb_tar = (m * a_lon_des + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)) / (cos(fr.delta) + cos(fl.delta) * fr.r / fl.r + cos(rl.delta) * fr.r / rl.r * (1 - bias) / bias + cos(rr.delta) * fr.r / rr.r * (1 - bias) / bias);
-                    brents_method(fr, 0.0, 1.0);
-                    kappa_des = fr.kappa;
-                }
-
-                fr.kappa = kappa_des;
-                fl.F_x_comb_tar = fr.T / fl.r;
-                peak_kappa(fl);
-                if (fl.peak_kappa > kappa_des) { brents_method(fl, -0.1, 1); }
-                else {
-                    brents_method(fl, fl.peak_kappa, 1);
-                    if (fl.kappa > kappa_des + 0.001) { brents_method(fl, -0.1, fl.peak_kappa); }
-                }
-            }
-            rl.F_x_comb_tar = (1 - bias) / bias * (fl.T + fr.T) / (2 * rl.r);
-            rr.F_x_comb_tar = (1 - bias) / bias * (fl.T + fr.T) / (2 * rr.r);
-            peak_kappa(rl);
-            if (rl.peak_kappa > kappa_des) { brents_method(rl, -0.1, 1); }
-            else { brents_method(rl, rl.peak_kappa, 1); }
-            peak_kappa(rr);
-            if (rr.peak_kappa > kappa_des) { brents_method(rr, -0.1, 1); }
-            else { brents_method(rr, rr.peak_kappa, 1); }
-        }
-        else if (bias <= 0.5 && iter != 0) {
-            if (W_rl < W_rr) {
-                if (force_a_lon) {
-                    rl.F_x_comb_tar = (m * a_lon_des + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)) / (cos(rl.delta) + cos(rr.delta) * rl.r / rr.r + cos(fl.delta) * rl.r / fl.r * bias / (1 - bias) + cos(fr.delta) * rl.r / fr.r * bias / (1 - bias));
-                    brents_method(rl, 0.0, 1.0);
-                    kappa_des = rl.kappa;
-                }
-
-                rl.kappa = kappa_des;
-                rr.F_x_comb_tar = rl.T / rr.r;
-                peak_kappa(rr);
-                if (rr.peak_kappa > kappa_des) { brents_method(rr, -0.1, 1); }
-                else {
-                    brents_method(rr, rr.peak_kappa, 1);
-                    if (rr.kappa > kappa_des + 0.001) { brents_method(rr, -0.1, rr.peak_kappa); }
-                }
-            }
-            else if (W_rl >= W_rr) {
-                if (force_a_lon) {
-                    rr.F_x_comb_tar = (m * a_lon_des + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)) / (cos(rr.delta) + cos(rl.delta) * rr.r / rl.r + cos(fl.delta) * rr.r / fl.r * bias / (1 - bias) + cos(fr.delta) * rr.r / fr.r * bias / (1 - bias));
-                    brents_method(rr, 0.0, 1.0);
-                    kappa_des = rr.kappa;
-                }
-                rr.kappa = kappa_des;
-                rl.F_x_comb_tar = rr.T / rl.r;
-                peak_kappa(rl);
-                if (rl.peak_kappa > kappa_des) { brents_method(rl, -0.1, 1); }
-                else {
-                    brents_method(rl, rl.peak_kappa, 1);
-                    if (rl.kappa > kappa_des + 0.001) { brents_method(rl, -0.1, rl.peak_kappa); }
-                }
-            }
-            fl.F_x_comb_tar = bias / (1 - bias) * (rl.T + rr.T) / (2 * fl.r);
-            fr.F_x_comb_tar = bias / (1 - bias) * (rl.T + rr.T) / (2 * fr.r);
-            peak_kappa(fl);
-            if (fl.peak_kappa > kappa_des) { brents_method(fl, -0.1, 1); }
-            else { brents_method(fl, fl.peak_kappa, 1); }
-            peak_kappa(fr);
-            if (fr.peak_kappa > kappa_des) { brents_method(fr, -0.1, 1); }
-            else { brents_method(fr, fr.peak_kappa, 1); }
-        }
-        */
-        
     }
 
     // Brent's method for finding root of f(x) = target
@@ -1063,9 +998,9 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_rr = rr.T;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = fl.F_x_comb_tar;
-        vehicle_outputs.debug2 = fr.F_x_comb_tar;
-        vehicle_outputs.debug3 = rl.F_x_comb_tar;
+        vehicle_outputs.debug1 = invert_run;
+        vehicle_outputs.debug2 = dW_lon_drag;
+        vehicle_outputs.debug3 = M_p_drag;
         vehicle_outputs.debug4 = rr.F_x_comb_tar;
 
 		vehicle_outputs.brents_single = brents_iter_single;
@@ -1116,7 +1051,7 @@ Vehicle::Vehicle() {};
         dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0;
         M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
         brents_iter_single = 0, golden_iter_single = 0;
-        cancel_run = 0;
+        cancel_run = 0, invert_run = 0;
     }
 
     void Vehicle::YMD(YMD_Carrier& carrier) {
@@ -1154,7 +1089,6 @@ Vehicle::Vehicle() {};
         std::vector <std::vector<double>> M_YAW_ISODELTA_2(0);
         std::vector <std::vector<double>> STABILITY_2(0);
         std::vector <std::vector<double>> BETA_ISODELTA_2(0);
-        std::vector <std::vector<double>> DELTA_ISODELTA_2(0);
         std::vector <std::vector<int>> CANCEL_ISODELTA_2(0);
 
         std::vector<double> A_LAT_ISODELTA(0);
@@ -1162,7 +1096,6 @@ Vehicle::Vehicle() {};
         std::vector<double> M_YAW_ISODELTA(0);
         std::vector<double> STABILITY(0);
         std::vector<double> BETA_ISODELTA(0);
-        std::vector<double> DELTA_ISODELTA(0);
         std::vector<int> CANCEL_ISODELTA(0);
 
 
@@ -1175,14 +1108,17 @@ Vehicle::Vehicle() {};
 			M_YAW_ISODELTA.clear();
 			STABILITY.clear();
             BETA_ISODELTA.clear();
-            DELTA_ISODELTA.clear();
             CANCEL_ISODELTA.clear();
+
+            DELTA_ISO.push_back(copy.delta_d_deg);
 
             for (int i = 0; i <= num_beta * 2; i++) {
 
                 beta_past = copy.beta_deg;
                 copy.beta_deg = max_beta * copysign(pow(abs(2 * i / num_beta / 2 - 1), con_beta), 2 * i / num_beta / 2 - 1);
                 
+                BETA_ISODELTA.push_back(copy.beta_deg);
+
                 copy.solver();
 				brents_iter_total += copy.brents_iter_single;
 				golden_iter_total += copy.golden_iter_single;
@@ -1191,8 +1127,7 @@ Vehicle::Vehicle() {};
                 A_LAT_ISODELTA.push_back(round_to(copy.a_lat, 2));
                 A_LON_ISODELTA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISODELTA.push_back(copy.M_yaw);
-                BETA_ISODELTA.push_back(copy.beta_deg);
-                DELTA_ISODELTA.push_back(copy.delta_d_deg);
+                
                 CANCEL_ISODELTA.push_back(copy.cancel_run);
 
                 if (i != 0) stability = (M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_deg - beta_past);
@@ -1211,18 +1146,14 @@ Vehicle::Vehicle() {};
 			A_LON_ISODELTA_2.push_back(A_LON_ISODELTA);
 			M_YAW_ISODELTA_2.push_back(M_YAW_ISODELTA);
             BETA_ISODELTA_2.push_back(BETA_ISODELTA);
-            DELTA_ISODELTA_2.push_back(DELTA_ISODELTA);
             CANCEL_ISODELTA_2.push_back(CANCEL_ISODELTA);
 			STABILITY_2.push_back(STABILITY);
-
-            DELTA_ISO.push_back(copy.delta_d_deg);
         }
 
 		carrier.a_lat_isodelta = A_LAT_ISODELTA_2;
 		carrier.a_lon_isodelta = A_LON_ISODELTA_2;
         carrier.M_yaw_isodelta = M_YAW_ISODELTA_2;
         carrier.beta_isodelta = BETA_ISODELTA_2;
-        carrier.delta_isodelta = DELTA_ISODELTA_2;
         carrier.cancel_isodelta = CANCEL_ISODELTA_2;
 		carrier.stability = STABILITY_2;
 		carrier.delta_iso = DELTA_ISO;
@@ -1235,7 +1166,6 @@ Vehicle::Vehicle() {};
 		std::vector <std::vector<double>> A_LON_ISOBETA_2(0);
         std::vector <std::vector<double>> M_YAW_ISOBETA_2(0);
         std::vector <std::vector<double>> CONTROL_2(0);
-        std::vector <std::vector<double>> BETA_ISOBETA_2(0);
         std::vector <std::vector<double>> DELTA_ISOBETA_2(0);
         std::vector <std::vector<int>> CANCEL_ISOBETA_2(0);
 
@@ -1243,7 +1173,6 @@ Vehicle::Vehicle() {};
 		std::vector<double> A_LON_ISOBETA(0);
         std::vector<double> M_YAW_ISOBETA(0);
         std::vector<double> CONTROL(0);
-        std::vector<double> BETA_ISOBETA(0);
         std::vector<double> DELTA_ISOBETA(0);
         std::vector<int> CANCEL_ISOBETA(0);
 
@@ -1255,14 +1184,17 @@ Vehicle::Vehicle() {};
 			A_LON_ISOBETA.clear();
 			M_YAW_ISOBETA.clear();
 			CONTROL.clear();
-            BETA_ISOBETA.clear();
             DELTA_ISOBETA.clear();
             CANCEL_ISOBETA.clear();
+
+            BETA_ISO.push_back(copy.beta_deg);
 
             for (int i = 1; i <= num_delta_d * 2; i += 2) {
 
                 delta_d_past = copy.delta_d_deg;
                 copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * i / num_delta_d / 2 - 1), con_delta_d), 2 * i / num_delta_d / 2 - 1);
+
+                DELTA_ISOBETA.push_back(copy.delta_d_deg);
 
                 copy.solver();
                 brents_iter_total += copy.brents_iter_single;
@@ -1272,8 +1204,7 @@ Vehicle::Vehicle() {};
                 A_LAT_ISOBETA.push_back(round_to(copy.a_lat, 2));
 				A_LON_ISOBETA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISOBETA.push_back(copy.M_yaw);
-                BETA_ISOBETA.push_back(copy.beta_deg);
-                DELTA_ISOBETA.push_back(copy.delta_d_deg);
+                
                 CANCEL_ISOBETA.push_back(copy.cancel_run);
 
                 if (i != 1) control = (M_YAW_ISOBETA[i / 2] - M_YAW_ISOBETA[i / 2 - 1]) / (copy.delta_d_deg - delta_d_past);
@@ -1283,25 +1214,26 @@ Vehicle::Vehicle() {};
             A_LAT_ISOBETA_2.push_back(A_LAT_ISOBETA);
 			A_LON_ISOBETA_2.push_back(A_LON_ISOBETA);
             M_YAW_ISOBETA_2.push_back(M_YAW_ISOBETA);
-            BETA_ISOBETA_2.push_back(BETA_ISOBETA);
             DELTA_ISOBETA_2.push_back(DELTA_ISOBETA);
             CANCEL_ISOBETA_2.push_back(CANCEL_ISOBETA);
 			CONTROL_2.push_back(CONTROL);
 
-            BETA_ISO.push_back(copy.beta_deg);
+            
         }
 
         carrier.a_lat_isobeta = A_LAT_ISOBETA_2;
 		carrier.a_lon_isobeta = A_LON_ISOBETA_2;
         carrier.M_yaw_isobeta = M_YAW_ISOBETA_2;
-        carrier.beta_isobeta = BETA_ISOBETA_2;
         carrier.delta_isobeta = DELTA_ISOBETA_2;
         carrier.cancel_isobeta = CANCEL_ISOBETA_2;
 		carrier.control = CONTROL_2;
 		carrier.beta_iso = BETA_ISO;
 
-        solver();
 
-        carrier.single_a_lat = a_lat;
-        carrier.single_M_yaw = M_yaw;
+		copy.beta_deg = vehicle_inputs.beta_deg; // Reset to original value after YMD
+		copy.delta_d_deg = vehicle_inputs.delta_d_deg; // Reset to original value after YMD
+        copy.solver();
+
+        carrier.single_a_lat = copy.a_lat;
+        carrier.single_M_yaw = copy.M_yaw;
     }

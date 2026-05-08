@@ -52,7 +52,6 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         std::vector<double>& x = carrier.a_lat_isobeta[j];
         std::vector<double>& y = carrier.M_yaw_isobeta[j];
         std::vector<double>& a_lon = carrier.a_lon_isobeta[j];
-        std::vector<double>& beta = carrier.beta_isobeta[j];
         std::vector<double>& delta = carrier.delta_isobeta[j];
         std::vector<double>& control = carrier.control[j];
         std::vector<int>& cancel = carrier.cancel_isobeta[j];
@@ -74,7 +73,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             
             
             s->Points[idx]->ToolTip =
-                L"\u03B2 = " + beta[i].ToString("F2") + L" \u00B0"
+                L"\u03B2 = " + carrier.beta_iso[j].ToString("F2") + L" \u00B0"
                 L"\n\u03B4 = " + delta[i].ToString("F1") + L" \u00B0" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
@@ -93,7 +92,6 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         std::vector<double>& y = carrier.M_yaw_isodelta[j];
 		std::vector<double>& a_lon = carrier.a_lon_isodelta[j];
         std::vector<double>& beta = carrier.beta_isodelta[j];
-        std::vector<double>& delta = carrier.delta_isodelta[j];
 		std::vector<double>& stability = carrier.stability[j];
         std::vector<int>& cancel = carrier.cancel_isodelta[j];
 
@@ -113,7 +111,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             
             s->Points[idx]->ToolTip =
                 L"\u03B2 = " + beta[i].ToString("F2") + L" \u00B0"
-                L"\n\u03B4 = " + delta[i].ToString("F1") + L" \u00B0" +
+                L"\n\u03B4 = " + carrier.delta_iso[j].ToString("F1") + L" \u00B0" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
