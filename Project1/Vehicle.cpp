@@ -622,55 +622,62 @@ Vehicle::Vehicle() {};
             //t1 = main tire, t2 = secondary tire on the same axle, t3 and t4 = tires on the other axle
 
             double t1_tar_num = (m * a_lon_des * g + F_drag + fl.F_y_comb * sin(fl.delta) + fr.F_y_comb * sin(fr.delta) - rl.F_y_comb * sin(rl.delta) - rr.F_y_comb * sin(rr.delta) + fl.F_rr * cos(fl.delta) + fr.F_rr * cos(fr.delta) + rl.F_rr * cos(rl.delta) + rr.F_rr * cos(rr.delta)); //Numerator for the longitudinal force target of the main tire
+			double mTBR = (pedals_input == Pedals_input::Braking ? md.bTBR : md.dTBR); //Torque bias ratio of the main differential
+			double sTBR = (pedals_input == Pedals_input::Braking ? sd.bTBR : sd.dTBR); //Torque bias ratio of the secondary differential
 
             //Main tire
-          
-            if (md.lock != Actuator_lock::Locked) {
 
-                mdT = std::min((abs(t2.omega - t1.omega) < 1e-3 ? 0.0 : abs(t2.omega - t1.omega) * 20), t1.T * (pedals_input == Pedals_input::Braking ? (1 - 1 / md.bTBR) : (1 - 1 / md.dTBR)));
+			double old_T2 = t2.T;
+            double caso1 = abs(t1.T - t2.T);
+            double caso2 = abs(t1.T + old_T2) * (mTBR - 1) / (mTBR + 1);
+            mdT = std::min(caso1, caso2);
+
+            if (md.lock != Actuator_lock::Open) {
+                if (pedals_input == Pedals_input::Braking) { t2.kappa = 1 - t2.V_x / t1.V_x * t1.r / t2.r * (1 - t1.kappa); }
+                else { t2.kappa = 1 - t1.V_x / t2.V_x * t2.r / t1.r * (1 - t1.kappa); }
+                t2.set_kappa_x();
+                t2.set_F_x();
+                t2.set_F_x_comb(lon_sign);
+                t2.set_T();
+            }
+
+			caso1 = abs(t1.T - t2.T);
+			caso2 = abs(t1.T + old_T2) * (mTBR - 1) / (mTBR + 1);
+
+            //mdT = std::min(abs(t1.T - t2.T), abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1));
+			mdT = std::min(caso1, caso2);
                 
-                if (sd.lock != Actuator_lock::Locked) {
+            if (sd.lock != Actuator_lock::Open) {
 
-                    sdT = std::min((abs(t4.omega - t3.omega) < 1e-3 ? 0.0 : abs(t4.omega - t3.omega) * 20), t3.T * (pedals_input == Pedals_input::Braking ? (1 - 1 / sd.bTBR) : (1 - 1 / sd.dTBR)));
+                if (pedals_input == Pedals_input::Braking) { t4.kappa = 1 - t4.V_x / t3.V_x * t3.r / t4.r * (1 - t3.kappa); }
+                else { t4.kappa = 1 - t3.V_x / t4.V_x * t4.r / t3.r * (1 - t3.kappa); }
+                t4.set_kappa_x();
+                t4.set_F_x();
+                t4.set_F_x_comb(lon_sign);
+                t4.set_T();
+            }
+
+            sdT = std::min(abs(t3.T - t4.T), abs(t3.T + t4.T) * (sTBR - 1) / (sTBR + 1));
                     
-                    if (bias > 0.5) {
-                        t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * (1 - bias) / bias) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * (1 - bias) / bias) * cos(t4.delta) / (2 * t4.r))
-                            / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r + cos(t3.delta) * t1.r / t3.r * (1 - bias) / bias + cos(t4.delta) * t1.r / t4.r * (1 - bias) / bias);
-                    }
-
-                    else if (bias <= 0.5) {
-                        t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * bias / (1 - bias)) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * bias / (1 - bias)) * cos(t4.delta) / (2 * t4.r))
-                            / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r + cos(t3.delta) * t1.r / t3.r * bias / (1 - bias) + cos(t4.delta) * t1.r / t4.r * bias / (1 - bias));
-                    }
-                }
-
-                else if (sd.lock == Actuator_lock::Locked) {
-
-                    if (bias > 0.5) {
-                        t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r - t3.F_x_comb * cos(t3.delta) - t4.F_x_comb * cos(t4.delta))
-                            / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r);
-                    }
-
-                    else if (bias <= 0.5) {
-                        t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r - t3.F_x_comb * cos(t3.delta) - t4.F_x_comb * cos(t4.delta))
-                            / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r);
-                    }
-                }
-                
+            if (bias > 0.5) {
+                t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * (1 - bias) / bias) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * (1 - bias) / bias) * cos(t4.delta) / (2 * t4.r))
+                    / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r + cos(t3.delta) * t1.r / t3.r * (1 - bias) / bias + cos(t4.delta) * t1.r / t4.r * (1 - bias) / bias);
             }
-            if (md.lock == Actuator_lock::Locked) {
-                if (sd.lock != Actuator_lock::Locked) {
 
-                }
-                else if (sd.lock == Actuator_lock::Locked) {
-
-                }
+            else if (bias <= 0.5) {
+                t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * bias / (1 - bias)) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * bias / (1 - bias)) * cos(t4.delta) / (2 * t4.r))
+                    / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r + cos(t3.delta) * t1.r / t3.r * bias / (1 - bias) + cos(t4.delta) * t1.r / t4.r * bias / (1 - bias));
             }
+     
             brents_method(t1, 0.0, 1.0);
 
 
 			//Secondary tire on the same axle
             if (md.lock != Actuator_lock::Locked) {
+                caso1 = abs(t1.T - t2.T);
+                caso2 = abs(t1.T + old_T2) * (mTBR - 1) / (mTBR + 1);
+                mdT = std::min(caso1, caso2);
+
                 t2.F_x_comb_tar = (t1.T + mdT) / t2.r;
                 peak_kappa(t2);
                 if (t2.peak_kappa > t1.kappa) { brents_method(t2, -0.1, 1); }
@@ -678,6 +685,8 @@ Vehicle::Vehicle() {};
                     brents_method(t2, t2.peak_kappa, 1);
                     if (t2.kappa > t1.kappa + 0.001) { brents_method(t2, -0.1, t2.peak_kappa); }
                 }
+
+                t1.set_omega(pedals_input), t2.set_omega(pedals_input);
             }
 
             else if (md.lock == Actuator_lock::Locked){
@@ -998,10 +1007,10 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_rr = rr.T;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = invert_run;
-        vehicle_outputs.debug2 = dW_lon_drag;
-        vehicle_outputs.debug3 = M_p_drag;
-        vehicle_outputs.debug4 = rr.F_x_comb_tar;
+        vehicle_outputs.debug1 = dW_lat_f;
+        vehicle_outputs.debug2 = dW_lat_r;
+        vehicle_outputs.debug3 = dW_lat_f + dW_lat_r;
+        vehicle_outputs.debug4 = F_lat * h_CG / t_f;
 
 		vehicle_outputs.brents_single = brents_iter_single;
 		vehicle_outputs.brents_total = brents_iter_total;
