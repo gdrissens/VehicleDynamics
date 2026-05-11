@@ -59,11 +59,11 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
 
         Series^ s = gcnew Series(System::String::Format(L"\u03B2 = {0:F2} \u00B0", Convert::ToDouble(carrier.beta_iso[j])));
         s->ChartType = SeriesChartType::Spline;
-        s->BorderWidth = 2;
+        s->BorderWidth = 1;
         s->ChartArea = "Main";
         s->Color = Color::FromArgb(255, 255, 255 - intensity, 0);
         s->MarkerStyle = MarkerStyle::Circle;
-        s->MarkerSize = 6;
+        s->MarkerSize = 3;
 
         chart->Series->Add(s);
 
@@ -95,13 +95,13 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
 		std::vector<double>& stability = carrier.stability[j];
         std::vector<int>& cancel = carrier.cancel_isodelta[j];
 
-        Series^ s = gcnew Series(Convert::ToString(System::String::Format(L"\u03B4d = {0:F1} \u00B0", Convert::ToDouble(carrier.delta_iso[j]))));
+        Series^ s = gcnew Series(Convert::ToString(System::String::Format(L"\u03B4d = {0:F2} \u00B0", Convert::ToDouble(carrier.delta_iso[j]))));
         s->ChartType = SeriesChartType::Spline;
-        s->BorderWidth = 2;
+        s->BorderWidth = 1;
         s->ChartArea = "Main";
         s->Color = Color::FromArgb(255, 0, intensity, 255);
         s->MarkerStyle = MarkerStyle::Circle;
-        s->MarkerSize = 6;
+        s->MarkerSize = 3;
 
         chart->Series->Add(s);
 
@@ -133,6 +133,13 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
 
     chart->Series->Add(s);
 
-    s->Points->AddXY(carrier.single_a_lat, carrier.single_M_yaw);
+    s->Points->AddXY(carrier.single_run.a_lat, carrier.single_run.M_yaw);
 
+    s->Points[0]->ToolTip =
+        "Single run simulation:" +
+        L"\n\u03B2 = " + carrier.single_run.beta.ToString("F2") + L" \u00B0" +
+        L"\n\u03B4 = " + carrier.single_run.delta.ToString("F1") + L" \u00B0" +
+        L"\nLateral acceleration = " + carrier.single_run.a_lat.ToString("F2") + " g" +
+        L"\nLongitudinal acceleration = " + carrier.single_run.a_lon.ToString("F2") + " g" +
+        L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm";
 }

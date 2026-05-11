@@ -36,6 +36,9 @@ private:
 		Actuator_lock lock = Actuator_lock::Open;
 		double bTBR = 1.0; // Braking torque bias ratio (TBR) for Torsen differentials
 		double dTBR = 1.0; // Driving torque bias ratio (TBR) for Torsen differentials
+		bool locked = false; // Differential lock status
+		double hyster = 1; // Hysteresis for clutch differentials
+		double relax = 1.0; // Relaxation factor for clutch differentials
     };
 
 	diff front_diff{}, rear_diff{};
@@ -75,6 +78,7 @@ private:
     double delta_d_deg = 0.0;
 
     //Accelerations
+
 
         //Lateral accelerations
     double F_lat = 0.0, a_lat = 0.0;
@@ -171,8 +175,9 @@ private:
     double M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
 
     //Solver parameters
-	int iter = 0, iter_total = 0;
+    int iter = 0, iter_total = 0, check_load_iter = 0, check_lock_iter = 0;
     double max_iter = 0.0, F_z_tol = 0.0, a_lon_tol = 0.0;
+    bool batata = false;
 
     //YMD parameters
     double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0;
@@ -216,11 +221,13 @@ public:
 
     void solve_kappa();
 
-    void brents_method(Tire& tire, double a, double b);
+    void brents_method(Tire& tire);
 
     void peak_kappa(Tire& tire);
 
     inline double round_to(double value, int decimals);
+
+	void check_loads(diff& diff, Tire& t1, Tire& t2);
 
     void output(Vehicle_outputs& vehicle_outputs);
 

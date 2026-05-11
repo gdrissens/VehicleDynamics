@@ -41,22 +41,41 @@ Vehicle::Vehicle() {};
         
 			//Front differential
 		    front_diff.lock = vehicle_inputs.diff_lock_f; // (INPUT)
-            front_diff.dTBR = 3.0;
-            front_diff.bTBR = 2.0;
+            
 			if (drive_config == Actuator_config::Rear) { front_diff.lock = Actuator_lock::Open; }
             if (front_diff.lock == Actuator_lock::Open){
                 front_diff.dTBR = 1.0;
                 front_diff.bTBR = 1.0;
+                front_diff.locked = false;
 			}
+            else {
+                front_diff.dTBR = 3.0;
+                front_diff.bTBR = 2.0;
+                front_diff.locked = true;
+            }
+            if (front_diff.lock == Actuator_lock::Locked) {
+                front_diff.dTBR = 100.0;
+                front_diff.bTBR = 100.0;
+				front_diff.locked = true;
+            }
 
 		    //Rear differential
             rear_diff.lock = vehicle_inputs.diff_lock_r; // (INPUT)
-            rear_diff.dTBR = 3.0;
-            rear_diff.bTBR = 2.0;
             if (drive_config == Actuator_config::Front) { rear_diff.lock = Actuator_lock::Open; }
             if (rear_diff.lock == Actuator_lock::Open) {
                 rear_diff.dTBR = 1.0;
                 rear_diff.bTBR = 1.0;
+                rear_diff.locked = false;
+            }
+            else {
+                rear_diff.dTBR = 3.0;
+                rear_diff.bTBR = 2.0;
+                rear_diff.locked = true;
+            }
+            if (rear_diff.lock == Actuator_lock::Locked) {
+                rear_diff.dTBR = 100.0;
+                rear_diff.bTBR = 100.0;
+                rear_diff.locked = true;
             }
             
 
@@ -149,7 +168,7 @@ Vehicle::Vehicle() {};
 
         //Main iterative loop
         iter = 0; // Iteration counters for main solver
-        F_z_tol = 0.01; // [N] Acceptable wheel load error for the iterative process
+        F_z_tol = 0.1; // [N] Acceptable wheel load error for the iterative process
         max_iter = 49; // Maximum number of iterations for the iterative process
         a_lon_tol = 0.01; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
 
@@ -173,20 +192,22 @@ Vehicle::Vehicle() {};
 
             longitudinal_load_transfer();
 
+            if (iter <= 1) { F_lat = fl.F_lat = fr.F_lat = rl.F_lat = rr.F_lat = 0.0; }
             lateral_load_transfer();
 
             update_wheel_loads_and_displacements();
 
             bias_now = (fl.T + fr.T) / (fl.T + fr.T + rl.T + rr.T);
             iter++;
-            if (iter > max_iter) { break; }
-            if (iter > 5 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
+            if (iter > max_iter) { cancel_run = 1; }
+            if (iter > 10 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
 
 			if (cancel_run == 1) { break; }
 
         } while (fl.F_z_err > F_z_tol || fr.F_z_err > F_z_tol || rl.F_z_err > F_z_tol || rr.F_z_err > F_z_tol);
 
         yaw_moment();
+        //if ((a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
     }
 
     void Vehicle::vehicle_parameters() {
@@ -551,8 +572,8 @@ Vehicle::Vehicle() {};
         psi_deg = psi * 180.0 / pi; // [deg] Roll angle
 
         //Total lateral load transfer
-        dW_lat_f = round_to(psi * K_r_tot_f * t_f + (dW_lat_g_fl / (K_susp_fl + K_arb_fl) + dW_lat_g_fr / (K_susp_fr + K_arb_fr)) * K_r_tot_f, 2); // [N] Front lateral load transfer
-        dW_lat_r = round_to(psi * K_r_tot_r * t_r + (dW_lat_g_rl / (K_susp_rl + K_arb_rl) + dW_lat_g_rr / (K_susp_rr + K_arb_rr)) * K_r_tot_r, 2); // [N] Rear lateral load transfer
+        dW_lat_f = psi * K_r_tot_f * t_f + (dW_lat_g_fl / (K_susp_fl + K_arb_fl) + dW_lat_g_fr / (K_susp_fr + K_arb_fr)) * K_r_tot_f; // [N] Front lateral load transfer
+        dW_lat_r = psi * K_r_tot_r * t_r + (dW_lat_g_rl / (K_susp_rl + K_arb_rl) + dW_lat_g_rr / (K_susp_rr + K_arb_rr)) * K_r_tot_r; // [N] Rear lateral load transfer
 
         //Elastic lateral load transfer
         dW_lat_k_fl = dW_lat_f - dW_lat_g_fl; // [N] Front inner elastic lateral load transfer
@@ -566,10 +587,10 @@ Vehicle::Vehicle() {};
 
         fl.set_F_z_past(), fr.set_F_z_past(), rl.set_F_z_past(), rr.set_F_z_past();
 
-        fl.F_z = round_to(W_fl - dW_lon_l + dW_lat_f + F_down_fl - dW_lon_drag / 2, 3); // [N] Front inner tire vertical load
-        fr.F_z = round_to(W_fr - dW_lon_r - dW_lat_f + F_down_fr - dW_lon_drag / 2, 3); // [N] Front outer tire vertical load
-        rl.F_z = round_to(W_rl + dW_lon_l + dW_lat_r + F_down_rl + dW_lon_drag / 2, 3); // [N] Rear inner tire vertical load
-        rr.F_z = round_to(W_rr + dW_lon_r - dW_lat_r + F_down_rr + dW_lon_drag / 2, 3); // [N] Rear outer tire vertical load
+        fl.F_z = W_fl - dW_lon_l + dW_lat_f + F_down_fl - dW_lon_drag / 2; // [N] Front inner tire vertical load
+        fr.F_z = W_fr - dW_lon_r - dW_lat_f + F_down_fr - dW_lon_drag / 2; // [N] Front outer tire vertical load
+        rl.F_z = W_rl + dW_lon_l + dW_lat_r + F_down_rl + dW_lon_drag / 2; // [N] Rear inner tire vertical load
+        rr.F_z = W_rr + dW_lon_r - dW_lat_r + F_down_rr + dW_lon_drag / 2; // [N] Rear outer tire vertical load
 
         fl.set_F_z_err(), fr.set_F_z_err(), rl.set_F_z_err(), rr.set_F_z_err();
 
@@ -627,37 +648,57 @@ Vehicle::Vehicle() {};
 
             //Main tire
 
-			double old_T2 = t2.T;
-            double caso1 = abs(t1.T - t2.T);
-            double caso2 = abs(t1.T + old_T2) * (mTBR - 1) / (mTBR + 1);
-            mdT = std::min(caso1, caso2);
+            double lock_mdT = 0;
+            double slip_mdT = 0;
+
+            double lock_sdT = 0;
+            double slip_sdT = 0;
+
+            slip_mdT = abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1);
 
             if (md.lock != Actuator_lock::Open) {
-                if (pedals_input == Pedals_input::Braking) { t2.kappa = 1 - t2.V_x / t1.V_x * t1.r / t2.r * (1 - t1.kappa); }
-                else { t2.kappa = 1 - t1.V_x / t2.V_x * t2.r / t1.r * (1 - t1.kappa); }
+                if (abs(t2.F_z - t1.F_z) <= 1) {
+                    mTBR = 1;
+                }
+                else if (pedals_input == Pedals_input::Braking) { 
+                    t2.kappa = 1 - t2.V_x / t1.V_x * t1.r / t2.r * (1 - t1.kappa); 
+                }
+                else { 
+                    t2.kappa = 1 - t1.V_x / t2.V_x * t2.r / t1.r * (1 - t1.kappa); 
+                }
                 t2.set_kappa_x();
                 t2.set_F_x();
                 t2.set_F_x_comb(lon_sign);
                 t2.set_T();
             }
 
-			caso1 = abs(t1.T - t2.T);
-			caso2 = abs(t1.T + old_T2) * (mTBR - 1) / (mTBR + 1);
+			lock_mdT = abs(t1.T - t2.T);
 
-            //mdT = std::min(abs(t1.T - t2.T), abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1));
-			mdT = std::min(caso1, caso2);
-                
+			mdT = slip_mdT * tanh(lock_mdT / slip_mdT) * lon_sign;
+
+            slip_sdT = abs(t3.T + t4.T) * (sTBR - 1) / (sTBR + 1);
+
             if (sd.lock != Actuator_lock::Open) {
-
-                if (pedals_input == Pedals_input::Braking) { t4.kappa = 1 - t4.V_x / t3.V_x * t3.r / t4.r * (1 - t3.kappa); }
-                else { t4.kappa = 1 - t3.V_x / t4.V_x * t4.r / t3.r * (1 - t3.kappa); }
+                if (abs(t3.F_z - t4.F_z) <= 1) {
+                    sTBR = 1;
+                }
+                else if (pedals_input == Pedals_input::Braking) { 
+                    t4.kappa = 1 - t4.V_x / t3.V_x * t3.r / t4.r * (1 - t3.kappa); 
+                }
+                else { 
+                    t4.kappa = 1 - t3.V_x / t4.V_x * t4.r / t3.r * (1 - t3.kappa); 
+                }
                 t4.set_kappa_x();
                 t4.set_F_x();
                 t4.set_F_x_comb(lon_sign);
                 t4.set_T();
             }
 
-            sdT = std::min(abs(t3.T - t4.T), abs(t3.T + t4.T) * (sTBR - 1) / (sTBR + 1));
+            lock_sdT = abs(t3.T - t4.T);
+
+            sdT = std::min(slip_sdT, lock_sdT) * lon_sign;
+
+            //sdT = slip_sdT * tanh(lock_sdT / slip_sdT) * lon_sign;
                     
             if (bias > 0.5) {
                 t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * (1 - bias) / bias) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * (1 - bias) / bias) * cos(t4.delta) / (2 * t4.r))
@@ -669,75 +710,40 @@ Vehicle::Vehicle() {};
                     / (cos(t1.delta) + cos(t2.delta) * t1.r / t2.r + cos(t3.delta) * t1.r / t3.r * bias / (1 - bias) + cos(t4.delta) * t1.r / t4.r * bias / (1 - bias));
             }
      
-            brents_method(t1, 0.0, 1.0);
-
+            brents_method(t1);
 
 			//Secondary tire on the same axle
-            if (md.lock != Actuator_lock::Locked) {
-                caso1 = abs(t1.T - t2.T);
-                caso2 = abs(t1.T + old_T2) * (mTBR - 1) / (mTBR + 1);
-                mdT = std::min(caso1, caso2);
 
-                t2.F_x_comb_tar = (t1.T + mdT) / t2.r;
-                peak_kappa(t2);
-                if (t2.peak_kappa > t1.kappa) { brents_method(t2, -0.1, 1); }
-                else {
-                    brents_method(t2, t2.peak_kappa, 1);
-                    if (t2.kappa > t1.kappa + 0.001) { brents_method(t2, -0.1, t2.peak_kappa); }
-                }
-
-                t1.set_omega(pedals_input), t2.set_omega(pedals_input);
-            }
-
-            else if (md.lock == Actuator_lock::Locked){
-                if (pedals_input == Pedals_input::Braking) { t2.kappa = 1 - t2.V_x / t1.V_x * t1.r / t2.r * (1 - t1.kappa); }
-                else { t2.kappa = 1 - t1.V_x / t2.V_x * t2.r / t1.r * (1 - t1.kappa); }
-                t2.set_kappa_x();
-                t2.set_F_x();
-                t2.set_F_x_comb(lon_sign);
-                t2.set_T();
-            }
+            t2.F_x_comb_tar = (t1.T + mdT) / t2.r;
+            brents_method(t2);
 
             //Third and fourth tires on different axle
-            if (sd.lock != Actuator_lock::Locked) {
 
-                if (bias > 0.5) {
-                    t3.F_x_comb_tar = ((1 - bias) * (t1.T + t2.T) - sdT * bias) / (2 * t3.r * bias);
-                    t4.F_x_comb_tar = ((1 - bias) * (t1.T + t2.T) + sdT * bias) / (2 * t4.r * bias);
-                }
-                else if (bias <= 0.5) {
-                    t3.F_x_comb_tar = (bias * (t1.T + t2.T) - sdT * (1 - bias)) / (2 * t3.r * (1 - bias));
-                    t4.F_x_comb_tar = (bias * (t1.T + t2.T) + sdT * (1 - bias)) / (2 * t4.r * (1 - bias));
-                }
-
-                brents_method(t3, -0.1, 1);
-                brents_method(t4, -0.1, 1);
-
+            if (bias > 0.5) {
+                t3.F_x_comb_tar = ((1 - bias) * (t1.T + t2.T) - sdT * bias) / (2 * t3.r * bias);
+                t4.F_x_comb_tar = ((1 - bias) * (t1.T + t2.T) + sdT * bias) / (2 * t4.r * bias);
             }
-            else if (sd.lock == Actuator_lock::Locked) {
-
-                    if (bias > 0.5) {
-                        t3.F_x_comb_tar = ((t1.T + t2.T) * (1 - bias) / bias - t4.T) / t3.r;
-                        //if (iter == 1) { t3.F_x_comb_tar = ((t1.T + t2.T) * (1 - bias) / bias) / t3.r / 2; }
-                    }
-                    else if (bias <= 0.5) {
-                        t3.F_x_comb_tar = ((t1.T + t2.T) * bias / (1 - bias) - t4.T) / t3.r;
-                        //if (iter == 1) { t3.F_x_comb_tar = ((t1.T + t2.T) * bias / (1 - bias)) / t3.r / 2; }
-                    }
-
-                    brents_method(t3, -0.1, 1);
-
-                    if (pedals_input == Pedals_input::Braking) { t4.kappa = 1 - t4.V_x / t3.V_x * t3.r / t4.r * (1 - t3.kappa); }
-                    else { t4.kappa = 1 - t3.V_x / t4.V_x * t4.r / t3.r * (1 - t3.kappa); }
-                    t4.set_kappa_x();
-                    t4.set_F_x();
-                    t4.set_F_x_comb(lon_sign);
-                    t4.set_T();
+            else if (bias <= 0.5) {
+                t3.F_x_comb_tar = (bias * (t1.T + t2.T) - sdT * (1 - bias)) / (2 * t3.r * (1 - bias));
+                t4.F_x_comb_tar = (bias * (t1.T + t2.T) + sdT * (1 - bias)) / (2 * t4.r * (1 - bias));
             }
+
+            brents_method(t3);
+            brents_method(t4);
+
             
+            
+
+               
+
         };
 
+        
+
         if (iter != 0 && pedals_input != Pedals_input::Coasting) {
+
+			//check_loads(front_diff, fl, fr), check_loads(rear_diff, rl, rr);
+
             if (bias > 0.5) {
                 if (fl.F_z < fr.F_z) {
                     if (rl.F_z < rr.F_z) {
@@ -775,11 +781,19 @@ Vehicle::Vehicle() {};
                 }
             }
         }
+
     }
 
     // Brent's method for finding root of f(x) = target
-    void Vehicle::brents_method(Tire& tire, double a, double b) {
-        double tol = 1e-2; int max_iter = 40;
+    void Vehicle::brents_method(Tire& tire) {
+        double tol = 0.01; int max_iter = 100;
+        double a = -0.1;
+        double b = 1.0;
+
+        if (iter >= 5) {
+            a = tire.kappa - 0.1;
+            b = tire.kappa + 0.1;
+        }
 
         auto f = [&](double x) {
             tire.kappa = x;
@@ -952,6 +966,39 @@ Vehicle::Vehicle() {};
         return round(value * scale) / scale;
     }
 
+    void Vehicle::check_loads(diff& diff, Tire& t1, Tire& t2){
+        if (remainder(iter, 2) == 0) {
+            if (t1.F_z > t2.F_z) {
+                check_load_iter++;
+                if (check_load_iter >= 3) {
+                    t2.F_z = t1.F_z + 0.1;
+                    //check_load_iter = 0;
+                    //diff.bTBR = diff.dTBR = 1;
+                }
+            }
+            else {
+                check_load_iter = 0;
+                diff.bTBR = 2.0;
+                diff.dTBR = 3.0;
+            }   
+        }
+        else {
+            if (t2.F_z > t1.F_z) {
+                check_load_iter++;
+                if (check_load_iter >= 3) {
+                    t1.F_z = t2.F_z + 0.1;
+                    //check_load_iter = 0;
+                    //diff.bTBR = diff.dTBR = 1;
+                }
+            }
+            else {
+                check_load_iter = 0;
+                diff.bTBR = 2.0;
+                diff.dTBR = 3.0;
+            }
+        }
+    }
+
     void Vehicle::output(Vehicle_outputs& vehicle_outputs) {
         vehicle_outputs.M_yaw = M_yaw;
         vehicle_outputs.a_lat = a_lat;
@@ -1007,10 +1054,10 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_rr = rr.T;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = dW_lat_f;
-        vehicle_outputs.debug2 = dW_lat_r;
-        vehicle_outputs.debug3 = dW_lat_f + dW_lat_r;
-        vehicle_outputs.debug4 = F_lat * h_CG / t_f;
+        vehicle_outputs.debug1 = rl.F_x_comb_tar;
+        vehicle_outputs.debug2 = rr.F_x_comb_tar;
+        vehicle_outputs.debug3 = rl.T / rr.T;
+        vehicle_outputs.debug4 = dW_lat_r;
 
 		vehicle_outputs.brents_single = brents_iter_single;
 		vehicle_outputs.brents_total = brents_iter_total;
@@ -1198,7 +1245,7 @@ Vehicle::Vehicle() {};
 
             BETA_ISO.push_back(copy.beta_deg);
 
-            for (int i = 1; i <= num_delta_d * 2; i += 2) {
+            for (int i = 0; i <= num_delta_d * 2; i += 1) {
 
                 delta_d_past = copy.delta_d_deg;
                 copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * i / num_delta_d / 2 - 1), con_delta_d), 2 * i / num_delta_d / 2 - 1);
@@ -1216,7 +1263,7 @@ Vehicle::Vehicle() {};
                 
                 CANCEL_ISOBETA.push_back(copy.cancel_run);
 
-                if (i != 1) control = (M_YAW_ISOBETA[i / 2] - M_YAW_ISOBETA[i / 2 - 1]) / (copy.delta_d_deg - delta_d_past);
+                if (i != 0) control = (M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (copy.delta_d_deg - delta_d_past);
 				CONTROL.push_back(control);
             }
 
@@ -1243,6 +1290,9 @@ Vehicle::Vehicle() {};
 		copy.delta_d_deg = vehicle_inputs.delta_d_deg; // Reset to original value after YMD
         copy.solver();
 
-        carrier.single_a_lat = copy.a_lat;
-        carrier.single_M_yaw = copy.M_yaw;
+        carrier.single_run.delta = copy.delta_d_deg;
+        carrier.single_run.beta = copy.beta_deg;
+        carrier.single_run.a_lat = copy.a_lat;
+        carrier.single_run.a_lon = copy.a_lon;
+        carrier.single_run.M_yaw = copy.M_yaw;
     }
