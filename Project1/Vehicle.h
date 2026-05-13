@@ -36,9 +36,8 @@ private:
 		Actuator_lock lock = Actuator_lock::Open;
 		double bTBR = 1.0; // Braking torque bias ratio (TBR) for Torsen differentials
 		double dTBR = 1.0; // Driving torque bias ratio (TBR) for Torsen differentials
-		bool locked = false; // Differential lock status
-		double hyster = 1; // Hysteresis for clutch differentials
-		double relax = 1.0; // Relaxation factor for clutch differentials
+		double preload = 0.0; // Preload torque for clutch differentials
+        double k_lock = 0.0; // Locking stiffness for Trac-loc clutch differential
     };
 
 	diff front_diff{}, rear_diff{};

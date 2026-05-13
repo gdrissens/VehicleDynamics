@@ -63,6 +63,14 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "diff_type_r" << '=' << static_cast<int>(vehicle_inputs.diff_type_r) << '\n';
     ostream << "diff_lock_f" << '=' << static_cast<int>(vehicle_inputs.diff_lock_f) << '\n';
     ostream << "diff_lock_r" << '=' << static_cast<int>(vehicle_inputs.diff_lock_r) << '\n';
+    ostream << "diff_dTBR_f" << '=' << vehicle_inputs.diff_dTBR_f << '\n';
+    ostream << "diff_dTBR_r" << '=' << vehicle_inputs.diff_dTBR_r << '\n';
+    ostream << "diff_bTBR_f" << '=' << vehicle_inputs.diff_bTBR_f << '\n';
+    ostream << "diff_bTBR_r" << '=' << vehicle_inputs.diff_bTBR_r << '\n';
+    ostream << "diff_preload_f" << '=' << vehicle_inputs.diff_preload_f << '\n';
+    ostream << "diff_preload_r" << '=' << vehicle_inputs.diff_preload_r << '\n';
+    ostream << "diff_k_lock_f" << '=' << vehicle_inputs.diff_k_lock_f << '\n';
+    ostream << "diff_k_lock_r" << '=' << vehicle_inputs.diff_k_lock_r << '\n';
 
 	ostream << "F_down_2" << '=' << vehicle_inputs.F_down_2 << '\n';
 	ostream << "F_down_1" << '=' << vehicle_inputs.F_down_1 << '\n';
@@ -226,6 +234,14 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "diff_type_r") vehicle_inputs.diff_type_r = static_cast<Actuator_type>(std::stoi(value));
         else if (name == "diff_lock_f") vehicle_inputs.diff_lock_f = static_cast<Actuator_lock>(std::stoi(value));
         else if (name == "diff_lock_r") vehicle_inputs.diff_lock_r = static_cast<Actuator_lock>(std::stoi(value));
+        else if (name == "diff_dTBR_f") vehicle_inputs.diff_dTBR_f = std::stod(value);
+        else if (name == "diff_dTBR_r") vehicle_inputs.diff_dTBR_r = std::stod(value);
+        else if (name == "diff_bTBR_f") vehicle_inputs.diff_bTBR_f = std::stod(value);
+        else if (name == "diff_bTBR_r") vehicle_inputs.diff_bTBR_r = std::stod(value);
+        else if (name == "diff_preload_f") vehicle_inputs.diff_preload_f = std::stod(value);
+        else if (name == "diff_preload_r") vehicle_inputs.diff_preload_r = std::stod(value);
+        else if (name == "diff_k_lock_f") vehicle_inputs.diff_k_lock_f = std::stod(value);
+        else if (name == "diff_k_lock_r") vehicle_inputs.diff_k_lock_r = std::stod(value);
 
         else if (name == "F_down_2") vehicle_inputs.F_down_2 = std::stod(value);
         else if (name == "F_down_1") vehicle_inputs.F_down_1 = std::stod(value);

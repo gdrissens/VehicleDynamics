@@ -13,9 +13,10 @@ enum class Actuator_config {
 
 enum class Actuator_lock {
 	Open=1,
-	Torsen=2,
-	Clutch=3,
-	Locked = 4
+	Geared=2,
+	Ramp=3,
+	Tracloc=4,
+	Locked = 5
 };
 
 enum class Pedals_input {

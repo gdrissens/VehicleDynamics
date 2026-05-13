@@ -42,7 +42,7 @@ void Tire_selection::save_tire(std::string name, Tire_inputs* tire_inputs) {
 	file.flush();   // force write
 	file.close();   // force release
 	save_tire_inputs(*tire_inputs, "Tires\\" + new_name + ".txt");
-	if ((std::find(tire_list.begin(), tire_list.end(), selected_tire) == tire_list.end())) {
+	if ((std::find(tire_list.begin(), tire_list.end(), selected_tire) == tire_list.end()) && new_name != selected_tire) {
 		std::filesystem::remove("Tires\\" + selected_tire + ".txt");
 	}
 	selected_tire = new_name;

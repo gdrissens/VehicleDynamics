@@ -23,15 +23,16 @@ struct Vehicle_inputs {
 	bool force_velocity = 0.0;
 	double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0, a_lon_des = 0.0;
 	std::string front_tires_selection, rear_tires_selection;
-	Actuator_type brake_type_f, brake_type_r, diff_type_f, diff_type_r;
-	Actuator_config brake_config, drive_config;
-	Actuator_lock diff_lock_f, diff_lock_r;
 	Pedals_input pedals_input;
 	Steering_input steering_input;
 	Arb_setup front_arb, rear_arb;
 
 	//Vehicle inputs
 	double m, x, y, L, t_f, t_r, h_CG, m_u_fl, m_u_fr, m_u_rl, m_u_rr;
+	Actuator_type brake_type_f, brake_type_r, diff_type_f, diff_type_r;
+	Actuator_config brake_config, drive_config;
+	Actuator_lock diff_lock_f, diff_lock_r;
+	double diff_dTBR_f, diff_dTBR_r, diff_bTBR_f, diff_bTBR_r, diff_preload_f, diff_preload_r, diff_k_lock_f, diff_k_lock_r;
 
 	//Suspension inputs
 	double k_susp_f, k_susp_r, k_r_C_deg, k_r_C_dist, k_p_C_deg, k_p_C_dist;

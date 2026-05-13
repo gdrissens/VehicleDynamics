@@ -43,41 +43,72 @@ Vehicle::Vehicle() {};
 		    front_diff.lock = vehicle_inputs.diff_lock_f; // (INPUT)
             
 			if (drive_config == Actuator_config::Rear) { front_diff.lock = Actuator_lock::Open; }
+
             if (front_diff.lock == Actuator_lock::Open){
                 front_diff.dTBR = 1.0;
                 front_diff.bTBR = 1.0;
-                front_diff.locked = false;
+                front_diff.preload = 0.0;
+                front_diff.k_lock = 0.0;
 			}
-            else {
-                front_diff.dTBR = 3.0;
-                front_diff.bTBR = 2.0;
-                front_diff.locked = true;
+            else if (front_diff.lock == Actuator_lock::Geared){
+                front_diff.dTBR = vehicle_inputs.diff_dTBR_f; // [Nm / Nm] LSD driving torque balance ratio (INPUT)
+                front_diff.bTBR = vehicle_inputs.diff_bTBR_f; // [Nm / Nm] LSD braking torque balance ratio (INPUT)
+                front_diff.preload = 0.0;
+                front_diff.k_lock = 0.0;
             }
-            if (front_diff.lock == Actuator_lock::Locked) {
+            else if (front_diff.lock == Actuator_lock::Ramp){
+                front_diff.dTBR = vehicle_inputs.diff_dTBR_f; // [Nm / Nm] LSD driving torque balance ratio (INPUT)
+                front_diff.bTBR = vehicle_inputs.diff_bTBR_f; // [Nm / Nm] LSD braking torque balance ratio (INPUT)
+                front_diff.preload = vehicle_inputs.diff_preload_f; // [Nm] Clutch (Ramp and Tracloc) preload torque (INPUT)
+                front_diff.k_lock = 0.0;
+            }
+            else if (front_diff.lock == Actuator_lock::Tracloc) {
                 front_diff.dTBR = 100.0;
                 front_diff.bTBR = 100.0;
-				front_diff.locked = true;
+                front_diff.preload = vehicle_inputs.diff_preload_f; // [Nm] Clutch (Ramp and Tracloc) preload torque (INPUT)
+                front_diff.k_lock = vehicle_inputs.diff_k_lock_f; // [Nm / Nm] Tracloc torque stiffness (INPUT)
+            }
+            else if (front_diff.lock == Actuator_lock::Locked) {
+                front_diff.dTBR = 100.0;
+                front_diff.bTBR = 100.0;
+                front_diff.preload = 0.0;
+                front_diff.k_lock = 0.0;
             }
 
 		    //Rear differential
             rear_diff.lock = vehicle_inputs.diff_lock_r; // (INPUT)
             if (drive_config == Actuator_config::Front) { rear_diff.lock = Actuator_lock::Open; }
+
             if (rear_diff.lock == Actuator_lock::Open) {
                 rear_diff.dTBR = 1.0;
                 rear_diff.bTBR = 1.0;
-                rear_diff.locked = false;
+                rear_diff.preload = 0.0;
+                rear_diff.k_lock = 0.0;
             }
-            else {
-                rear_diff.dTBR = 3.0;
-                rear_diff.bTBR = 2.0;
-                rear_diff.locked = true;
+            else if (rear_diff.lock == Actuator_lock::Geared) {
+                rear_diff.dTBR = vehicle_inputs.diff_dTBR_r; // [Nm / Nm] LSD driving torque balance ratio (INPUT)
+                rear_diff.bTBR = vehicle_inputs.diff_bTBR_r; // [Nm / Nm] LSD braking torque balance ratio (INPUT)
+                rear_diff.preload = 0.0;
+                rear_diff.k_lock = 0.0;
             }
-            if (rear_diff.lock == Actuator_lock::Locked) {
+            else if (rear_diff.lock == Actuator_lock::Ramp) {
+                rear_diff.dTBR = vehicle_inputs.diff_dTBR_r; // [Nm / Nm] LSD driving torque balance ratio (INPUT)
+                rear_diff.bTBR = vehicle_inputs.diff_bTBR_r; // [Nm / Nm] LSD braking torque balance ratio (INPUT)
+                rear_diff.preload = vehicle_inputs.diff_preload_r; // [Nm] Clutch (Ramp and Tracloc) preload torque (INPUT)
+                rear_diff.k_lock = 0.0;
+            }
+            else if (rear_diff.lock == Actuator_lock::Tracloc) {
                 rear_diff.dTBR = 100.0;
                 rear_diff.bTBR = 100.0;
-                rear_diff.locked = true;
+                rear_diff.preload = vehicle_inputs.diff_preload_r; // [Nm] Clutch (Ramp and Tracloc) preload torque (INPUT)
+                rear_diff.k_lock = vehicle_inputs.diff_k_lock_r; // [Nm / Nm] Tracloc torque stiffness (INPUT)
             }
-            
+            else if (rear_diff.lock == Actuator_lock::Locked) {
+                rear_diff.dTBR = 100.0;
+                rear_diff.bTBR = 100.0;
+                rear_diff.preload = 0.0;
+                rear_diff.k_lock = 0.0;
+            }
 
         //Setup parameters
         delta_f_static = vehicle_inputs.delta_f_static; // [deg] Front static toe angle (+ out) (INPUT)
@@ -654,7 +685,12 @@ Vehicle::Vehicle() {};
             double lock_sdT = 0;
             double slip_sdT = 0;
 
-            slip_mdT = abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1);
+            if (md.lock == Actuator_lock::Tracloc) {
+                slip_mdT = abs(t1.T + t2.T) * md.k_lock + md.preload;
+            }
+            else {
+                slip_mdT = (abs(t1.T + t2.T) + md.preload) * (mTBR - 1) / (mTBR + 1);
+            }
 
             if (md.lock != Actuator_lock::Open) {
                 if (abs(t2.F_z - t1.F_z) <= 1) {
@@ -676,7 +712,12 @@ Vehicle::Vehicle() {};
 
 			mdT = slip_mdT * tanh(lock_mdT / slip_mdT) * lon_sign;
 
-            slip_sdT = abs(t3.T + t4.T) * (sTBR - 1) / (sTBR + 1);
+            if (sd.lock == Actuator_lock::Tracloc) {
+                slip_sdT = abs(t3.T + t4.T) * sd.k_lock + sd.preload;
+            }
+            else {
+                slip_sdT = (abs(t3.T + t4.T) + sd.preload) * (sTBR - 1) / (sTBR + 1);
+            }
 
             if (sd.lock != Actuator_lock::Open) {
                 if (abs(t3.F_z - t4.F_z) <= 1) {
@@ -697,8 +738,6 @@ Vehicle::Vehicle() {};
             lock_sdT = abs(t3.T - t4.T);
 
             sdT = std::min(slip_sdT, lock_sdT) * lon_sign;
-
-            //sdT = slip_sdT * tanh(lock_sdT / slip_sdT) * lon_sign;
                     
             if (bias > 0.5) {
                 t1.F_x_comb_tar = (t1_tar_num - mdT * cos(t2.delta) / t2.r + (-sdT - mdT * (1 - bias) / bias) * cos(t3.delta) / (2 * t3.r) + (sdT - mdT * (1 - bias) / bias) * cos(t4.delta) / (2 * t4.r))
