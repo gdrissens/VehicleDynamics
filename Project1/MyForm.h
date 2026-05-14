@@ -295,10 +295,10 @@ private: System::Windows::Forms::TextBox^ textBox93;
 private: System::Windows::Forms::NumericUpDown^ input_r_arb_1;
 private: System::Windows::Forms::TextBox^ textBox94;
 private: System::Windows::Forms::GroupBox^ groupBox6;
-private: System::Windows::Forms::SplitContainer^ splitContainer3;
-private: System::Windows::Forms::TabControl^ tabControl3;
-private: System::Windows::Forms::TabPage^ tabPage8;
-private: System::Windows::Forms::TabPage^ tabPage9;
+
+
+
+
 private: System::Windows::Forms::NumericUpDown^ input_h_r_f_0;
 private: System::Windows::Forms::TextBox^ textBox19;
 private: System::Windows::Forms::NumericUpDown^ input_h_r_f_1;
@@ -651,6 +651,20 @@ private: System::Windows::Forms::NumericUpDown^ input_diff_preload_r;
 private: System::Windows::Forms::NumericUpDown^ input_diff_bTBR_r;
 
 private: System::Windows::Forms::NumericUpDown^ input_diff_dTBR_r;
+private: System::Windows::Forms::TabControl^ tabControl4;
+private: System::Windows::Forms::TabPage^ tabPage10;
+private: System::Windows::Forms::TabPage^ tabPage11;
+private: System::Windows::Forms::TabPage^ tabPage12;
+private: System::Windows::Forms::TabPage^ tabPage13;
+private: System::Windows::Forms::TabPage^ tabPage14;
+private: System::Windows::Forms::NumericUpDown^ fake_k_lock_r;
+private: System::Windows::Forms::NumericUpDown^ fake_preload_r;
+private: System::Windows::Forms::NumericUpDown^ fake_bTBR_r;
+private: System::Windows::Forms::NumericUpDown^ fake_dTBR_r;
+private: System::Windows::Forms::NumericUpDown^ fake_k_lock_f;
+private: System::Windows::Forms::NumericUpDown^ fake_preload_f;
+private: System::Windows::Forms::NumericUpDown^ fake_bTBR_f;
+private: System::Windows::Forms::NumericUpDown^ fake_dTBR_f;
 
 
 
@@ -727,7 +741,7 @@ protected:
 
 	private: System::Windows::Forms::TabPage^ tabPage2;
 	private: System::Windows::Forms::TabPage^ tabPage3;
-	private: System::Windows::Forms::TabPage^ tabPage4;
+
 	private: System::Windows::Forms::TabPage^ tabPage5;
 	private: System::Windows::Forms::TabPage^ tabPage1;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
@@ -816,272 +830,14 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox32 = (gcnew System::Windows::Forms::TextBox());
-			this->input_diff_lock_r = (gcnew System::Windows::Forms::ComboBox());
-			this->input_diff_lock_f = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox41 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox42 = (gcnew System::Windows::Forms::TextBox());
-			this->input_diff_type_r = (gcnew System::Windows::Forms::ComboBox());
-			this->input_diff_type_f = (gcnew System::Windows::Forms::ComboBox());
-			this->input_drive_config = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox17 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox21 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_F_drag_y_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox162 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_y_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox163 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_y_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox164 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_z_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox165 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_z_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox166 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_z_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox167 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox168 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox169 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_drag_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox170 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_y_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox171 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_y_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox172 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_y_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox173 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_x_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox174 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_x_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox175 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_x_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox176 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox177 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox178 = (gcnew System::Windows::Forms::TextBox());
-			this->input_F_down_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox179 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_brake_type_r = (gcnew System::Windows::Forms::ComboBox());
-			this->input_brake_type_f = (gcnew System::Windows::Forms::ComboBox());
-			this->input_brake_config = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox10 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_t_r = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_t_f = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_L = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox15 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_rr = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_h_CG = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_rl = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_fr = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_fl = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->input_y = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->input_x = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m = (gcnew System::Windows::Forms::NumericUpDown());
-			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
-			this->splitContainer3 = (gcnew System::Windows::Forms::SplitContainer());
-			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
-			this->input_k_susp_r = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_k_susp_f = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_r_arb_5 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox90 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_4 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox91 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_3 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox92 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox93 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox94 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
-			this->input_k_p_C_dist = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_k_p_C_deg = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox22 = (gcnew System::Windows::Forms::TextBox());
-			this->input_k_r_C_dist = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_k_r_C_deg = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox15 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_f_arb_5 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox89 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_4 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox88 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_3 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox87 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox85 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox86 = (gcnew System::Windows::Forms::TextBox());
-			this->tabControl3 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox17 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_p_p_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox108 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_p_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox109 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_p_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox110 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_p_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox114 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_p_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox115 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_p_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox116 = (gcnew System::Windows::Forms::TextBox());
-			this->input_n_p_o_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox117 = (gcnew System::Windows::Forms::TextBox());
-			this->input_n_p_o_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox118 = (gcnew System::Windows::Forms::TextBox());
-			this->input_n_p_o_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox119 = (gcnew System::Windows::Forms::TextBox());
-			this->input_n_p_i_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox120 = (gcnew System::Windows::Forms::TextBox());
-			this->input_n_p_i_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox121 = (gcnew System::Windows::Forms::TextBox());
-			this->input_n_p_i_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox122 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_p_o_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox123 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_p_o_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox124 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_p_o_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox125 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_p_i_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox126 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_p_i_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox127 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_p_i_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox128 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_p_r_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox111 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_r_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox112 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_r_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox113 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_r_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox105 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_r_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox106 = (gcnew System::Windows::Forms::TextBox());
-			this->input_p_r_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox107 = (gcnew System::Windows::Forms::TextBox());
-			this->input_off_r_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox102 = (gcnew System::Windows::Forms::TextBox());
-			this->input_off_r_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox103 = (gcnew System::Windows::Forms::TextBox());
-			this->input_off_r_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox104 = (gcnew System::Windows::Forms::TextBox());
-			this->input_off_r_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox99 = (gcnew System::Windows::Forms::TextBox());
-			this->input_off_r_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox100 = (gcnew System::Windows::Forms::TextBox());
-			this->input_off_r_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox101 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_r_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox96 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_r_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox97 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_r_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox98 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_r_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox19 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_r_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
-			this->input_h_r_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox95 = (gcnew System::Windows::Forms::TextBox());
-			this->tabPage9 = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox20 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox159 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bc_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox160 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bc_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox161 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox129 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bc_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox130 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bc_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox131 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox153 = (gcnew System::Windows::Forms::TextBox());
-			this->input_sc_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox154 = (gcnew System::Windows::Forms::TextBox());
-			this->input_sc_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox155 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox156 = (gcnew System::Windows::Forms::TextBox());
-			this->input_sc_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox157 = (gcnew System::Windows::Forms::TextBox());
-			this->input_sc_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox158 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox19 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox132 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bs_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox133 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bs_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox134 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox147 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bs_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox148 = (gcnew System::Windows::Forms::TextBox());
-			this->input_bs_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox149 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox150 = (gcnew System::Windows::Forms::TextBox());
-			this->input_ackermann_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox151 = (gcnew System::Windows::Forms::TextBox());
-			this->input_ackermann_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox152 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox18 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_MR_arb_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox135 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_arb_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox136 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_arb_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox137 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_arb_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox138 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_arb_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox139 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_arb_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox140 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_s_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox141 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_s_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox142 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_s_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox143 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_s_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox144 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_s_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox145 = (gcnew System::Windows::Forms::TextBox());
-			this->input_MR_s_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox146 = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox14 = (gcnew System::Windows::Forms::GroupBox());
 			this->tire_name = (gcnew System::Windows::Forms::ComboBox());
@@ -1167,11 +923,291 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox43 = (gcnew System::Windows::Forms::TextBox());
 			this->input_p_Cy1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox44 = (gcnew System::Windows::Forms::TextBox());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl4 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage10 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_t_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_t_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_L = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox15 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m_u_rr = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_h_CG = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m_u_rl = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m_u_fr = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m_u_fl = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->input_y = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->input_x = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m = (gcnew System::Windows::Forms::NumericUpDown());
+			this->tabPage13 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_brake_type_r = (gcnew System::Windows::Forms::ComboBox());
+			this->input_brake_type_f = (gcnew System::Windows::Forms::ComboBox());
+			this->input_brake_config = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox10 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox186 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox187 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox188 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox189 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox185 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox33 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox30 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox32 = (gcnew System::Windows::Forms::TextBox());
+			this->input_diff_lock_r = (gcnew System::Windows::Forms::ComboBox());
+			this->input_diff_lock_f = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox41 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox42 = (gcnew System::Windows::Forms::TextBox());
+			this->input_diff_type_r = (gcnew System::Windows::Forms::ComboBox());
+			this->input_diff_type_f = (gcnew System::Windows::Forms::ComboBox());
+			this->input_drive_config = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox17 = (gcnew System::Windows::Forms::TextBox());
+			this->input_diff_k_lock_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_preload_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_bTBR_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_dTBR_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_k_lock_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_preload_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_bTBR_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_diff_dTBR_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_k_lock_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_preload_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_bTBR_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_dTBR_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_k_lock_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_preload_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_bTBR_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_dTBR_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->tabPage11 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox21 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_F_drag_y_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox162 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_y_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox163 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_y_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox164 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_z_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox165 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_z_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox166 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_z_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox167 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox168 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox169 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_drag_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox170 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_y_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox171 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_y_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox172 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_y_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox173 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_x_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox174 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_x_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox175 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_x_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox176 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox177 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox178 = (gcnew System::Windows::Forms::TextBox());
+			this->input_F_down_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox179 = (gcnew System::Windows::Forms::TextBox());
+			this->tabPage12 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
+			this->input_k_p_C_dist = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_k_p_C_deg = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox22 = (gcnew System::Windows::Forms::TextBox());
+			this->input_k_r_C_dist = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_k_r_C_deg = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox15 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_f_arb_5 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox89 = (gcnew System::Windows::Forms::TextBox());
+			this->input_f_arb_4 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox88 = (gcnew System::Windows::Forms::TextBox());
+			this->input_f_arb_3 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox87 = (gcnew System::Windows::Forms::TextBox());
+			this->input_f_arb_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox85 = (gcnew System::Windows::Forms::TextBox());
+			this->input_f_arb_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox86 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_r_arb_5 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox90 = (gcnew System::Windows::Forms::TextBox());
+			this->input_r_arb_4 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox91 = (gcnew System::Windows::Forms::TextBox());
+			this->input_r_arb_3 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox92 = (gcnew System::Windows::Forms::TextBox());
+			this->input_r_arb_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox93 = (gcnew System::Windows::Forms::TextBox());
+			this->input_r_arb_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox94 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
+			this->input_k_susp_r = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_k_susp_f = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
+			this->tabPage14 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox20 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox159 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bc_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox160 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bc_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox161 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox129 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bc_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox130 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bc_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox131 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox153 = (gcnew System::Windows::Forms::TextBox());
+			this->input_sc_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox154 = (gcnew System::Windows::Forms::TextBox());
+			this->input_sc_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox155 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox156 = (gcnew System::Windows::Forms::TextBox());
+			this->input_sc_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox157 = (gcnew System::Windows::Forms::TextBox());
+			this->input_sc_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox158 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox17 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_p_p_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox108 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_p_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox109 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_p_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox110 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_p_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox114 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_p_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox115 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_p_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox116 = (gcnew System::Windows::Forms::TextBox());
+			this->input_n_p_o_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox117 = (gcnew System::Windows::Forms::TextBox());
+			this->input_n_p_o_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox118 = (gcnew System::Windows::Forms::TextBox());
+			this->input_n_p_o_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox119 = (gcnew System::Windows::Forms::TextBox());
+			this->input_n_p_i_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox120 = (gcnew System::Windows::Forms::TextBox());
+			this->input_n_p_i_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox121 = (gcnew System::Windows::Forms::TextBox());
+			this->input_n_p_i_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox122 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_p_o_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox123 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_p_o_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox124 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_p_o_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox125 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_p_i_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox126 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_p_i_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox127 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_p_i_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox128 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox19 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox132 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bs_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox133 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bs_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox134 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox147 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bs_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox148 = (gcnew System::Windows::Forms::TextBox());
+			this->input_bs_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox149 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox150 = (gcnew System::Windows::Forms::TextBox());
+			this->input_ackermann_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox151 = (gcnew System::Windows::Forms::TextBox());
+			this->input_ackermann_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox152 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox18 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_MR_arb_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox135 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_arb_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox136 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_arb_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox137 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_arb_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox138 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_arb_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox139 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_arb_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox140 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_s_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox141 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_s_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox142 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_s_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox143 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_s_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox144 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_s_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox145 = (gcnew System::Windows::Forms::TextBox());
+			this->input_MR_s_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox146 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
+			this->input_p_r_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox111 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_r_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox112 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_r_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox113 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_r_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox105 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_r_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox106 = (gcnew System::Windows::Forms::TextBox());
+			this->input_p_r_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox107 = (gcnew System::Windows::Forms::TextBox());
+			this->input_off_r_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox102 = (gcnew System::Windows::Forms::TextBox());
+			this->input_off_r_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox103 = (gcnew System::Windows::Forms::TextBox());
+			this->input_off_r_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox104 = (gcnew System::Windows::Forms::TextBox());
+			this->input_off_r_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox99 = (gcnew System::Windows::Forms::TextBox());
+			this->input_off_r_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox100 = (gcnew System::Windows::Forms::TextBox());
+			this->input_off_r_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox101 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_r_r_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox96 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_r_r_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox97 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_r_r_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox98 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_r_f_0 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox19 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_r_f_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
+			this->input_h_r_f_2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox95 = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
 			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
-			this->fake_DB = (gcnew System::Windows::Forms::NumericUpDown());
-			this->fake_BB = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_rear_arb = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox84 = (gcnew System::Windows::Forms::TextBox());
 			this->input_front_arb = (gcnew System::Windows::Forms::ComboBox());
@@ -1192,6 +1228,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_delta_r_static = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox35 = (gcnew System::Windows::Forms::TextBox());
 			this->input_delta_f_static = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_DB = (gcnew System::Windows::Forms::NumericUpDown());
+			this->fake_BB = (gcnew System::Windows::Forms::NumericUpDown());
 			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
 			this->input_force_radius = (gcnew System::Windows::Forms::CheckBox());
 			this->input_a_lon_des = (gcnew System::Windows::Forms::NumericUpDown());
@@ -1301,153 +1339,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
-			this->input_diff_dTBR_f = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_diff_bTBR_f = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox30 = (gcnew System::Windows::Forms::TextBox());
-			this->input_diff_preload_f = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox33 = (gcnew System::Windows::Forms::TextBox());
-			this->input_diff_k_lock_f = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox185 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox186 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox187 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox188 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox189 = (gcnew System::Windows::Forms::TextBox());
-			this->input_diff_k_lock_r = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_diff_preload_r = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_diff_bTBR_r = (gcnew System::Windows::Forms::NumericUpDown());
-			this->input_diff_dTBR_r = (gcnew System::Windows::Forms::NumericUpDown());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
-			this->tabPage3->SuspendLayout();
-			this->groupBox4->SuspendLayout();
-			this->groupBox21->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_2))->BeginInit();
-			this->groupBox3->SuspendLayout();
-			this->groupBox2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_r))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_f))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->BeginInit();
-			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->BeginInit();
-			this->tabPage4->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->BeginInit();
-			this->splitContainer3->Panel1->SuspendLayout();
-			this->splitContainer3->Panel2->SuspendLayout();
-			this->splitContainer3->SuspendLayout();
-			this->groupBox5->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_r))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_f))->BeginInit();
-			this->groupBox16->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_1))->BeginInit();
-			this->groupBox7->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_dist))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_deg))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_dist))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_deg))->BeginInit();
-			this->groupBox15->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_1))->BeginInit();
-			this->tabControl3->SuspendLayout();
-			this->tabPage8->SuspendLayout();
-			this->groupBox17->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_2))->BeginInit();
-			this->groupBox6->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_2))->BeginInit();
-			this->tabPage9->SuspendLayout();
-			this->groupBox20->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_2))->BeginInit();
-			this->groupBox19->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_2))->BeginInit();
-			this->groupBox18->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_0))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_2))->BeginInit();
 			this->tabPage5->SuspendLayout();
 			this->groupBox14->SuspendLayout();
 			this->groupBox13->SuspendLayout();
@@ -1491,20 +1384,164 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_Dy2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_Dy1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_Cy1))->BeginInit();
+			this->tabPage3->SuspendLayout();
+			this->tabControl4->SuspendLayout();
+			this->tabPage10->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->BeginInit();
+			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->BeginInit();
+			this->tabPage13->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			this->groupBox4->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_k_lock_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_preload_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_bTBR_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_dTBR_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_k_lock_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_preload_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_bTBR_f))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_dTBR_f))->BeginInit();
+			this->tabPage11->SuspendLayout();
+			this->groupBox21->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_2))->BeginInit();
+			this->tabPage12->SuspendLayout();
+			this->groupBox7->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_dist))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_deg))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_dist))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_deg))->BeginInit();
+			this->groupBox15->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_1))->BeginInit();
+			this->groupBox16->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_1))->BeginInit();
+			this->groupBox5->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_r))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_f))->BeginInit();
+			this->tabPage14->SuspendLayout();
+			this->groupBox20->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_2))->BeginInit();
+			this->groupBox17->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_2))->BeginInit();
+			this->groupBox19->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_2))->BeginInit();
+			this->groupBox18->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_2))->BeginInit();
+			this->groupBox6->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_0))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_2))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->BeginInit();
 			this->splitContainer2->Panel1->SuspendLayout();
 			this->splitContainer2->Panel2->SuspendLayout();
 			this->splitContainer2->SuspendLayout();
 			this->groupBox9->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_DB))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_BB))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_DB_input))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_gamma_r_static))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_BB_input))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_gamma_f_static))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_r_static))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_f_static))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_DB))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_BB))->BeginInit();
 			this->groupBox8->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_a_lon_des))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_V_input))->BeginInit();
@@ -1533,14 +1570,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->Panel1->SuspendLayout();
 			this->splitContainer1->Panel2->SuspendLayout();
 			this->splitContainer1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_f))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_f))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_f))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_f))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_r))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_r))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_r))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_r))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -1581,9 +1610,8 @@ private: System::ComponentModel::IContainer^ components;
 			// tabControl1
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Controls->Add(this->tabPage5);
+			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->debugPage);
 			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -1602,3462 +1630,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Welcome";
 			this->tabPage1->UseVisualStyleBackColor = true;
-			// 
-			// tabPage3
-			// 
-			this->tabPage3->Controls->Add(this->groupBox4);
-			this->tabPage3->Controls->Add(this->groupBox21);
-			this->tabPage3->Controls->Add(this->groupBox3);
-			this->tabPage3->Controls->Add(this->groupBox2);
-			this->tabPage3->Controls->Add(this->groupBox1);
-			this->tabPage3->Location = System::Drawing::Point(4, 35);
-			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(1075, 636);
-			this->tabPage3->TabIndex = 2;
-			this->tabPage3->Text = L"Vehicle";
-			this->tabPage3->UseVisualStyleBackColor = true;
-			// 
-			// groupBox4
-			// 
-			this->groupBox4->Controls->Add(this->input_diff_k_lock_r);
-			this->groupBox4->Controls->Add(this->input_diff_preload_r);
-			this->groupBox4->Controls->Add(this->input_diff_bTBR_r);
-			this->groupBox4->Controls->Add(this->input_diff_dTBR_r);
-			this->groupBox4->Controls->Add(this->textBox186);
-			this->groupBox4->Controls->Add(this->textBox187);
-			this->groupBox4->Controls->Add(this->textBox188);
-			this->groupBox4->Controls->Add(this->textBox189);
-			this->groupBox4->Controls->Add(this->input_diff_k_lock_f);
-			this->groupBox4->Controls->Add(this->textBox185);
-			this->groupBox4->Controls->Add(this->input_diff_preload_f);
-			this->groupBox4->Controls->Add(this->textBox33);
-			this->groupBox4->Controls->Add(this->input_diff_bTBR_f);
-			this->groupBox4->Controls->Add(this->textBox30);
-			this->groupBox4->Controls->Add(this->input_diff_dTBR_f);
-			this->groupBox4->Controls->Add(this->textBox32);
-			this->groupBox4->Controls->Add(this->input_diff_lock_r);
-			this->groupBox4->Controls->Add(this->input_diff_lock_f);
-			this->groupBox4->Controls->Add(this->textBox41);
-			this->groupBox4->Controls->Add(this->textBox42);
-			this->groupBox4->Controls->Add(this->input_diff_type_r);
-			this->groupBox4->Controls->Add(this->input_diff_type_f);
-			this->groupBox4->Controls->Add(this->input_drive_config);
-			this->groupBox4->Controls->Add(this->textBox12);
-			this->groupBox4->Controls->Add(this->textBox13);
-			this->groupBox4->Controls->Add(this->textBox17);
-			this->groupBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox4->Location = System::Drawing::Point(497, 10);
-			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(500, 423);
-			this->groupBox4->TabIndex = 19;
-			this->groupBox4->TabStop = false;
-			this->groupBox4->Text = L"Differentials";
-			// 
-			// textBox32
-			// 
-			this->textBox32->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox32->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox32->Location = System::Drawing::Point(6, 208);
-			this->textBox32->Multiline = true;
-			this->textBox32->Name = L"textBox32";
-			this->textBox32->Size = System::Drawing::Size(157, 47);
-			this->textBox32->TabIndex = 14;
-			this->textBox32->Text = L"Front differential driving TBR";
-			// 
-			// input_diff_lock_r
-			// 
-			this->input_diff_lock_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_lock_r->FormattingEnabled = true;
-			this->input_diff_lock_r->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Open", L"Geared", L"Ramp", L"Trac-loc",
-					L"Locked"
-			});
-			this->input_diff_lock_r->Location = System::Drawing::Point(365, 159);
-			this->input_diff_lock_r->Name = L"input_diff_lock_r";
-			this->input_diff_lock_r->Size = System::Drawing::Size(121, 27);
-			this->input_diff_lock_r->TabIndex = 13;
-			this->input_diff_lock_r->Text = L"Select";
-			// 
-			// input_diff_lock_f
-			// 
-			this->input_diff_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_lock_f->FormattingEnabled = true;
-			this->input_diff_lock_f->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Open", L"Geared", L"Ramp", L"Trac-loc",
-					L"Locked"
-			});
-			this->input_diff_lock_f->Location = System::Drawing::Point(114, 162);
-			this->input_diff_lock_f->Name = L"input_diff_lock_f";
-			this->input_diff_lock_f->Size = System::Drawing::Size(121, 27);
-			this->input_diff_lock_f->TabIndex = 12;
-			this->input_diff_lock_f->Text = L"Select";
-			// 
-			// textBox41
-			// 
-			this->textBox41->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox41->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox41->Location = System::Drawing::Point(257, 140);
-			this->textBox41->Multiline = true;
-			this->textBox41->Name = L"textBox41";
-			this->textBox41->Size = System::Drawing::Size(102, 65);
-			this->textBox41->TabIndex = 11;
-			this->textBox41->Text = L"Rear differential locking";
-			// 
-			// textBox42
-			// 
-			this->textBox42->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox42->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox42->Location = System::Drawing::Point(6, 143);
-			this->textBox42->Multiline = true;
-			this->textBox42->Name = L"textBox42";
-			this->textBox42->Size = System::Drawing::Size(102, 62);
-			this->textBox42->TabIndex = 10;
-			this->textBox42->Text = L"Front differential locking";
-			// 
-			// input_diff_type_r
-			// 
-			this->input_diff_type_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_type_r->FormattingEnabled = true;
-			this->input_diff_type_r->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
-			this->input_diff_type_r->Location = System::Drawing::Point(365, 91);
-			this->input_diff_type_r->Name = L"input_diff_type_r";
-			this->input_diff_type_r->Size = System::Drawing::Size(121, 27);
-			this->input_diff_type_r->TabIndex = 9;
-			this->input_diff_type_r->Text = L"Select";
-			// 
-			// input_diff_type_f
-			// 
-			this->input_diff_type_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_type_f->FormattingEnabled = true;
-			this->input_diff_type_f->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
-			this->input_diff_type_f->Location = System::Drawing::Point(114, 94);
-			this->input_diff_type_f->Name = L"input_diff_type_f";
-			this->input_diff_type_f->Size = System::Drawing::Size(121, 27);
-			this->input_diff_type_f->TabIndex = 8;
-			this->input_diff_type_f->Text = L"Select";
-			// 
-			// input_drive_config
-			// 
-			this->input_drive_config->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_drive_config->FormattingEnabled = true;
-			this->input_drive_config->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"All wheels", L"Front wheels", L"Rear wheels" });
-			this->input_drive_config->Location = System::Drawing::Point(114, 35);
-			this->input_drive_config->Name = L"input_drive_config";
-			this->input_drive_config->Size = System::Drawing::Size(121, 27);
-			this->input_drive_config->TabIndex = 7;
-			this->input_drive_config->Text = L"Select";
-			this->input_drive_config->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_drive_config_SelectedIndexChanged);
-			// 
-			// textBox12
-			// 
-			this->textBox12->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox12->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox12->Location = System::Drawing::Point(257, 72);
-			this->textBox12->Multiline = true;
-			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(102, 65);
-			this->textBox12->TabIndex = 6;
-			this->textBox12->Text = L"Rear differential mounting";
-			// 
-			// textBox13
-			// 
-			this->textBox13->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox13->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox13->Location = System::Drawing::Point(6, 75);
-			this->textBox13->Multiline = true;
-			this->textBox13->Name = L"textBox13";
-			this->textBox13->Size = System::Drawing::Size(102, 62);
-			this->textBox13->TabIndex = 4;
-			this->textBox13->Text = L"Front differential mounting";
-			// 
-			// textBox17
-			// 
-			this->textBox17->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox17->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox17->Location = System::Drawing::Point(6, 32);
-			this->textBox17->Multiline = true;
-			this->textBox17->Name = L"textBox17";
-			this->textBox17->Size = System::Drawing::Size(102, 37);
-			this->textBox17->TabIndex = 2;
-			this->textBox17->Text = L"Drive configuration";
-			// 
-			// groupBox21
-			// 
-			this->groupBox21->Controls->Add(this->input_F_drag_y_0);
-			this->groupBox21->Controls->Add(this->textBox162);
-			this->groupBox21->Controls->Add(this->input_F_drag_y_1);
-			this->groupBox21->Controls->Add(this->textBox163);
-			this->groupBox21->Controls->Add(this->input_F_drag_y_2);
-			this->groupBox21->Controls->Add(this->textBox164);
-			this->groupBox21->Controls->Add(this->input_F_drag_z_0);
-			this->groupBox21->Controls->Add(this->textBox165);
-			this->groupBox21->Controls->Add(this->input_F_drag_z_1);
-			this->groupBox21->Controls->Add(this->textBox166);
-			this->groupBox21->Controls->Add(this->input_F_drag_z_2);
-			this->groupBox21->Controls->Add(this->textBox167);
-			this->groupBox21->Controls->Add(this->input_F_drag_0);
-			this->groupBox21->Controls->Add(this->textBox168);
-			this->groupBox21->Controls->Add(this->input_F_drag_1);
-			this->groupBox21->Controls->Add(this->textBox169);
-			this->groupBox21->Controls->Add(this->input_F_drag_2);
-			this->groupBox21->Controls->Add(this->textBox170);
-			this->groupBox21->Controls->Add(this->input_F_down_y_0);
-			this->groupBox21->Controls->Add(this->textBox171);
-			this->groupBox21->Controls->Add(this->input_F_down_y_1);
-			this->groupBox21->Controls->Add(this->textBox172);
-			this->groupBox21->Controls->Add(this->input_F_down_y_2);
-			this->groupBox21->Controls->Add(this->textBox173);
-			this->groupBox21->Controls->Add(this->input_F_down_x_0);
-			this->groupBox21->Controls->Add(this->textBox174);
-			this->groupBox21->Controls->Add(this->input_F_down_x_1);
-			this->groupBox21->Controls->Add(this->textBox175);
-			this->groupBox21->Controls->Add(this->input_F_down_x_2);
-			this->groupBox21->Controls->Add(this->textBox176);
-			this->groupBox21->Controls->Add(this->input_F_down_0);
-			this->groupBox21->Controls->Add(this->textBox177);
-			this->groupBox21->Controls->Add(this->input_F_down_1);
-			this->groupBox21->Controls->Add(this->textBox178);
-			this->groupBox21->Controls->Add(this->input_F_down_2);
-			this->groupBox21->Controls->Add(this->textBox179);
-			this->groupBox21->Location = System::Drawing::Point(250, 202);
-			this->groupBox21->Name = L"groupBox21";
-			this->groupBox21->Size = System::Drawing::Size(548, 200);
-			this->groupBox21->TabIndex = 23;
-			this->groupBox21->TabStop = false;
-			this->groupBox21->Text = L"Aerodynamics";
-			// 
-			// input_F_drag_y_0
-			// 
-			this->input_F_drag_y_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_y_0->DecimalPlaces = 4;
-			this->input_F_drag_y_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_y_0->Location = System::Drawing::Point(436, 246);
-			this->input_F_drag_y_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_y_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_y_0->Name = L"input_F_drag_y_0";
-			this->input_F_drag_y_0->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_y_0->TabIndex = 81;
-			this->input_F_drag_y_0->Visible = false;
-			// 
-			// textBox162
-			// 
-			this->textBox162->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox162->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox162->Location = System::Drawing::Point(392, 248);
-			this->textBox162->Multiline = true;
-			this->textBox162->Name = L"textBox162";
-			this->textBox162->Size = System::Drawing::Size(49, 25);
-			this->textBox162->TabIndex = 80;
-			this->textBox162->Text = L"* V +";
-			this->textBox162->Visible = false;
-			// 
-			// input_F_drag_y_1
-			// 
-			this->input_F_drag_y_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_y_1->DecimalPlaces = 4;
-			this->input_F_drag_y_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_y_1->Location = System::Drawing::Point(312, 246);
-			this->input_F_drag_y_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_y_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_y_1->Name = L"input_F_drag_y_1";
-			this->input_F_drag_y_1->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_y_1->TabIndex = 79;
-			this->input_F_drag_y_1->Visible = false;
-			// 
-			// textBox163
-			// 
-			this->textBox163->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox163->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox163->Location = System::Drawing::Point(257, 248);
-			this->textBox163->Multiline = true;
-			this->textBox163->Name = L"textBox163";
-			this->textBox163->Size = System::Drawing::Size(49, 25);
-			this->textBox163->TabIndex = 78;
-			this->textBox163->Text = L"* V² +";
-			this->textBox163->Visible = false;
-			// 
-			// input_F_drag_y_2
-			// 
-			this->input_F_drag_y_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_y_2->DecimalPlaces = 4;
-			this->input_F_drag_y_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_y_2->Location = System::Drawing::Point(177, 246);
-			this->input_F_drag_y_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_y_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_y_2->Name = L"input_F_drag_y_2";
-			this->input_F_drag_y_2->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_y_2->TabIndex = 76;
-			this->input_F_drag_y_2->Visible = false;
-			// 
-			// textBox164
-			// 
-			this->textBox164->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox164->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox164->Location = System::Drawing::Point(6, 235);
-			this->textBox164->Multiline = true;
-			this->textBox164->Name = L"textBox164";
-			this->textBox164->Size = System::Drawing::Size(165, 44);
-			this->textBox164->TabIndex = 77;
-			this->textBox164->Text = L"Lateral drag distribution [%right]";
-			this->textBox164->Visible = false;
-			// 
-			// input_F_drag_z_0
-			// 
-			this->input_F_drag_z_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_z_0->DecimalPlaces = 4;
-			this->input_F_drag_z_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_z_0->Location = System::Drawing::Point(436, 204);
-			this->input_F_drag_z_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_z_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_z_0->Name = L"input_F_drag_z_0";
-			this->input_F_drag_z_0->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_z_0->TabIndex = 75;
-			this->input_F_drag_z_0->Visible = false;
-			// 
-			// textBox165
-			// 
-			this->textBox165->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox165->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox165->Location = System::Drawing::Point(392, 206);
-			this->textBox165->Multiline = true;
-			this->textBox165->Name = L"textBox165";
-			this->textBox165->Size = System::Drawing::Size(49, 25);
-			this->textBox165->TabIndex = 74;
-			this->textBox165->Text = L"* V +";
-			this->textBox165->Visible = false;
-			// 
-			// input_F_drag_z_1
-			// 
-			this->input_F_drag_z_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_z_1->DecimalPlaces = 4;
-			this->input_F_drag_z_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_z_1->Location = System::Drawing::Point(312, 204);
-			this->input_F_drag_z_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_z_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_z_1->Name = L"input_F_drag_z_1";
-			this->input_F_drag_z_1->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_z_1->TabIndex = 73;
-			this->input_F_drag_z_1->Visible = false;
-			// 
-			// textBox166
-			// 
-			this->textBox166->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox166->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox166->Location = System::Drawing::Point(257, 206);
-			this->textBox166->Multiline = true;
-			this->textBox166->Name = L"textBox166";
-			this->textBox166->Size = System::Drawing::Size(49, 25);
-			this->textBox166->TabIndex = 72;
-			this->textBox166->Text = L"* V² +";
-			this->textBox166->Visible = false;
-			// 
-			// input_F_drag_z_2
-			// 
-			this->input_F_drag_z_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_z_2->DecimalPlaces = 4;
-			this->input_F_drag_z_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_z_2->Location = System::Drawing::Point(177, 204);
-			this->input_F_drag_z_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_z_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_z_2->Name = L"input_F_drag_z_2";
-			this->input_F_drag_z_2->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_z_2->TabIndex = 70;
-			this->input_F_drag_z_2->Visible = false;
-			// 
-			// textBox167
-			// 
-			this->textBox167->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox167->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox167->Location = System::Drawing::Point(6, 193);
-			this->textBox167->Multiline = true;
-			this->textBox167->Name = L"textBox167";
-			this->textBox167->Size = System::Drawing::Size(165, 44);
-			this->textBox167->TabIndex = 71;
-			this->textBox167->Text = L"Drag pressure center height [mm]";
-			this->textBox167->Visible = false;
-			// 
-			// input_F_drag_0
-			// 
-			this->input_F_drag_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_0->DecimalPlaces = 4;
-			this->input_F_drag_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_0->Location = System::Drawing::Point(436, 162);
-			this->input_F_drag_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_0->Name = L"input_F_drag_0";
-			this->input_F_drag_0->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_0->TabIndex = 69;
-			// 
-			// textBox168
-			// 
-			this->textBox168->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox168->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox168->Location = System::Drawing::Point(392, 164);
-			this->textBox168->Multiline = true;
-			this->textBox168->Name = L"textBox168";
-			this->textBox168->Size = System::Drawing::Size(49, 25);
-			this->textBox168->TabIndex = 68;
-			this->textBox168->Text = L"* V +";
-			// 
-			// input_F_drag_1
-			// 
-			this->input_F_drag_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_1->DecimalPlaces = 4;
-			this->input_F_drag_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_1->Location = System::Drawing::Point(312, 162);
-			this->input_F_drag_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_1->Name = L"input_F_drag_1";
-			this->input_F_drag_1->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_1->TabIndex = 67;
-			// 
-			// textBox169
-			// 
-			this->textBox169->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox169->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox169->Location = System::Drawing::Point(257, 164);
-			this->textBox169->Multiline = true;
-			this->textBox169->Name = L"textBox169";
-			this->textBox169->Size = System::Drawing::Size(49, 25);
-			this->textBox169->TabIndex = 66;
-			this->textBox169->Text = L"* V² +";
-			// 
-			// input_F_drag_2
-			// 
-			this->input_F_drag_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_drag_2->DecimalPlaces = 4;
-			this->input_F_drag_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_drag_2->Location = System::Drawing::Point(177, 162);
-			this->input_F_drag_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_drag_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_drag_2->Name = L"input_F_drag_2";
-			this->input_F_drag_2->Size = System::Drawing::Size(74, 27);
-			this->input_F_drag_2->TabIndex = 64;
-			// 
-			// textBox170
-			// 
-			this->textBox170->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox170->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox170->Location = System::Drawing::Point(6, 164);
-			this->textBox170->Multiline = true;
-			this->textBox170->Name = L"textBox170";
-			this->textBox170->Size = System::Drawing::Size(165, 26);
-			this->textBox170->TabIndex = 65;
-			this->textBox170->Text = L"Total drag [N]";
-			// 
-			// input_F_down_y_0
-			// 
-			this->input_F_down_y_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_y_0->DecimalPlaces = 4;
-			this->input_F_down_y_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_y_0->Location = System::Drawing::Point(436, 121);
-			this->input_F_down_y_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_y_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_y_0->Name = L"input_F_down_y_0";
-			this->input_F_down_y_0->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_y_0->TabIndex = 63;
-			// 
-			// textBox171
-			// 
-			this->textBox171->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox171->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox171->Location = System::Drawing::Point(392, 123);
-			this->textBox171->Multiline = true;
-			this->textBox171->Name = L"textBox171";
-			this->textBox171->Size = System::Drawing::Size(49, 25);
-			this->textBox171->TabIndex = 62;
-			this->textBox171->Text = L"* V +";
-			// 
-			// input_F_down_y_1
-			// 
-			this->input_F_down_y_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_y_1->DecimalPlaces = 4;
-			this->input_F_down_y_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_y_1->Location = System::Drawing::Point(312, 121);
-			this->input_F_down_y_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_y_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_y_1->Name = L"input_F_down_y_1";
-			this->input_F_down_y_1->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_y_1->TabIndex = 61;
-			// 
-			// textBox172
-			// 
-			this->textBox172->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox172->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox172->Location = System::Drawing::Point(257, 123);
-			this->textBox172->Multiline = true;
-			this->textBox172->Name = L"textBox172";
-			this->textBox172->Size = System::Drawing::Size(49, 25);
-			this->textBox172->TabIndex = 60;
-			this->textBox172->Text = L"* V² +";
-			// 
-			// input_F_down_y_2
-			// 
-			this->input_F_down_y_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_y_2->DecimalPlaces = 4;
-			this->input_F_down_y_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_y_2->Location = System::Drawing::Point(177, 121);
-			this->input_F_down_y_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_y_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_y_2->Name = L"input_F_down_y_2";
-			this->input_F_down_y_2->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_y_2->TabIndex = 58;
-			// 
-			// textBox173
-			// 
-			this->textBox173->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox173->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox173->Location = System::Drawing::Point(6, 110);
-			this->textBox173->Multiline = true;
-			this->textBox173->Name = L"textBox173";
-			this->textBox173->Size = System::Drawing::Size(165, 44);
-			this->textBox173->TabIndex = 59;
-			this->textBox173->Text = L"Lateral downforce distribution [%right]";
-			// 
-			// input_F_down_x_0
-			// 
-			this->input_F_down_x_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_x_0->DecimalPlaces = 4;
-			this->input_F_down_x_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_x_0->Location = System::Drawing::Point(436, 81);
-			this->input_F_down_x_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_x_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_x_0->Name = L"input_F_down_x_0";
-			this->input_F_down_x_0->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_x_0->TabIndex = 57;
-			// 
-			// textBox174
-			// 
-			this->textBox174->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox174->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox174->Location = System::Drawing::Point(392, 83);
-			this->textBox174->Multiline = true;
-			this->textBox174->Name = L"textBox174";
-			this->textBox174->Size = System::Drawing::Size(49, 25);
-			this->textBox174->TabIndex = 56;
-			this->textBox174->Text = L"* V +";
-			// 
-			// input_F_down_x_1
-			// 
-			this->input_F_down_x_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_x_1->DecimalPlaces = 4;
-			this->input_F_down_x_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_x_1->Location = System::Drawing::Point(312, 81);
-			this->input_F_down_x_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_x_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_x_1->Name = L"input_F_down_x_1";
-			this->input_F_down_x_1->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_x_1->TabIndex = 55;
-			// 
-			// textBox175
-			// 
-			this->textBox175->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox175->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox175->Location = System::Drawing::Point(257, 83);
-			this->textBox175->Multiline = true;
-			this->textBox175->Name = L"textBox175";
-			this->textBox175->Size = System::Drawing::Size(49, 25);
-			this->textBox175->TabIndex = 54;
-			this->textBox175->Text = L"* V² +";
-			// 
-			// input_F_down_x_2
-			// 
-			this->input_F_down_x_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_x_2->DecimalPlaces = 4;
-			this->input_F_down_x_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_x_2->Location = System::Drawing::Point(177, 81);
-			this->input_F_down_x_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_x_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_x_2->Name = L"input_F_down_x_2";
-			this->input_F_down_x_2->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_x_2->TabIndex = 52;
-			// 
-			// textBox176
-			// 
-			this->textBox176->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox176->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox176->Location = System::Drawing::Point(6, 70);
-			this->textBox176->Multiline = true;
-			this->textBox176->Name = L"textBox176";
-			this->textBox176->Size = System::Drawing::Size(165, 44);
-			this->textBox176->TabIndex = 53;
-			this->textBox176->Text = L"Longitudinal downforce distribution [%front]";
-			// 
-			// input_F_down_0
-			// 
-			this->input_F_down_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_0->DecimalPlaces = 4;
-			this->input_F_down_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_0->Location = System::Drawing::Point(436, 43);
-			this->input_F_down_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_0->Name = L"input_F_down_0";
-			this->input_F_down_0->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_0->TabIndex = 51;
-			// 
-			// textBox177
-			// 
-			this->textBox177->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox177->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox177->Location = System::Drawing::Point(392, 45);
-			this->textBox177->Multiline = true;
-			this->textBox177->Name = L"textBox177";
-			this->textBox177->Size = System::Drawing::Size(49, 25);
-			this->textBox177->TabIndex = 50;
-			this->textBox177->Text = L"* V +";
-			// 
-			// input_F_down_1
-			// 
-			this->input_F_down_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_1->DecimalPlaces = 4;
-			this->input_F_down_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_1->Location = System::Drawing::Point(312, 43);
-			this->input_F_down_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_1->Name = L"input_F_down_1";
-			this->input_F_down_1->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_1->TabIndex = 49;
-			// 
-			// textBox178
-			// 
-			this->textBox178->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox178->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox178->Location = System::Drawing::Point(257, 45);
-			this->textBox178->Multiline = true;
-			this->textBox178->Name = L"textBox178";
-			this->textBox178->Size = System::Drawing::Size(49, 25);
-			this->textBox178->TabIndex = 48;
-			this->textBox178->Text = L"* V² +";
-			// 
-			// input_F_down_2
-			// 
-			this->input_F_down_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_F_down_2->DecimalPlaces = 4;
-			this->input_F_down_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_F_down_2->Location = System::Drawing::Point(177, 43);
-			this->input_F_down_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_F_down_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_F_down_2->Name = L"input_F_down_2";
-			this->input_F_down_2->Size = System::Drawing::Size(74, 27);
-			this->input_F_down_2->TabIndex = 46;
-			// 
-			// textBox179
-			// 
-			this->textBox179->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox179->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox179->Location = System::Drawing::Point(6, 43);
-			this->textBox179->Multiline = true;
-			this->textBox179->Name = L"textBox179";
-			this->textBox179->Size = System::Drawing::Size(165, 20);
-			this->textBox179->TabIndex = 47;
-			this->textBox179->Text = L"Total downforce [N]";
-			// 
-			// groupBox3
-			// 
-			this->groupBox3->Controls->Add(this->input_brake_type_r);
-			this->groupBox3->Controls->Add(this->input_brake_type_f);
-			this->groupBox3->Controls->Add(this->input_brake_config);
-			this->groupBox3->Controls->Add(this->textBox9);
-			this->groupBox3->Controls->Add(this->textBox10);
-			this->groupBox3->Controls->Add(this->textBox11);
-			this->groupBox3->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox3->Location = System::Drawing::Point(250, 6);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(241, 190);
-			this->groupBox3->TabIndex = 18;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Brakes";
-			// 
-			// input_brake_type_r
-			// 
-			this->input_brake_type_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_brake_type_r->FormattingEnabled = true;
-			this->input_brake_type_r->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
-			this->input_brake_type_r->Location = System::Drawing::Point(114, 152);
-			this->input_brake_type_r->Name = L"input_brake_type_r";
-			this->input_brake_type_r->Size = System::Drawing::Size(121, 27);
-			this->input_brake_type_r->TabIndex = 9;
-			this->input_brake_type_r->Text = L"Select";
-			// 
-			// input_brake_type_f
-			// 
-			this->input_brake_type_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_brake_type_f->FormattingEnabled = true;
-			this->input_brake_type_f->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
-			this->input_brake_type_f->Location = System::Drawing::Point(114, 94);
-			this->input_brake_type_f->Name = L"input_brake_type_f";
-			this->input_brake_type_f->Size = System::Drawing::Size(121, 27);
-			this->input_brake_type_f->TabIndex = 8;
-			this->input_brake_type_f->Text = L"Select";
-			// 
-			// input_brake_config
-			// 
-			this->input_brake_config->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_brake_config->FormattingEnabled = true;
-			this->input_brake_config->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"All wheels", L"Front wheels", L"Rear wheels" });
-			this->input_brake_config->Location = System::Drawing::Point(114, 35);
-			this->input_brake_config->Name = L"input_brake_config";
-			this->input_brake_config->Size = System::Drawing::Size(121, 27);
-			this->input_brake_config->TabIndex = 7;
-			this->input_brake_config->Text = L"Select";
-			this->input_brake_config->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_brake_config_SelectedIndexChanged);
-			// 
-			// textBox9
-			// 
-			this->textBox9->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox9->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox9->Location = System::Drawing::Point(6, 143);
-			this->textBox9->Multiline = true;
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(102, 44);
-			this->textBox9->TabIndex = 6;
-			this->textBox9->Text = L"Rear brakes mounting";
-			// 
-			// textBox10
-			// 
-			this->textBox10->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox10->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox10->Location = System::Drawing::Point(6, 85);
-			this->textBox10->Multiline = true;
-			this->textBox10->Name = L"textBox10";
-			this->textBox10->Size = System::Drawing::Size(102, 49);
-			this->textBox10->TabIndex = 4;
-			this->textBox10->Text = L"Front brakes mounting";
-			// 
-			// textBox11
-			// 
-			this->textBox11->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox11->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox11->Location = System::Drawing::Point(6, 32);
-			this->textBox11->Multiline = true;
-			this->textBox11->Name = L"textBox11";
-			this->textBox11->Size = System::Drawing::Size(102, 37);
-			this->textBox11->TabIndex = 2;
-			this->textBox11->Text = L"Brake configuration";
-			// 
-			// groupBox2
-			// 
-			this->groupBox2->Controls->Add(this->input_t_r);
-			this->groupBox2->Controls->Add(this->input_t_f);
-			this->groupBox2->Controls->Add(this->input_L);
-			this->groupBox2->Controls->Add(this->textBox14);
-			this->groupBox2->Controls->Add(this->textBox15);
-			this->groupBox2->Controls->Add(this->textBox16);
-			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox2->Location = System::Drawing::Point(3, 458);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(241, 190);
-			this->groupBox2->TabIndex = 17;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Size";
-			// 
-			// input_t_r
-			// 
-			this->input_t_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_t_r->DecimalPlaces = 2;
-			this->input_t_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_t_r->Location = System::Drawing::Point(150, 141);
-			this->input_t_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_t_r->Name = L"input_t_r";
-			this->input_t_r->Size = System::Drawing::Size(74, 27);
-			this->input_t_r->TabIndex = 5;
-			this->input_t_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1250, 0, 0, 0 });
-			// 
-			// input_t_f
-			// 
-			this->input_t_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_t_f->DecimalPlaces = 2;
-			this->input_t_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_t_f->Location = System::Drawing::Point(150, 83);
-			this->input_t_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_t_f->Name = L"input_t_f";
-			this->input_t_f->Size = System::Drawing::Size(74, 27);
-			this->input_t_f->TabIndex = 3;
-			this->input_t_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1250, 0, 0, 0 });
-			// 
-			// input_L
-			// 
-			this->input_L->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_L->DecimalPlaces = 2;
-			this->input_L->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_L->Location = System::Drawing::Point(150, 30);
-			this->input_L->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_L->Name = L"input_L";
-			this->input_L->Size = System::Drawing::Size(74, 27);
-			this->input_L->TabIndex = 0;
-			this->input_L->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1535, 0, 0, 0 });
-			// 
-			// textBox14
-			// 
-			this->textBox14->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox14->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox14->Location = System::Drawing::Point(6, 143);
-			this->textBox14->Multiline = true;
-			this->textBox14->Name = L"textBox14";
-			this->textBox14->Size = System::Drawing::Size(157, 25);
-			this->textBox14->TabIndex = 6;
-			this->textBox14->Text = L"Rear track [mm]";
-			// 
-			// textBox15
-			// 
-			this->textBox15->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox15->Location = System::Drawing::Point(6, 85);
-			this->textBox15->Multiline = true;
-			this->textBox15->Name = L"textBox15";
-			this->textBox15->Size = System::Drawing::Size(157, 25);
-			this->textBox15->TabIndex = 4;
-			this->textBox15->Text = L"Front track [mm]";
-			// 
-			// textBox16
-			// 
-			this->textBox16->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox16->Location = System::Drawing::Point(6, 32);
-			this->textBox16->Multiline = true;
-			this->textBox16->Name = L"textBox16";
-			this->textBox16->Size = System::Drawing::Size(157, 25);
-			this->textBox16->TabIndex = 2;
-			this->textBox16->Text = L"Wheelbase [mm]";
-			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->textBox8);
-			this->groupBox1->Controls->Add(this->textBox7);
-			this->groupBox1->Controls->Add(this->input_m_u_rr);
-			this->groupBox1->Controls->Add(this->input_h_CG);
-			this->groupBox1->Controls->Add(this->textBox6);
-			this->groupBox1->Controls->Add(this->input_m_u_rl);
-			this->groupBox1->Controls->Add(this->textBox5);
-			this->groupBox1->Controls->Add(this->input_m_u_fr);
-			this->groupBox1->Controls->Add(this->textBox4);
-			this->groupBox1->Controls->Add(this->input_m_u_fl);
-			this->groupBox1->Controls->Add(this->textBox3);
-			this->groupBox1->Controls->Add(this->input_y);
-			this->groupBox1->Controls->Add(this->textBox2);
-			this->groupBox1->Controls->Add(this->input_x);
-			this->groupBox1->Controls->Add(this->textBox1);
-			this->groupBox1->Controls->Add(this->input_m);
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(3, 6);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(241, 452);
-			this->groupBox1->TabIndex = 1;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Mass";
-			// 
-			// textBox8
-			// 
-			this->textBox8->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox8->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox8->Location = System::Drawing::Point(6, 200);
-			this->textBox8->Multiline = true;
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(157, 47);
-			this->textBox8->TabIndex = 16;
-			this->textBox8->Text = L"Height of the center of gravity [mm]";
-			// 
-			// textBox7
-			// 
-			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox7->Location = System::Drawing::Point(6, 408);
-			this->textBox7->Multiline = true;
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(157, 38);
-			this->textBox7->TabIndex = 14;
-			this->textBox7->Text = L"Rear right unsprung masses [kg]";
-			// 
-			// input_m_u_rr
-			// 
-			this->input_m_u_rr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_rr->DecimalPlaces = 2;
-			this->input_m_u_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_rr->Location = System::Drawing::Point(169, 418);
-			this->input_m_u_rr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_rr->Name = L"input_m_u_rr";
-			this->input_m_u_rr->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_rr->TabIndex = 13;
-			this->input_m_u_rr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
-			// input_h_CG
-			// 
-			this->input_h_CG->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_CG->DecimalPlaces = 2;
-			this->input_h_CG->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_CG->Location = System::Drawing::Point(169, 210);
-			this->input_h_CG->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_CG->Name = L"input_h_CG";
-			this->input_h_CG->Size = System::Drawing::Size(66, 27);
-			this->input_h_CG->TabIndex = 15;
-			this->input_h_CG->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 236, 0, 0, 0 });
-			// 
-			// textBox6
-			// 
-			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox6->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox6->Location = System::Drawing::Point(6, 357);
-			this->textBox6->Multiline = true;
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(157, 47);
-			this->textBox6->TabIndex = 12;
-			this->textBox6->Text = L"Rear left unsprung masses [kg]";
-			// 
-			// input_m_u_rl
-			// 
-			this->input_m_u_rl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_rl->DecimalPlaces = 2;
-			this->input_m_u_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_rl->Location = System::Drawing::Point(169, 367);
-			this->input_m_u_rl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_rl->Name = L"input_m_u_rl";
-			this->input_m_u_rl->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_rl->TabIndex = 11;
-			this->input_m_u_rl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
-			// textBox5
-			// 
-			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox5->Location = System::Drawing::Point(6, 306);
-			this->textBox5->Multiline = true;
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(157, 47);
-			this->textBox5->TabIndex = 10;
-			this->textBox5->Text = L"Front right unsprung masses [kg]";
-			// 
-			// input_m_u_fr
-			// 
-			this->input_m_u_fr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_fr->DecimalPlaces = 2;
-			this->input_m_u_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_fr->Location = System::Drawing::Point(169, 316);
-			this->input_m_u_fr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_fr->Name = L"input_m_u_fr";
-			this->input_m_u_fr->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_fr->TabIndex = 9;
-			this->input_m_u_fr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
-			// textBox4
-			// 
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(6, 253);
-			this->textBox4->Multiline = true;
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(157, 47);
-			this->textBox4->TabIndex = 8;
-			this->textBox4->Text = L"Front left unsprung masses [kg]";
-			// 
-			// input_m_u_fl
-			// 
-			this->input_m_u_fl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_fl->DecimalPlaces = 2;
-			this->input_m_u_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_fl->Location = System::Drawing::Point(169, 263);
-			this->input_m_u_fl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_fl->Name = L"input_m_u_fl";
-			this->input_m_u_fl->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_fl->TabIndex = 7;
-			this->input_m_u_fl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
-			// textBox3
-			// 
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(6, 143);
-			this->textBox3->Multiline = true;
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(157, 47);
-			this->textBox3->TabIndex = 6;
-			this->textBox3->Text = L"Lateral mass distribution [%right]";
-			// 
-			// input_y
-			// 
-			this->input_y->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_y->DecimalPlaces = 2;
-			this->input_y->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_y->Location = System::Drawing::Point(169, 153);
-			this->input_y->Name = L"input_y";
-			this->input_y->Size = System::Drawing::Size(66, 27);
-			this->input_y->TabIndex = 5;
-			this->input_y->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			// 
-			// textBox2
-			// 
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(6, 85);
-			this->textBox2->Multiline = true;
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(157, 47);
-			this->textBox2->TabIndex = 4;
-			this->textBox2->Text = L"Longitudinal mass distribution [%front]";
-			// 
-			// input_x
-			// 
-			this->input_x->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_x->DecimalPlaces = 2;
-			this->input_x->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_x->Location = System::Drawing::Point(169, 95);
-			this->input_x->Name = L"input_x";
-			this->input_x->Size = System::Drawing::Size(66, 27);
-			this->input_x->TabIndex = 3;
-			this->input_x->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 48, 0, 0, 0 });
-			// 
-			// textBox1
-			// 
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(6, 32);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(157, 47);
-			this->textBox1->TabIndex = 2;
-			this->textBox1->Text = L"Vehicle mass (with driver) [kg]";
-			// 
-			// input_m
-			// 
-			this->input_m->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m->DecimalPlaces = 2;
-			this->input_m->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m->Location = System::Drawing::Point(169, 42);
-			this->input_m->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m->Name = L"input_m";
-			this->input_m->Size = System::Drawing::Size(66, 27);
-			this->input_m->TabIndex = 0;
-			this->input_m->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3035, 0, 0, 65536 });
-			// 
-			// tabPage4
-			// 
-			this->tabPage4->Controls->Add(this->splitContainer3);
-			this->tabPage4->Location = System::Drawing::Point(4, 22);
-			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(1075, 649);
-			this->tabPage4->TabIndex = 3;
-			this->tabPage4->Text = L"Suspension";
-			this->tabPage4->UseVisualStyleBackColor = true;
-			// 
-			// splitContainer3
-			// 
-			this->splitContainer3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->splitContainer3->Location = System::Drawing::Point(3, 3);
-			this->splitContainer3->Name = L"splitContainer3";
-			// 
-			// splitContainer3.Panel1
-			// 
-			this->splitContainer3->Panel1->Controls->Add(this->groupBox5);
-			this->splitContainer3->Panel1->Controls->Add(this->groupBox16);
-			this->splitContainer3->Panel1->Controls->Add(this->groupBox7);
-			this->splitContainer3->Panel1->Controls->Add(this->groupBox15);
-			// 
-			// splitContainer3.Panel2
-			// 
-			this->splitContainer3->Panel2->Controls->Add(this->tabControl3);
-			this->splitContainer3->Size = System::Drawing::Size(1069, 643);
-			this->splitContainer3->SplitterDistance = 500;
-			this->splitContainer3->TabIndex = 23;
-			// 
-			// groupBox5
-			// 
-			this->groupBox5->Controls->Add(this->textBox18);
-			this->groupBox5->Controls->Add(this->input_k_susp_r);
-			this->groupBox5->Controls->Add(this->input_k_susp_f);
-			this->groupBox5->Controls->Add(this->textBox20);
-			this->groupBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox5->Location = System::Drawing::Point(3, 3);
-			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Size = System::Drawing::Size(241, 138);
-			this->groupBox5->TabIndex = 18;
-			this->groupBox5->TabStop = false;
-			this->groupBox5->Text = L"Springs";
-			// 
-			// textBox18
-			// 
-			this->textBox18->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox18->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox18->Location = System::Drawing::Point(6, 83);
-			this->textBox18->Multiline = true;
-			this->textBox18->Name = L"textBox18";
-			this->textBox18->Size = System::Drawing::Size(138, 45);
-			this->textBox18->TabIndex = 4;
-			this->textBox18->Text = L"Rear springs stiffness [N/mm]";
-			// 
-			// input_k_susp_r
-			// 
-			this->input_k_susp_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_k_susp_r->DecimalPlaces = 2;
-			this->input_k_susp_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_k_susp_r->Location = System::Drawing::Point(150, 92);
-			this->input_k_susp_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_k_susp_r->Name = L"input_k_susp_r";
-			this->input_k_susp_r->Size = System::Drawing::Size(74, 27);
-			this->input_k_susp_r->TabIndex = 3;
-			this->input_k_susp_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 42710, 0, 0, 196608 });
-			// 
-			// input_k_susp_f
-			// 
-			this->input_k_susp_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_k_susp_f->DecimalPlaces = 2;
-			this->input_k_susp_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_k_susp_f->Location = System::Drawing::Point(150, 41);
-			this->input_k_susp_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_k_susp_f->Name = L"input_k_susp_f";
-			this->input_k_susp_f->Size = System::Drawing::Size(74, 27);
-			this->input_k_susp_f->TabIndex = 0;
-			this->input_k_susp_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 42710, 0, 0, 196608 });
-			// 
-			// textBox20
-			// 
-			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox20->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox20->Location = System::Drawing::Point(6, 32);
-			this->textBox20->Multiline = true;
-			this->textBox20->Name = L"textBox20";
-			this->textBox20->Size = System::Drawing::Size(138, 45);
-			this->textBox20->TabIndex = 2;
-			this->textBox20->Text = L"Front springs stiffness [N/mm]";
-			// 
-			// groupBox16
-			// 
-			this->groupBox16->Controls->Add(this->input_r_arb_5);
-			this->groupBox16->Controls->Add(this->textBox90);
-			this->groupBox16->Controls->Add(this->input_r_arb_4);
-			this->groupBox16->Controls->Add(this->textBox91);
-			this->groupBox16->Controls->Add(this->input_r_arb_3);
-			this->groupBox16->Controls->Add(this->textBox92);
-			this->groupBox16->Controls->Add(this->input_r_arb_2);
-			this->groupBox16->Controls->Add(this->textBox93);
-			this->groupBox16->Controls->Add(this->input_r_arb_1);
-			this->groupBox16->Controls->Add(this->textBox94);
-			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox16->Location = System::Drawing::Point(250, 290);
-			this->groupBox16->Name = L"groupBox16";
-			this->groupBox16->Size = System::Drawing::Size(241, 285);
-			this->groupBox16->TabIndex = 21;
-			this->groupBox16->TabStop = false;
-			this->groupBox16->Text = L"Rear ARB";
-			// 
-			// input_r_arb_5
-			// 
-			this->input_r_arb_5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_5->DecimalPlaces = 2;
-			this->input_r_arb_5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_5->Location = System::Drawing::Point(150, 245);
-			this->input_r_arb_5->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_5->Name = L"input_r_arb_5";
-			this->input_r_arb_5->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_5->TabIndex = 9;
-			this->input_r_arb_5->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox90
-			// 
-			this->textBox90->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox90->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox90->Location = System::Drawing::Point(6, 236);
-			this->textBox90->Multiline = true;
-			this->textBox90->Name = L"textBox90";
-			this->textBox90->Size = System::Drawing::Size(138, 45);
-			this->textBox90->TabIndex = 10;
-			this->textBox90->Text = L"Setup 5 stiffness [N/mm]";
-			// 
-			// input_r_arb_4
-			// 
-			this->input_r_arb_4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_4->DecimalPlaces = 2;
-			this->input_r_arb_4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_4->Location = System::Drawing::Point(150, 194);
-			this->input_r_arb_4->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_4->Name = L"input_r_arb_4";
-			this->input_r_arb_4->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_4->TabIndex = 7;
-			this->input_r_arb_4->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox91
-			// 
-			this->textBox91->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox91->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox91->Location = System::Drawing::Point(6, 185);
-			this->textBox91->Multiline = true;
-			this->textBox91->Name = L"textBox91";
-			this->textBox91->Size = System::Drawing::Size(138, 45);
-			this->textBox91->TabIndex = 8;
-			this->textBox91->Text = L"Setup 4 stiffness [N/mm]";
-			// 
-			// input_r_arb_3
-			// 
-			this->input_r_arb_3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_3->DecimalPlaces = 2;
-			this->input_r_arb_3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_3->Location = System::Drawing::Point(150, 143);
-			this->input_r_arb_3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_3->Name = L"input_r_arb_3";
-			this->input_r_arb_3->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_3->TabIndex = 5;
-			this->input_r_arb_3->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox92
-			// 
-			this->textBox92->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox92->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox92->Location = System::Drawing::Point(6, 134);
-			this->textBox92->Multiline = true;
-			this->textBox92->Name = L"textBox92";
-			this->textBox92->Size = System::Drawing::Size(138, 45);
-			this->textBox92->TabIndex = 6;
-			this->textBox92->Text = L"Setup 3 stiffness [N/mm]";
-			// 
-			// input_r_arb_2
-			// 
-			this->input_r_arb_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_2->DecimalPlaces = 2;
-			this->input_r_arb_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_2->Location = System::Drawing::Point(150, 92);
-			this->input_r_arb_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_2->Name = L"input_r_arb_2";
-			this->input_r_arb_2->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_2->TabIndex = 3;
-			this->input_r_arb_2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox93
-			// 
-			this->textBox93->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox93->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox93->Location = System::Drawing::Point(6, 83);
-			this->textBox93->Multiline = true;
-			this->textBox93->Name = L"textBox93";
-			this->textBox93->Size = System::Drawing::Size(138, 45);
-			this->textBox93->TabIndex = 4;
-			this->textBox93->Text = L"Setup 2 stiffness [N/mm]";
-			// 
-			// input_r_arb_1
-			// 
-			this->input_r_arb_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_1->DecimalPlaces = 2;
-			this->input_r_arb_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_1->Location = System::Drawing::Point(150, 41);
-			this->input_r_arb_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_1->Name = L"input_r_arb_1";
-			this->input_r_arb_1->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_1->TabIndex = 0;
-			this->input_r_arb_1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox94
-			// 
-			this->textBox94->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox94->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox94->Location = System::Drawing::Point(6, 32);
-			this->textBox94->Multiline = true;
-			this->textBox94->Name = L"textBox94";
-			this->textBox94->Size = System::Drawing::Size(138, 45);
-			this->textBox94->TabIndex = 2;
-			this->textBox94->Text = L"Setup 1 stiffness [N/mm]";
-			// 
-			// groupBox7
-			// 
-			this->groupBox7->Controls->Add(this->textBox24);
-			this->groupBox7->Controls->Add(this->input_k_p_C_dist);
-			this->groupBox7->Controls->Add(this->input_k_p_C_deg);
-			this->groupBox7->Controls->Add(this->textBox25);
-			this->groupBox7->Controls->Add(this->textBox22);
-			this->groupBox7->Controls->Add(this->input_k_r_C_dist);
-			this->groupBox7->Controls->Add(this->input_k_r_C_deg);
-			this->groupBox7->Controls->Add(this->textBox23);
-			this->groupBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox7->Location = System::Drawing::Point(3, 137);
-			this->groupBox7->Name = L"groupBox7";
-			this->groupBox7->Size = System::Drawing::Size(241, 282);
-			this->groupBox7->TabIndex = 19;
-			this->groupBox7->TabStop = false;
-			this->groupBox7->Text = L"Chassis";
-			// 
-			// textBox24
-			// 
-			this->textBox24->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox24->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox24->Location = System::Drawing::Point(6, 199);
-			this->textBox24->Multiline = true;
-			this->textBox24->Name = L"textBox24";
-			this->textBox24->Size = System::Drawing::Size(138, 64);
-			this->textBox24->TabIndex = 8;
-			this->textBox24->Text = L"Chassis pitch stiffness distribution [%right]";
-			// 
-			// input_k_p_C_dist
-			// 
-			this->input_k_p_C_dist->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_k_p_C_dist->DecimalPlaces = 2;
-			this->input_k_p_C_dist->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_k_p_C_dist->Location = System::Drawing::Point(150, 217);
-			this->input_k_p_C_dist->Name = L"input_k_p_C_dist";
-			this->input_k_p_C_dist->Size = System::Drawing::Size(74, 27);
-			this->input_k_p_C_dist->TabIndex = 7;
-			this->input_k_p_C_dist->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			// 
-			// input_k_p_C_deg
-			// 
-			this->input_k_p_C_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_k_p_C_deg->DecimalPlaces = 2;
-			this->input_k_p_C_deg->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_k_p_C_deg->Location = System::Drawing::Point(150, 162);
-			this->input_k_p_C_deg->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
-			this->input_k_p_C_deg->Name = L"input_k_p_C_deg";
-			this->input_k_p_C_deg->Size = System::Drawing::Size(74, 27);
-			this->input_k_p_C_deg->TabIndex = 5;
-			this->input_k_p_C_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9000, 0, 0, 0 });
-			// 
-			// textBox25
-			// 
-			this->textBox25->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox25->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox25->Location = System::Drawing::Point(6, 153);
-			this->textBox25->Multiline = true;
-			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(138, 45);
-			this->textBox25->TabIndex = 6;
-			this->textBox25->Text = L"Chassis pitch stiffness [Nm/°]";
-			// 
-			// textBox22
-			// 
-			this->textBox22->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox22->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox22->Location = System::Drawing::Point(6, 83);
-			this->textBox22->Multiline = true;
-			this->textBox22->Name = L"textBox22";
-			this->textBox22->Size = System::Drawing::Size(138, 64);
-			this->textBox22->TabIndex = 4;
-			this->textBox22->Text = L"Chassis roll stiffness distribution [%front]";
-			// 
-			// input_k_r_C_dist
-			// 
-			this->input_k_r_C_dist->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_k_r_C_dist->DecimalPlaces = 2;
-			this->input_k_r_C_dist->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_k_r_C_dist->Location = System::Drawing::Point(150, 101);
-			this->input_k_r_C_dist->Name = L"input_k_r_C_dist";
-			this->input_k_r_C_dist->Size = System::Drawing::Size(74, 27);
-			this->input_k_r_C_dist->TabIndex = 3;
-			this->input_k_r_C_dist->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			// 
-			// input_k_r_C_deg
-			// 
-			this->input_k_r_C_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_k_r_C_deg->DecimalPlaces = 2;
-			this->input_k_r_C_deg->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_k_r_C_deg->Location = System::Drawing::Point(150, 41);
-			this->input_k_r_C_deg->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
-			this->input_k_r_C_deg->Name = L"input_k_r_C_deg";
-			this->input_k_r_C_deg->Size = System::Drawing::Size(74, 27);
-			this->input_k_r_C_deg->TabIndex = 0;
-			this->input_k_r_C_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1600, 0, 0, 0 });
-			// 
-			// textBox23
-			// 
-			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox23->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox23->Location = System::Drawing::Point(6, 32);
-			this->textBox23->Multiline = true;
-			this->textBox23->Name = L"textBox23";
-			this->textBox23->Size = System::Drawing::Size(138, 45);
-			this->textBox23->TabIndex = 2;
-			this->textBox23->Text = L"Chassis roll stiffness [Nm/°]";
-			// 
-			// groupBox15
-			// 
-			this->groupBox15->Controls->Add(this->input_f_arb_5);
-			this->groupBox15->Controls->Add(this->textBox89);
-			this->groupBox15->Controls->Add(this->input_f_arb_4);
-			this->groupBox15->Controls->Add(this->textBox88);
-			this->groupBox15->Controls->Add(this->input_f_arb_3);
-			this->groupBox15->Controls->Add(this->textBox87);
-			this->groupBox15->Controls->Add(this->input_f_arb_2);
-			this->groupBox15->Controls->Add(this->textBox85);
-			this->groupBox15->Controls->Add(this->input_f_arb_1);
-			this->groupBox15->Controls->Add(this->textBox86);
-			this->groupBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox15->Location = System::Drawing::Point(250, 3);
-			this->groupBox15->Name = L"groupBox15";
-			this->groupBox15->Size = System::Drawing::Size(241, 285);
-			this->groupBox15->TabIndex = 20;
-			this->groupBox15->TabStop = false;
-			this->groupBox15->Text = L"Front ARB";
-			// 
-			// input_f_arb_5
-			// 
-			this->input_f_arb_5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_5->DecimalPlaces = 2;
-			this->input_f_arb_5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_5->Location = System::Drawing::Point(150, 245);
-			this->input_f_arb_5->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_5->Name = L"input_f_arb_5";
-			this->input_f_arb_5->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_5->TabIndex = 9;
-			this->input_f_arb_5->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox89
-			// 
-			this->textBox89->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox89->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox89->Location = System::Drawing::Point(6, 236);
-			this->textBox89->Multiline = true;
-			this->textBox89->Name = L"textBox89";
-			this->textBox89->Size = System::Drawing::Size(138, 45);
-			this->textBox89->TabIndex = 10;
-			this->textBox89->Text = L"Setup 5 stiffness [N/mm]";
-			// 
-			// input_f_arb_4
-			// 
-			this->input_f_arb_4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_4->DecimalPlaces = 2;
-			this->input_f_arb_4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_4->Location = System::Drawing::Point(150, 194);
-			this->input_f_arb_4->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_4->Name = L"input_f_arb_4";
-			this->input_f_arb_4->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_4->TabIndex = 7;
-			this->input_f_arb_4->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox88
-			// 
-			this->textBox88->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox88->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox88->Location = System::Drawing::Point(6, 185);
-			this->textBox88->Multiline = true;
-			this->textBox88->Name = L"textBox88";
-			this->textBox88->Size = System::Drawing::Size(138, 45);
-			this->textBox88->TabIndex = 8;
-			this->textBox88->Text = L"Setup 4 stiffness [N/mm]";
-			// 
-			// input_f_arb_3
-			// 
-			this->input_f_arb_3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_3->DecimalPlaces = 2;
-			this->input_f_arb_3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_3->Location = System::Drawing::Point(150, 143);
-			this->input_f_arb_3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_3->Name = L"input_f_arb_3";
-			this->input_f_arb_3->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_3->TabIndex = 5;
-			this->input_f_arb_3->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox87
-			// 
-			this->textBox87->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox87->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox87->Location = System::Drawing::Point(6, 134);
-			this->textBox87->Multiline = true;
-			this->textBox87->Name = L"textBox87";
-			this->textBox87->Size = System::Drawing::Size(138, 45);
-			this->textBox87->TabIndex = 6;
-			this->textBox87->Text = L"Setup 3 stiffness [N/mm]";
-			// 
-			// input_f_arb_2
-			// 
-			this->input_f_arb_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_2->DecimalPlaces = 2;
-			this->input_f_arb_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_2->Location = System::Drawing::Point(150, 92);
-			this->input_f_arb_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_2->Name = L"input_f_arb_2";
-			this->input_f_arb_2->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_2->TabIndex = 3;
-			this->input_f_arb_2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox85
-			// 
-			this->textBox85->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox85->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox85->Location = System::Drawing::Point(6, 83);
-			this->textBox85->Multiline = true;
-			this->textBox85->Name = L"textBox85";
-			this->textBox85->Size = System::Drawing::Size(138, 45);
-			this->textBox85->TabIndex = 4;
-			this->textBox85->Text = L"Setup 2 stiffness [N/mm]";
-			// 
-			// input_f_arb_1
-			// 
-			this->input_f_arb_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_1->DecimalPlaces = 2;
-			this->input_f_arb_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_1->Location = System::Drawing::Point(150, 41);
-			this->input_f_arb_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_1->Name = L"input_f_arb_1";
-			this->input_f_arb_1->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_1->TabIndex = 0;
-			this->input_f_arb_1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox86
-			// 
-			this->textBox86->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox86->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox86->Location = System::Drawing::Point(6, 32);
-			this->textBox86->Multiline = true;
-			this->textBox86->Name = L"textBox86";
-			this->textBox86->Size = System::Drawing::Size(138, 45);
-			this->textBox86->TabIndex = 2;
-			this->textBox86->Text = L"Setup 1 stiffness [N/mm]";
-			// 
-			// tabControl3
-			// 
-			this->tabControl3->Controls->Add(this->tabPage8);
-			this->tabControl3->Controls->Add(this->tabPage9);
-			this->tabControl3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tabControl3->Location = System::Drawing::Point(0, 0);
-			this->tabControl3->Name = L"tabControl3";
-			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(565, 643);
-			this->tabControl3->TabIndex = 23;
-			// 
-			// tabPage8
-			// 
-			this->tabPage8->Controls->Add(this->groupBox17);
-			this->tabPage8->Controls->Add(this->groupBox6);
-			this->tabPage8->Location = System::Drawing::Point(4, 35);
-			this->tabPage8->Name = L"tabPage8";
-			this->tabPage8->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage8->Size = System::Drawing::Size(557, 604);
-			this->tabPage8->TabIndex = 0;
-			this->tabPage8->Text = L"Geometric centers";
-			this->tabPage8->UseVisualStyleBackColor = true;
-			// 
-			// groupBox17
-			// 
-			this->groupBox17->Controls->Add(this->input_p_p_r_0);
-			this->groupBox17->Controls->Add(this->textBox108);
-			this->groupBox17->Controls->Add(this->input_p_p_r_1);
-			this->groupBox17->Controls->Add(this->textBox109);
-			this->groupBox17->Controls->Add(this->input_p_p_r_2);
-			this->groupBox17->Controls->Add(this->textBox110);
-			this->groupBox17->Controls->Add(this->input_p_p_f_0);
-			this->groupBox17->Controls->Add(this->textBox114);
-			this->groupBox17->Controls->Add(this->input_p_p_f_1);
-			this->groupBox17->Controls->Add(this->textBox115);
-			this->groupBox17->Controls->Add(this->input_p_p_f_2);
-			this->groupBox17->Controls->Add(this->textBox116);
-			this->groupBox17->Controls->Add(this->input_n_p_o_0);
-			this->groupBox17->Controls->Add(this->textBox117);
-			this->groupBox17->Controls->Add(this->input_n_p_o_1);
-			this->groupBox17->Controls->Add(this->textBox118);
-			this->groupBox17->Controls->Add(this->input_n_p_o_2);
-			this->groupBox17->Controls->Add(this->textBox119);
-			this->groupBox17->Controls->Add(this->input_n_p_i_0);
-			this->groupBox17->Controls->Add(this->textBox120);
-			this->groupBox17->Controls->Add(this->input_n_p_i_1);
-			this->groupBox17->Controls->Add(this->textBox121);
-			this->groupBox17->Controls->Add(this->input_n_p_i_2);
-			this->groupBox17->Controls->Add(this->textBox122);
-			this->groupBox17->Controls->Add(this->input_h_p_o_0);
-			this->groupBox17->Controls->Add(this->textBox123);
-			this->groupBox17->Controls->Add(this->input_h_p_o_1);
-			this->groupBox17->Controls->Add(this->textBox124);
-			this->groupBox17->Controls->Add(this->input_h_p_o_2);
-			this->groupBox17->Controls->Add(this->textBox125);
-			this->groupBox17->Controls->Add(this->input_h_p_i_0);
-			this->groupBox17->Controls->Add(this->textBox126);
-			this->groupBox17->Controls->Add(this->input_h_p_i_1);
-			this->groupBox17->Controls->Add(this->textBox127);
-			this->groupBox17->Controls->Add(this->input_h_p_i_2);
-			this->groupBox17->Controls->Add(this->textBox128);
-			this->groupBox17->Location = System::Drawing::Point(3, 288);
-			this->groupBox17->Name = L"groupBox17";
-			this->groupBox17->Size = System::Drawing::Size(548, 288);
-			this->groupBox17->TabIndex = 82;
-			this->groupBox17->TabStop = false;
-			this->groupBox17->Text = L"Pitch kinematics";
-			// 
-			// input_p_p_r_0
-			// 
-			this->input_p_p_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_p_r_0->DecimalPlaces = 4;
-			this->input_p_p_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_p_r_0->Location = System::Drawing::Point(436, 246);
-			this->input_p_p_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_p_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_p_r_0->Name = L"input_p_p_r_0";
-			this->input_p_p_r_0->Size = System::Drawing::Size(74, 27);
-			this->input_p_p_r_0->TabIndex = 81;
-			// 
-			// textBox108
-			// 
-			this->textBox108->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox108->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox108->Location = System::Drawing::Point(392, 248);
-			this->textBox108->Multiline = true;
-			this->textBox108->Name = L"textBox108";
-			this->textBox108->Size = System::Drawing::Size(49, 25);
-			this->textBox108->TabIndex = 80;
-			this->textBox108->Text = L"* φ +";
-			// 
-			// input_p_p_r_1
-			// 
-			this->input_p_p_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_p_r_1->DecimalPlaces = 4;
-			this->input_p_p_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_p_r_1->Location = System::Drawing::Point(312, 246);
-			this->input_p_p_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_p_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_p_r_1->Name = L"input_p_p_r_1";
-			this->input_p_p_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_p_p_r_1->TabIndex = 79;
-			// 
-			// textBox109
-			// 
-			this->textBox109->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox109->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox109->Location = System::Drawing::Point(257, 248);
-			this->textBox109->Multiline = true;
-			this->textBox109->Name = L"textBox109";
-			this->textBox109->Size = System::Drawing::Size(49, 25);
-			this->textBox109->TabIndex = 78;
-			this->textBox109->Text = L"* φ² +";
-			// 
-			// input_p_p_r_2
-			// 
-			this->input_p_p_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_p_r_2->DecimalPlaces = 4;
-			this->input_p_p_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_p_r_2->Location = System::Drawing::Point(177, 246);
-			this->input_p_p_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_p_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_p_r_2->Name = L"input_p_p_r_2";
-			this->input_p_p_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_p_p_r_2->TabIndex = 76;
-			// 
-			// textBox110
-			// 
-			this->textBox110->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox110->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox110->Location = System::Drawing::Point(6, 235);
-			this->textBox110->Multiline = true;
-			this->textBox110->Name = L"textBox110";
-			this->textBox110->Size = System::Drawing::Size(165, 44);
-			this->textBox110->TabIndex = 77;
-			this->textBox110->Text = L"Rear pitch instant center height [mm]";
-			// 
-			// input_p_p_f_0
-			// 
-			this->input_p_p_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_p_f_0->DecimalPlaces = 4;
-			this->input_p_p_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_p_f_0->Location = System::Drawing::Point(436, 204);
-			this->input_p_p_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_p_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_p_f_0->Name = L"input_p_p_f_0";
-			this->input_p_p_f_0->Size = System::Drawing::Size(74, 27);
-			this->input_p_p_f_0->TabIndex = 75;
-			// 
-			// textBox114
-			// 
-			this->textBox114->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox114->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox114->Location = System::Drawing::Point(392, 206);
-			this->textBox114->Multiline = true;
-			this->textBox114->Name = L"textBox114";
-			this->textBox114->Size = System::Drawing::Size(49, 25);
-			this->textBox114->TabIndex = 74;
-			this->textBox114->Text = L"* φ +";
-			// 
-			// input_p_p_f_1
-			// 
-			this->input_p_p_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_p_f_1->DecimalPlaces = 4;
-			this->input_p_p_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_p_f_1->Location = System::Drawing::Point(312, 204);
-			this->input_p_p_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_p_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_p_f_1->Name = L"input_p_p_f_1";
-			this->input_p_p_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_p_p_f_1->TabIndex = 73;
-			// 
-			// textBox115
-			// 
-			this->textBox115->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox115->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox115->Location = System::Drawing::Point(257, 206);
-			this->textBox115->Multiline = true;
-			this->textBox115->Name = L"textBox115";
-			this->textBox115->Size = System::Drawing::Size(49, 25);
-			this->textBox115->TabIndex = 72;
-			this->textBox115->Text = L"* φ² +";
-			// 
-			// input_p_p_f_2
-			// 
-			this->input_p_p_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_p_f_2->DecimalPlaces = 4;
-			this->input_p_p_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_p_f_2->Location = System::Drawing::Point(177, 204);
-			this->input_p_p_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_p_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_p_f_2->Name = L"input_p_p_f_2";
-			this->input_p_p_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_p_p_f_2->TabIndex = 70;
-			// 
-			// textBox116
-			// 
-			this->textBox116->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox116->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox116->Location = System::Drawing::Point(6, 193);
-			this->textBox116->Multiline = true;
-			this->textBox116->Name = L"textBox116";
-			this->textBox116->Size = System::Drawing::Size(165, 44);
-			this->textBox116->TabIndex = 71;
-			this->textBox116->Text = L"Front pitch instant center height [mm]";
-			// 
-			// input_n_p_o_0
-			// 
-			this->input_n_p_o_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_n_p_o_0->DecimalPlaces = 4;
-			this->input_n_p_o_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_n_p_o_0->Location = System::Drawing::Point(436, 162);
-			this->input_n_p_o_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_n_p_o_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_n_p_o_0->Name = L"input_n_p_o_0";
-			this->input_n_p_o_0->Size = System::Drawing::Size(74, 27);
-			this->input_n_p_o_0->TabIndex = 69;
-			// 
-			// textBox117
-			// 
-			this->textBox117->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox117->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox117->Location = System::Drawing::Point(392, 164);
-			this->textBox117->Multiline = true;
-			this->textBox117->Name = L"textBox117";
-			this->textBox117->Size = System::Drawing::Size(49, 25);
-			this->textBox117->TabIndex = 68;
-			this->textBox117->Text = L"* φ +";
-			// 
-			// input_n_p_o_1
-			// 
-			this->input_n_p_o_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_n_p_o_1->DecimalPlaces = 4;
-			this->input_n_p_o_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_n_p_o_1->Location = System::Drawing::Point(312, 162);
-			this->input_n_p_o_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_n_p_o_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_n_p_o_1->Name = L"input_n_p_o_1";
-			this->input_n_p_o_1->Size = System::Drawing::Size(74, 27);
-			this->input_n_p_o_1->TabIndex = 67;
-			// 
-			// textBox118
-			// 
-			this->textBox118->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox118->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox118->Location = System::Drawing::Point(257, 164);
-			this->textBox118->Multiline = true;
-			this->textBox118->Name = L"textBox118";
-			this->textBox118->Size = System::Drawing::Size(49, 25);
-			this->textBox118->TabIndex = 66;
-			this->textBox118->Text = L"* φ² +";
-			// 
-			// input_n_p_o_2
-			// 
-			this->input_n_p_o_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_n_p_o_2->DecimalPlaces = 4;
-			this->input_n_p_o_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_n_p_o_2->Location = System::Drawing::Point(177, 162);
-			this->input_n_p_o_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_n_p_o_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_n_p_o_2->Name = L"input_n_p_o_2";
-			this->input_n_p_o_2->Size = System::Drawing::Size(74, 27);
-			this->input_n_p_o_2->TabIndex = 64;
-			// 
-			// textBox119
-			// 
-			this->textBox119->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox119->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox119->Location = System::Drawing::Point(6, 151);
-			this->textBox119->Multiline = true;
-			this->textBox119->Name = L"textBox119";
-			this->textBox119->Size = System::Drawing::Size(165, 44);
-			this->textBox119->TabIndex = 65;
-			this->textBox119->Text = L"Outer pitch center lateral offset [mm]";
-			// 
-			// input_n_p_i_0
-			// 
-			this->input_n_p_i_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_n_p_i_0->DecimalPlaces = 4;
-			this->input_n_p_i_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_n_p_i_0->Location = System::Drawing::Point(436, 121);
-			this->input_n_p_i_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_n_p_i_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_n_p_i_0->Name = L"input_n_p_i_0";
-			this->input_n_p_i_0->Size = System::Drawing::Size(74, 27);
-			this->input_n_p_i_0->TabIndex = 63;
-			// 
-			// textBox120
-			// 
-			this->textBox120->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox120->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox120->Location = System::Drawing::Point(392, 123);
-			this->textBox120->Multiline = true;
-			this->textBox120->Name = L"textBox120";
-			this->textBox120->Size = System::Drawing::Size(49, 25);
-			this->textBox120->TabIndex = 62;
-			this->textBox120->Text = L"* φ +";
-			// 
-			// input_n_p_i_1
-			// 
-			this->input_n_p_i_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_n_p_i_1->DecimalPlaces = 4;
-			this->input_n_p_i_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_n_p_i_1->Location = System::Drawing::Point(312, 121);
-			this->input_n_p_i_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_n_p_i_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_n_p_i_1->Name = L"input_n_p_i_1";
-			this->input_n_p_i_1->Size = System::Drawing::Size(74, 27);
-			this->input_n_p_i_1->TabIndex = 61;
-			// 
-			// textBox121
-			// 
-			this->textBox121->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox121->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox121->Location = System::Drawing::Point(257, 123);
-			this->textBox121->Multiline = true;
-			this->textBox121->Name = L"textBox121";
-			this->textBox121->Size = System::Drawing::Size(49, 25);
-			this->textBox121->TabIndex = 60;
-			this->textBox121->Text = L"* φ² +";
-			// 
-			// input_n_p_i_2
-			// 
-			this->input_n_p_i_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_n_p_i_2->DecimalPlaces = 4;
-			this->input_n_p_i_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_n_p_i_2->Location = System::Drawing::Point(177, 121);
-			this->input_n_p_i_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_n_p_i_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_n_p_i_2->Name = L"input_n_p_i_2";
-			this->input_n_p_i_2->Size = System::Drawing::Size(74, 27);
-			this->input_n_p_i_2->TabIndex = 58;
-			// 
-			// textBox122
-			// 
-			this->textBox122->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox122->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox122->Location = System::Drawing::Point(6, 110);
-			this->textBox122->Multiline = true;
-			this->textBox122->Name = L"textBox122";
-			this->textBox122->Size = System::Drawing::Size(165, 44);
-			this->textBox122->TabIndex = 59;
-			this->textBox122->Text = L"Inner pitch center lateral offset [mm]";
-			// 
-			// input_h_p_o_0
-			// 
-			this->input_h_p_o_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_p_o_0->DecimalPlaces = 4;
-			this->input_h_p_o_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_p_o_0->Location = System::Drawing::Point(436, 81);
-			this->input_h_p_o_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_p_o_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_p_o_0->Name = L"input_h_p_o_0";
-			this->input_h_p_o_0->Size = System::Drawing::Size(74, 27);
-			this->input_h_p_o_0->TabIndex = 57;
-			// 
-			// textBox123
-			// 
-			this->textBox123->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox123->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox123->Location = System::Drawing::Point(392, 83);
-			this->textBox123->Multiline = true;
-			this->textBox123->Name = L"textBox123";
-			this->textBox123->Size = System::Drawing::Size(49, 25);
-			this->textBox123->TabIndex = 56;
-			this->textBox123->Text = L"* φ +";
-			// 
-			// input_h_p_o_1
-			// 
-			this->input_h_p_o_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_p_o_1->DecimalPlaces = 4;
-			this->input_h_p_o_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_p_o_1->Location = System::Drawing::Point(312, 81);
-			this->input_h_p_o_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_p_o_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_p_o_1->Name = L"input_h_p_o_1";
-			this->input_h_p_o_1->Size = System::Drawing::Size(74, 27);
-			this->input_h_p_o_1->TabIndex = 55;
-			// 
-			// textBox124
-			// 
-			this->textBox124->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox124->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox124->Location = System::Drawing::Point(257, 83);
-			this->textBox124->Multiline = true;
-			this->textBox124->Name = L"textBox124";
-			this->textBox124->Size = System::Drawing::Size(49, 25);
-			this->textBox124->TabIndex = 54;
-			this->textBox124->Text = L"* φ² +";
-			// 
-			// input_h_p_o_2
-			// 
-			this->input_h_p_o_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_p_o_2->DecimalPlaces = 4;
-			this->input_h_p_o_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_p_o_2->Location = System::Drawing::Point(177, 81);
-			this->input_h_p_o_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_p_o_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_p_o_2->Name = L"input_h_p_o_2";
-			this->input_h_p_o_2->Size = System::Drawing::Size(74, 27);
-			this->input_h_p_o_2->TabIndex = 52;
-			// 
-			// textBox125
-			// 
-			this->textBox125->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox125->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox125->Location = System::Drawing::Point(6, 70);
-			this->textBox125->Multiline = true;
-			this->textBox125->Name = L"textBox125";
-			this->textBox125->Size = System::Drawing::Size(165, 44);
-			this->textBox125->TabIndex = 53;
-			this->textBox125->Text = L"Outer pitch center height [mm]";
-			// 
-			// input_h_p_i_0
-			// 
-			this->input_h_p_i_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_p_i_0->DecimalPlaces = 4;
-			this->input_h_p_i_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_p_i_0->Location = System::Drawing::Point(436, 43);
-			this->input_h_p_i_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_p_i_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_p_i_0->Name = L"input_h_p_i_0";
-			this->input_h_p_i_0->Size = System::Drawing::Size(74, 27);
-			this->input_h_p_i_0->TabIndex = 51;
-			// 
-			// textBox126
-			// 
-			this->textBox126->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox126->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox126->Location = System::Drawing::Point(392, 45);
-			this->textBox126->Multiline = true;
-			this->textBox126->Name = L"textBox126";
-			this->textBox126->Size = System::Drawing::Size(49, 25);
-			this->textBox126->TabIndex = 50;
-			this->textBox126->Text = L"* φ +";
-			// 
-			// input_h_p_i_1
-			// 
-			this->input_h_p_i_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_p_i_1->DecimalPlaces = 4;
-			this->input_h_p_i_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_p_i_1->Location = System::Drawing::Point(312, 43);
-			this->input_h_p_i_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_p_i_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_p_i_1->Name = L"input_h_p_i_1";
-			this->input_h_p_i_1->Size = System::Drawing::Size(74, 27);
-			this->input_h_p_i_1->TabIndex = 49;
-			// 
-			// textBox127
-			// 
-			this->textBox127->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox127->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox127->Location = System::Drawing::Point(257, 45);
-			this->textBox127->Multiline = true;
-			this->textBox127->Name = L"textBox127";
-			this->textBox127->Size = System::Drawing::Size(49, 25);
-			this->textBox127->TabIndex = 48;
-			this->textBox127->Text = L"* φ² +";
-			// 
-			// input_h_p_i_2
-			// 
-			this->input_h_p_i_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_p_i_2->DecimalPlaces = 4;
-			this->input_h_p_i_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_p_i_2->Location = System::Drawing::Point(177, 43);
-			this->input_h_p_i_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_p_i_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_p_i_2->Name = L"input_h_p_i_2";
-			this->input_h_p_i_2->Size = System::Drawing::Size(74, 27);
-			this->input_h_p_i_2->TabIndex = 46;
-			// 
-			// textBox128
-			// 
-			this->textBox128->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox128->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox128->Location = System::Drawing::Point(6, 32);
-			this->textBox128->Multiline = true;
-			this->textBox128->Name = L"textBox128";
-			this->textBox128->Size = System::Drawing::Size(165, 44);
-			this->textBox128->TabIndex = 47;
-			this->textBox128->Text = L"Inner pitch center height [mm]";
-			// 
-			// groupBox6
-			// 
-			this->groupBox6->Controls->Add(this->input_p_r_r_0);
-			this->groupBox6->Controls->Add(this->textBox111);
-			this->groupBox6->Controls->Add(this->input_p_r_r_1);
-			this->groupBox6->Controls->Add(this->textBox112);
-			this->groupBox6->Controls->Add(this->input_p_r_r_2);
-			this->groupBox6->Controls->Add(this->textBox113);
-			this->groupBox6->Controls->Add(this->input_p_r_f_0);
-			this->groupBox6->Controls->Add(this->textBox105);
-			this->groupBox6->Controls->Add(this->input_p_r_f_1);
-			this->groupBox6->Controls->Add(this->textBox106);
-			this->groupBox6->Controls->Add(this->input_p_r_f_2);
-			this->groupBox6->Controls->Add(this->textBox107);
-			this->groupBox6->Controls->Add(this->input_off_r_r_0);
-			this->groupBox6->Controls->Add(this->textBox102);
-			this->groupBox6->Controls->Add(this->input_off_r_r_1);
-			this->groupBox6->Controls->Add(this->textBox103);
-			this->groupBox6->Controls->Add(this->input_off_r_r_2);
-			this->groupBox6->Controls->Add(this->textBox104);
-			this->groupBox6->Controls->Add(this->input_off_r_f_0);
-			this->groupBox6->Controls->Add(this->textBox99);
-			this->groupBox6->Controls->Add(this->input_off_r_f_1);
-			this->groupBox6->Controls->Add(this->textBox100);
-			this->groupBox6->Controls->Add(this->input_off_r_f_2);
-			this->groupBox6->Controls->Add(this->textBox101);
-			this->groupBox6->Controls->Add(this->input_h_r_r_0);
-			this->groupBox6->Controls->Add(this->textBox96);
-			this->groupBox6->Controls->Add(this->input_h_r_r_1);
-			this->groupBox6->Controls->Add(this->textBox97);
-			this->groupBox6->Controls->Add(this->input_h_r_r_2);
-			this->groupBox6->Controls->Add(this->textBox98);
-			this->groupBox6->Controls->Add(this->input_h_r_f_0);
-			this->groupBox6->Controls->Add(this->textBox19);
-			this->groupBox6->Controls->Add(this->input_h_r_f_1);
-			this->groupBox6->Controls->Add(this->textBox21);
-			this->groupBox6->Controls->Add(this->input_h_r_f_2);
-			this->groupBox6->Controls->Add(this->textBox95);
-			this->groupBox6->Location = System::Drawing::Point(3, 3);
-			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Size = System::Drawing::Size(548, 288);
-			this->groupBox6->TabIndex = 22;
-			this->groupBox6->TabStop = false;
-			this->groupBox6->Text = L"Roll kinematics";
-			// 
-			// input_p_r_r_0
-			// 
-			this->input_p_r_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_r_r_0->DecimalPlaces = 4;
-			this->input_p_r_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_r_r_0->Location = System::Drawing::Point(436, 246);
-			this->input_p_r_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_r_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_r_r_0->Name = L"input_p_r_r_0";
-			this->input_p_r_r_0->Size = System::Drawing::Size(74, 27);
-			this->input_p_r_r_0->TabIndex = 81;
-			// 
-			// textBox111
-			// 
-			this->textBox111->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox111->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox111->Location = System::Drawing::Point(392, 248);
-			this->textBox111->Multiline = true;
-			this->textBox111->Name = L"textBox111";
-			this->textBox111->Size = System::Drawing::Size(49, 25);
-			this->textBox111->TabIndex = 80;
-			this->textBox111->Text = L"* Ψ +";
-			// 
-			// input_p_r_r_1
-			// 
-			this->input_p_r_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_r_r_1->DecimalPlaces = 4;
-			this->input_p_r_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_r_r_1->Location = System::Drawing::Point(312, 246);
-			this->input_p_r_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_r_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_r_r_1->Name = L"input_p_r_r_1";
-			this->input_p_r_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_p_r_r_1->TabIndex = 79;
-			// 
-			// textBox112
-			// 
-			this->textBox112->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox112->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox112->Location = System::Drawing::Point(257, 248);
-			this->textBox112->Multiline = true;
-			this->textBox112->Name = L"textBox112";
-			this->textBox112->Size = System::Drawing::Size(49, 25);
-			this->textBox112->TabIndex = 78;
-			this->textBox112->Text = L"* Ψ² +";
-			// 
-			// input_p_r_r_2
-			// 
-			this->input_p_r_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_r_r_2->DecimalPlaces = 4;
-			this->input_p_r_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_r_r_2->Location = System::Drawing::Point(177, 246);
-			this->input_p_r_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_r_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_r_r_2->Name = L"input_p_r_r_2";
-			this->input_p_r_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_p_r_r_2->TabIndex = 76;
-			// 
-			// textBox113
-			// 
-			this->textBox113->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox113->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox113->Location = System::Drawing::Point(6, 235);
-			this->textBox113->Multiline = true;
-			this->textBox113->Name = L"textBox113";
-			this->textBox113->Size = System::Drawing::Size(165, 44);
-			this->textBox113->TabIndex = 77;
-			this->textBox113->Text = L"Rear roll instant center height [mm]";
-			// 
-			// input_p_r_f_0
-			// 
-			this->input_p_r_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_r_f_0->DecimalPlaces = 4;
-			this->input_p_r_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_r_f_0->Location = System::Drawing::Point(436, 204);
-			this->input_p_r_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_r_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_r_f_0->Name = L"input_p_r_f_0";
-			this->input_p_r_f_0->Size = System::Drawing::Size(74, 27);
-			this->input_p_r_f_0->TabIndex = 75;
-			// 
-			// textBox105
-			// 
-			this->textBox105->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox105->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox105->Location = System::Drawing::Point(392, 206);
-			this->textBox105->Multiline = true;
-			this->textBox105->Name = L"textBox105";
-			this->textBox105->Size = System::Drawing::Size(49, 25);
-			this->textBox105->TabIndex = 74;
-			this->textBox105->Text = L"* Ψ +";
-			// 
-			// input_p_r_f_1
-			// 
-			this->input_p_r_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_r_f_1->DecimalPlaces = 4;
-			this->input_p_r_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_r_f_1->Location = System::Drawing::Point(312, 204);
-			this->input_p_r_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_r_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_r_f_1->Name = L"input_p_r_f_1";
-			this->input_p_r_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_p_r_f_1->TabIndex = 73;
-			// 
-			// textBox106
-			// 
-			this->textBox106->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox106->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox106->Location = System::Drawing::Point(257, 206);
-			this->textBox106->Multiline = true;
-			this->textBox106->Name = L"textBox106";
-			this->textBox106->Size = System::Drawing::Size(49, 25);
-			this->textBox106->TabIndex = 72;
-			this->textBox106->Text = L"* Ψ² +";
-			// 
-			// input_p_r_f_2
-			// 
-			this->input_p_r_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_p_r_f_2->DecimalPlaces = 4;
-			this->input_p_r_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_p_r_f_2->Location = System::Drawing::Point(177, 204);
-			this->input_p_r_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_p_r_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_p_r_f_2->Name = L"input_p_r_f_2";
-			this->input_p_r_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_p_r_f_2->TabIndex = 70;
-			// 
-			// textBox107
-			// 
-			this->textBox107->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox107->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox107->Location = System::Drawing::Point(6, 193);
-			this->textBox107->Multiline = true;
-			this->textBox107->Name = L"textBox107";
-			this->textBox107->Size = System::Drawing::Size(165, 44);
-			this->textBox107->TabIndex = 71;
-			this->textBox107->Text = L"Front roll instant center height [mm]";
-			// 
-			// input_off_r_r_0
-			// 
-			this->input_off_r_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_off_r_r_0->DecimalPlaces = 4;
-			this->input_off_r_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_off_r_r_0->Location = System::Drawing::Point(436, 162);
-			this->input_off_r_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_off_r_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_off_r_r_0->Name = L"input_off_r_r_0";
-			this->input_off_r_r_0->Size = System::Drawing::Size(74, 27);
-			this->input_off_r_r_0->TabIndex = 69;
-			// 
-			// textBox102
-			// 
-			this->textBox102->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox102->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox102->Location = System::Drawing::Point(392, 164);
-			this->textBox102->Multiline = true;
-			this->textBox102->Name = L"textBox102";
-			this->textBox102->Size = System::Drawing::Size(49, 25);
-			this->textBox102->TabIndex = 68;
-			this->textBox102->Text = L"* Ψ +";
-			// 
-			// input_off_r_r_1
-			// 
-			this->input_off_r_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_off_r_r_1->DecimalPlaces = 4;
-			this->input_off_r_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_off_r_r_1->Location = System::Drawing::Point(312, 162);
-			this->input_off_r_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_off_r_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_off_r_r_1->Name = L"input_off_r_r_1";
-			this->input_off_r_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_off_r_r_1->TabIndex = 67;
-			// 
-			// textBox103
-			// 
-			this->textBox103->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox103->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox103->Location = System::Drawing::Point(257, 164);
-			this->textBox103->Multiline = true;
-			this->textBox103->Name = L"textBox103";
-			this->textBox103->Size = System::Drawing::Size(49, 25);
-			this->textBox103->TabIndex = 66;
-			this->textBox103->Text = L"* Ψ² +";
-			// 
-			// input_off_r_r_2
-			// 
-			this->input_off_r_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_off_r_r_2->DecimalPlaces = 4;
-			this->input_off_r_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_off_r_r_2->Location = System::Drawing::Point(177, 162);
-			this->input_off_r_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_off_r_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_off_r_r_2->Name = L"input_off_r_r_2";
-			this->input_off_r_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_off_r_r_2->TabIndex = 64;
-			// 
-			// textBox104
-			// 
-			this->textBox104->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox104->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox104->Location = System::Drawing::Point(6, 151);
-			this->textBox104->Multiline = true;
-			this->textBox104->Name = L"textBox104";
-			this->textBox104->Size = System::Drawing::Size(165, 44);
-			this->textBox104->TabIndex = 65;
-			this->textBox104->Text = L"Rear roll center lateral offset [mm]";
-			// 
-			// input_off_r_f_0
-			// 
-			this->input_off_r_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_off_r_f_0->DecimalPlaces = 4;
-			this->input_off_r_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_off_r_f_0->Location = System::Drawing::Point(436, 121);
-			this->input_off_r_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_off_r_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_off_r_f_0->Name = L"input_off_r_f_0";
-			this->input_off_r_f_0->Size = System::Drawing::Size(74, 27);
-			this->input_off_r_f_0->TabIndex = 63;
-			// 
-			// textBox99
-			// 
-			this->textBox99->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox99->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox99->Location = System::Drawing::Point(392, 123);
-			this->textBox99->Multiline = true;
-			this->textBox99->Name = L"textBox99";
-			this->textBox99->Size = System::Drawing::Size(49, 25);
-			this->textBox99->TabIndex = 62;
-			this->textBox99->Text = L"* Ψ +";
-			// 
-			// input_off_r_f_1
-			// 
-			this->input_off_r_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_off_r_f_1->DecimalPlaces = 4;
-			this->input_off_r_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_off_r_f_1->Location = System::Drawing::Point(312, 121);
-			this->input_off_r_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_off_r_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_off_r_f_1->Name = L"input_off_r_f_1";
-			this->input_off_r_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_off_r_f_1->TabIndex = 61;
-			// 
-			// textBox100
-			// 
-			this->textBox100->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox100->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox100->Location = System::Drawing::Point(257, 123);
-			this->textBox100->Multiline = true;
-			this->textBox100->Name = L"textBox100";
-			this->textBox100->Size = System::Drawing::Size(49, 25);
-			this->textBox100->TabIndex = 60;
-			this->textBox100->Text = L"* Ψ² +";
-			// 
-			// input_off_r_f_2
-			// 
-			this->input_off_r_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_off_r_f_2->DecimalPlaces = 4;
-			this->input_off_r_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_off_r_f_2->Location = System::Drawing::Point(177, 121);
-			this->input_off_r_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_off_r_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_off_r_f_2->Name = L"input_off_r_f_2";
-			this->input_off_r_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_off_r_f_2->TabIndex = 58;
-			// 
-			// textBox101
-			// 
-			this->textBox101->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox101->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox101->Location = System::Drawing::Point(6, 110);
-			this->textBox101->Multiline = true;
-			this->textBox101->Name = L"textBox101";
-			this->textBox101->Size = System::Drawing::Size(165, 44);
-			this->textBox101->TabIndex = 59;
-			this->textBox101->Text = L"Front roll center lateral offset [mm]";
-			// 
-			// input_h_r_r_0
-			// 
-			this->input_h_r_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_r_r_0->DecimalPlaces = 4;
-			this->input_h_r_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_r_r_0->Location = System::Drawing::Point(436, 81);
-			this->input_h_r_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_r_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_r_r_0->Name = L"input_h_r_r_0";
-			this->input_h_r_r_0->Size = System::Drawing::Size(74, 27);
-			this->input_h_r_r_0->TabIndex = 57;
-			// 
-			// textBox96
-			// 
-			this->textBox96->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox96->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox96->Location = System::Drawing::Point(392, 83);
-			this->textBox96->Multiline = true;
-			this->textBox96->Name = L"textBox96";
-			this->textBox96->Size = System::Drawing::Size(49, 25);
-			this->textBox96->TabIndex = 56;
-			this->textBox96->Text = L"* Ψ +";
-			// 
-			// input_h_r_r_1
-			// 
-			this->input_h_r_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_r_r_1->DecimalPlaces = 4;
-			this->input_h_r_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_r_r_1->Location = System::Drawing::Point(312, 81);
-			this->input_h_r_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_r_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_r_r_1->Name = L"input_h_r_r_1";
-			this->input_h_r_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_h_r_r_1->TabIndex = 55;
-			// 
-			// textBox97
-			// 
-			this->textBox97->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox97->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox97->Location = System::Drawing::Point(257, 83);
-			this->textBox97->Multiline = true;
-			this->textBox97->Name = L"textBox97";
-			this->textBox97->Size = System::Drawing::Size(49, 25);
-			this->textBox97->TabIndex = 54;
-			this->textBox97->Text = L"* Ψ² +";
-			// 
-			// input_h_r_r_2
-			// 
-			this->input_h_r_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_r_r_2->DecimalPlaces = 4;
-			this->input_h_r_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_r_r_2->Location = System::Drawing::Point(177, 81);
-			this->input_h_r_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_r_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_r_r_2->Name = L"input_h_r_r_2";
-			this->input_h_r_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_h_r_r_2->TabIndex = 52;
-			// 
-			// textBox98
-			// 
-			this->textBox98->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox98->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox98->Location = System::Drawing::Point(6, 70);
-			this->textBox98->Multiline = true;
-			this->textBox98->Name = L"textBox98";
-			this->textBox98->Size = System::Drawing::Size(165, 44);
-			this->textBox98->TabIndex = 53;
-			this->textBox98->Text = L"Rear roll center height [mm]";
-			// 
-			// input_h_r_f_0
-			// 
-			this->input_h_r_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_r_f_0->DecimalPlaces = 4;
-			this->input_h_r_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_r_f_0->Location = System::Drawing::Point(436, 43);
-			this->input_h_r_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_r_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_r_f_0->Name = L"input_h_r_f_0";
-			this->input_h_r_f_0->Size = System::Drawing::Size(74, 27);
-			this->input_h_r_f_0->TabIndex = 51;
-			// 
-			// textBox19
-			// 
-			this->textBox19->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox19->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox19->Location = System::Drawing::Point(392, 45);
-			this->textBox19->Multiline = true;
-			this->textBox19->Name = L"textBox19";
-			this->textBox19->Size = System::Drawing::Size(49, 25);
-			this->textBox19->TabIndex = 50;
-			this->textBox19->Text = L"* Ψ +";
-			// 
-			// input_h_r_f_1
-			// 
-			this->input_h_r_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_r_f_1->DecimalPlaces = 4;
-			this->input_h_r_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_r_f_1->Location = System::Drawing::Point(312, 43);
-			this->input_h_r_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_r_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_r_f_1->Name = L"input_h_r_f_1";
-			this->input_h_r_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_h_r_f_1->TabIndex = 49;
-			// 
-			// textBox21
-			// 
-			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox21->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox21->Location = System::Drawing::Point(257, 45);
-			this->textBox21->Multiline = true;
-			this->textBox21->Name = L"textBox21";
-			this->textBox21->Size = System::Drawing::Size(49, 25);
-			this->textBox21->TabIndex = 48;
-			this->textBox21->Text = L"* Ψ² +";
-			// 
-			// input_h_r_f_2
-			// 
-			this->input_h_r_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_h_r_f_2->DecimalPlaces = 4;
-			this->input_h_r_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_h_r_f_2->Location = System::Drawing::Point(177, 43);
-			this->input_h_r_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_h_r_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_h_r_f_2->Name = L"input_h_r_f_2";
-			this->input_h_r_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_h_r_f_2->TabIndex = 46;
-			// 
-			// textBox95
-			// 
-			this->textBox95->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox95->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox95->Location = System::Drawing::Point(6, 32);
-			this->textBox95->Multiline = true;
-			this->textBox95->Name = L"textBox95";
-			this->textBox95->Size = System::Drawing::Size(165, 44);
-			this->textBox95->TabIndex = 47;
-			this->textBox95->Text = L"Front roll center height [mm]";
-			// 
-			// tabPage9
-			// 
-			this->tabPage9->Controls->Add(this->groupBox20);
-			this->tabPage9->Controls->Add(this->groupBox19);
-			this->tabPage9->Controls->Add(this->groupBox18);
-			this->tabPage9->Location = System::Drawing::Point(4, 22);
-			this->tabPage9->Name = L"tabPage9";
-			this->tabPage9->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage9->Size = System::Drawing::Size(557, 617);
-			this->tabPage9->TabIndex = 1;
-			this->tabPage9->Text = L"Other kinematics";
-			this->tabPage9->UseVisualStyleBackColor = true;
-			// 
-			// groupBox20
-			// 
-			this->groupBox20->Controls->Add(this->textBox159);
-			this->groupBox20->Controls->Add(this->input_bc_r_1);
-			this->groupBox20->Controls->Add(this->textBox160);
-			this->groupBox20->Controls->Add(this->input_bc_r_2);
-			this->groupBox20->Controls->Add(this->textBox161);
-			this->groupBox20->Controls->Add(this->textBox129);
-			this->groupBox20->Controls->Add(this->input_bc_f_1);
-			this->groupBox20->Controls->Add(this->textBox130);
-			this->groupBox20->Controls->Add(this->input_bc_f_2);
-			this->groupBox20->Controls->Add(this->textBox131);
-			this->groupBox20->Controls->Add(this->textBox153);
-			this->groupBox20->Controls->Add(this->input_sc_r_1);
-			this->groupBox20->Controls->Add(this->textBox154);
-			this->groupBox20->Controls->Add(this->input_sc_r_2);
-			this->groupBox20->Controls->Add(this->textBox155);
-			this->groupBox20->Controls->Add(this->textBox156);
-			this->groupBox20->Controls->Add(this->input_sc_f_1);
-			this->groupBox20->Controls->Add(this->textBox157);
-			this->groupBox20->Controls->Add(this->input_sc_f_2);
-			this->groupBox20->Controls->Add(this->textBox158);
-			this->groupBox20->Location = System::Drawing::Point(3, 338);
-			this->groupBox20->Name = L"groupBox20";
-			this->groupBox20->Size = System::Drawing::Size(548, 198);
-			this->groupBox20->TabIndex = 71;
-			this->groupBox20->TabStop = false;
-			this->groupBox20->Text = L"Camber";
-			// 
-			// textBox159
-			// 
-			this->textBox159->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox159->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox159->Location = System::Drawing::Point(392, 153);
-			this->textBox159->Multiline = true;
-			this->textBox159->Name = L"textBox159";
-			this->textBox159->Size = System::Drawing::Size(49, 25);
-			this->textBox159->TabIndex = 68;
-			this->textBox159->Text = L"* w";
-			// 
-			// input_bc_r_1
-			// 
-			this->input_bc_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bc_r_1->DecimalPlaces = 4;
-			this->input_bc_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bc_r_1->Location = System::Drawing::Point(312, 151);
-			this->input_bc_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bc_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bc_r_1->Name = L"input_bc_r_1";
-			this->input_bc_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_bc_r_1->TabIndex = 67;
-			// 
-			// textBox160
-			// 
-			this->textBox160->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox160->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox160->Location = System::Drawing::Point(257, 153);
-			this->textBox160->Multiline = true;
-			this->textBox160->Name = L"textBox160";
-			this->textBox160->Size = System::Drawing::Size(49, 25);
-			this->textBox160->TabIndex = 66;
-			this->textBox160->Text = L"* w² +";
-			// 
-			// input_bc_r_2
-			// 
-			this->input_bc_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bc_r_2->DecimalPlaces = 4;
-			this->input_bc_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bc_r_2->Location = System::Drawing::Point(177, 151);
-			this->input_bc_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bc_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bc_r_2->Name = L"input_bc_r_2";
-			this->input_bc_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_bc_r_2->TabIndex = 64;
-			// 
-			// textBox161
-			// 
-			this->textBox161->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox161->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox161->Location = System::Drawing::Point(6, 153);
-			this->textBox161->Multiline = true;
-			this->textBox161->Name = L"textBox161";
-			this->textBox161->Size = System::Drawing::Size(165, 25);
-			this->textBox161->TabIndex = 65;
-			this->textBox161->Text = L"Rear bump [°]";
-			// 
-			// textBox129
-			// 
-			this->textBox129->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox129->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox129->Location = System::Drawing::Point(392, 110);
-			this->textBox129->Multiline = true;
-			this->textBox129->Name = L"textBox129";
-			this->textBox129->Size = System::Drawing::Size(49, 25);
-			this->textBox129->TabIndex = 62;
-			this->textBox129->Text = L"* w";
-			// 
-			// input_bc_f_1
-			// 
-			this->input_bc_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bc_f_1->DecimalPlaces = 4;
-			this->input_bc_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bc_f_1->Location = System::Drawing::Point(312, 108);
-			this->input_bc_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bc_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bc_f_1->Name = L"input_bc_f_1";
-			this->input_bc_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_bc_f_1->TabIndex = 61;
-			// 
-			// textBox130
-			// 
-			this->textBox130->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox130->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox130->Location = System::Drawing::Point(257, 110);
-			this->textBox130->Multiline = true;
-			this->textBox130->Name = L"textBox130";
-			this->textBox130->Size = System::Drawing::Size(49, 25);
-			this->textBox130->TabIndex = 60;
-			this->textBox130->Text = L"* w² +";
-			// 
-			// input_bc_f_2
-			// 
-			this->input_bc_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bc_f_2->DecimalPlaces = 4;
-			this->input_bc_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bc_f_2->Location = System::Drawing::Point(177, 108);
-			this->input_bc_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bc_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bc_f_2->Name = L"input_bc_f_2";
-			this->input_bc_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_bc_f_2->TabIndex = 58;
-			// 
-			// textBox131
-			// 
-			this->textBox131->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox131->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox131->Location = System::Drawing::Point(6, 110);
-			this->textBox131->Multiline = true;
-			this->textBox131->Name = L"textBox131";
-			this->textBox131->Size = System::Drawing::Size(165, 25);
-			this->textBox131->TabIndex = 59;
-			this->textBox131->Text = L"Front bump [°]";
-			// 
-			// textBox153
-			// 
-			this->textBox153->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox153->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox153->Location = System::Drawing::Point(392, 70);
-			this->textBox153->Multiline = true;
-			this->textBox153->Name = L"textBox153";
-			this->textBox153->Size = System::Drawing::Size(49, 25);
-			this->textBox153->TabIndex = 56;
-			this->textBox153->Text = L"* δ";
-			// 
-			// input_sc_r_1
-			// 
-			this->input_sc_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_sc_r_1->DecimalPlaces = 4;
-			this->input_sc_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_sc_r_1->Location = System::Drawing::Point(312, 68);
-			this->input_sc_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_sc_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_sc_r_1->Name = L"input_sc_r_1";
-			this->input_sc_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_sc_r_1->TabIndex = 55;
-			// 
-			// textBox154
-			// 
-			this->textBox154->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox154->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox154->Location = System::Drawing::Point(257, 70);
-			this->textBox154->Multiline = true;
-			this->textBox154->Name = L"textBox154";
-			this->textBox154->Size = System::Drawing::Size(49, 25);
-			this->textBox154->TabIndex = 54;
-			this->textBox154->Text = L"* δ² +";
-			// 
-			// input_sc_r_2
-			// 
-			this->input_sc_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_sc_r_2->DecimalPlaces = 4;
-			this->input_sc_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_sc_r_2->Location = System::Drawing::Point(177, 68);
-			this->input_sc_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_sc_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_sc_r_2->Name = L"input_sc_r_2";
-			this->input_sc_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_sc_r_2->TabIndex = 52;
-			// 
-			// textBox155
-			// 
-			this->textBox155->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox155->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox155->Location = System::Drawing::Point(6, 70);
-			this->textBox155->Multiline = true;
-			this->textBox155->Name = L"textBox155";
-			this->textBox155->Size = System::Drawing::Size(165, 23);
-			this->textBox155->TabIndex = 53;
-			this->textBox155->Text = L"Rear steering [°]";
-			// 
-			// textBox156
-			// 
-			this->textBox156->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox156->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox156->Location = System::Drawing::Point(392, 32);
-			this->textBox156->Multiline = true;
-			this->textBox156->Name = L"textBox156";
-			this->textBox156->Size = System::Drawing::Size(49, 25);
-			this->textBox156->TabIndex = 50;
-			this->textBox156->Text = L"* δ";
-			// 
-			// input_sc_f_1
-			// 
-			this->input_sc_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_sc_f_1->DecimalPlaces = 4;
-			this->input_sc_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_sc_f_1->Location = System::Drawing::Point(312, 30);
-			this->input_sc_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_sc_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_sc_f_1->Name = L"input_sc_f_1";
-			this->input_sc_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_sc_f_1->TabIndex = 49;
-			// 
-			// textBox157
-			// 
-			this->textBox157->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox157->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox157->Location = System::Drawing::Point(257, 32);
-			this->textBox157->Multiline = true;
-			this->textBox157->Name = L"textBox157";
-			this->textBox157->Size = System::Drawing::Size(49, 25);
-			this->textBox157->TabIndex = 48;
-			this->textBox157->Text = L"* δ² +";
-			// 
-			// input_sc_f_2
-			// 
-			this->input_sc_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_sc_f_2->DecimalPlaces = 4;
-			this->input_sc_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_sc_f_2->Location = System::Drawing::Point(177, 30);
-			this->input_sc_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_sc_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_sc_f_2->Name = L"input_sc_f_2";
-			this->input_sc_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_sc_f_2->TabIndex = 46;
-			// 
-			// textBox158
-			// 
-			this->textBox158->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox158->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox158->Location = System::Drawing::Point(6, 32);
-			this->textBox158->Multiline = true;
-			this->textBox158->Name = L"textBox158";
-			this->textBox158->Size = System::Drawing::Size(165, 32);
-			this->textBox158->TabIndex = 47;
-			this->textBox158->Text = L"Front steering [°]";
-			// 
-			// groupBox19
-			// 
-			this->groupBox19->Controls->Add(this->textBox132);
-			this->groupBox19->Controls->Add(this->input_bs_r_1);
-			this->groupBox19->Controls->Add(this->textBox133);
-			this->groupBox19->Controls->Add(this->input_bs_r_2);
-			this->groupBox19->Controls->Add(this->textBox134);
-			this->groupBox19->Controls->Add(this->textBox147);
-			this->groupBox19->Controls->Add(this->input_bs_f_1);
-			this->groupBox19->Controls->Add(this->textBox148);
-			this->groupBox19->Controls->Add(this->input_bs_f_2);
-			this->groupBox19->Controls->Add(this->textBox149);
-			this->groupBox19->Controls->Add(this->textBox150);
-			this->groupBox19->Controls->Add(this->input_ackermann_1);
-			this->groupBox19->Controls->Add(this->textBox151);
-			this->groupBox19->Controls->Add(this->input_ackermann_2);
-			this->groupBox19->Controls->Add(this->textBox152);
-			this->groupBox19->Location = System::Drawing::Point(3, 188);
-			this->groupBox19->Name = L"groupBox19";
-			this->groupBox19->Size = System::Drawing::Size(548, 144);
-			this->groupBox19->TabIndex = 70;
-			this->groupBox19->TabStop = false;
-			this->groupBox19->Text = L"Steering";
-			// 
-			// textBox132
-			// 
-			this->textBox132->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox132->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox132->Location = System::Drawing::Point(392, 110);
-			this->textBox132->Multiline = true;
-			this->textBox132->Name = L"textBox132";
-			this->textBox132->Size = System::Drawing::Size(49, 25);
-			this->textBox132->TabIndex = 62;
-			this->textBox132->Text = L"* w";
-			// 
-			// input_bs_r_1
-			// 
-			this->input_bs_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bs_r_1->DecimalPlaces = 4;
-			this->input_bs_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bs_r_1->Location = System::Drawing::Point(312, 108);
-			this->input_bs_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bs_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bs_r_1->Name = L"input_bs_r_1";
-			this->input_bs_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_bs_r_1->TabIndex = 61;
-			// 
-			// textBox133
-			// 
-			this->textBox133->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox133->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox133->Location = System::Drawing::Point(257, 110);
-			this->textBox133->Multiline = true;
-			this->textBox133->Name = L"textBox133";
-			this->textBox133->Size = System::Drawing::Size(49, 25);
-			this->textBox133->TabIndex = 60;
-			this->textBox133->Text = L"* w² +";
-			// 
-			// input_bs_r_2
-			// 
-			this->input_bs_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bs_r_2->DecimalPlaces = 4;
-			this->input_bs_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bs_r_2->Location = System::Drawing::Point(177, 108);
-			this->input_bs_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bs_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bs_r_2->Name = L"input_bs_r_2";
-			this->input_bs_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_bs_r_2->TabIndex = 58;
-			// 
-			// textBox134
-			// 
-			this->textBox134->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox134->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox134->Location = System::Drawing::Point(6, 110);
-			this->textBox134->Multiline = true;
-			this->textBox134->Name = L"textBox134";
-			this->textBox134->Size = System::Drawing::Size(165, 25);
-			this->textBox134->TabIndex = 59;
-			this->textBox134->Text = L"Rear bump steer [°]";
-			// 
-			// textBox147
-			// 
-			this->textBox147->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox147->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox147->Location = System::Drawing::Point(392, 70);
-			this->textBox147->Multiline = true;
-			this->textBox147->Name = L"textBox147";
-			this->textBox147->Size = System::Drawing::Size(49, 25);
-			this->textBox147->TabIndex = 56;
-			this->textBox147->Text = L"* w";
-			// 
-			// input_bs_f_1
-			// 
-			this->input_bs_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bs_f_1->DecimalPlaces = 4;
-			this->input_bs_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bs_f_1->Location = System::Drawing::Point(312, 68);
-			this->input_bs_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bs_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bs_f_1->Name = L"input_bs_f_1";
-			this->input_bs_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_bs_f_1->TabIndex = 55;
-			// 
-			// textBox148
-			// 
-			this->textBox148->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox148->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox148->Location = System::Drawing::Point(257, 70);
-			this->textBox148->Multiline = true;
-			this->textBox148->Name = L"textBox148";
-			this->textBox148->Size = System::Drawing::Size(49, 25);
-			this->textBox148->TabIndex = 54;
-			this->textBox148->Text = L"* w² +";
-			// 
-			// input_bs_f_2
-			// 
-			this->input_bs_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_bs_f_2->DecimalPlaces = 4;
-			this->input_bs_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_bs_f_2->Location = System::Drawing::Point(177, 68);
-			this->input_bs_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_bs_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_bs_f_2->Name = L"input_bs_f_2";
-			this->input_bs_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_bs_f_2->TabIndex = 52;
-			// 
-			// textBox149
-			// 
-			this->textBox149->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox149->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox149->Location = System::Drawing::Point(6, 70);
-			this->textBox149->Multiline = true;
-			this->textBox149->Name = L"textBox149";
-			this->textBox149->Size = System::Drawing::Size(165, 23);
-			this->textBox149->TabIndex = 53;
-			this->textBox149->Text = L"Front bump steer [°]";
-			// 
-			// textBox150
-			// 
-			this->textBox150->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox150->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox150->Location = System::Drawing::Point(392, 32);
-			this->textBox150->Multiline = true;
-			this->textBox150->Name = L"textBox150";
-			this->textBox150->Size = System::Drawing::Size(49, 25);
-			this->textBox150->TabIndex = 50;
-			this->textBox150->Text = L"* δd";
-			// 
-			// input_ackermann_1
-			// 
-			this->input_ackermann_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_ackermann_1->DecimalPlaces = 4;
-			this->input_ackermann_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_ackermann_1->Location = System::Drawing::Point(312, 30);
-			this->input_ackermann_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_ackermann_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_ackermann_1->Name = L"input_ackermann_1";
-			this->input_ackermann_1->Size = System::Drawing::Size(74, 27);
-			this->input_ackermann_1->TabIndex = 49;
-			// 
-			// textBox151
-			// 
-			this->textBox151->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox151->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox151->Location = System::Drawing::Point(257, 32);
-			this->textBox151->Multiline = true;
-			this->textBox151->Name = L"textBox151";
-			this->textBox151->Size = System::Drawing::Size(49, 25);
-			this->textBox151->TabIndex = 48;
-			this->textBox151->Text = L"* δd² +";
-			// 
-			// input_ackermann_2
-			// 
-			this->input_ackermann_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_ackermann_2->DecimalPlaces = 4;
-			this->input_ackermann_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_ackermann_2->Location = System::Drawing::Point(177, 30);
-			this->input_ackermann_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_ackermann_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_ackermann_2->Name = L"input_ackermann_2";
-			this->input_ackermann_2->Size = System::Drawing::Size(74, 27);
-			this->input_ackermann_2->TabIndex = 46;
-			// 
-			// textBox152
-			// 
-			this->textBox152->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox152->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox152->Location = System::Drawing::Point(6, 32);
-			this->textBox152->Multiline = true;
-			this->textBox152->Name = L"textBox152";
-			this->textBox152->Size = System::Drawing::Size(165, 32);
-			this->textBox152->TabIndex = 47;
-			this->textBox152->Text = L"Ackermann [°]";
-			// 
-			// groupBox18
-			// 
-			this->groupBox18->Controls->Add(this->input_MR_arb_r_0);
-			this->groupBox18->Controls->Add(this->textBox135);
-			this->groupBox18->Controls->Add(this->input_MR_arb_r_1);
-			this->groupBox18->Controls->Add(this->textBox136);
-			this->groupBox18->Controls->Add(this->input_MR_arb_r_2);
-			this->groupBox18->Controls->Add(this->textBox137);
-			this->groupBox18->Controls->Add(this->input_MR_arb_f_0);
-			this->groupBox18->Controls->Add(this->textBox138);
-			this->groupBox18->Controls->Add(this->input_MR_arb_f_1);
-			this->groupBox18->Controls->Add(this->textBox139);
-			this->groupBox18->Controls->Add(this->input_MR_arb_f_2);
-			this->groupBox18->Controls->Add(this->textBox140);
-			this->groupBox18->Controls->Add(this->input_MR_s_r_0);
-			this->groupBox18->Controls->Add(this->textBox141);
-			this->groupBox18->Controls->Add(this->input_MR_s_r_1);
-			this->groupBox18->Controls->Add(this->textBox142);
-			this->groupBox18->Controls->Add(this->input_MR_s_r_2);
-			this->groupBox18->Controls->Add(this->textBox143);
-			this->groupBox18->Controls->Add(this->input_MR_s_f_0);
-			this->groupBox18->Controls->Add(this->textBox144);
-			this->groupBox18->Controls->Add(this->input_MR_s_f_1);
-			this->groupBox18->Controls->Add(this->textBox145);
-			this->groupBox18->Controls->Add(this->input_MR_s_f_2);
-			this->groupBox18->Controls->Add(this->textBox146);
-			this->groupBox18->Location = System::Drawing::Point(3, 3);
-			this->groupBox18->Name = L"groupBox18";
-			this->groupBox18->Size = System::Drawing::Size(548, 186);
-			this->groupBox18->TabIndex = 23;
-			this->groupBox18->TabStop = false;
-			this->groupBox18->Text = L"Motion ratios";
-			// 
-			// input_MR_arb_r_0
-			// 
-			this->input_MR_arb_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_arb_r_0->DecimalPlaces = 4;
-			this->input_MR_arb_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_arb_r_0->Location = System::Drawing::Point(436, 149);
-			this->input_MR_arb_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_arb_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_arb_r_0->Name = L"input_MR_arb_r_0";
-			this->input_MR_arb_r_0->Size = System::Drawing::Size(74, 27);
-			this->input_MR_arb_r_0->TabIndex = 69;
-			// 
-			// textBox135
-			// 
-			this->textBox135->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox135->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox135->Location = System::Drawing::Point(392, 151);
-			this->textBox135->Multiline = true;
-			this->textBox135->Name = L"textBox135";
-			this->textBox135->Size = System::Drawing::Size(49, 25);
-			this->textBox135->TabIndex = 68;
-			this->textBox135->Text = L"* w +";
-			// 
-			// input_MR_arb_r_1
-			// 
-			this->input_MR_arb_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_arb_r_1->DecimalPlaces = 4;
-			this->input_MR_arb_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_arb_r_1->Location = System::Drawing::Point(312, 149);
-			this->input_MR_arb_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_arb_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_arb_r_1->Name = L"input_MR_arb_r_1";
-			this->input_MR_arb_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_MR_arb_r_1->TabIndex = 67;
-			// 
-			// textBox136
-			// 
-			this->textBox136->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox136->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox136->Location = System::Drawing::Point(257, 151);
-			this->textBox136->Multiline = true;
-			this->textBox136->Name = L"textBox136";
-			this->textBox136->Size = System::Drawing::Size(49, 25);
-			this->textBox136->TabIndex = 66;
-			this->textBox136->Text = L"* w² +";
-			// 
-			// input_MR_arb_r_2
-			// 
-			this->input_MR_arb_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_arb_r_2->DecimalPlaces = 4;
-			this->input_MR_arb_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_arb_r_2->Location = System::Drawing::Point(177, 149);
-			this->input_MR_arb_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_arb_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_arb_r_2->Name = L"input_MR_arb_r_2";
-			this->input_MR_arb_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_MR_arb_r_2->TabIndex = 64;
-			// 
-			// textBox137
-			// 
-			this->textBox137->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox137->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox137->Location = System::Drawing::Point(6, 151);
-			this->textBox137->Multiline = true;
-			this->textBox137->Name = L"textBox137";
-			this->textBox137->Size = System::Drawing::Size(165, 25);
-			this->textBox137->TabIndex = 65;
-			this->textBox137->Text = L"Rear ARB [mm/mm]";
-			// 
-			// input_MR_arb_f_0
-			// 
-			this->input_MR_arb_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_arb_f_0->DecimalPlaces = 4;
-			this->input_MR_arb_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_arb_f_0->Location = System::Drawing::Point(436, 108);
-			this->input_MR_arb_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_arb_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_arb_f_0->Name = L"input_MR_arb_f_0";
-			this->input_MR_arb_f_0->Size = System::Drawing::Size(74, 27);
-			this->input_MR_arb_f_0->TabIndex = 63;
-			// 
-			// textBox138
-			// 
-			this->textBox138->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox138->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox138->Location = System::Drawing::Point(392, 110);
-			this->textBox138->Multiline = true;
-			this->textBox138->Name = L"textBox138";
-			this->textBox138->Size = System::Drawing::Size(49, 25);
-			this->textBox138->TabIndex = 62;
-			this->textBox138->Text = L"* w +";
-			// 
-			// input_MR_arb_f_1
-			// 
-			this->input_MR_arb_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_arb_f_1->DecimalPlaces = 4;
-			this->input_MR_arb_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_arb_f_1->Location = System::Drawing::Point(312, 108);
-			this->input_MR_arb_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_arb_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_arb_f_1->Name = L"input_MR_arb_f_1";
-			this->input_MR_arb_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_MR_arb_f_1->TabIndex = 61;
-			// 
-			// textBox139
-			// 
-			this->textBox139->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox139->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox139->Location = System::Drawing::Point(257, 110);
-			this->textBox139->Multiline = true;
-			this->textBox139->Name = L"textBox139";
-			this->textBox139->Size = System::Drawing::Size(49, 25);
-			this->textBox139->TabIndex = 60;
-			this->textBox139->Text = L"* w² +";
-			// 
-			// input_MR_arb_f_2
-			// 
-			this->input_MR_arb_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_arb_f_2->DecimalPlaces = 4;
-			this->input_MR_arb_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_arb_f_2->Location = System::Drawing::Point(177, 108);
-			this->input_MR_arb_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_arb_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_arb_f_2->Name = L"input_MR_arb_f_2";
-			this->input_MR_arb_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_MR_arb_f_2->TabIndex = 58;
-			// 
-			// textBox140
-			// 
-			this->textBox140->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox140->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox140->Location = System::Drawing::Point(6, 110);
-			this->textBox140->Multiline = true;
-			this->textBox140->Name = L"textBox140";
-			this->textBox140->Size = System::Drawing::Size(165, 25);
-			this->textBox140->TabIndex = 59;
-			this->textBox140->Text = L"Front ARB [mm/mm]";
-			// 
-			// input_MR_s_r_0
-			// 
-			this->input_MR_s_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_s_r_0->DecimalPlaces = 4;
-			this->input_MR_s_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_s_r_0->Location = System::Drawing::Point(436, 68);
-			this->input_MR_s_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_s_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_s_r_0->Name = L"input_MR_s_r_0";
-			this->input_MR_s_r_0->Size = System::Drawing::Size(74, 27);
-			this->input_MR_s_r_0->TabIndex = 57;
-			// 
-			// textBox141
-			// 
-			this->textBox141->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox141->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox141->Location = System::Drawing::Point(392, 70);
-			this->textBox141->Multiline = true;
-			this->textBox141->Name = L"textBox141";
-			this->textBox141->Size = System::Drawing::Size(49, 25);
-			this->textBox141->TabIndex = 56;
-			this->textBox141->Text = L"* w +";
-			// 
-			// input_MR_s_r_1
-			// 
-			this->input_MR_s_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_s_r_1->DecimalPlaces = 4;
-			this->input_MR_s_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_s_r_1->Location = System::Drawing::Point(312, 68);
-			this->input_MR_s_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_s_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_s_r_1->Name = L"input_MR_s_r_1";
-			this->input_MR_s_r_1->Size = System::Drawing::Size(74, 27);
-			this->input_MR_s_r_1->TabIndex = 55;
-			// 
-			// textBox142
-			// 
-			this->textBox142->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox142->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox142->Location = System::Drawing::Point(257, 70);
-			this->textBox142->Multiline = true;
-			this->textBox142->Name = L"textBox142";
-			this->textBox142->Size = System::Drawing::Size(49, 25);
-			this->textBox142->TabIndex = 54;
-			this->textBox142->Text = L"* w² +";
-			// 
-			// input_MR_s_r_2
-			// 
-			this->input_MR_s_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_s_r_2->DecimalPlaces = 4;
-			this->input_MR_s_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_s_r_2->Location = System::Drawing::Point(177, 68);
-			this->input_MR_s_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_s_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_s_r_2->Name = L"input_MR_s_r_2";
-			this->input_MR_s_r_2->Size = System::Drawing::Size(74, 27);
-			this->input_MR_s_r_2->TabIndex = 52;
-			// 
-			// textBox143
-			// 
-			this->textBox143->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox143->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox143->Location = System::Drawing::Point(6, 70);
-			this->textBox143->Multiline = true;
-			this->textBox143->Name = L"textBox143";
-			this->textBox143->Size = System::Drawing::Size(165, 23);
-			this->textBox143->TabIndex = 53;
-			this->textBox143->Text = L"Rear springs [mm/mm]";
-			// 
-			// input_MR_s_f_0
-			// 
-			this->input_MR_s_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_s_f_0->DecimalPlaces = 4;
-			this->input_MR_s_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_s_f_0->Location = System::Drawing::Point(436, 30);
-			this->input_MR_s_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_s_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_s_f_0->Name = L"input_MR_s_f_0";
-			this->input_MR_s_f_0->Size = System::Drawing::Size(74, 27);
-			this->input_MR_s_f_0->TabIndex = 51;
-			// 
-			// textBox144
-			// 
-			this->textBox144->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox144->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox144->Location = System::Drawing::Point(392, 32);
-			this->textBox144->Multiline = true;
-			this->textBox144->Name = L"textBox144";
-			this->textBox144->Size = System::Drawing::Size(49, 25);
-			this->textBox144->TabIndex = 50;
-			this->textBox144->Text = L"* w +";
-			// 
-			// input_MR_s_f_1
-			// 
-			this->input_MR_s_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_s_f_1->DecimalPlaces = 4;
-			this->input_MR_s_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_s_f_1->Location = System::Drawing::Point(312, 30);
-			this->input_MR_s_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_s_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_s_f_1->Name = L"input_MR_s_f_1";
-			this->input_MR_s_f_1->Size = System::Drawing::Size(74, 27);
-			this->input_MR_s_f_1->TabIndex = 49;
-			// 
-			// textBox145
-			// 
-			this->textBox145->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox145->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox145->Location = System::Drawing::Point(257, 32);
-			this->textBox145->Multiline = true;
-			this->textBox145->Name = L"textBox145";
-			this->textBox145->Size = System::Drawing::Size(49, 25);
-			this->textBox145->TabIndex = 48;
-			this->textBox145->Text = L"* w² +";
-			// 
-			// input_MR_s_f_2
-			// 
-			this->input_MR_s_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_MR_s_f_2->DecimalPlaces = 4;
-			this->input_MR_s_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_MR_s_f_2->Location = System::Drawing::Point(177, 30);
-			this->input_MR_s_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_MR_s_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->input_MR_s_f_2->Name = L"input_MR_s_f_2";
-			this->input_MR_s_f_2->Size = System::Drawing::Size(74, 27);
-			this->input_MR_s_f_2->TabIndex = 46;
-			// 
-			// textBox146
-			// 
-			this->textBox146->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox146->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox146->Location = System::Drawing::Point(6, 32);
-			this->textBox146->Multiline = true;
-			this->textBox146->Name = L"textBox146";
-			this->textBox146->Size = System::Drawing::Size(165, 32);
-			this->textBox146->TabIndex = 47;
-			this->textBox146->Text = L"Front springs [mm/mm]";
 			// 
 			// tabPage5
 			// 
@@ -6192,13 +2764,3802 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox44->TabIndex = 2;
 			this->textBox44->Text = L"pCy1";
 			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->tabControl4);
+			this->tabPage3->Location = System::Drawing::Point(4, 35);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage3->Size = System::Drawing::Size(1075, 636);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"Vehicle";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// tabControl4
+			// 
+			this->tabControl4->Controls->Add(this->tabPage10);
+			this->tabControl4->Controls->Add(this->tabPage13);
+			this->tabControl4->Controls->Add(this->tabPage11);
+			this->tabControl4->Controls->Add(this->tabPage12);
+			this->tabControl4->Controls->Add(this->tabPage14);
+			this->tabControl4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tabControl4->Location = System::Drawing::Point(3, 3);
+			this->tabControl4->Name = L"tabControl4";
+			this->tabControl4->SelectedIndex = 0;
+			this->tabControl4->Size = System::Drawing::Size(1069, 630);
+			this->tabControl4->TabIndex = 24;
+			// 
+			// tabPage10
+			// 
+			this->tabPage10->Controls->Add(this->groupBox2);
+			this->tabPage10->Controls->Add(this->groupBox1);
+			this->tabPage10->Location = System::Drawing::Point(4, 35);
+			this->tabPage10->Name = L"tabPage10";
+			this->tabPage10->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage10->Size = System::Drawing::Size(1061, 591);
+			this->tabPage10->TabIndex = 0;
+			this->tabPage10->Text = L"Mass and Size";
+			this->tabPage10->UseVisualStyleBackColor = true;
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->input_t_r);
+			this->groupBox2->Controls->Add(this->input_t_f);
+			this->groupBox2->Controls->Add(this->input_L);
+			this->groupBox2->Controls->Add(this->textBox14);
+			this->groupBox2->Controls->Add(this->textBox15);
+			this->groupBox2->Controls->Add(this->textBox16);
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox2->Location = System::Drawing::Point(253, 7);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(241, 190);
+			this->groupBox2->TabIndex = 17;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Size";
+			// 
+			// input_t_r
+			// 
+			this->input_t_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_t_r->DecimalPlaces = 2;
+			this->input_t_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_t_r->Location = System::Drawing::Point(150, 141);
+			this->input_t_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_t_r->Name = L"input_t_r";
+			this->input_t_r->Size = System::Drawing::Size(74, 27);
+			this->input_t_r->TabIndex = 5;
+			this->input_t_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1250, 0, 0, 0 });
+			// 
+			// input_t_f
+			// 
+			this->input_t_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_t_f->DecimalPlaces = 2;
+			this->input_t_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_t_f->Location = System::Drawing::Point(150, 83);
+			this->input_t_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_t_f->Name = L"input_t_f";
+			this->input_t_f->Size = System::Drawing::Size(74, 27);
+			this->input_t_f->TabIndex = 3;
+			this->input_t_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1250, 0, 0, 0 });
+			// 
+			// input_L
+			// 
+			this->input_L->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_L->DecimalPlaces = 2;
+			this->input_L->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_L->Location = System::Drawing::Point(150, 30);
+			this->input_L->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_L->Name = L"input_L";
+			this->input_L->Size = System::Drawing::Size(74, 27);
+			this->input_L->TabIndex = 0;
+			this->input_L->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1535, 0, 0, 0 });
+			// 
+			// textBox14
+			// 
+			this->textBox14->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox14->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox14->Location = System::Drawing::Point(6, 143);
+			this->textBox14->Multiline = true;
+			this->textBox14->Name = L"textBox14";
+			this->textBox14->Size = System::Drawing::Size(157, 25);
+			this->textBox14->TabIndex = 6;
+			this->textBox14->Text = L"Rear track [mm]";
+			// 
+			// textBox15
+			// 
+			this->textBox15->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox15->Location = System::Drawing::Point(6, 85);
+			this->textBox15->Multiline = true;
+			this->textBox15->Name = L"textBox15";
+			this->textBox15->Size = System::Drawing::Size(157, 25);
+			this->textBox15->TabIndex = 4;
+			this->textBox15->Text = L"Front track [mm]";
+			// 
+			// textBox16
+			// 
+			this->textBox16->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox16->Location = System::Drawing::Point(6, 32);
+			this->textBox16->Multiline = true;
+			this->textBox16->Name = L"textBox16";
+			this->textBox16->Size = System::Drawing::Size(157, 25);
+			this->textBox16->TabIndex = 2;
+			this->textBox16->Text = L"Wheelbase [mm]";
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->textBox8);
+			this->groupBox1->Controls->Add(this->textBox7);
+			this->groupBox1->Controls->Add(this->input_m_u_rr);
+			this->groupBox1->Controls->Add(this->input_h_CG);
+			this->groupBox1->Controls->Add(this->textBox6);
+			this->groupBox1->Controls->Add(this->input_m_u_rl);
+			this->groupBox1->Controls->Add(this->textBox5);
+			this->groupBox1->Controls->Add(this->input_m_u_fr);
+			this->groupBox1->Controls->Add(this->textBox4);
+			this->groupBox1->Controls->Add(this->input_m_u_fl);
+			this->groupBox1->Controls->Add(this->textBox3);
+			this->groupBox1->Controls->Add(this->input_y);
+			this->groupBox1->Controls->Add(this->textBox2);
+			this->groupBox1->Controls->Add(this->input_x);
+			this->groupBox1->Controls->Add(this->textBox1);
+			this->groupBox1->Controls->Add(this->input_m);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox1->Location = System::Drawing::Point(6, 7);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(241, 452);
+			this->groupBox1->TabIndex = 1;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Mass";
+			// 
+			// textBox8
+			// 
+			this->textBox8->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox8->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox8->Location = System::Drawing::Point(6, 200);
+			this->textBox8->Multiline = true;
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(157, 47);
+			this->textBox8->TabIndex = 16;
+			this->textBox8->Text = L"Height of the center of gravity [mm]";
+			// 
+			// textBox7
+			// 
+			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox7->Location = System::Drawing::Point(6, 408);
+			this->textBox7->Multiline = true;
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(157, 38);
+			this->textBox7->TabIndex = 14;
+			this->textBox7->Text = L"Rear right unsprung masses [kg]";
+			// 
+			// input_m_u_rr
+			// 
+			this->input_m_u_rr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_rr->DecimalPlaces = 2;
+			this->input_m_u_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_rr->Location = System::Drawing::Point(169, 418);
+			this->input_m_u_rr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_rr->Name = L"input_m_u_rr";
+			this->input_m_u_rr->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_rr->TabIndex = 13;
+			this->input_m_u_rr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// input_h_CG
+			// 
+			this->input_h_CG->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_CG->DecimalPlaces = 2;
+			this->input_h_CG->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_CG->Location = System::Drawing::Point(169, 210);
+			this->input_h_CG->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_CG->Name = L"input_h_CG";
+			this->input_h_CG->Size = System::Drawing::Size(66, 27);
+			this->input_h_CG->TabIndex = 15;
+			this->input_h_CG->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 236, 0, 0, 0 });
+			// 
+			// textBox6
+			// 
+			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox6->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox6->Location = System::Drawing::Point(6, 357);
+			this->textBox6->Multiline = true;
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->Size = System::Drawing::Size(157, 47);
+			this->textBox6->TabIndex = 12;
+			this->textBox6->Text = L"Rear left unsprung masses [kg]";
+			// 
+			// input_m_u_rl
+			// 
+			this->input_m_u_rl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_rl->DecimalPlaces = 2;
+			this->input_m_u_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_rl->Location = System::Drawing::Point(169, 367);
+			this->input_m_u_rl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_rl->Name = L"input_m_u_rl";
+			this->input_m_u_rl->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_rl->TabIndex = 11;
+			this->input_m_u_rl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// textBox5
+			// 
+			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox5->Location = System::Drawing::Point(6, 306);
+			this->textBox5->Multiline = true;
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(157, 47);
+			this->textBox5->TabIndex = 10;
+			this->textBox5->Text = L"Front right unsprung masses [kg]";
+			// 
+			// input_m_u_fr
+			// 
+			this->input_m_u_fr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_fr->DecimalPlaces = 2;
+			this->input_m_u_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_fr->Location = System::Drawing::Point(169, 316);
+			this->input_m_u_fr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_fr->Name = L"input_m_u_fr";
+			this->input_m_u_fr->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_fr->TabIndex = 9;
+			this->input_m_u_fr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// textBox4
+			// 
+			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox4->Location = System::Drawing::Point(6, 253);
+			this->textBox4->Multiline = true;
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(157, 47);
+			this->textBox4->TabIndex = 8;
+			this->textBox4->Text = L"Front left unsprung masses [kg]";
+			// 
+			// input_m_u_fl
+			// 
+			this->input_m_u_fl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m_u_fl->DecimalPlaces = 2;
+			this->input_m_u_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_fl->Location = System::Drawing::Point(169, 263);
+			this->input_m_u_fl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_fl->Name = L"input_m_u_fl";
+			this->input_m_u_fl->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_fl->TabIndex = 7;
+			this->input_m_u_fl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// textBox3
+			// 
+			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox3->Location = System::Drawing::Point(6, 143);
+			this->textBox3->Multiline = true;
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(157, 47);
+			this->textBox3->TabIndex = 6;
+			this->textBox3->Text = L"Lateral mass distribution [%right]";
+			// 
+			// input_y
+			// 
+			this->input_y->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_y->DecimalPlaces = 2;
+			this->input_y->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_y->Location = System::Drawing::Point(169, 153);
+			this->input_y->Name = L"input_y";
+			this->input_y->Size = System::Drawing::Size(66, 27);
+			this->input_y->TabIndex = 5;
+			this->input_y->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			// 
+			// textBox2
+			// 
+			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox2->Location = System::Drawing::Point(6, 85);
+			this->textBox2->Multiline = true;
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(157, 47);
+			this->textBox2->TabIndex = 4;
+			this->textBox2->Text = L"Longitudinal mass distribution [%front]";
+			// 
+			// input_x
+			// 
+			this->input_x->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_x->DecimalPlaces = 2;
+			this->input_x->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_x->Location = System::Drawing::Point(169, 95);
+			this->input_x->Name = L"input_x";
+			this->input_x->Size = System::Drawing::Size(66, 27);
+			this->input_x->TabIndex = 3;
+			this->input_x->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 48, 0, 0, 0 });
+			// 
+			// textBox1
+			// 
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(6, 32);
+			this->textBox1->Multiline = true;
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(157, 47);
+			this->textBox1->TabIndex = 2;
+			this->textBox1->Text = L"Vehicle mass (with driver) [kg]";
+			// 
+			// input_m
+			// 
+			this->input_m->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_m->DecimalPlaces = 2;
+			this->input_m->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m->Location = System::Drawing::Point(169, 42);
+			this->input_m->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m->Name = L"input_m";
+			this->input_m->Size = System::Drawing::Size(66, 27);
+			this->input_m->TabIndex = 0;
+			this->input_m->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3035, 0, 0, 65536 });
+			// 
+			// tabPage13
+			// 
+			this->tabPage13->Controls->Add(this->groupBox3);
+			this->tabPage13->Controls->Add(this->groupBox4);
+			this->tabPage13->Location = System::Drawing::Point(4, 35);
+			this->tabPage13->Name = L"tabPage13";
+			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage13->Size = System::Drawing::Size(1061, 591);
+			this->tabPage13->TabIndex = 3;
+			this->tabPage13->Text = L"Brakes and Differentials";
+			this->tabPage13->UseVisualStyleBackColor = true;
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->input_brake_type_r);
+			this->groupBox3->Controls->Add(this->input_brake_type_f);
+			this->groupBox3->Controls->Add(this->input_brake_config);
+			this->groupBox3->Controls->Add(this->textBox9);
+			this->groupBox3->Controls->Add(this->textBox10);
+			this->groupBox3->Controls->Add(this->textBox11);
+			this->groupBox3->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox3->Location = System::Drawing::Point(512, 6);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(241, 190);
+			this->groupBox3->TabIndex = 18;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Brakes";
+			// 
+			// input_brake_type_r
+			// 
+			this->input_brake_type_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_brake_type_r->FormattingEnabled = true;
+			this->input_brake_type_r->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
+			this->input_brake_type_r->Location = System::Drawing::Point(114, 152);
+			this->input_brake_type_r->Name = L"input_brake_type_r";
+			this->input_brake_type_r->Size = System::Drawing::Size(121, 27);
+			this->input_brake_type_r->TabIndex = 9;
+			this->input_brake_type_r->Text = L"Select";
+			// 
+			// input_brake_type_f
+			// 
+			this->input_brake_type_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_brake_type_f->FormattingEnabled = true;
+			this->input_brake_type_f->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
+			this->input_brake_type_f->Location = System::Drawing::Point(114, 94);
+			this->input_brake_type_f->Name = L"input_brake_type_f";
+			this->input_brake_type_f->Size = System::Drawing::Size(121, 27);
+			this->input_brake_type_f->TabIndex = 8;
+			this->input_brake_type_f->Text = L"Select";
+			// 
+			// input_brake_config
+			// 
+			this->input_brake_config->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_brake_config->FormattingEnabled = true;
+			this->input_brake_config->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"All wheels", L"Front wheels", L"Rear wheels" });
+			this->input_brake_config->Location = System::Drawing::Point(114, 35);
+			this->input_brake_config->Name = L"input_brake_config";
+			this->input_brake_config->Size = System::Drawing::Size(121, 27);
+			this->input_brake_config->TabIndex = 7;
+			this->input_brake_config->Text = L"Select";
+			this->input_brake_config->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_brake_config_SelectedIndexChanged);
+			// 
+			// textBox9
+			// 
+			this->textBox9->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox9->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox9->Location = System::Drawing::Point(6, 143);
+			this->textBox9->Multiline = true;
+			this->textBox9->Name = L"textBox9";
+			this->textBox9->Size = System::Drawing::Size(102, 44);
+			this->textBox9->TabIndex = 6;
+			this->textBox9->Text = L"Rear brakes mounting";
+			// 
+			// textBox10
+			// 
+			this->textBox10->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox10->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox10->Location = System::Drawing::Point(6, 85);
+			this->textBox10->Multiline = true;
+			this->textBox10->Name = L"textBox10";
+			this->textBox10->Size = System::Drawing::Size(102, 49);
+			this->textBox10->TabIndex = 4;
+			this->textBox10->Text = L"Front brakes mounting";
+			// 
+			// textBox11
+			// 
+			this->textBox11->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox11->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox11->Location = System::Drawing::Point(6, 32);
+			this->textBox11->Multiline = true;
+			this->textBox11->Name = L"textBox11";
+			this->textBox11->Size = System::Drawing::Size(102, 37);
+			this->textBox11->TabIndex = 2;
+			this->textBox11->Text = L"Brake configuration";
+			// 
+			// groupBox4
+			// 
+			this->groupBox4->Controls->Add(this->textBox186);
+			this->groupBox4->Controls->Add(this->textBox187);
+			this->groupBox4->Controls->Add(this->textBox188);
+			this->groupBox4->Controls->Add(this->textBox189);
+			this->groupBox4->Controls->Add(this->textBox185);
+			this->groupBox4->Controls->Add(this->textBox33);
+			this->groupBox4->Controls->Add(this->textBox30);
+			this->groupBox4->Controls->Add(this->textBox32);
+			this->groupBox4->Controls->Add(this->input_diff_lock_r);
+			this->groupBox4->Controls->Add(this->input_diff_lock_f);
+			this->groupBox4->Controls->Add(this->textBox41);
+			this->groupBox4->Controls->Add(this->textBox42);
+			this->groupBox4->Controls->Add(this->input_diff_type_r);
+			this->groupBox4->Controls->Add(this->input_diff_type_f);
+			this->groupBox4->Controls->Add(this->input_drive_config);
+			this->groupBox4->Controls->Add(this->textBox12);
+			this->groupBox4->Controls->Add(this->textBox13);
+			this->groupBox4->Controls->Add(this->textBox17);
+			this->groupBox4->Controls->Add(this->input_diff_k_lock_r);
+			this->groupBox4->Controls->Add(this->input_diff_preload_r);
+			this->groupBox4->Controls->Add(this->input_diff_bTBR_r);
+			this->groupBox4->Controls->Add(this->input_diff_dTBR_r);
+			this->groupBox4->Controls->Add(this->input_diff_k_lock_f);
+			this->groupBox4->Controls->Add(this->input_diff_preload_f);
+			this->groupBox4->Controls->Add(this->input_diff_bTBR_f);
+			this->groupBox4->Controls->Add(this->input_diff_dTBR_f);
+			this->groupBox4->Controls->Add(this->fake_k_lock_r);
+			this->groupBox4->Controls->Add(this->fake_preload_r);
+			this->groupBox4->Controls->Add(this->fake_bTBR_r);
+			this->groupBox4->Controls->Add(this->fake_dTBR_r);
+			this->groupBox4->Controls->Add(this->fake_k_lock_f);
+			this->groupBox4->Controls->Add(this->fake_preload_f);
+			this->groupBox4->Controls->Add(this->fake_bTBR_f);
+			this->groupBox4->Controls->Add(this->fake_dTBR_f);
+			this->groupBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox4->Location = System::Drawing::Point(6, 6);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Size = System::Drawing::Size(500, 423);
+			this->groupBox4->TabIndex = 19;
+			this->groupBox4->TabStop = false;
+			this->groupBox4->Text = L"Differentials";
+			// 
+			// textBox186
+			// 
+			this->textBox186->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox186->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox186->Location = System::Drawing::Point(257, 361);
+			this->textBox186->Multiline = true;
+			this->textBox186->Name = L"textBox186";
+			this->textBox186->Size = System::Drawing::Size(157, 47);
+			this->textBox186->TabIndex = 30;
+			this->textBox186->Text = L"Rear differential stiffness [Nm/Nm]";
+			// 
+			// textBox187
+			// 
+			this->textBox187->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox187->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox187->Location = System::Drawing::Point(257, 310);
+			this->textBox187->Multiline = true;
+			this->textBox187->Name = L"textBox187";
+			this->textBox187->Size = System::Drawing::Size(157, 47);
+			this->textBox187->TabIndex = 28;
+			this->textBox187->Text = L"Rear differential preload [Nm]";
+			// 
+			// textBox188
+			// 
+			this->textBox188->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox188->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox188->Location = System::Drawing::Point(257, 257);
+			this->textBox188->Multiline = true;
+			this->textBox188->Name = L"textBox188";
+			this->textBox188->Size = System::Drawing::Size(157, 47);
+			this->textBox188->TabIndex = 26;
+			this->textBox188->Text = L"Rear differential braking TBR";
+			// 
+			// textBox189
+			// 
+			this->textBox189->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox189->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox189->Location = System::Drawing::Point(257, 206);
+			this->textBox189->Multiline = true;
+			this->textBox189->Name = L"textBox189";
+			this->textBox189->Size = System::Drawing::Size(157, 47);
+			this->textBox189->TabIndex = 24;
+			this->textBox189->Text = L"Rear differential driving TBR";
+			// 
+			// textBox185
+			// 
+			this->textBox185->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox185->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox185->Location = System::Drawing::Point(6, 363);
+			this->textBox185->Multiline = true;
+			this->textBox185->Name = L"textBox185";
+			this->textBox185->Size = System::Drawing::Size(157, 47);
+			this->textBox185->TabIndex = 22;
+			this->textBox185->Text = L"Front differential stiffness [Nm/Nm]";
+			// 
+			// textBox33
+			// 
+			this->textBox33->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox33->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox33->Location = System::Drawing::Point(6, 312);
+			this->textBox33->Multiline = true;
+			this->textBox33->Name = L"textBox33";
+			this->textBox33->Size = System::Drawing::Size(157, 47);
+			this->textBox33->TabIndex = 20;
+			this->textBox33->Text = L"Front differential preload [Nm]";
+			// 
+			// textBox30
+			// 
+			this->textBox30->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox30->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox30->Location = System::Drawing::Point(6, 259);
+			this->textBox30->Multiline = true;
+			this->textBox30->Name = L"textBox30";
+			this->textBox30->Size = System::Drawing::Size(157, 47);
+			this->textBox30->TabIndex = 18;
+			this->textBox30->Text = L"Front differential braking TBR";
+			// 
+			// textBox32
+			// 
+			this->textBox32->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox32->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox32->Location = System::Drawing::Point(6, 208);
+			this->textBox32->Multiline = true;
+			this->textBox32->Name = L"textBox32";
+			this->textBox32->Size = System::Drawing::Size(157, 47);
+			this->textBox32->TabIndex = 14;
+			this->textBox32->Text = L"Front differential driving TBR";
+			// 
+			// input_diff_lock_r
+			// 
+			this->input_diff_lock_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_lock_r->FormattingEnabled = true;
+			this->input_diff_lock_r->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+				L"Open", L"Geared", L"Ramp", L"Trac-loc",
+					L"Locked"
+			});
+			this->input_diff_lock_r->Location = System::Drawing::Point(365, 159);
+			this->input_diff_lock_r->Name = L"input_diff_lock_r";
+			this->input_diff_lock_r->Size = System::Drawing::Size(121, 27);
+			this->input_diff_lock_r->TabIndex = 13;
+			this->input_diff_lock_r->Text = L"Select";
+			this->input_diff_lock_r->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_diff_lock_r_SelectedIndexChanged);
+			// 
+			// input_diff_lock_f
+			// 
+			this->input_diff_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_lock_f->FormattingEnabled = true;
+			this->input_diff_lock_f->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+				L"Open", L"Geared", L"Ramp", L"Trac-loc",
+					L"Locked"
+			});
+			this->input_diff_lock_f->Location = System::Drawing::Point(114, 162);
+			this->input_diff_lock_f->Name = L"input_diff_lock_f";
+			this->input_diff_lock_f->Size = System::Drawing::Size(121, 27);
+			this->input_diff_lock_f->TabIndex = 12;
+			this->input_diff_lock_f->Text = L"Select";
+			this->input_diff_lock_f->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_diff_lock_f_SelectedIndexChanged);
+			// 
+			// textBox41
+			// 
+			this->textBox41->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox41->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox41->Location = System::Drawing::Point(257, 140);
+			this->textBox41->Multiline = true;
+			this->textBox41->Name = L"textBox41";
+			this->textBox41->Size = System::Drawing::Size(102, 65);
+			this->textBox41->TabIndex = 11;
+			this->textBox41->Text = L"Rear differential locking";
+			// 
+			// textBox42
+			// 
+			this->textBox42->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox42->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox42->Location = System::Drawing::Point(6, 143);
+			this->textBox42->Multiline = true;
+			this->textBox42->Name = L"textBox42";
+			this->textBox42->Size = System::Drawing::Size(102, 62);
+			this->textBox42->TabIndex = 10;
+			this->textBox42->Text = L"Front differential locking";
+			// 
+			// input_diff_type_r
+			// 
+			this->input_diff_type_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_type_r->FormattingEnabled = true;
+			this->input_diff_type_r->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
+			this->input_diff_type_r->Location = System::Drawing::Point(365, 91);
+			this->input_diff_type_r->Name = L"input_diff_type_r";
+			this->input_diff_type_r->Size = System::Drawing::Size(121, 27);
+			this->input_diff_type_r->TabIndex = 9;
+			this->input_diff_type_r->Text = L"Select";
+			// 
+			// input_diff_type_f
+			// 
+			this->input_diff_type_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_type_f->FormattingEnabled = true;
+			this->input_diff_type_f->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Inboard", L"Outboard" });
+			this->input_diff_type_f->Location = System::Drawing::Point(114, 94);
+			this->input_diff_type_f->Name = L"input_diff_type_f";
+			this->input_diff_type_f->Size = System::Drawing::Size(121, 27);
+			this->input_diff_type_f->TabIndex = 8;
+			this->input_diff_type_f->Text = L"Select";
+			// 
+			// input_drive_config
+			// 
+			this->input_drive_config->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_drive_config->FormattingEnabled = true;
+			this->input_drive_config->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"All wheels", L"Front wheels", L"Rear wheels" });
+			this->input_drive_config->Location = System::Drawing::Point(114, 35);
+			this->input_drive_config->Name = L"input_drive_config";
+			this->input_drive_config->Size = System::Drawing::Size(121, 27);
+			this->input_drive_config->TabIndex = 7;
+			this->input_drive_config->Text = L"Select";
+			this->input_drive_config->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_drive_config_SelectedIndexChanged);
+			// 
+			// textBox12
+			// 
+			this->textBox12->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox12->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox12->Location = System::Drawing::Point(257, 72);
+			this->textBox12->Multiline = true;
+			this->textBox12->Name = L"textBox12";
+			this->textBox12->Size = System::Drawing::Size(102, 65);
+			this->textBox12->TabIndex = 6;
+			this->textBox12->Text = L"Rear differential mounting";
+			// 
+			// textBox13
+			// 
+			this->textBox13->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox13->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox13->Location = System::Drawing::Point(6, 75);
+			this->textBox13->Multiline = true;
+			this->textBox13->Name = L"textBox13";
+			this->textBox13->Size = System::Drawing::Size(102, 62);
+			this->textBox13->TabIndex = 4;
+			this->textBox13->Text = L"Front differential mounting";
+			// 
+			// textBox17
+			// 
+			this->textBox17->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox17->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox17->Location = System::Drawing::Point(6, 32);
+			this->textBox17->Multiline = true;
+			this->textBox17->Name = L"textBox17";
+			this->textBox17->Size = System::Drawing::Size(102, 37);
+			this->textBox17->TabIndex = 2;
+			this->textBox17->Text = L"Drive configuration";
+			// 
+			// input_diff_k_lock_r
+			// 
+			this->input_diff_k_lock_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_k_lock_r->DecimalPlaces = 2;
+			this->input_diff_k_lock_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_k_lock_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->input_diff_k_lock_r->Location = System::Drawing::Point(420, 371);
+			this->input_diff_k_lock_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_diff_k_lock_r->Name = L"input_diff_k_lock_r";
+			this->input_diff_k_lock_r->Size = System::Drawing::Size(66, 27);
+			this->input_diff_k_lock_r->TabIndex = 34;
+			this->input_diff_k_lock_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// input_diff_preload_r
+			// 
+			this->input_diff_preload_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_preload_r->DecimalPlaces = 2;
+			this->input_diff_preload_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_preload_r->Location = System::Drawing::Point(420, 320);
+			this->input_diff_preload_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_diff_preload_r->Name = L"input_diff_preload_r";
+			this->input_diff_preload_r->Size = System::Drawing::Size(66, 27);
+			this->input_diff_preload_r->TabIndex = 33;
+			this->input_diff_preload_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			// 
+			// input_diff_bTBR_r
+			// 
+			this->input_diff_bTBR_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_bTBR_r->DecimalPlaces = 2;
+			this->input_diff_bTBR_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_bTBR_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->input_diff_bTBR_r->Location = System::Drawing::Point(420, 267);
+			this->input_diff_bTBR_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->input_diff_bTBR_r->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_diff_bTBR_r->Name = L"input_diff_bTBR_r";
+			this->input_diff_bTBR_r->Size = System::Drawing::Size(66, 27);
+			this->input_diff_bTBR_r->TabIndex = 32;
+			this->input_diff_bTBR_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
+			// 
+			// input_diff_dTBR_r
+			// 
+			this->input_diff_dTBR_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_dTBR_r->DecimalPlaces = 2;
+			this->input_diff_dTBR_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_dTBR_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->input_diff_dTBR_r->Location = System::Drawing::Point(420, 216);
+			this->input_diff_dTBR_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->input_diff_dTBR_r->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_diff_dTBR_r->Name = L"input_diff_dTBR_r";
+			this->input_diff_dTBR_r->Size = System::Drawing::Size(66, 27);
+			this->input_diff_dTBR_r->TabIndex = 31;
+			this->input_diff_dTBR_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// input_diff_k_lock_f
+			// 
+			this->input_diff_k_lock_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_k_lock_f->DecimalPlaces = 2;
+			this->input_diff_k_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_k_lock_f->Location = System::Drawing::Point(169, 371);
+			this->input_diff_k_lock_f->Name = L"input_diff_k_lock_f";
+			this->input_diff_k_lock_f->Size = System::Drawing::Size(66, 27);
+			this->input_diff_k_lock_f->TabIndex = 23;
+			this->input_diff_k_lock_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// input_diff_preload_f
+			// 
+			this->input_diff_preload_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_preload_f->DecimalPlaces = 2;
+			this->input_diff_preload_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_preload_f->Location = System::Drawing::Point(169, 320);
+			this->input_diff_preload_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_diff_preload_f->Name = L"input_diff_preload_f";
+			this->input_diff_preload_f->Size = System::Drawing::Size(66, 27);
+			this->input_diff_preload_f->TabIndex = 21;
+			this->input_diff_preload_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			// 
+			// input_diff_bTBR_f
+			// 
+			this->input_diff_bTBR_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_bTBR_f->DecimalPlaces = 2;
+			this->input_diff_bTBR_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_bTBR_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->input_diff_bTBR_f->Location = System::Drawing::Point(169, 267);
+			this->input_diff_bTBR_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->input_diff_bTBR_f->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_diff_bTBR_f->Name = L"input_diff_bTBR_f";
+			this->input_diff_bTBR_f->Size = System::Drawing::Size(66, 27);
+			this->input_diff_bTBR_f->TabIndex = 19;
+			this->input_diff_bTBR_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
+			// 
+			// input_diff_dTBR_f
+			// 
+			this->input_diff_dTBR_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_diff_dTBR_f->DecimalPlaces = 2;
+			this->input_diff_dTBR_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_diff_dTBR_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->input_diff_dTBR_f->Location = System::Drawing::Point(169, 216);
+			this->input_diff_dTBR_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->input_diff_dTBR_f->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_diff_dTBR_f->Name = L"input_diff_dTBR_f";
+			this->input_diff_dTBR_f->Size = System::Drawing::Size(66, 27);
+			this->input_diff_dTBR_f->TabIndex = 17;
+			this->input_diff_dTBR_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_k_lock_r
+			// 
+			this->fake_k_lock_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_k_lock_r->DecimalPlaces = 2;
+			this->fake_k_lock_r->Enabled = false;
+			this->fake_k_lock_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_k_lock_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_k_lock_r->Location = System::Drawing::Point(420, 371);
+			this->fake_k_lock_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_k_lock_r->Name = L"fake_k_lock_r";
+			this->fake_k_lock_r->Size = System::Drawing::Size(66, 27);
+			this->fake_k_lock_r->TabIndex = 42;
+			this->fake_k_lock_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_preload_r
+			// 
+			this->fake_preload_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_preload_r->DecimalPlaces = 2;
+			this->fake_preload_r->Enabled = false;
+			this->fake_preload_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_preload_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_preload_r->Location = System::Drawing::Point(420, 320);
+			this->fake_preload_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_preload_r->Name = L"fake_preload_r";
+			this->fake_preload_r->Size = System::Drawing::Size(66, 27);
+			this->fake_preload_r->TabIndex = 41;
+			this->fake_preload_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_bTBR_r
+			// 
+			this->fake_bTBR_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_bTBR_r->DecimalPlaces = 2;
+			this->fake_bTBR_r->Enabled = false;
+			this->fake_bTBR_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_bTBR_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_bTBR_r->Location = System::Drawing::Point(420, 267);
+			this->fake_bTBR_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_bTBR_r->Name = L"fake_bTBR_r";
+			this->fake_bTBR_r->Size = System::Drawing::Size(66, 27);
+			this->fake_bTBR_r->TabIndex = 40;
+			this->fake_bTBR_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_dTBR_r
+			// 
+			this->fake_dTBR_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_dTBR_r->DecimalPlaces = 2;
+			this->fake_dTBR_r->Enabled = false;
+			this->fake_dTBR_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_dTBR_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_dTBR_r->Location = System::Drawing::Point(420, 216);
+			this->fake_dTBR_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_dTBR_r->Name = L"fake_dTBR_r";
+			this->fake_dTBR_r->Size = System::Drawing::Size(66, 27);
+			this->fake_dTBR_r->TabIndex = 39;
+			this->fake_dTBR_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_k_lock_f
+			// 
+			this->fake_k_lock_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_k_lock_f->DecimalPlaces = 2;
+			this->fake_k_lock_f->Enabled = false;
+			this->fake_k_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_k_lock_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_k_lock_f->Location = System::Drawing::Point(169, 371);
+			this->fake_k_lock_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_k_lock_f->Name = L"fake_k_lock_f";
+			this->fake_k_lock_f->Size = System::Drawing::Size(66, 27);
+			this->fake_k_lock_f->TabIndex = 38;
+			this->fake_k_lock_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_preload_f
+			// 
+			this->fake_preload_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_preload_f->DecimalPlaces = 2;
+			this->fake_preload_f->Enabled = false;
+			this->fake_preload_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_preload_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_preload_f->Location = System::Drawing::Point(169, 320);
+			this->fake_preload_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_preload_f->Name = L"fake_preload_f";
+			this->fake_preload_f->Size = System::Drawing::Size(66, 27);
+			this->fake_preload_f->TabIndex = 37;
+			this->fake_preload_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_bTBR_f
+			// 
+			this->fake_bTBR_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_bTBR_f->DecimalPlaces = 2;
+			this->fake_bTBR_f->Enabled = false;
+			this->fake_bTBR_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_bTBR_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_bTBR_f->Location = System::Drawing::Point(169, 267);
+			this->fake_bTBR_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_bTBR_f->Name = L"fake_bTBR_f";
+			this->fake_bTBR_f->Size = System::Drawing::Size(66, 27);
+			this->fake_bTBR_f->TabIndex = 36;
+			this->fake_bTBR_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// fake_dTBR_f
+			// 
+			this->fake_dTBR_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_dTBR_f->DecimalPlaces = 2;
+			this->fake_dTBR_f->Enabled = false;
+			this->fake_dTBR_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_dTBR_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
+			this->fake_dTBR_f->Location = System::Drawing::Point(169, 216);
+			this->fake_dTBR_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
+			this->fake_dTBR_f->Name = L"fake_dTBR_f";
+			this->fake_dTBR_f->Size = System::Drawing::Size(66, 27);
+			this->fake_dTBR_f->TabIndex = 35;
+			this->fake_dTBR_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			// 
+			// tabPage11
+			// 
+			this->tabPage11->Controls->Add(this->groupBox21);
+			this->tabPage11->Location = System::Drawing::Point(4, 22);
+			this->tabPage11->Name = L"tabPage11";
+			this->tabPage11->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage11->Size = System::Drawing::Size(1061, 604);
+			this->tabPage11->TabIndex = 1;
+			this->tabPage11->Text = L"Aerodynamics";
+			this->tabPage11->UseVisualStyleBackColor = true;
+			// 
+			// groupBox21
+			// 
+			this->groupBox21->Controls->Add(this->input_F_drag_y_0);
+			this->groupBox21->Controls->Add(this->textBox162);
+			this->groupBox21->Controls->Add(this->input_F_drag_y_1);
+			this->groupBox21->Controls->Add(this->textBox163);
+			this->groupBox21->Controls->Add(this->input_F_drag_y_2);
+			this->groupBox21->Controls->Add(this->textBox164);
+			this->groupBox21->Controls->Add(this->input_F_drag_z_0);
+			this->groupBox21->Controls->Add(this->textBox165);
+			this->groupBox21->Controls->Add(this->input_F_drag_z_1);
+			this->groupBox21->Controls->Add(this->textBox166);
+			this->groupBox21->Controls->Add(this->input_F_drag_z_2);
+			this->groupBox21->Controls->Add(this->textBox167);
+			this->groupBox21->Controls->Add(this->input_F_drag_0);
+			this->groupBox21->Controls->Add(this->textBox168);
+			this->groupBox21->Controls->Add(this->input_F_drag_1);
+			this->groupBox21->Controls->Add(this->textBox169);
+			this->groupBox21->Controls->Add(this->input_F_drag_2);
+			this->groupBox21->Controls->Add(this->textBox170);
+			this->groupBox21->Controls->Add(this->input_F_down_y_0);
+			this->groupBox21->Controls->Add(this->textBox171);
+			this->groupBox21->Controls->Add(this->input_F_down_y_1);
+			this->groupBox21->Controls->Add(this->textBox172);
+			this->groupBox21->Controls->Add(this->input_F_down_y_2);
+			this->groupBox21->Controls->Add(this->textBox173);
+			this->groupBox21->Controls->Add(this->input_F_down_x_0);
+			this->groupBox21->Controls->Add(this->textBox174);
+			this->groupBox21->Controls->Add(this->input_F_down_x_1);
+			this->groupBox21->Controls->Add(this->textBox175);
+			this->groupBox21->Controls->Add(this->input_F_down_x_2);
+			this->groupBox21->Controls->Add(this->textBox176);
+			this->groupBox21->Controls->Add(this->input_F_down_0);
+			this->groupBox21->Controls->Add(this->textBox177);
+			this->groupBox21->Controls->Add(this->input_F_down_1);
+			this->groupBox21->Controls->Add(this->textBox178);
+			this->groupBox21->Controls->Add(this->input_F_down_2);
+			this->groupBox21->Controls->Add(this->textBox179);
+			this->groupBox21->Location = System::Drawing::Point(6, 7);
+			this->groupBox21->Name = L"groupBox21";
+			this->groupBox21->Size = System::Drawing::Size(548, 200);
+			this->groupBox21->TabIndex = 23;
+			this->groupBox21->TabStop = false;
+			this->groupBox21->Text = L"Aerodynamics";
+			// 
+			// input_F_drag_y_0
+			// 
+			this->input_F_drag_y_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_y_0->DecimalPlaces = 4;
+			this->input_F_drag_y_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_y_0->Location = System::Drawing::Point(436, 246);
+			this->input_F_drag_y_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_y_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_y_0->Name = L"input_F_drag_y_0";
+			this->input_F_drag_y_0->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_y_0->TabIndex = 81;
+			this->input_F_drag_y_0->Visible = false;
+			// 
+			// textBox162
+			// 
+			this->textBox162->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox162->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox162->Location = System::Drawing::Point(392, 248);
+			this->textBox162->Multiline = true;
+			this->textBox162->Name = L"textBox162";
+			this->textBox162->Size = System::Drawing::Size(49, 25);
+			this->textBox162->TabIndex = 80;
+			this->textBox162->Text = L"* V +";
+			this->textBox162->Visible = false;
+			// 
+			// input_F_drag_y_1
+			// 
+			this->input_F_drag_y_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_y_1->DecimalPlaces = 4;
+			this->input_F_drag_y_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_y_1->Location = System::Drawing::Point(312, 246);
+			this->input_F_drag_y_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_y_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_y_1->Name = L"input_F_drag_y_1";
+			this->input_F_drag_y_1->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_y_1->TabIndex = 79;
+			this->input_F_drag_y_1->Visible = false;
+			// 
+			// textBox163
+			// 
+			this->textBox163->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox163->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox163->Location = System::Drawing::Point(257, 248);
+			this->textBox163->Multiline = true;
+			this->textBox163->Name = L"textBox163";
+			this->textBox163->Size = System::Drawing::Size(49, 25);
+			this->textBox163->TabIndex = 78;
+			this->textBox163->Text = L"* V² +";
+			this->textBox163->Visible = false;
+			// 
+			// input_F_drag_y_2
+			// 
+			this->input_F_drag_y_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_y_2->DecimalPlaces = 4;
+			this->input_F_drag_y_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_y_2->Location = System::Drawing::Point(177, 246);
+			this->input_F_drag_y_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_y_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_y_2->Name = L"input_F_drag_y_2";
+			this->input_F_drag_y_2->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_y_2->TabIndex = 76;
+			this->input_F_drag_y_2->Visible = false;
+			// 
+			// textBox164
+			// 
+			this->textBox164->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox164->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox164->Location = System::Drawing::Point(6, 235);
+			this->textBox164->Multiline = true;
+			this->textBox164->Name = L"textBox164";
+			this->textBox164->Size = System::Drawing::Size(165, 44);
+			this->textBox164->TabIndex = 77;
+			this->textBox164->Text = L"Lateral drag distribution [%right]";
+			this->textBox164->Visible = false;
+			// 
+			// input_F_drag_z_0
+			// 
+			this->input_F_drag_z_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_z_0->DecimalPlaces = 4;
+			this->input_F_drag_z_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_z_0->Location = System::Drawing::Point(436, 204);
+			this->input_F_drag_z_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_z_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_z_0->Name = L"input_F_drag_z_0";
+			this->input_F_drag_z_0->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_z_0->TabIndex = 75;
+			this->input_F_drag_z_0->Visible = false;
+			// 
+			// textBox165
+			// 
+			this->textBox165->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox165->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox165->Location = System::Drawing::Point(392, 206);
+			this->textBox165->Multiline = true;
+			this->textBox165->Name = L"textBox165";
+			this->textBox165->Size = System::Drawing::Size(49, 25);
+			this->textBox165->TabIndex = 74;
+			this->textBox165->Text = L"* V +";
+			this->textBox165->Visible = false;
+			// 
+			// input_F_drag_z_1
+			// 
+			this->input_F_drag_z_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_z_1->DecimalPlaces = 4;
+			this->input_F_drag_z_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_z_1->Location = System::Drawing::Point(312, 204);
+			this->input_F_drag_z_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_z_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_z_1->Name = L"input_F_drag_z_1";
+			this->input_F_drag_z_1->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_z_1->TabIndex = 73;
+			this->input_F_drag_z_1->Visible = false;
+			// 
+			// textBox166
+			// 
+			this->textBox166->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox166->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox166->Location = System::Drawing::Point(257, 206);
+			this->textBox166->Multiline = true;
+			this->textBox166->Name = L"textBox166";
+			this->textBox166->Size = System::Drawing::Size(49, 25);
+			this->textBox166->TabIndex = 72;
+			this->textBox166->Text = L"* V² +";
+			this->textBox166->Visible = false;
+			// 
+			// input_F_drag_z_2
+			// 
+			this->input_F_drag_z_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_z_2->DecimalPlaces = 4;
+			this->input_F_drag_z_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_z_2->Location = System::Drawing::Point(177, 204);
+			this->input_F_drag_z_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_z_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_z_2->Name = L"input_F_drag_z_2";
+			this->input_F_drag_z_2->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_z_2->TabIndex = 70;
+			this->input_F_drag_z_2->Visible = false;
+			// 
+			// textBox167
+			// 
+			this->textBox167->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox167->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox167->Location = System::Drawing::Point(6, 193);
+			this->textBox167->Multiline = true;
+			this->textBox167->Name = L"textBox167";
+			this->textBox167->Size = System::Drawing::Size(165, 44);
+			this->textBox167->TabIndex = 71;
+			this->textBox167->Text = L"Drag pressure center height [mm]";
+			this->textBox167->Visible = false;
+			// 
+			// input_F_drag_0
+			// 
+			this->input_F_drag_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_0->DecimalPlaces = 4;
+			this->input_F_drag_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_0->Location = System::Drawing::Point(436, 162);
+			this->input_F_drag_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_0->Name = L"input_F_drag_0";
+			this->input_F_drag_0->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_0->TabIndex = 69;
+			// 
+			// textBox168
+			// 
+			this->textBox168->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox168->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox168->Location = System::Drawing::Point(392, 164);
+			this->textBox168->Multiline = true;
+			this->textBox168->Name = L"textBox168";
+			this->textBox168->Size = System::Drawing::Size(49, 25);
+			this->textBox168->TabIndex = 68;
+			this->textBox168->Text = L"* V +";
+			// 
+			// input_F_drag_1
+			// 
+			this->input_F_drag_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_1->DecimalPlaces = 4;
+			this->input_F_drag_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_1->Location = System::Drawing::Point(312, 162);
+			this->input_F_drag_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_1->Name = L"input_F_drag_1";
+			this->input_F_drag_1->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_1->TabIndex = 67;
+			// 
+			// textBox169
+			// 
+			this->textBox169->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox169->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox169->Location = System::Drawing::Point(257, 164);
+			this->textBox169->Multiline = true;
+			this->textBox169->Name = L"textBox169";
+			this->textBox169->Size = System::Drawing::Size(49, 25);
+			this->textBox169->TabIndex = 66;
+			this->textBox169->Text = L"* V² +";
+			// 
+			// input_F_drag_2
+			// 
+			this->input_F_drag_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_drag_2->DecimalPlaces = 4;
+			this->input_F_drag_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_drag_2->Location = System::Drawing::Point(177, 162);
+			this->input_F_drag_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_drag_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_drag_2->Name = L"input_F_drag_2";
+			this->input_F_drag_2->Size = System::Drawing::Size(74, 27);
+			this->input_F_drag_2->TabIndex = 64;
+			// 
+			// textBox170
+			// 
+			this->textBox170->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox170->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox170->Location = System::Drawing::Point(6, 164);
+			this->textBox170->Multiline = true;
+			this->textBox170->Name = L"textBox170";
+			this->textBox170->Size = System::Drawing::Size(165, 26);
+			this->textBox170->TabIndex = 65;
+			this->textBox170->Text = L"Total drag [N]";
+			// 
+			// input_F_down_y_0
+			// 
+			this->input_F_down_y_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_y_0->DecimalPlaces = 4;
+			this->input_F_down_y_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_y_0->Location = System::Drawing::Point(436, 121);
+			this->input_F_down_y_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_y_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_y_0->Name = L"input_F_down_y_0";
+			this->input_F_down_y_0->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_y_0->TabIndex = 63;
+			// 
+			// textBox171
+			// 
+			this->textBox171->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox171->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox171->Location = System::Drawing::Point(392, 123);
+			this->textBox171->Multiline = true;
+			this->textBox171->Name = L"textBox171";
+			this->textBox171->Size = System::Drawing::Size(49, 25);
+			this->textBox171->TabIndex = 62;
+			this->textBox171->Text = L"* V +";
+			// 
+			// input_F_down_y_1
+			// 
+			this->input_F_down_y_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_y_1->DecimalPlaces = 4;
+			this->input_F_down_y_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_y_1->Location = System::Drawing::Point(312, 121);
+			this->input_F_down_y_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_y_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_y_1->Name = L"input_F_down_y_1";
+			this->input_F_down_y_1->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_y_1->TabIndex = 61;
+			// 
+			// textBox172
+			// 
+			this->textBox172->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox172->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox172->Location = System::Drawing::Point(257, 123);
+			this->textBox172->Multiline = true;
+			this->textBox172->Name = L"textBox172";
+			this->textBox172->Size = System::Drawing::Size(49, 25);
+			this->textBox172->TabIndex = 60;
+			this->textBox172->Text = L"* V² +";
+			// 
+			// input_F_down_y_2
+			// 
+			this->input_F_down_y_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_y_2->DecimalPlaces = 4;
+			this->input_F_down_y_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_y_2->Location = System::Drawing::Point(177, 121);
+			this->input_F_down_y_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_y_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_y_2->Name = L"input_F_down_y_2";
+			this->input_F_down_y_2->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_y_2->TabIndex = 58;
+			// 
+			// textBox173
+			// 
+			this->textBox173->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox173->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox173->Location = System::Drawing::Point(6, 110);
+			this->textBox173->Multiline = true;
+			this->textBox173->Name = L"textBox173";
+			this->textBox173->Size = System::Drawing::Size(165, 44);
+			this->textBox173->TabIndex = 59;
+			this->textBox173->Text = L"Lateral downforce distribution [%right]";
+			// 
+			// input_F_down_x_0
+			// 
+			this->input_F_down_x_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_x_0->DecimalPlaces = 4;
+			this->input_F_down_x_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_x_0->Location = System::Drawing::Point(436, 81);
+			this->input_F_down_x_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_x_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_x_0->Name = L"input_F_down_x_0";
+			this->input_F_down_x_0->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_x_0->TabIndex = 57;
+			// 
+			// textBox174
+			// 
+			this->textBox174->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox174->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox174->Location = System::Drawing::Point(392, 83);
+			this->textBox174->Multiline = true;
+			this->textBox174->Name = L"textBox174";
+			this->textBox174->Size = System::Drawing::Size(49, 25);
+			this->textBox174->TabIndex = 56;
+			this->textBox174->Text = L"* V +";
+			// 
+			// input_F_down_x_1
+			// 
+			this->input_F_down_x_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_x_1->DecimalPlaces = 4;
+			this->input_F_down_x_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_x_1->Location = System::Drawing::Point(312, 81);
+			this->input_F_down_x_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_x_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_x_1->Name = L"input_F_down_x_1";
+			this->input_F_down_x_1->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_x_1->TabIndex = 55;
+			// 
+			// textBox175
+			// 
+			this->textBox175->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox175->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox175->Location = System::Drawing::Point(257, 83);
+			this->textBox175->Multiline = true;
+			this->textBox175->Name = L"textBox175";
+			this->textBox175->Size = System::Drawing::Size(49, 25);
+			this->textBox175->TabIndex = 54;
+			this->textBox175->Text = L"* V² +";
+			// 
+			// input_F_down_x_2
+			// 
+			this->input_F_down_x_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_x_2->DecimalPlaces = 4;
+			this->input_F_down_x_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_x_2->Location = System::Drawing::Point(177, 81);
+			this->input_F_down_x_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_x_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_x_2->Name = L"input_F_down_x_2";
+			this->input_F_down_x_2->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_x_2->TabIndex = 52;
+			// 
+			// textBox176
+			// 
+			this->textBox176->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox176->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox176->Location = System::Drawing::Point(6, 70);
+			this->textBox176->Multiline = true;
+			this->textBox176->Name = L"textBox176";
+			this->textBox176->Size = System::Drawing::Size(165, 44);
+			this->textBox176->TabIndex = 53;
+			this->textBox176->Text = L"Longitudinal downforce distribution [%front]";
+			// 
+			// input_F_down_0
+			// 
+			this->input_F_down_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_0->DecimalPlaces = 4;
+			this->input_F_down_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_0->Location = System::Drawing::Point(436, 43);
+			this->input_F_down_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_0->Name = L"input_F_down_0";
+			this->input_F_down_0->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_0->TabIndex = 51;
+			// 
+			// textBox177
+			// 
+			this->textBox177->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox177->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox177->Location = System::Drawing::Point(392, 45);
+			this->textBox177->Multiline = true;
+			this->textBox177->Name = L"textBox177";
+			this->textBox177->Size = System::Drawing::Size(49, 25);
+			this->textBox177->TabIndex = 50;
+			this->textBox177->Text = L"* V +";
+			// 
+			// input_F_down_1
+			// 
+			this->input_F_down_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_1->DecimalPlaces = 4;
+			this->input_F_down_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_1->Location = System::Drawing::Point(312, 43);
+			this->input_F_down_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_1->Name = L"input_F_down_1";
+			this->input_F_down_1->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_1->TabIndex = 49;
+			// 
+			// textBox178
+			// 
+			this->textBox178->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox178->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox178->Location = System::Drawing::Point(257, 45);
+			this->textBox178->Multiline = true;
+			this->textBox178->Name = L"textBox178";
+			this->textBox178->Size = System::Drawing::Size(49, 25);
+			this->textBox178->TabIndex = 48;
+			this->textBox178->Text = L"* V² +";
+			// 
+			// input_F_down_2
+			// 
+			this->input_F_down_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_F_down_2->DecimalPlaces = 4;
+			this->input_F_down_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_F_down_2->Location = System::Drawing::Point(177, 43);
+			this->input_F_down_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_F_down_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_F_down_2->Name = L"input_F_down_2";
+			this->input_F_down_2->Size = System::Drawing::Size(74, 27);
+			this->input_F_down_2->TabIndex = 46;
+			// 
+			// textBox179
+			// 
+			this->textBox179->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox179->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox179->Location = System::Drawing::Point(6, 43);
+			this->textBox179->Multiline = true;
+			this->textBox179->Name = L"textBox179";
+			this->textBox179->Size = System::Drawing::Size(165, 20);
+			this->textBox179->TabIndex = 47;
+			this->textBox179->Text = L"Total downforce [N]";
+			// 
+			// tabPage12
+			// 
+			this->tabPage12->Controls->Add(this->groupBox7);
+			this->tabPage12->Controls->Add(this->groupBox15);
+			this->tabPage12->Controls->Add(this->groupBox16);
+			this->tabPage12->Controls->Add(this->groupBox5);
+			this->tabPage12->Location = System::Drawing::Point(4, 22);
+			this->tabPage12->Name = L"tabPage12";
+			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage12->Size = System::Drawing::Size(1061, 604);
+			this->tabPage12->TabIndex = 2;
+			this->tabPage12->Text = L"Springs";
+			this->tabPage12->UseVisualStyleBackColor = true;
+			// 
+			// groupBox7
+			// 
+			this->groupBox7->Controls->Add(this->textBox24);
+			this->groupBox7->Controls->Add(this->input_k_p_C_dist);
+			this->groupBox7->Controls->Add(this->input_k_p_C_deg);
+			this->groupBox7->Controls->Add(this->textBox25);
+			this->groupBox7->Controls->Add(this->textBox22);
+			this->groupBox7->Controls->Add(this->input_k_r_C_dist);
+			this->groupBox7->Controls->Add(this->input_k_r_C_deg);
+			this->groupBox7->Controls->Add(this->textBox23);
+			this->groupBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox7->Location = System::Drawing::Point(6, 149);
+			this->groupBox7->Name = L"groupBox7";
+			this->groupBox7->Size = System::Drawing::Size(241, 282);
+			this->groupBox7->TabIndex = 19;
+			this->groupBox7->TabStop = false;
+			this->groupBox7->Text = L"Chassis";
+			// 
+			// textBox24
+			// 
+			this->textBox24->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox24->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox24->Location = System::Drawing::Point(6, 199);
+			this->textBox24->Multiline = true;
+			this->textBox24->Name = L"textBox24";
+			this->textBox24->Size = System::Drawing::Size(138, 64);
+			this->textBox24->TabIndex = 8;
+			this->textBox24->Text = L"Chassis pitch stiffness distribution [%right]";
+			// 
+			// input_k_p_C_dist
+			// 
+			this->input_k_p_C_dist->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_k_p_C_dist->DecimalPlaces = 2;
+			this->input_k_p_C_dist->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_k_p_C_dist->Location = System::Drawing::Point(150, 217);
+			this->input_k_p_C_dist->Name = L"input_k_p_C_dist";
+			this->input_k_p_C_dist->Size = System::Drawing::Size(74, 27);
+			this->input_k_p_C_dist->TabIndex = 7;
+			this->input_k_p_C_dist->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			// 
+			// input_k_p_C_deg
+			// 
+			this->input_k_p_C_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_k_p_C_deg->DecimalPlaces = 2;
+			this->input_k_p_C_deg->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_k_p_C_deg->Location = System::Drawing::Point(150, 162);
+			this->input_k_p_C_deg->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
+			this->input_k_p_C_deg->Name = L"input_k_p_C_deg";
+			this->input_k_p_C_deg->Size = System::Drawing::Size(74, 27);
+			this->input_k_p_C_deg->TabIndex = 5;
+			this->input_k_p_C_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9000, 0, 0, 0 });
+			// 
+			// textBox25
+			// 
+			this->textBox25->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox25->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox25->Location = System::Drawing::Point(6, 153);
+			this->textBox25->Multiline = true;
+			this->textBox25->Name = L"textBox25";
+			this->textBox25->Size = System::Drawing::Size(138, 45);
+			this->textBox25->TabIndex = 6;
+			this->textBox25->Text = L"Chassis pitch stiffness [Nm/°]";
+			// 
+			// textBox22
+			// 
+			this->textBox22->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox22->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox22->Location = System::Drawing::Point(6, 83);
+			this->textBox22->Multiline = true;
+			this->textBox22->Name = L"textBox22";
+			this->textBox22->Size = System::Drawing::Size(138, 64);
+			this->textBox22->TabIndex = 4;
+			this->textBox22->Text = L"Chassis roll stiffness distribution [%front]";
+			// 
+			// input_k_r_C_dist
+			// 
+			this->input_k_r_C_dist->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_k_r_C_dist->DecimalPlaces = 2;
+			this->input_k_r_C_dist->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_k_r_C_dist->Location = System::Drawing::Point(150, 101);
+			this->input_k_r_C_dist->Name = L"input_k_r_C_dist";
+			this->input_k_r_C_dist->Size = System::Drawing::Size(74, 27);
+			this->input_k_r_C_dist->TabIndex = 3;
+			this->input_k_r_C_dist->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			// 
+			// input_k_r_C_deg
+			// 
+			this->input_k_r_C_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_k_r_C_deg->DecimalPlaces = 2;
+			this->input_k_r_C_deg->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_k_r_C_deg->Location = System::Drawing::Point(150, 41);
+			this->input_k_r_C_deg->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
+			this->input_k_r_C_deg->Name = L"input_k_r_C_deg";
+			this->input_k_r_C_deg->Size = System::Drawing::Size(74, 27);
+			this->input_k_r_C_deg->TabIndex = 0;
+			this->input_k_r_C_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1600, 0, 0, 0 });
+			// 
+			// textBox23
+			// 
+			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox23->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox23->Location = System::Drawing::Point(6, 32);
+			this->textBox23->Multiline = true;
+			this->textBox23->Name = L"textBox23";
+			this->textBox23->Size = System::Drawing::Size(138, 45);
+			this->textBox23->TabIndex = 2;
+			this->textBox23->Text = L"Chassis roll stiffness [Nm/°]";
+			// 
+			// groupBox15
+			// 
+			this->groupBox15->Controls->Add(this->input_f_arb_5);
+			this->groupBox15->Controls->Add(this->textBox89);
+			this->groupBox15->Controls->Add(this->input_f_arb_4);
+			this->groupBox15->Controls->Add(this->textBox88);
+			this->groupBox15->Controls->Add(this->input_f_arb_3);
+			this->groupBox15->Controls->Add(this->textBox87);
+			this->groupBox15->Controls->Add(this->input_f_arb_2);
+			this->groupBox15->Controls->Add(this->textBox85);
+			this->groupBox15->Controls->Add(this->input_f_arb_1);
+			this->groupBox15->Controls->Add(this->textBox86);
+			this->groupBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox15->Location = System::Drawing::Point(253, 6);
+			this->groupBox15->Name = L"groupBox15";
+			this->groupBox15->Size = System::Drawing::Size(241, 285);
+			this->groupBox15->TabIndex = 20;
+			this->groupBox15->TabStop = false;
+			this->groupBox15->Text = L"Front ARB";
+			// 
+			// input_f_arb_5
+			// 
+			this->input_f_arb_5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_f_arb_5->DecimalPlaces = 2;
+			this->input_f_arb_5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_f_arb_5->Location = System::Drawing::Point(150, 245);
+			this->input_f_arb_5->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_f_arb_5->Name = L"input_f_arb_5";
+			this->input_f_arb_5->Size = System::Drawing::Size(74, 27);
+			this->input_f_arb_5->TabIndex = 9;
+			this->input_f_arb_5->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox89
+			// 
+			this->textBox89->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox89->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox89->Location = System::Drawing::Point(6, 236);
+			this->textBox89->Multiline = true;
+			this->textBox89->Name = L"textBox89";
+			this->textBox89->Size = System::Drawing::Size(138, 45);
+			this->textBox89->TabIndex = 10;
+			this->textBox89->Text = L"Setup 5 stiffness [N/mm]";
+			// 
+			// input_f_arb_4
+			// 
+			this->input_f_arb_4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_f_arb_4->DecimalPlaces = 2;
+			this->input_f_arb_4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_f_arb_4->Location = System::Drawing::Point(150, 194);
+			this->input_f_arb_4->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_f_arb_4->Name = L"input_f_arb_4";
+			this->input_f_arb_4->Size = System::Drawing::Size(74, 27);
+			this->input_f_arb_4->TabIndex = 7;
+			this->input_f_arb_4->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox88
+			// 
+			this->textBox88->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox88->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox88->Location = System::Drawing::Point(6, 185);
+			this->textBox88->Multiline = true;
+			this->textBox88->Name = L"textBox88";
+			this->textBox88->Size = System::Drawing::Size(138, 45);
+			this->textBox88->TabIndex = 8;
+			this->textBox88->Text = L"Setup 4 stiffness [N/mm]";
+			// 
+			// input_f_arb_3
+			// 
+			this->input_f_arb_3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_f_arb_3->DecimalPlaces = 2;
+			this->input_f_arb_3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_f_arb_3->Location = System::Drawing::Point(150, 143);
+			this->input_f_arb_3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_f_arb_3->Name = L"input_f_arb_3";
+			this->input_f_arb_3->Size = System::Drawing::Size(74, 27);
+			this->input_f_arb_3->TabIndex = 5;
+			this->input_f_arb_3->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox87
+			// 
+			this->textBox87->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox87->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox87->Location = System::Drawing::Point(6, 134);
+			this->textBox87->Multiline = true;
+			this->textBox87->Name = L"textBox87";
+			this->textBox87->Size = System::Drawing::Size(138, 45);
+			this->textBox87->TabIndex = 6;
+			this->textBox87->Text = L"Setup 3 stiffness [N/mm]";
+			// 
+			// input_f_arb_2
+			// 
+			this->input_f_arb_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_f_arb_2->DecimalPlaces = 2;
+			this->input_f_arb_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_f_arb_2->Location = System::Drawing::Point(150, 92);
+			this->input_f_arb_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_f_arb_2->Name = L"input_f_arb_2";
+			this->input_f_arb_2->Size = System::Drawing::Size(74, 27);
+			this->input_f_arb_2->TabIndex = 3;
+			this->input_f_arb_2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox85
+			// 
+			this->textBox85->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox85->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox85->Location = System::Drawing::Point(6, 83);
+			this->textBox85->Multiline = true;
+			this->textBox85->Name = L"textBox85";
+			this->textBox85->Size = System::Drawing::Size(138, 45);
+			this->textBox85->TabIndex = 4;
+			this->textBox85->Text = L"Setup 2 stiffness [N/mm]";
+			// 
+			// input_f_arb_1
+			// 
+			this->input_f_arb_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_f_arb_1->DecimalPlaces = 2;
+			this->input_f_arb_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_f_arb_1->Location = System::Drawing::Point(150, 41);
+			this->input_f_arb_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_f_arb_1->Name = L"input_f_arb_1";
+			this->input_f_arb_1->Size = System::Drawing::Size(74, 27);
+			this->input_f_arb_1->TabIndex = 0;
+			this->input_f_arb_1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox86
+			// 
+			this->textBox86->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox86->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox86->Location = System::Drawing::Point(6, 32);
+			this->textBox86->Multiline = true;
+			this->textBox86->Name = L"textBox86";
+			this->textBox86->Size = System::Drawing::Size(138, 45);
+			this->textBox86->TabIndex = 2;
+			this->textBox86->Text = L"Setup 1 stiffness [N/mm]";
+			// 
+			// groupBox16
+			// 
+			this->groupBox16->Controls->Add(this->input_r_arb_5);
+			this->groupBox16->Controls->Add(this->textBox90);
+			this->groupBox16->Controls->Add(this->input_r_arb_4);
+			this->groupBox16->Controls->Add(this->textBox91);
+			this->groupBox16->Controls->Add(this->input_r_arb_3);
+			this->groupBox16->Controls->Add(this->textBox92);
+			this->groupBox16->Controls->Add(this->input_r_arb_2);
+			this->groupBox16->Controls->Add(this->textBox93);
+			this->groupBox16->Controls->Add(this->input_r_arb_1);
+			this->groupBox16->Controls->Add(this->textBox94);
+			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox16->Location = System::Drawing::Point(253, 293);
+			this->groupBox16->Name = L"groupBox16";
+			this->groupBox16->Size = System::Drawing::Size(241, 285);
+			this->groupBox16->TabIndex = 21;
+			this->groupBox16->TabStop = false;
+			this->groupBox16->Text = L"Rear ARB";
+			// 
+			// input_r_arb_5
+			// 
+			this->input_r_arb_5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_r_arb_5->DecimalPlaces = 2;
+			this->input_r_arb_5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_r_arb_5->Location = System::Drawing::Point(150, 245);
+			this->input_r_arb_5->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_r_arb_5->Name = L"input_r_arb_5";
+			this->input_r_arb_5->Size = System::Drawing::Size(74, 27);
+			this->input_r_arb_5->TabIndex = 9;
+			this->input_r_arb_5->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox90
+			// 
+			this->textBox90->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox90->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox90->Location = System::Drawing::Point(6, 236);
+			this->textBox90->Multiline = true;
+			this->textBox90->Name = L"textBox90";
+			this->textBox90->Size = System::Drawing::Size(138, 45);
+			this->textBox90->TabIndex = 10;
+			this->textBox90->Text = L"Setup 5 stiffness [N/mm]";
+			// 
+			// input_r_arb_4
+			// 
+			this->input_r_arb_4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_r_arb_4->DecimalPlaces = 2;
+			this->input_r_arb_4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_r_arb_4->Location = System::Drawing::Point(150, 194);
+			this->input_r_arb_4->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_r_arb_4->Name = L"input_r_arb_4";
+			this->input_r_arb_4->Size = System::Drawing::Size(74, 27);
+			this->input_r_arb_4->TabIndex = 7;
+			this->input_r_arb_4->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox91
+			// 
+			this->textBox91->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox91->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox91->Location = System::Drawing::Point(6, 185);
+			this->textBox91->Multiline = true;
+			this->textBox91->Name = L"textBox91";
+			this->textBox91->Size = System::Drawing::Size(138, 45);
+			this->textBox91->TabIndex = 8;
+			this->textBox91->Text = L"Setup 4 stiffness [N/mm]";
+			// 
+			// input_r_arb_3
+			// 
+			this->input_r_arb_3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_r_arb_3->DecimalPlaces = 2;
+			this->input_r_arb_3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_r_arb_3->Location = System::Drawing::Point(150, 143);
+			this->input_r_arb_3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_r_arb_3->Name = L"input_r_arb_3";
+			this->input_r_arb_3->Size = System::Drawing::Size(74, 27);
+			this->input_r_arb_3->TabIndex = 5;
+			this->input_r_arb_3->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox92
+			// 
+			this->textBox92->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox92->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox92->Location = System::Drawing::Point(6, 134);
+			this->textBox92->Multiline = true;
+			this->textBox92->Name = L"textBox92";
+			this->textBox92->Size = System::Drawing::Size(138, 45);
+			this->textBox92->TabIndex = 6;
+			this->textBox92->Text = L"Setup 3 stiffness [N/mm]";
+			// 
+			// input_r_arb_2
+			// 
+			this->input_r_arb_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_r_arb_2->DecimalPlaces = 2;
+			this->input_r_arb_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_r_arb_2->Location = System::Drawing::Point(150, 92);
+			this->input_r_arb_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_r_arb_2->Name = L"input_r_arb_2";
+			this->input_r_arb_2->Size = System::Drawing::Size(74, 27);
+			this->input_r_arb_2->TabIndex = 3;
+			this->input_r_arb_2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox93
+			// 
+			this->textBox93->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox93->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox93->Location = System::Drawing::Point(6, 83);
+			this->textBox93->Multiline = true;
+			this->textBox93->Name = L"textBox93";
+			this->textBox93->Size = System::Drawing::Size(138, 45);
+			this->textBox93->TabIndex = 4;
+			this->textBox93->Text = L"Setup 2 stiffness [N/mm]";
+			// 
+			// input_r_arb_1
+			// 
+			this->input_r_arb_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_r_arb_1->DecimalPlaces = 2;
+			this->input_r_arb_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_r_arb_1->Location = System::Drawing::Point(150, 41);
+			this->input_r_arb_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_r_arb_1->Name = L"input_r_arb_1";
+			this->input_r_arb_1->Size = System::Drawing::Size(74, 27);
+			this->input_r_arb_1->TabIndex = 0;
+			this->input_r_arb_1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
+			// 
+			// textBox94
+			// 
+			this->textBox94->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox94->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox94->Location = System::Drawing::Point(6, 32);
+			this->textBox94->Multiline = true;
+			this->textBox94->Name = L"textBox94";
+			this->textBox94->Size = System::Drawing::Size(138, 45);
+			this->textBox94->TabIndex = 2;
+			this->textBox94->Text = L"Setup 1 stiffness [N/mm]";
+			// 
+			// groupBox5
+			// 
+			this->groupBox5->Controls->Add(this->textBox18);
+			this->groupBox5->Controls->Add(this->input_k_susp_r);
+			this->groupBox5->Controls->Add(this->input_k_susp_f);
+			this->groupBox5->Controls->Add(this->textBox20);
+			this->groupBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox5->Location = System::Drawing::Point(6, 6);
+			this->groupBox5->Name = L"groupBox5";
+			this->groupBox5->Size = System::Drawing::Size(241, 138);
+			this->groupBox5->TabIndex = 18;
+			this->groupBox5->TabStop = false;
+			this->groupBox5->Text = L"Springs";
+			// 
+			// textBox18
+			// 
+			this->textBox18->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox18->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox18->Location = System::Drawing::Point(6, 83);
+			this->textBox18->Multiline = true;
+			this->textBox18->Name = L"textBox18";
+			this->textBox18->Size = System::Drawing::Size(138, 45);
+			this->textBox18->TabIndex = 4;
+			this->textBox18->Text = L"Rear springs stiffness [N/mm]";
+			// 
+			// input_k_susp_r
+			// 
+			this->input_k_susp_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_k_susp_r->DecimalPlaces = 2;
+			this->input_k_susp_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_k_susp_r->Location = System::Drawing::Point(150, 92);
+			this->input_k_susp_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_k_susp_r->Name = L"input_k_susp_r";
+			this->input_k_susp_r->Size = System::Drawing::Size(74, 27);
+			this->input_k_susp_r->TabIndex = 3;
+			this->input_k_susp_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 42710, 0, 0, 196608 });
+			// 
+			// input_k_susp_f
+			// 
+			this->input_k_susp_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_k_susp_f->DecimalPlaces = 2;
+			this->input_k_susp_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_k_susp_f->Location = System::Drawing::Point(150, 41);
+			this->input_k_susp_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_k_susp_f->Name = L"input_k_susp_f";
+			this->input_k_susp_f->Size = System::Drawing::Size(74, 27);
+			this->input_k_susp_f->TabIndex = 0;
+			this->input_k_susp_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 42710, 0, 0, 196608 });
+			// 
+			// textBox20
+			// 
+			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox20->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox20->Location = System::Drawing::Point(6, 32);
+			this->textBox20->Multiline = true;
+			this->textBox20->Name = L"textBox20";
+			this->textBox20->Size = System::Drawing::Size(138, 45);
+			this->textBox20->TabIndex = 2;
+			this->textBox20->Text = L"Front springs stiffness [N/mm]";
+			// 
+			// tabPage14
+			// 
+			this->tabPage14->Controls->Add(this->groupBox20);
+			this->tabPage14->Controls->Add(this->groupBox17);
+			this->tabPage14->Controls->Add(this->groupBox19);
+			this->tabPage14->Controls->Add(this->groupBox18);
+			this->tabPage14->Controls->Add(this->groupBox6);
+			this->tabPage14->Location = System::Drawing::Point(4, 22);
+			this->tabPage14->Name = L"tabPage14";
+			this->tabPage14->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage14->Size = System::Drawing::Size(1061, 604);
+			this->tabPage14->TabIndex = 4;
+			this->tabPage14->Text = L"Kinematics";
+			this->tabPage14->UseVisualStyleBackColor = true;
+			// 
+			// groupBox20
+			// 
+			this->groupBox20->Controls->Add(this->textBox159);
+			this->groupBox20->Controls->Add(this->input_bc_r_1);
+			this->groupBox20->Controls->Add(this->textBox160);
+			this->groupBox20->Controls->Add(this->input_bc_r_2);
+			this->groupBox20->Controls->Add(this->textBox161);
+			this->groupBox20->Controls->Add(this->textBox129);
+			this->groupBox20->Controls->Add(this->input_bc_f_1);
+			this->groupBox20->Controls->Add(this->textBox130);
+			this->groupBox20->Controls->Add(this->input_bc_f_2);
+			this->groupBox20->Controls->Add(this->textBox131);
+			this->groupBox20->Controls->Add(this->textBox153);
+			this->groupBox20->Controls->Add(this->input_sc_r_1);
+			this->groupBox20->Controls->Add(this->textBox154);
+			this->groupBox20->Controls->Add(this->input_sc_r_2);
+			this->groupBox20->Controls->Add(this->textBox155);
+			this->groupBox20->Controls->Add(this->textBox156);
+			this->groupBox20->Controls->Add(this->input_sc_f_1);
+			this->groupBox20->Controls->Add(this->textBox157);
+			this->groupBox20->Controls->Add(this->input_sc_f_2);
+			this->groupBox20->Controls->Add(this->textBox158);
+			this->groupBox20->Location = System::Drawing::Point(560, 351);
+			this->groupBox20->Name = L"groupBox20";
+			this->groupBox20->Size = System::Drawing::Size(548, 198);
+			this->groupBox20->TabIndex = 71;
+			this->groupBox20->TabStop = false;
+			this->groupBox20->Text = L"Camber";
+			// 
+			// textBox159
+			// 
+			this->textBox159->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox159->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox159->Location = System::Drawing::Point(392, 153);
+			this->textBox159->Multiline = true;
+			this->textBox159->Name = L"textBox159";
+			this->textBox159->Size = System::Drawing::Size(49, 25);
+			this->textBox159->TabIndex = 68;
+			this->textBox159->Text = L"* w";
+			// 
+			// input_bc_r_1
+			// 
+			this->input_bc_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bc_r_1->DecimalPlaces = 4;
+			this->input_bc_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bc_r_1->Location = System::Drawing::Point(312, 151);
+			this->input_bc_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bc_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bc_r_1->Name = L"input_bc_r_1";
+			this->input_bc_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_bc_r_1->TabIndex = 67;
+			// 
+			// textBox160
+			// 
+			this->textBox160->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox160->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox160->Location = System::Drawing::Point(257, 153);
+			this->textBox160->Multiline = true;
+			this->textBox160->Name = L"textBox160";
+			this->textBox160->Size = System::Drawing::Size(49, 25);
+			this->textBox160->TabIndex = 66;
+			this->textBox160->Text = L"* w² +";
+			// 
+			// input_bc_r_2
+			// 
+			this->input_bc_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bc_r_2->DecimalPlaces = 4;
+			this->input_bc_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bc_r_2->Location = System::Drawing::Point(177, 151);
+			this->input_bc_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bc_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bc_r_2->Name = L"input_bc_r_2";
+			this->input_bc_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_bc_r_2->TabIndex = 64;
+			// 
+			// textBox161
+			// 
+			this->textBox161->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox161->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox161->Location = System::Drawing::Point(6, 153);
+			this->textBox161->Multiline = true;
+			this->textBox161->Name = L"textBox161";
+			this->textBox161->Size = System::Drawing::Size(165, 25);
+			this->textBox161->TabIndex = 65;
+			this->textBox161->Text = L"Rear bump [°]";
+			// 
+			// textBox129
+			// 
+			this->textBox129->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox129->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox129->Location = System::Drawing::Point(392, 110);
+			this->textBox129->Multiline = true;
+			this->textBox129->Name = L"textBox129";
+			this->textBox129->Size = System::Drawing::Size(49, 25);
+			this->textBox129->TabIndex = 62;
+			this->textBox129->Text = L"* w";
+			// 
+			// input_bc_f_1
+			// 
+			this->input_bc_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bc_f_1->DecimalPlaces = 4;
+			this->input_bc_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bc_f_1->Location = System::Drawing::Point(312, 108);
+			this->input_bc_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bc_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bc_f_1->Name = L"input_bc_f_1";
+			this->input_bc_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_bc_f_1->TabIndex = 61;
+			// 
+			// textBox130
+			// 
+			this->textBox130->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox130->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox130->Location = System::Drawing::Point(257, 110);
+			this->textBox130->Multiline = true;
+			this->textBox130->Name = L"textBox130";
+			this->textBox130->Size = System::Drawing::Size(49, 25);
+			this->textBox130->TabIndex = 60;
+			this->textBox130->Text = L"* w² +";
+			// 
+			// input_bc_f_2
+			// 
+			this->input_bc_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bc_f_2->DecimalPlaces = 4;
+			this->input_bc_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bc_f_2->Location = System::Drawing::Point(177, 108);
+			this->input_bc_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bc_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bc_f_2->Name = L"input_bc_f_2";
+			this->input_bc_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_bc_f_2->TabIndex = 58;
+			// 
+			// textBox131
+			// 
+			this->textBox131->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox131->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox131->Location = System::Drawing::Point(6, 110);
+			this->textBox131->Multiline = true;
+			this->textBox131->Name = L"textBox131";
+			this->textBox131->Size = System::Drawing::Size(165, 25);
+			this->textBox131->TabIndex = 59;
+			this->textBox131->Text = L"Front bump [°]";
+			// 
+			// textBox153
+			// 
+			this->textBox153->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox153->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox153->Location = System::Drawing::Point(392, 70);
+			this->textBox153->Multiline = true;
+			this->textBox153->Name = L"textBox153";
+			this->textBox153->Size = System::Drawing::Size(49, 25);
+			this->textBox153->TabIndex = 56;
+			this->textBox153->Text = L"* δ";
+			// 
+			// input_sc_r_1
+			// 
+			this->input_sc_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_sc_r_1->DecimalPlaces = 4;
+			this->input_sc_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_sc_r_1->Location = System::Drawing::Point(312, 68);
+			this->input_sc_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_sc_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_sc_r_1->Name = L"input_sc_r_1";
+			this->input_sc_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_sc_r_1->TabIndex = 55;
+			// 
+			// textBox154
+			// 
+			this->textBox154->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox154->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox154->Location = System::Drawing::Point(257, 70);
+			this->textBox154->Multiline = true;
+			this->textBox154->Name = L"textBox154";
+			this->textBox154->Size = System::Drawing::Size(49, 25);
+			this->textBox154->TabIndex = 54;
+			this->textBox154->Text = L"* δ² +";
+			// 
+			// input_sc_r_2
+			// 
+			this->input_sc_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_sc_r_2->DecimalPlaces = 4;
+			this->input_sc_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_sc_r_2->Location = System::Drawing::Point(177, 68);
+			this->input_sc_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_sc_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_sc_r_2->Name = L"input_sc_r_2";
+			this->input_sc_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_sc_r_2->TabIndex = 52;
+			// 
+			// textBox155
+			// 
+			this->textBox155->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox155->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox155->Location = System::Drawing::Point(6, 70);
+			this->textBox155->Multiline = true;
+			this->textBox155->Name = L"textBox155";
+			this->textBox155->Size = System::Drawing::Size(165, 23);
+			this->textBox155->TabIndex = 53;
+			this->textBox155->Text = L"Rear steering [°]";
+			// 
+			// textBox156
+			// 
+			this->textBox156->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox156->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox156->Location = System::Drawing::Point(392, 32);
+			this->textBox156->Multiline = true;
+			this->textBox156->Name = L"textBox156";
+			this->textBox156->Size = System::Drawing::Size(49, 25);
+			this->textBox156->TabIndex = 50;
+			this->textBox156->Text = L"* δ";
+			// 
+			// input_sc_f_1
+			// 
+			this->input_sc_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_sc_f_1->DecimalPlaces = 4;
+			this->input_sc_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_sc_f_1->Location = System::Drawing::Point(312, 30);
+			this->input_sc_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_sc_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_sc_f_1->Name = L"input_sc_f_1";
+			this->input_sc_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_sc_f_1->TabIndex = 49;
+			// 
+			// textBox157
+			// 
+			this->textBox157->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox157->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox157->Location = System::Drawing::Point(257, 32);
+			this->textBox157->Multiline = true;
+			this->textBox157->Name = L"textBox157";
+			this->textBox157->Size = System::Drawing::Size(49, 25);
+			this->textBox157->TabIndex = 48;
+			this->textBox157->Text = L"* δ² +";
+			// 
+			// input_sc_f_2
+			// 
+			this->input_sc_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_sc_f_2->DecimalPlaces = 4;
+			this->input_sc_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_sc_f_2->Location = System::Drawing::Point(177, 30);
+			this->input_sc_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_sc_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_sc_f_2->Name = L"input_sc_f_2";
+			this->input_sc_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_sc_f_2->TabIndex = 46;
+			// 
+			// textBox158
+			// 
+			this->textBox158->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox158->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox158->Location = System::Drawing::Point(6, 32);
+			this->textBox158->Multiline = true;
+			this->textBox158->Name = L"textBox158";
+			this->textBox158->Size = System::Drawing::Size(165, 32);
+			this->textBox158->TabIndex = 47;
+			this->textBox158->Text = L"Front steering [°]";
+			// 
+			// groupBox17
+			// 
+			this->groupBox17->Controls->Add(this->input_p_p_r_0);
+			this->groupBox17->Controls->Add(this->textBox108);
+			this->groupBox17->Controls->Add(this->input_p_p_r_1);
+			this->groupBox17->Controls->Add(this->textBox109);
+			this->groupBox17->Controls->Add(this->input_p_p_r_2);
+			this->groupBox17->Controls->Add(this->textBox110);
+			this->groupBox17->Controls->Add(this->input_p_p_f_0);
+			this->groupBox17->Controls->Add(this->textBox114);
+			this->groupBox17->Controls->Add(this->input_p_p_f_1);
+			this->groupBox17->Controls->Add(this->textBox115);
+			this->groupBox17->Controls->Add(this->input_p_p_f_2);
+			this->groupBox17->Controls->Add(this->textBox116);
+			this->groupBox17->Controls->Add(this->input_n_p_o_0);
+			this->groupBox17->Controls->Add(this->textBox117);
+			this->groupBox17->Controls->Add(this->input_n_p_o_1);
+			this->groupBox17->Controls->Add(this->textBox118);
+			this->groupBox17->Controls->Add(this->input_n_p_o_2);
+			this->groupBox17->Controls->Add(this->textBox119);
+			this->groupBox17->Controls->Add(this->input_n_p_i_0);
+			this->groupBox17->Controls->Add(this->textBox120);
+			this->groupBox17->Controls->Add(this->input_n_p_i_1);
+			this->groupBox17->Controls->Add(this->textBox121);
+			this->groupBox17->Controls->Add(this->input_n_p_i_2);
+			this->groupBox17->Controls->Add(this->textBox122);
+			this->groupBox17->Controls->Add(this->input_h_p_o_0);
+			this->groupBox17->Controls->Add(this->textBox123);
+			this->groupBox17->Controls->Add(this->input_h_p_o_1);
+			this->groupBox17->Controls->Add(this->textBox124);
+			this->groupBox17->Controls->Add(this->input_h_p_o_2);
+			this->groupBox17->Controls->Add(this->textBox125);
+			this->groupBox17->Controls->Add(this->input_h_p_i_0);
+			this->groupBox17->Controls->Add(this->textBox126);
+			this->groupBox17->Controls->Add(this->input_h_p_i_1);
+			this->groupBox17->Controls->Add(this->textBox127);
+			this->groupBox17->Controls->Add(this->input_h_p_i_2);
+			this->groupBox17->Controls->Add(this->textBox128);
+			this->groupBox17->Location = System::Drawing::Point(6, 297);
+			this->groupBox17->Name = L"groupBox17";
+			this->groupBox17->Size = System::Drawing::Size(548, 288);
+			this->groupBox17->TabIndex = 82;
+			this->groupBox17->TabStop = false;
+			this->groupBox17->Text = L"Pitch kinematics";
+			// 
+			// input_p_p_r_0
+			// 
+			this->input_p_p_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_p_r_0->DecimalPlaces = 4;
+			this->input_p_p_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_p_r_0->Location = System::Drawing::Point(436, 257);
+			this->input_p_p_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_p_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_p_r_0->Name = L"input_p_p_r_0";
+			this->input_p_p_r_0->Size = System::Drawing::Size(74, 27);
+			this->input_p_p_r_0->TabIndex = 81;
+			// 
+			// textBox108
+			// 
+			this->textBox108->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox108->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox108->Location = System::Drawing::Point(392, 259);
+			this->textBox108->Multiline = true;
+			this->textBox108->Name = L"textBox108";
+			this->textBox108->Size = System::Drawing::Size(49, 25);
+			this->textBox108->TabIndex = 80;
+			this->textBox108->Text = L"* φ +";
+			// 
+			// input_p_p_r_1
+			// 
+			this->input_p_p_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_p_r_1->DecimalPlaces = 4;
+			this->input_p_p_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_p_r_1->Location = System::Drawing::Point(312, 257);
+			this->input_p_p_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_p_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_p_r_1->Name = L"input_p_p_r_1";
+			this->input_p_p_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_p_p_r_1->TabIndex = 79;
+			// 
+			// textBox109
+			// 
+			this->textBox109->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox109->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox109->Location = System::Drawing::Point(257, 259);
+			this->textBox109->Multiline = true;
+			this->textBox109->Name = L"textBox109";
+			this->textBox109->Size = System::Drawing::Size(49, 25);
+			this->textBox109->TabIndex = 78;
+			this->textBox109->Text = L"* φ² +";
+			// 
+			// input_p_p_r_2
+			// 
+			this->input_p_p_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_p_r_2->DecimalPlaces = 4;
+			this->input_p_p_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_p_r_2->Location = System::Drawing::Point(177, 257);
+			this->input_p_p_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_p_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_p_r_2->Name = L"input_p_p_r_2";
+			this->input_p_p_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_p_p_r_2->TabIndex = 76;
+			// 
+			// textBox110
+			// 
+			this->textBox110->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox110->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox110->Location = System::Drawing::Point(6, 246);
+			this->textBox110->Multiline = true;
+			this->textBox110->Name = L"textBox110";
+			this->textBox110->Size = System::Drawing::Size(165, 44);
+			this->textBox110->TabIndex = 77;
+			this->textBox110->Text = L"Rear pitch instant center height [mm]";
+			// 
+			// input_p_p_f_0
+			// 
+			this->input_p_p_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_p_f_0->DecimalPlaces = 4;
+			this->input_p_p_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_p_f_0->Location = System::Drawing::Point(436, 216);
+			this->input_p_p_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_p_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_p_f_0->Name = L"input_p_p_f_0";
+			this->input_p_p_f_0->Size = System::Drawing::Size(74, 27);
+			this->input_p_p_f_0->TabIndex = 75;
+			// 
+			// textBox114
+			// 
+			this->textBox114->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox114->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox114->Location = System::Drawing::Point(392, 218);
+			this->textBox114->Multiline = true;
+			this->textBox114->Name = L"textBox114";
+			this->textBox114->Size = System::Drawing::Size(49, 25);
+			this->textBox114->TabIndex = 74;
+			this->textBox114->Text = L"* φ +";
+			// 
+			// input_p_p_f_1
+			// 
+			this->input_p_p_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_p_f_1->DecimalPlaces = 4;
+			this->input_p_p_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_p_f_1->Location = System::Drawing::Point(312, 216);
+			this->input_p_p_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_p_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_p_f_1->Name = L"input_p_p_f_1";
+			this->input_p_p_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_p_p_f_1->TabIndex = 73;
+			// 
+			// textBox115
+			// 
+			this->textBox115->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox115->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox115->Location = System::Drawing::Point(257, 218);
+			this->textBox115->Multiline = true;
+			this->textBox115->Name = L"textBox115";
+			this->textBox115->Size = System::Drawing::Size(49, 25);
+			this->textBox115->TabIndex = 72;
+			this->textBox115->Text = L"* φ² +";
+			// 
+			// input_p_p_f_2
+			// 
+			this->input_p_p_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_p_f_2->DecimalPlaces = 4;
+			this->input_p_p_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_p_f_2->Location = System::Drawing::Point(177, 216);
+			this->input_p_p_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_p_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_p_f_2->Name = L"input_p_p_f_2";
+			this->input_p_p_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_p_p_f_2->TabIndex = 70;
+			// 
+			// textBox116
+			// 
+			this->textBox116->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox116->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox116->Location = System::Drawing::Point(6, 205);
+			this->textBox116->Multiline = true;
+			this->textBox116->Name = L"textBox116";
+			this->textBox116->Size = System::Drawing::Size(165, 44);
+			this->textBox116->TabIndex = 71;
+			this->textBox116->Text = L"Front pitch instant center height [mm]";
+			// 
+			// input_n_p_o_0
+			// 
+			this->input_n_p_o_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_n_p_o_0->DecimalPlaces = 4;
+			this->input_n_p_o_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_n_p_o_0->Location = System::Drawing::Point(436, 173);
+			this->input_n_p_o_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_n_p_o_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_n_p_o_0->Name = L"input_n_p_o_0";
+			this->input_n_p_o_0->Size = System::Drawing::Size(74, 27);
+			this->input_n_p_o_0->TabIndex = 69;
+			// 
+			// textBox117
+			// 
+			this->textBox117->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox117->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox117->Location = System::Drawing::Point(392, 175);
+			this->textBox117->Multiline = true;
+			this->textBox117->Name = L"textBox117";
+			this->textBox117->Size = System::Drawing::Size(49, 25);
+			this->textBox117->TabIndex = 68;
+			this->textBox117->Text = L"* φ +";
+			// 
+			// input_n_p_o_1
+			// 
+			this->input_n_p_o_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_n_p_o_1->DecimalPlaces = 4;
+			this->input_n_p_o_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_n_p_o_1->Location = System::Drawing::Point(312, 173);
+			this->input_n_p_o_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_n_p_o_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_n_p_o_1->Name = L"input_n_p_o_1";
+			this->input_n_p_o_1->Size = System::Drawing::Size(74, 27);
+			this->input_n_p_o_1->TabIndex = 67;
+			// 
+			// textBox118
+			// 
+			this->textBox118->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox118->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox118->Location = System::Drawing::Point(257, 175);
+			this->textBox118->Multiline = true;
+			this->textBox118->Name = L"textBox118";
+			this->textBox118->Size = System::Drawing::Size(49, 25);
+			this->textBox118->TabIndex = 66;
+			this->textBox118->Text = L"* φ² +";
+			// 
+			// input_n_p_o_2
+			// 
+			this->input_n_p_o_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_n_p_o_2->DecimalPlaces = 4;
+			this->input_n_p_o_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_n_p_o_2->Location = System::Drawing::Point(177, 173);
+			this->input_n_p_o_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_n_p_o_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_n_p_o_2->Name = L"input_n_p_o_2";
+			this->input_n_p_o_2->Size = System::Drawing::Size(74, 27);
+			this->input_n_p_o_2->TabIndex = 64;
+			// 
+			// textBox119
+			// 
+			this->textBox119->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox119->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox119->Location = System::Drawing::Point(6, 162);
+			this->textBox119->Multiline = true;
+			this->textBox119->Name = L"textBox119";
+			this->textBox119->Size = System::Drawing::Size(165, 44);
+			this->textBox119->TabIndex = 65;
+			this->textBox119->Text = L"Right pitch center longitudianl offset [mm]";
+			// 
+			// input_n_p_i_0
+			// 
+			this->input_n_p_i_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_n_p_i_0->DecimalPlaces = 4;
+			this->input_n_p_i_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_n_p_i_0->Location = System::Drawing::Point(436, 85);
+			this->input_n_p_i_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_n_p_i_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_n_p_i_0->Name = L"input_n_p_i_0";
+			this->input_n_p_i_0->Size = System::Drawing::Size(74, 27);
+			this->input_n_p_i_0->TabIndex = 63;
+			// 
+			// textBox120
+			// 
+			this->textBox120->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox120->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox120->Location = System::Drawing::Point(392, 87);
+			this->textBox120->Multiline = true;
+			this->textBox120->Name = L"textBox120";
+			this->textBox120->Size = System::Drawing::Size(49, 25);
+			this->textBox120->TabIndex = 62;
+			this->textBox120->Text = L"* φ +";
+			// 
+			// input_n_p_i_1
+			// 
+			this->input_n_p_i_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_n_p_i_1->DecimalPlaces = 4;
+			this->input_n_p_i_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_n_p_i_1->Location = System::Drawing::Point(312, 85);
+			this->input_n_p_i_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_n_p_i_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_n_p_i_1->Name = L"input_n_p_i_1";
+			this->input_n_p_i_1->Size = System::Drawing::Size(74, 27);
+			this->input_n_p_i_1->TabIndex = 61;
+			// 
+			// textBox121
+			// 
+			this->textBox121->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox121->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox121->Location = System::Drawing::Point(257, 87);
+			this->textBox121->Multiline = true;
+			this->textBox121->Name = L"textBox121";
+			this->textBox121->Size = System::Drawing::Size(49, 25);
+			this->textBox121->TabIndex = 60;
+			this->textBox121->Text = L"* φ² +";
+			// 
+			// input_n_p_i_2
+			// 
+			this->input_n_p_i_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_n_p_i_2->DecimalPlaces = 4;
+			this->input_n_p_i_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_n_p_i_2->Location = System::Drawing::Point(177, 85);
+			this->input_n_p_i_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_n_p_i_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_n_p_i_2->Name = L"input_n_p_i_2";
+			this->input_n_p_i_2->Size = System::Drawing::Size(74, 27);
+			this->input_n_p_i_2->TabIndex = 58;
+			// 
+			// textBox122
+			// 
+			this->textBox122->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox122->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox122->Location = System::Drawing::Point(6, 74);
+			this->textBox122->Multiline = true;
+			this->textBox122->Name = L"textBox122";
+			this->textBox122->Size = System::Drawing::Size(165, 44);
+			this->textBox122->TabIndex = 59;
+			this->textBox122->Text = L"Left pitch center longitudinal offset [mm]";
+			// 
+			// input_h_p_o_0
+			// 
+			this->input_h_p_o_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_p_o_0->DecimalPlaces = 4;
+			this->input_h_p_o_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_p_o_0->Location = System::Drawing::Point(436, 129);
+			this->input_h_p_o_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_p_o_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_p_o_0->Name = L"input_h_p_o_0";
+			this->input_h_p_o_0->Size = System::Drawing::Size(74, 27);
+			this->input_h_p_o_0->TabIndex = 57;
+			// 
+			// textBox123
+			// 
+			this->textBox123->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox123->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox123->Location = System::Drawing::Point(392, 131);
+			this->textBox123->Multiline = true;
+			this->textBox123->Name = L"textBox123";
+			this->textBox123->Size = System::Drawing::Size(49, 25);
+			this->textBox123->TabIndex = 56;
+			this->textBox123->Text = L"* φ +";
+			// 
+			// input_h_p_o_1
+			// 
+			this->input_h_p_o_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_p_o_1->DecimalPlaces = 4;
+			this->input_h_p_o_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_p_o_1->Location = System::Drawing::Point(312, 129);
+			this->input_h_p_o_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_p_o_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_p_o_1->Name = L"input_h_p_o_1";
+			this->input_h_p_o_1->Size = System::Drawing::Size(74, 27);
+			this->input_h_p_o_1->TabIndex = 55;
+			// 
+			// textBox124
+			// 
+			this->textBox124->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox124->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox124->Location = System::Drawing::Point(257, 131);
+			this->textBox124->Multiline = true;
+			this->textBox124->Name = L"textBox124";
+			this->textBox124->Size = System::Drawing::Size(49, 25);
+			this->textBox124->TabIndex = 54;
+			this->textBox124->Text = L"* φ² +";
+			// 
+			// input_h_p_o_2
+			// 
+			this->input_h_p_o_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_p_o_2->DecimalPlaces = 4;
+			this->input_h_p_o_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_p_o_2->Location = System::Drawing::Point(177, 129);
+			this->input_h_p_o_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_p_o_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_p_o_2->Name = L"input_h_p_o_2";
+			this->input_h_p_o_2->Size = System::Drawing::Size(74, 27);
+			this->input_h_p_o_2->TabIndex = 52;
+			// 
+			// textBox125
+			// 
+			this->textBox125->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox125->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox125->Location = System::Drawing::Point(6, 118);
+			this->textBox125->Multiline = true;
+			this->textBox125->Name = L"textBox125";
+			this->textBox125->Size = System::Drawing::Size(165, 44);
+			this->textBox125->TabIndex = 53;
+			this->textBox125->Text = L"Right pitch center height [mm]";
+			// 
+			// input_h_p_i_0
+			// 
+			this->input_h_p_i_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_p_i_0->DecimalPlaces = 4;
+			this->input_h_p_i_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_p_i_0->Location = System::Drawing::Point(436, 43);
+			this->input_h_p_i_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_p_i_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_p_i_0->Name = L"input_h_p_i_0";
+			this->input_h_p_i_0->Size = System::Drawing::Size(74, 27);
+			this->input_h_p_i_0->TabIndex = 51;
+			// 
+			// textBox126
+			// 
+			this->textBox126->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox126->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox126->Location = System::Drawing::Point(392, 45);
+			this->textBox126->Multiline = true;
+			this->textBox126->Name = L"textBox126";
+			this->textBox126->Size = System::Drawing::Size(49, 25);
+			this->textBox126->TabIndex = 50;
+			this->textBox126->Text = L"* φ +";
+			// 
+			// input_h_p_i_1
+			// 
+			this->input_h_p_i_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_p_i_1->DecimalPlaces = 4;
+			this->input_h_p_i_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_p_i_1->Location = System::Drawing::Point(312, 43);
+			this->input_h_p_i_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_p_i_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_p_i_1->Name = L"input_h_p_i_1";
+			this->input_h_p_i_1->Size = System::Drawing::Size(74, 27);
+			this->input_h_p_i_1->TabIndex = 49;
+			// 
+			// textBox127
+			// 
+			this->textBox127->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox127->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox127->Location = System::Drawing::Point(257, 45);
+			this->textBox127->Multiline = true;
+			this->textBox127->Name = L"textBox127";
+			this->textBox127->Size = System::Drawing::Size(49, 25);
+			this->textBox127->TabIndex = 48;
+			this->textBox127->Text = L"* φ² +";
+			// 
+			// input_h_p_i_2
+			// 
+			this->input_h_p_i_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_p_i_2->DecimalPlaces = 4;
+			this->input_h_p_i_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_p_i_2->Location = System::Drawing::Point(177, 43);
+			this->input_h_p_i_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_p_i_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_p_i_2->Name = L"input_h_p_i_2";
+			this->input_h_p_i_2->Size = System::Drawing::Size(74, 27);
+			this->input_h_p_i_2->TabIndex = 46;
+			// 
+			// textBox128
+			// 
+			this->textBox128->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox128->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox128->Location = System::Drawing::Point(6, 32);
+			this->textBox128->Multiline = true;
+			this->textBox128->Name = L"textBox128";
+			this->textBox128->Size = System::Drawing::Size(165, 44);
+			this->textBox128->TabIndex = 47;
+			this->textBox128->Text = L"Left pitch center height [mm]";
+			// 
+			// groupBox19
+			// 
+			this->groupBox19->Controls->Add(this->textBox132);
+			this->groupBox19->Controls->Add(this->input_bs_r_1);
+			this->groupBox19->Controls->Add(this->textBox133);
+			this->groupBox19->Controls->Add(this->input_bs_r_2);
+			this->groupBox19->Controls->Add(this->textBox134);
+			this->groupBox19->Controls->Add(this->textBox147);
+			this->groupBox19->Controls->Add(this->input_bs_f_1);
+			this->groupBox19->Controls->Add(this->textBox148);
+			this->groupBox19->Controls->Add(this->input_bs_f_2);
+			this->groupBox19->Controls->Add(this->textBox149);
+			this->groupBox19->Controls->Add(this->textBox150);
+			this->groupBox19->Controls->Add(this->input_ackermann_1);
+			this->groupBox19->Controls->Add(this->textBox151);
+			this->groupBox19->Controls->Add(this->input_ackermann_2);
+			this->groupBox19->Controls->Add(this->textBox152);
+			this->groupBox19->Location = System::Drawing::Point(560, 201);
+			this->groupBox19->Name = L"groupBox19";
+			this->groupBox19->Size = System::Drawing::Size(548, 144);
+			this->groupBox19->TabIndex = 70;
+			this->groupBox19->TabStop = false;
+			this->groupBox19->Text = L"Steering";
+			// 
+			// textBox132
+			// 
+			this->textBox132->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox132->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox132->Location = System::Drawing::Point(392, 110);
+			this->textBox132->Multiline = true;
+			this->textBox132->Name = L"textBox132";
+			this->textBox132->Size = System::Drawing::Size(49, 25);
+			this->textBox132->TabIndex = 62;
+			this->textBox132->Text = L"* w";
+			// 
+			// input_bs_r_1
+			// 
+			this->input_bs_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bs_r_1->DecimalPlaces = 4;
+			this->input_bs_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bs_r_1->Location = System::Drawing::Point(312, 108);
+			this->input_bs_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bs_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bs_r_1->Name = L"input_bs_r_1";
+			this->input_bs_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_bs_r_1->TabIndex = 61;
+			// 
+			// textBox133
+			// 
+			this->textBox133->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox133->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox133->Location = System::Drawing::Point(257, 110);
+			this->textBox133->Multiline = true;
+			this->textBox133->Name = L"textBox133";
+			this->textBox133->Size = System::Drawing::Size(49, 25);
+			this->textBox133->TabIndex = 60;
+			this->textBox133->Text = L"* w² +";
+			// 
+			// input_bs_r_2
+			// 
+			this->input_bs_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bs_r_2->DecimalPlaces = 4;
+			this->input_bs_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bs_r_2->Location = System::Drawing::Point(177, 108);
+			this->input_bs_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bs_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bs_r_2->Name = L"input_bs_r_2";
+			this->input_bs_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_bs_r_2->TabIndex = 58;
+			// 
+			// textBox134
+			// 
+			this->textBox134->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox134->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox134->Location = System::Drawing::Point(6, 110);
+			this->textBox134->Multiline = true;
+			this->textBox134->Name = L"textBox134";
+			this->textBox134->Size = System::Drawing::Size(165, 25);
+			this->textBox134->TabIndex = 59;
+			this->textBox134->Text = L"Rear bump steer [°]";
+			// 
+			// textBox147
+			// 
+			this->textBox147->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox147->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox147->Location = System::Drawing::Point(392, 70);
+			this->textBox147->Multiline = true;
+			this->textBox147->Name = L"textBox147";
+			this->textBox147->Size = System::Drawing::Size(49, 25);
+			this->textBox147->TabIndex = 56;
+			this->textBox147->Text = L"* w";
+			// 
+			// input_bs_f_1
+			// 
+			this->input_bs_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bs_f_1->DecimalPlaces = 4;
+			this->input_bs_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bs_f_1->Location = System::Drawing::Point(312, 68);
+			this->input_bs_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bs_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bs_f_1->Name = L"input_bs_f_1";
+			this->input_bs_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_bs_f_1->TabIndex = 55;
+			// 
+			// textBox148
+			// 
+			this->textBox148->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox148->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox148->Location = System::Drawing::Point(257, 70);
+			this->textBox148->Multiline = true;
+			this->textBox148->Name = L"textBox148";
+			this->textBox148->Size = System::Drawing::Size(49, 25);
+			this->textBox148->TabIndex = 54;
+			this->textBox148->Text = L"* w² +";
+			// 
+			// input_bs_f_2
+			// 
+			this->input_bs_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_bs_f_2->DecimalPlaces = 4;
+			this->input_bs_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_bs_f_2->Location = System::Drawing::Point(177, 68);
+			this->input_bs_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_bs_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_bs_f_2->Name = L"input_bs_f_2";
+			this->input_bs_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_bs_f_2->TabIndex = 52;
+			// 
+			// textBox149
+			// 
+			this->textBox149->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox149->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox149->Location = System::Drawing::Point(6, 70);
+			this->textBox149->Multiline = true;
+			this->textBox149->Name = L"textBox149";
+			this->textBox149->Size = System::Drawing::Size(165, 23);
+			this->textBox149->TabIndex = 53;
+			this->textBox149->Text = L"Front bump steer [°]";
+			// 
+			// textBox150
+			// 
+			this->textBox150->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox150->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox150->Location = System::Drawing::Point(392, 32);
+			this->textBox150->Multiline = true;
+			this->textBox150->Name = L"textBox150";
+			this->textBox150->Size = System::Drawing::Size(49, 25);
+			this->textBox150->TabIndex = 50;
+			this->textBox150->Text = L"* δd";
+			// 
+			// input_ackermann_1
+			// 
+			this->input_ackermann_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_ackermann_1->DecimalPlaces = 4;
+			this->input_ackermann_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_ackermann_1->Location = System::Drawing::Point(312, 30);
+			this->input_ackermann_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_ackermann_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_ackermann_1->Name = L"input_ackermann_1";
+			this->input_ackermann_1->Size = System::Drawing::Size(74, 27);
+			this->input_ackermann_1->TabIndex = 49;
+			// 
+			// textBox151
+			// 
+			this->textBox151->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox151->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox151->Location = System::Drawing::Point(257, 32);
+			this->textBox151->Multiline = true;
+			this->textBox151->Name = L"textBox151";
+			this->textBox151->Size = System::Drawing::Size(49, 25);
+			this->textBox151->TabIndex = 48;
+			this->textBox151->Text = L"* δd² +";
+			// 
+			// input_ackermann_2
+			// 
+			this->input_ackermann_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_ackermann_2->DecimalPlaces = 4;
+			this->input_ackermann_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_ackermann_2->Location = System::Drawing::Point(177, 30);
+			this->input_ackermann_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_ackermann_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_ackermann_2->Name = L"input_ackermann_2";
+			this->input_ackermann_2->Size = System::Drawing::Size(74, 27);
+			this->input_ackermann_2->TabIndex = 46;
+			// 
+			// textBox152
+			// 
+			this->textBox152->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox152->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox152->Location = System::Drawing::Point(6, 32);
+			this->textBox152->Multiline = true;
+			this->textBox152->Name = L"textBox152";
+			this->textBox152->Size = System::Drawing::Size(165, 32);
+			this->textBox152->TabIndex = 47;
+			this->textBox152->Text = L"Ackermann [°]";
+			// 
+			// groupBox18
+			// 
+			this->groupBox18->Controls->Add(this->input_MR_arb_r_0);
+			this->groupBox18->Controls->Add(this->textBox135);
+			this->groupBox18->Controls->Add(this->input_MR_arb_r_1);
+			this->groupBox18->Controls->Add(this->textBox136);
+			this->groupBox18->Controls->Add(this->input_MR_arb_r_2);
+			this->groupBox18->Controls->Add(this->textBox137);
+			this->groupBox18->Controls->Add(this->input_MR_arb_f_0);
+			this->groupBox18->Controls->Add(this->textBox138);
+			this->groupBox18->Controls->Add(this->input_MR_arb_f_1);
+			this->groupBox18->Controls->Add(this->textBox139);
+			this->groupBox18->Controls->Add(this->input_MR_arb_f_2);
+			this->groupBox18->Controls->Add(this->textBox140);
+			this->groupBox18->Controls->Add(this->input_MR_s_r_0);
+			this->groupBox18->Controls->Add(this->textBox141);
+			this->groupBox18->Controls->Add(this->input_MR_s_r_1);
+			this->groupBox18->Controls->Add(this->textBox142);
+			this->groupBox18->Controls->Add(this->input_MR_s_r_2);
+			this->groupBox18->Controls->Add(this->textBox143);
+			this->groupBox18->Controls->Add(this->input_MR_s_f_0);
+			this->groupBox18->Controls->Add(this->textBox144);
+			this->groupBox18->Controls->Add(this->input_MR_s_f_1);
+			this->groupBox18->Controls->Add(this->textBox145);
+			this->groupBox18->Controls->Add(this->input_MR_s_f_2);
+			this->groupBox18->Controls->Add(this->textBox146);
+			this->groupBox18->Location = System::Drawing::Point(560, 9);
+			this->groupBox18->Name = L"groupBox18";
+			this->groupBox18->Size = System::Drawing::Size(548, 186);
+			this->groupBox18->TabIndex = 23;
+			this->groupBox18->TabStop = false;
+			this->groupBox18->Text = L"Motion ratios";
+			// 
+			// input_MR_arb_r_0
+			// 
+			this->input_MR_arb_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_arb_r_0->DecimalPlaces = 4;
+			this->input_MR_arb_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_arb_r_0->Location = System::Drawing::Point(436, 149);
+			this->input_MR_arb_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_arb_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_arb_r_0->Name = L"input_MR_arb_r_0";
+			this->input_MR_arb_r_0->Size = System::Drawing::Size(74, 27);
+			this->input_MR_arb_r_0->TabIndex = 69;
+			// 
+			// textBox135
+			// 
+			this->textBox135->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox135->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox135->Location = System::Drawing::Point(392, 151);
+			this->textBox135->Multiline = true;
+			this->textBox135->Name = L"textBox135";
+			this->textBox135->Size = System::Drawing::Size(49, 25);
+			this->textBox135->TabIndex = 68;
+			this->textBox135->Text = L"* w +";
+			// 
+			// input_MR_arb_r_1
+			// 
+			this->input_MR_arb_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_arb_r_1->DecimalPlaces = 4;
+			this->input_MR_arb_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_arb_r_1->Location = System::Drawing::Point(312, 149);
+			this->input_MR_arb_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_arb_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_arb_r_1->Name = L"input_MR_arb_r_1";
+			this->input_MR_arb_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_MR_arb_r_1->TabIndex = 67;
+			// 
+			// textBox136
+			// 
+			this->textBox136->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox136->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox136->Location = System::Drawing::Point(257, 151);
+			this->textBox136->Multiline = true;
+			this->textBox136->Name = L"textBox136";
+			this->textBox136->Size = System::Drawing::Size(49, 25);
+			this->textBox136->TabIndex = 66;
+			this->textBox136->Text = L"* w² +";
+			// 
+			// input_MR_arb_r_2
+			// 
+			this->input_MR_arb_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_arb_r_2->DecimalPlaces = 4;
+			this->input_MR_arb_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_arb_r_2->Location = System::Drawing::Point(177, 149);
+			this->input_MR_arb_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_arb_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_arb_r_2->Name = L"input_MR_arb_r_2";
+			this->input_MR_arb_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_MR_arb_r_2->TabIndex = 64;
+			// 
+			// textBox137
+			// 
+			this->textBox137->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox137->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox137->Location = System::Drawing::Point(6, 151);
+			this->textBox137->Multiline = true;
+			this->textBox137->Name = L"textBox137";
+			this->textBox137->Size = System::Drawing::Size(165, 25);
+			this->textBox137->TabIndex = 65;
+			this->textBox137->Text = L"Rear ARB [mm/mm]";
+			// 
+			// input_MR_arb_f_0
+			// 
+			this->input_MR_arb_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_arb_f_0->DecimalPlaces = 4;
+			this->input_MR_arb_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_arb_f_0->Location = System::Drawing::Point(436, 108);
+			this->input_MR_arb_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_arb_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_arb_f_0->Name = L"input_MR_arb_f_0";
+			this->input_MR_arb_f_0->Size = System::Drawing::Size(74, 27);
+			this->input_MR_arb_f_0->TabIndex = 63;
+			// 
+			// textBox138
+			// 
+			this->textBox138->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox138->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox138->Location = System::Drawing::Point(392, 110);
+			this->textBox138->Multiline = true;
+			this->textBox138->Name = L"textBox138";
+			this->textBox138->Size = System::Drawing::Size(49, 25);
+			this->textBox138->TabIndex = 62;
+			this->textBox138->Text = L"* w +";
+			// 
+			// input_MR_arb_f_1
+			// 
+			this->input_MR_arb_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_arb_f_1->DecimalPlaces = 4;
+			this->input_MR_arb_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_arb_f_1->Location = System::Drawing::Point(312, 108);
+			this->input_MR_arb_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_arb_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_arb_f_1->Name = L"input_MR_arb_f_1";
+			this->input_MR_arb_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_MR_arb_f_1->TabIndex = 61;
+			// 
+			// textBox139
+			// 
+			this->textBox139->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox139->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox139->Location = System::Drawing::Point(257, 110);
+			this->textBox139->Multiline = true;
+			this->textBox139->Name = L"textBox139";
+			this->textBox139->Size = System::Drawing::Size(49, 25);
+			this->textBox139->TabIndex = 60;
+			this->textBox139->Text = L"* w² +";
+			// 
+			// input_MR_arb_f_2
+			// 
+			this->input_MR_arb_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_arb_f_2->DecimalPlaces = 4;
+			this->input_MR_arb_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_arb_f_2->Location = System::Drawing::Point(177, 108);
+			this->input_MR_arb_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_arb_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_arb_f_2->Name = L"input_MR_arb_f_2";
+			this->input_MR_arb_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_MR_arb_f_2->TabIndex = 58;
+			// 
+			// textBox140
+			// 
+			this->textBox140->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox140->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox140->Location = System::Drawing::Point(6, 110);
+			this->textBox140->Multiline = true;
+			this->textBox140->Name = L"textBox140";
+			this->textBox140->Size = System::Drawing::Size(165, 25);
+			this->textBox140->TabIndex = 59;
+			this->textBox140->Text = L"Front ARB [mm/mm]";
+			// 
+			// input_MR_s_r_0
+			// 
+			this->input_MR_s_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_s_r_0->DecimalPlaces = 4;
+			this->input_MR_s_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_s_r_0->Location = System::Drawing::Point(436, 68);
+			this->input_MR_s_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_s_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_s_r_0->Name = L"input_MR_s_r_0";
+			this->input_MR_s_r_0->Size = System::Drawing::Size(74, 27);
+			this->input_MR_s_r_0->TabIndex = 57;
+			// 
+			// textBox141
+			// 
+			this->textBox141->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox141->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox141->Location = System::Drawing::Point(392, 70);
+			this->textBox141->Multiline = true;
+			this->textBox141->Name = L"textBox141";
+			this->textBox141->Size = System::Drawing::Size(49, 25);
+			this->textBox141->TabIndex = 56;
+			this->textBox141->Text = L"* w +";
+			// 
+			// input_MR_s_r_1
+			// 
+			this->input_MR_s_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_s_r_1->DecimalPlaces = 4;
+			this->input_MR_s_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_s_r_1->Location = System::Drawing::Point(312, 68);
+			this->input_MR_s_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_s_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_s_r_1->Name = L"input_MR_s_r_1";
+			this->input_MR_s_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_MR_s_r_1->TabIndex = 55;
+			// 
+			// textBox142
+			// 
+			this->textBox142->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox142->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox142->Location = System::Drawing::Point(257, 70);
+			this->textBox142->Multiline = true;
+			this->textBox142->Name = L"textBox142";
+			this->textBox142->Size = System::Drawing::Size(49, 25);
+			this->textBox142->TabIndex = 54;
+			this->textBox142->Text = L"* w² +";
+			// 
+			// input_MR_s_r_2
+			// 
+			this->input_MR_s_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_s_r_2->DecimalPlaces = 4;
+			this->input_MR_s_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_s_r_2->Location = System::Drawing::Point(177, 68);
+			this->input_MR_s_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_s_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_s_r_2->Name = L"input_MR_s_r_2";
+			this->input_MR_s_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_MR_s_r_2->TabIndex = 52;
+			// 
+			// textBox143
+			// 
+			this->textBox143->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox143->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox143->Location = System::Drawing::Point(6, 70);
+			this->textBox143->Multiline = true;
+			this->textBox143->Name = L"textBox143";
+			this->textBox143->Size = System::Drawing::Size(165, 23);
+			this->textBox143->TabIndex = 53;
+			this->textBox143->Text = L"Rear springs [mm/mm]";
+			// 
+			// input_MR_s_f_0
+			// 
+			this->input_MR_s_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_s_f_0->DecimalPlaces = 4;
+			this->input_MR_s_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_s_f_0->Location = System::Drawing::Point(436, 30);
+			this->input_MR_s_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_s_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_s_f_0->Name = L"input_MR_s_f_0";
+			this->input_MR_s_f_0->Size = System::Drawing::Size(74, 27);
+			this->input_MR_s_f_0->TabIndex = 51;
+			// 
+			// textBox144
+			// 
+			this->textBox144->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox144->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox144->Location = System::Drawing::Point(392, 32);
+			this->textBox144->Multiline = true;
+			this->textBox144->Name = L"textBox144";
+			this->textBox144->Size = System::Drawing::Size(49, 25);
+			this->textBox144->TabIndex = 50;
+			this->textBox144->Text = L"* w +";
+			// 
+			// input_MR_s_f_1
+			// 
+			this->input_MR_s_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_s_f_1->DecimalPlaces = 4;
+			this->input_MR_s_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_s_f_1->Location = System::Drawing::Point(312, 30);
+			this->input_MR_s_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_s_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_s_f_1->Name = L"input_MR_s_f_1";
+			this->input_MR_s_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_MR_s_f_1->TabIndex = 49;
+			// 
+			// textBox145
+			// 
+			this->textBox145->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox145->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox145->Location = System::Drawing::Point(257, 32);
+			this->textBox145->Multiline = true;
+			this->textBox145->Name = L"textBox145";
+			this->textBox145->Size = System::Drawing::Size(49, 25);
+			this->textBox145->TabIndex = 48;
+			this->textBox145->Text = L"* w² +";
+			// 
+			// input_MR_s_f_2
+			// 
+			this->input_MR_s_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_MR_s_f_2->DecimalPlaces = 4;
+			this->input_MR_s_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_MR_s_f_2->Location = System::Drawing::Point(177, 30);
+			this->input_MR_s_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_MR_s_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_MR_s_f_2->Name = L"input_MR_s_f_2";
+			this->input_MR_s_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_MR_s_f_2->TabIndex = 46;
+			// 
+			// textBox146
+			// 
+			this->textBox146->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox146->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox146->Location = System::Drawing::Point(6, 32);
+			this->textBox146->Multiline = true;
+			this->textBox146->Name = L"textBox146";
+			this->textBox146->Size = System::Drawing::Size(165, 32);
+			this->textBox146->TabIndex = 47;
+			this->textBox146->Text = L"Front springs [mm/mm]";
+			// 
+			// groupBox6
+			// 
+			this->groupBox6->Controls->Add(this->input_p_r_r_0);
+			this->groupBox6->Controls->Add(this->textBox111);
+			this->groupBox6->Controls->Add(this->input_p_r_r_1);
+			this->groupBox6->Controls->Add(this->textBox112);
+			this->groupBox6->Controls->Add(this->input_p_r_r_2);
+			this->groupBox6->Controls->Add(this->textBox113);
+			this->groupBox6->Controls->Add(this->input_p_r_f_0);
+			this->groupBox6->Controls->Add(this->textBox105);
+			this->groupBox6->Controls->Add(this->input_p_r_f_1);
+			this->groupBox6->Controls->Add(this->textBox106);
+			this->groupBox6->Controls->Add(this->input_p_r_f_2);
+			this->groupBox6->Controls->Add(this->textBox107);
+			this->groupBox6->Controls->Add(this->input_off_r_r_0);
+			this->groupBox6->Controls->Add(this->textBox102);
+			this->groupBox6->Controls->Add(this->input_off_r_r_1);
+			this->groupBox6->Controls->Add(this->textBox103);
+			this->groupBox6->Controls->Add(this->input_off_r_r_2);
+			this->groupBox6->Controls->Add(this->textBox104);
+			this->groupBox6->Controls->Add(this->input_off_r_f_0);
+			this->groupBox6->Controls->Add(this->textBox99);
+			this->groupBox6->Controls->Add(this->input_off_r_f_1);
+			this->groupBox6->Controls->Add(this->textBox100);
+			this->groupBox6->Controls->Add(this->input_off_r_f_2);
+			this->groupBox6->Controls->Add(this->textBox101);
+			this->groupBox6->Controls->Add(this->input_h_r_r_0);
+			this->groupBox6->Controls->Add(this->textBox96);
+			this->groupBox6->Controls->Add(this->input_h_r_r_1);
+			this->groupBox6->Controls->Add(this->textBox97);
+			this->groupBox6->Controls->Add(this->input_h_r_r_2);
+			this->groupBox6->Controls->Add(this->textBox98);
+			this->groupBox6->Controls->Add(this->input_h_r_f_0);
+			this->groupBox6->Controls->Add(this->textBox19);
+			this->groupBox6->Controls->Add(this->input_h_r_f_1);
+			this->groupBox6->Controls->Add(this->textBox21);
+			this->groupBox6->Controls->Add(this->input_h_r_f_2);
+			this->groupBox6->Controls->Add(this->textBox95);
+			this->groupBox6->Location = System::Drawing::Point(6, 6);
+			this->groupBox6->Name = L"groupBox6";
+			this->groupBox6->Size = System::Drawing::Size(548, 288);
+			this->groupBox6->TabIndex = 22;
+			this->groupBox6->TabStop = false;
+			this->groupBox6->Text = L"Roll kinematics";
+			// 
+			// input_p_r_r_0
+			// 
+			this->input_p_r_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_r_r_0->DecimalPlaces = 4;
+			this->input_p_r_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_r_r_0->Location = System::Drawing::Point(436, 246);
+			this->input_p_r_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_r_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_r_r_0->Name = L"input_p_r_r_0";
+			this->input_p_r_r_0->Size = System::Drawing::Size(74, 27);
+			this->input_p_r_r_0->TabIndex = 81;
+			// 
+			// textBox111
+			// 
+			this->textBox111->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox111->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox111->Location = System::Drawing::Point(392, 248);
+			this->textBox111->Multiline = true;
+			this->textBox111->Name = L"textBox111";
+			this->textBox111->Size = System::Drawing::Size(49, 25);
+			this->textBox111->TabIndex = 80;
+			this->textBox111->Text = L"* Ψ +";
+			// 
+			// input_p_r_r_1
+			// 
+			this->input_p_r_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_r_r_1->DecimalPlaces = 4;
+			this->input_p_r_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_r_r_1->Location = System::Drawing::Point(312, 246);
+			this->input_p_r_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_r_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_r_r_1->Name = L"input_p_r_r_1";
+			this->input_p_r_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_p_r_r_1->TabIndex = 79;
+			// 
+			// textBox112
+			// 
+			this->textBox112->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox112->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox112->Location = System::Drawing::Point(257, 248);
+			this->textBox112->Multiline = true;
+			this->textBox112->Name = L"textBox112";
+			this->textBox112->Size = System::Drawing::Size(49, 25);
+			this->textBox112->TabIndex = 78;
+			this->textBox112->Text = L"* Ψ² +";
+			// 
+			// input_p_r_r_2
+			// 
+			this->input_p_r_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_r_r_2->DecimalPlaces = 4;
+			this->input_p_r_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_r_r_2->Location = System::Drawing::Point(177, 246);
+			this->input_p_r_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_r_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_r_r_2->Name = L"input_p_r_r_2";
+			this->input_p_r_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_p_r_r_2->TabIndex = 76;
+			// 
+			// textBox113
+			// 
+			this->textBox113->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox113->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox113->Location = System::Drawing::Point(6, 235);
+			this->textBox113->Multiline = true;
+			this->textBox113->Name = L"textBox113";
+			this->textBox113->Size = System::Drawing::Size(165, 44);
+			this->textBox113->TabIndex = 77;
+			this->textBox113->Text = L"Rear roll instant center height [mm]";
+			// 
+			// input_p_r_f_0
+			// 
+			this->input_p_r_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_r_f_0->DecimalPlaces = 4;
+			this->input_p_r_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_r_f_0->Location = System::Drawing::Point(436, 122);
+			this->input_p_r_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_r_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_r_f_0->Name = L"input_p_r_f_0";
+			this->input_p_r_f_0->Size = System::Drawing::Size(74, 27);
+			this->input_p_r_f_0->TabIndex = 75;
+			// 
+			// textBox105
+			// 
+			this->textBox105->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox105->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox105->Location = System::Drawing::Point(392, 124);
+			this->textBox105->Multiline = true;
+			this->textBox105->Name = L"textBox105";
+			this->textBox105->Size = System::Drawing::Size(49, 25);
+			this->textBox105->TabIndex = 74;
+			this->textBox105->Text = L"* Ψ +";
+			// 
+			// input_p_r_f_1
+			// 
+			this->input_p_r_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_r_f_1->DecimalPlaces = 4;
+			this->input_p_r_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_r_f_1->Location = System::Drawing::Point(312, 122);
+			this->input_p_r_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_r_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_r_f_1->Name = L"input_p_r_f_1";
+			this->input_p_r_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_p_r_f_1->TabIndex = 73;
+			// 
+			// textBox106
+			// 
+			this->textBox106->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox106->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox106->Location = System::Drawing::Point(257, 124);
+			this->textBox106->Multiline = true;
+			this->textBox106->Name = L"textBox106";
+			this->textBox106->Size = System::Drawing::Size(49, 25);
+			this->textBox106->TabIndex = 72;
+			this->textBox106->Text = L"* Ψ² +";
+			// 
+			// input_p_r_f_2
+			// 
+			this->input_p_r_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_p_r_f_2->DecimalPlaces = 4;
+			this->input_p_r_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_p_r_f_2->Location = System::Drawing::Point(177, 122);
+			this->input_p_r_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_p_r_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_p_r_f_2->Name = L"input_p_r_f_2";
+			this->input_p_r_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_p_r_f_2->TabIndex = 70;
+			// 
+			// textBox107
+			// 
+			this->textBox107->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox107->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox107->Location = System::Drawing::Point(6, 111);
+			this->textBox107->Multiline = true;
+			this->textBox107->Name = L"textBox107";
+			this->textBox107->Size = System::Drawing::Size(165, 44);
+			this->textBox107->TabIndex = 71;
+			this->textBox107->Text = L"Front roll instant center height [mm]";
+			// 
+			// input_off_r_r_0
+			// 
+			this->input_off_r_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_off_r_r_0->DecimalPlaces = 4;
+			this->input_off_r_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_off_r_r_0->Location = System::Drawing::Point(436, 207);
+			this->input_off_r_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_off_r_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_off_r_r_0->Name = L"input_off_r_r_0";
+			this->input_off_r_r_0->Size = System::Drawing::Size(74, 27);
+			this->input_off_r_r_0->TabIndex = 69;
+			// 
+			// textBox102
+			// 
+			this->textBox102->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox102->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox102->Location = System::Drawing::Point(392, 209);
+			this->textBox102->Multiline = true;
+			this->textBox102->Name = L"textBox102";
+			this->textBox102->Size = System::Drawing::Size(49, 25);
+			this->textBox102->TabIndex = 68;
+			this->textBox102->Text = L"* Ψ +";
+			// 
+			// input_off_r_r_1
+			// 
+			this->input_off_r_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_off_r_r_1->DecimalPlaces = 4;
+			this->input_off_r_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_off_r_r_1->Location = System::Drawing::Point(312, 207);
+			this->input_off_r_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_off_r_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_off_r_r_1->Name = L"input_off_r_r_1";
+			this->input_off_r_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_off_r_r_1->TabIndex = 67;
+			// 
+			// textBox103
+			// 
+			this->textBox103->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox103->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox103->Location = System::Drawing::Point(257, 209);
+			this->textBox103->Multiline = true;
+			this->textBox103->Name = L"textBox103";
+			this->textBox103->Size = System::Drawing::Size(49, 25);
+			this->textBox103->TabIndex = 66;
+			this->textBox103->Text = L"* Ψ² +";
+			// 
+			// input_off_r_r_2
+			// 
+			this->input_off_r_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_off_r_r_2->DecimalPlaces = 4;
+			this->input_off_r_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_off_r_r_2->Location = System::Drawing::Point(177, 207);
+			this->input_off_r_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_off_r_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_off_r_r_2->Name = L"input_off_r_r_2";
+			this->input_off_r_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_off_r_r_2->TabIndex = 64;
+			// 
+			// textBox104
+			// 
+			this->textBox104->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox104->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox104->Location = System::Drawing::Point(6, 196);
+			this->textBox104->Multiline = true;
+			this->textBox104->Name = L"textBox104";
+			this->textBox104->Size = System::Drawing::Size(165, 44);
+			this->textBox104->TabIndex = 65;
+			this->textBox104->Text = L"Rear roll center lateral offset [mm]";
+			// 
+			// input_off_r_f_0
+			// 
+			this->input_off_r_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_off_r_f_0->DecimalPlaces = 4;
+			this->input_off_r_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_off_r_f_0->Location = System::Drawing::Point(436, 84);
+			this->input_off_r_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_off_r_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_off_r_f_0->Name = L"input_off_r_f_0";
+			this->input_off_r_f_0->Size = System::Drawing::Size(74, 27);
+			this->input_off_r_f_0->TabIndex = 63;
+			// 
+			// textBox99
+			// 
+			this->textBox99->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox99->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox99->Location = System::Drawing::Point(392, 86);
+			this->textBox99->Multiline = true;
+			this->textBox99->Name = L"textBox99";
+			this->textBox99->Size = System::Drawing::Size(49, 25);
+			this->textBox99->TabIndex = 62;
+			this->textBox99->Text = L"* Ψ +";
+			// 
+			// input_off_r_f_1
+			// 
+			this->input_off_r_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_off_r_f_1->DecimalPlaces = 4;
+			this->input_off_r_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_off_r_f_1->Location = System::Drawing::Point(312, 84);
+			this->input_off_r_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_off_r_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_off_r_f_1->Name = L"input_off_r_f_1";
+			this->input_off_r_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_off_r_f_1->TabIndex = 61;
+			// 
+			// textBox100
+			// 
+			this->textBox100->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox100->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox100->Location = System::Drawing::Point(257, 86);
+			this->textBox100->Multiline = true;
+			this->textBox100->Name = L"textBox100";
+			this->textBox100->Size = System::Drawing::Size(49, 25);
+			this->textBox100->TabIndex = 60;
+			this->textBox100->Text = L"* Ψ² +";
+			// 
+			// input_off_r_f_2
+			// 
+			this->input_off_r_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_off_r_f_2->DecimalPlaces = 4;
+			this->input_off_r_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_off_r_f_2->Location = System::Drawing::Point(177, 84);
+			this->input_off_r_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_off_r_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_off_r_f_2->Name = L"input_off_r_f_2";
+			this->input_off_r_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_off_r_f_2->TabIndex = 58;
+			// 
+			// textBox101
+			// 
+			this->textBox101->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox101->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox101->Location = System::Drawing::Point(6, 73);
+			this->textBox101->Multiline = true;
+			this->textBox101->Name = L"textBox101";
+			this->textBox101->Size = System::Drawing::Size(165, 44);
+			this->textBox101->TabIndex = 59;
+			this->textBox101->Text = L"Front roll center lateral offset [mm]";
+			// 
+			// input_h_r_r_0
+			// 
+			this->input_h_r_r_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_r_r_0->DecimalPlaces = 4;
+			this->input_h_r_r_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_r_r_0->Location = System::Drawing::Point(436, 165);
+			this->input_h_r_r_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_r_r_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_r_r_0->Name = L"input_h_r_r_0";
+			this->input_h_r_r_0->Size = System::Drawing::Size(74, 27);
+			this->input_h_r_r_0->TabIndex = 57;
+			// 
+			// textBox96
+			// 
+			this->textBox96->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox96->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox96->Location = System::Drawing::Point(392, 167);
+			this->textBox96->Multiline = true;
+			this->textBox96->Name = L"textBox96";
+			this->textBox96->Size = System::Drawing::Size(49, 25);
+			this->textBox96->TabIndex = 56;
+			this->textBox96->Text = L"* Ψ +";
+			// 
+			// input_h_r_r_1
+			// 
+			this->input_h_r_r_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_r_r_1->DecimalPlaces = 4;
+			this->input_h_r_r_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_r_r_1->Location = System::Drawing::Point(312, 165);
+			this->input_h_r_r_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_r_r_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_r_r_1->Name = L"input_h_r_r_1";
+			this->input_h_r_r_1->Size = System::Drawing::Size(74, 27);
+			this->input_h_r_r_1->TabIndex = 55;
+			// 
+			// textBox97
+			// 
+			this->textBox97->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox97->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox97->Location = System::Drawing::Point(257, 167);
+			this->textBox97->Multiline = true;
+			this->textBox97->Name = L"textBox97";
+			this->textBox97->Size = System::Drawing::Size(49, 25);
+			this->textBox97->TabIndex = 54;
+			this->textBox97->Text = L"* Ψ² +";
+			// 
+			// input_h_r_r_2
+			// 
+			this->input_h_r_r_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_r_r_2->DecimalPlaces = 4;
+			this->input_h_r_r_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_r_r_2->Location = System::Drawing::Point(177, 165);
+			this->input_h_r_r_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_r_r_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_r_r_2->Name = L"input_h_r_r_2";
+			this->input_h_r_r_2->Size = System::Drawing::Size(74, 27);
+			this->input_h_r_r_2->TabIndex = 52;
+			// 
+			// textBox98
+			// 
+			this->textBox98->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox98->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox98->Location = System::Drawing::Point(6, 154);
+			this->textBox98->Multiline = true;
+			this->textBox98->Name = L"textBox98";
+			this->textBox98->Size = System::Drawing::Size(165, 44);
+			this->textBox98->TabIndex = 53;
+			this->textBox98->Text = L"Rear roll center height [mm]";
+			// 
+			// input_h_r_f_0
+			// 
+			this->input_h_r_f_0->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_r_f_0->DecimalPlaces = 4;
+			this->input_h_r_f_0->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_r_f_0->Location = System::Drawing::Point(436, 43);
+			this->input_h_r_f_0->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_r_f_0->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_r_f_0->Name = L"input_h_r_f_0";
+			this->input_h_r_f_0->Size = System::Drawing::Size(74, 27);
+			this->input_h_r_f_0->TabIndex = 51;
+			// 
+			// textBox19
+			// 
+			this->textBox19->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox19->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox19->Location = System::Drawing::Point(392, 45);
+			this->textBox19->Multiline = true;
+			this->textBox19->Name = L"textBox19";
+			this->textBox19->Size = System::Drawing::Size(49, 25);
+			this->textBox19->TabIndex = 50;
+			this->textBox19->Text = L"* Ψ +";
+			// 
+			// input_h_r_f_1
+			// 
+			this->input_h_r_f_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_r_f_1->DecimalPlaces = 4;
+			this->input_h_r_f_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_r_f_1->Location = System::Drawing::Point(312, 43);
+			this->input_h_r_f_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_r_f_1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_r_f_1->Name = L"input_h_r_f_1";
+			this->input_h_r_f_1->Size = System::Drawing::Size(74, 27);
+			this->input_h_r_f_1->TabIndex = 49;
+			// 
+			// textBox21
+			// 
+			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox21->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox21->Location = System::Drawing::Point(257, 45);
+			this->textBox21->Multiline = true;
+			this->textBox21->Name = L"textBox21";
+			this->textBox21->Size = System::Drawing::Size(49, 25);
+			this->textBox21->TabIndex = 48;
+			this->textBox21->Text = L"* Ψ² +";
+			// 
+			// input_h_r_f_2
+			// 
+			this->input_h_r_f_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_h_r_f_2->DecimalPlaces = 4;
+			this->input_h_r_f_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_h_r_f_2->Location = System::Drawing::Point(177, 43);
+			this->input_h_r_f_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_h_r_f_2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->input_h_r_f_2->Name = L"input_h_r_f_2";
+			this->input_h_r_f_2->Size = System::Drawing::Size(74, 27);
+			this->input_h_r_f_2->TabIndex = 46;
+			// 
+			// textBox95
+			// 
+			this->textBox95->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox95->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox95->Location = System::Drawing::Point(6, 32);
+			this->textBox95->Multiline = true;
+			this->textBox95->Name = L"textBox95";
+			this->textBox95->Size = System::Drawing::Size(165, 44);
+			this->textBox95->TabIndex = 47;
+			this->textBox95->Text = L"Front roll center height [mm]";
+			// 
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Location = System::Drawing::Point(4, 35);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 649);
+			this->tabPage2->Size = System::Drawing::Size(1075, 636);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -6218,14 +6579,12 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
 			// groupBox9
 			// 
-			this->groupBox9->Controls->Add(this->fake_DB);
-			this->groupBox9->Controls->Add(this->fake_BB);
 			this->groupBox9->Controls->Add(this->input_rear_arb);
 			this->groupBox9->Controls->Add(this->textBox84);
 			this->groupBox9->Controls->Add(this->input_front_arb);
@@ -6246,6 +6605,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox9->Controls->Add(this->input_delta_r_static);
 			this->groupBox9->Controls->Add(this->textBox35);
 			this->groupBox9->Controls->Add(this->input_delta_f_static);
+			this->groupBox9->Controls->Add(this->fake_DB);
+			this->groupBox9->Controls->Add(this->fake_BB);
 			this->groupBox9->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox9->Location = System::Drawing::Point(250, 3);
@@ -6254,36 +6615,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox9->TabIndex = 17;
 			this->groupBox9->TabStop = false;
 			this->groupBox9->Text = L"Setup";
-			// 
-			// fake_DB
-			// 
-			this->fake_DB->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->fake_DB->DecimalPlaces = 2;
-			this->fake_DB->Enabled = false;
-			this->fake_DB->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->fake_DB->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->fake_DB->Location = System::Drawing::Point(169, 220);
-			this->fake_DB->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->fake_DB->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->fake_DB->Name = L"fake_DB";
-			this->fake_DB->Size = System::Drawing::Size(66, 27);
-			this->fake_DB->TabIndex = 30;
-			// 
-			// fake_BB
-			// 
-			this->fake_BB->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->fake_BB->DecimalPlaces = 2;
-			this->fake_BB->Enabled = false;
-			this->fake_BB->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->fake_BB->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->fake_BB->Location = System::Drawing::Point(169, 183);
-			this->fake_BB->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->fake_BB->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
-			this->fake_BB->Name = L"fake_BB";
-			this->fake_BB->Size = System::Drawing::Size(66, 27);
-			this->fake_BB->TabIndex = 29;
 			// 
 			// input_rear_arb
 			// 
@@ -6532,6 +6863,36 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_delta_f_static->Size = System::Drawing::Size(66, 27);
 			this->input_delta_f_static->TabIndex = 0;
 			// 
+			// fake_DB
+			// 
+			this->fake_DB->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_DB->DecimalPlaces = 2;
+			this->fake_DB->Enabled = false;
+			this->fake_DB->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_DB->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
+			this->fake_DB->Location = System::Drawing::Point(169, 220);
+			this->fake_DB->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->fake_DB->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->fake_DB->Name = L"fake_DB";
+			this->fake_DB->Size = System::Drawing::Size(66, 27);
+			this->fake_DB->TabIndex = 30;
+			// 
+			// fake_BB
+			// 
+			this->fake_BB->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->fake_BB->DecimalPlaces = 2;
+			this->fake_BB->Enabled = false;
+			this->fake_BB->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fake_BB->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
+			this->fake_BB->Location = System::Drawing::Point(169, 183);
+			this->fake_BB->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->fake_BB->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, System::Int32::MinValue });
+			this->fake_BB->Name = L"fake_BB";
+			this->fake_BB->Size = System::Drawing::Size(66, 27);
+			this->fake_BB->TabIndex = 29;
+			// 
 			// groupBox8
 			// 
 			this->groupBox8->Controls->Add(this->input_force_radius);
@@ -6767,7 +7128,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 643);
+			this->tabControl2->Size = System::Drawing::Size(565, 630);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -6788,7 +7149,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 604);
+			this->tabPage6->Size = System::Drawing::Size(557, 591);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Outputs";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -7745,20 +8106,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea2->BackColor = System::Drawing::Color::White;
-			chartArea2->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea2);
+			chartArea1->BackColor = System::Drawing::Color::White;
+			chartArea1->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea1);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend2->Name = L"Legend1";
-			this->YMD->Legends->Add(legend2);
+			legend1->Name = L"Legend1";
+			this->YMD->Legends->Add(legend1);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title2->Name = L"Title1";
-			this->YMD->Titles->Add(title2);
+			title1->Name = L"Title1";
+			this->YMD->Titles->Add(title1);
 			// 
 			// debugPage
 			// 
@@ -7948,200 +8309,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
 			// 
-			// input_diff_dTBR_f
-			// 
-			this->input_diff_dTBR_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_dTBR_f->DecimalPlaces = 2;
-			this->input_diff_dTBR_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_dTBR_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
-			this->input_diff_dTBR_f->Location = System::Drawing::Point(169, 216);
-			this->input_diff_dTBR_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			this->input_diff_dTBR_f->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			this->input_diff_dTBR_f->Name = L"input_diff_dTBR_f";
-			this->input_diff_dTBR_f->Size = System::Drawing::Size(66, 27);
-			this->input_diff_dTBR_f->TabIndex = 17;
-			this->input_diff_dTBR_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
-			// 
-			// input_diff_bTBR_f
-			// 
-			this->input_diff_bTBR_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_bTBR_f->DecimalPlaces = 2;
-			this->input_diff_bTBR_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_bTBR_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
-			this->input_diff_bTBR_f->Location = System::Drawing::Point(169, 267);
-			this->input_diff_bTBR_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			this->input_diff_bTBR_f->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			this->input_diff_bTBR_f->Name = L"input_diff_bTBR_f";
-			this->input_diff_bTBR_f->Size = System::Drawing::Size(66, 27);
-			this->input_diff_bTBR_f->TabIndex = 19;
-			this->input_diff_bTBR_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			// 
-			// textBox30
-			// 
-			this->textBox30->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox30->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox30->Location = System::Drawing::Point(6, 259);
-			this->textBox30->Multiline = true;
-			this->textBox30->Name = L"textBox30";
-			this->textBox30->Size = System::Drawing::Size(157, 47);
-			this->textBox30->TabIndex = 18;
-			this->textBox30->Text = L"Front differential braking TBR";
-			// 
-			// input_diff_preload_f
-			// 
-			this->input_diff_preload_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_preload_f->DecimalPlaces = 2;
-			this->input_diff_preload_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_preload_f->Location = System::Drawing::Point(169, 320);
-			this->input_diff_preload_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_diff_preload_f->Name = L"input_diff_preload_f";
-			this->input_diff_preload_f->Size = System::Drawing::Size(66, 27);
-			this->input_diff_preload_f->TabIndex = 21;
-			this->input_diff_preload_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			// 
-			// textBox33
-			// 
-			this->textBox33->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox33->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox33->Location = System::Drawing::Point(6, 312);
-			this->textBox33->Multiline = true;
-			this->textBox33->Name = L"textBox33";
-			this->textBox33->Size = System::Drawing::Size(157, 47);
-			this->textBox33->TabIndex = 20;
-			this->textBox33->Text = L"Front differential preload [Nm]";
-			// 
-			// input_diff_k_lock_f
-			// 
-			this->input_diff_k_lock_f->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_k_lock_f->DecimalPlaces = 2;
-			this->input_diff_k_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_k_lock_f->Location = System::Drawing::Point(169, 371);
-			this->input_diff_k_lock_f->Name = L"input_diff_k_lock_f";
-			this->input_diff_k_lock_f->Size = System::Drawing::Size(66, 27);
-			this->input_diff_k_lock_f->TabIndex = 23;
-			this->input_diff_k_lock_f->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			// 
-			// textBox185
-			// 
-			this->textBox185->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox185->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox185->Location = System::Drawing::Point(6, 363);
-			this->textBox185->Multiline = true;
-			this->textBox185->Name = L"textBox185";
-			this->textBox185->Size = System::Drawing::Size(157, 47);
-			this->textBox185->TabIndex = 22;
-			this->textBox185->Text = L"Front differential stiffness [Nm/Nm]";
-			// 
-			// textBox186
-			// 
-			this->textBox186->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox186->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox186->Location = System::Drawing::Point(257, 361);
-			this->textBox186->Multiline = true;
-			this->textBox186->Name = L"textBox186";
-			this->textBox186->Size = System::Drawing::Size(157, 47);
-			this->textBox186->TabIndex = 30;
-			this->textBox186->Text = L"Rear differential stiffness [Nm/Nm]";
-			// 
-			// textBox187
-			// 
-			this->textBox187->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox187->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox187->Location = System::Drawing::Point(257, 310);
-			this->textBox187->Multiline = true;
-			this->textBox187->Name = L"textBox187";
-			this->textBox187->Size = System::Drawing::Size(157, 47);
-			this->textBox187->TabIndex = 28;
-			this->textBox187->Text = L"Rear differential preload [Nm]";
-			// 
-			// textBox188
-			// 
-			this->textBox188->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox188->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox188->Location = System::Drawing::Point(257, 257);
-			this->textBox188->Multiline = true;
-			this->textBox188->Name = L"textBox188";
-			this->textBox188->Size = System::Drawing::Size(157, 47);
-			this->textBox188->TabIndex = 26;
-			this->textBox188->Text = L"Rear differential braking TBR";
-			// 
-			// textBox189
-			// 
-			this->textBox189->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox189->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox189->Location = System::Drawing::Point(257, 206);
-			this->textBox189->Multiline = true;
-			this->textBox189->Name = L"textBox189";
-			this->textBox189->Size = System::Drawing::Size(157, 47);
-			this->textBox189->TabIndex = 24;
-			this->textBox189->Text = L"Rear differential driving TBR";
-			// 
-			// input_diff_k_lock_r
-			// 
-			this->input_diff_k_lock_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_k_lock_r->DecimalPlaces = 2;
-			this->input_diff_k_lock_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_k_lock_r->Location = System::Drawing::Point(420, 371);
-			this->input_diff_k_lock_r->Name = L"input_diff_k_lock_r";
-			this->input_diff_k_lock_r->Size = System::Drawing::Size(66, 27);
-			this->input_diff_k_lock_r->TabIndex = 34;
-			this->input_diff_k_lock_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			// 
-			// input_diff_preload_r
-			// 
-			this->input_diff_preload_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_preload_r->DecimalPlaces = 2;
-			this->input_diff_preload_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_preload_r->Location = System::Drawing::Point(420, 320);
-			this->input_diff_preload_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_diff_preload_r->Name = L"input_diff_preload_r";
-			this->input_diff_preload_r->Size = System::Drawing::Size(66, 27);
-			this->input_diff_preload_r->TabIndex = 33;
-			this->input_diff_preload_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			// 
-			// input_diff_bTBR_r
-			// 
-			this->input_diff_bTBR_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_bTBR_r->DecimalPlaces = 2;
-			this->input_diff_bTBR_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_bTBR_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
-			this->input_diff_bTBR_r->Location = System::Drawing::Point(420, 267);
-			this->input_diff_bTBR_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			this->input_diff_bTBR_r->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			this->input_diff_bTBR_r->Name = L"input_diff_bTBR_r";
-			this->input_diff_bTBR_r->Size = System::Drawing::Size(66, 27);
-			this->input_diff_bTBR_r->TabIndex = 32;
-			this->input_diff_bTBR_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			// 
-			// input_diff_dTBR_r
-			// 
-			this->input_diff_dTBR_r->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_diff_dTBR_r->DecimalPlaces = 2;
-			this->input_diff_dTBR_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_diff_dTBR_r->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
-			this->input_diff_dTBR_r->Location = System::Drawing::Point(420, 216);
-			this->input_diff_dTBR_r->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			this->input_diff_dTBR_r->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			this->input_diff_dTBR_r->Name = L"input_diff_dTBR_r";
-			this->input_diff_dTBR_r->Size = System::Drawing::Size(66, 27);
-			this->input_diff_dTBR_r->TabIndex = 31;
-			this->input_diff_dTBR_r->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
-			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -8157,150 +8324,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->tabControl1->ResumeLayout(false);
-			this->tabPage3->ResumeLayout(false);
-			this->groupBox4->ResumeLayout(false);
-			this->groupBox4->PerformLayout();
-			this->groupBox21->ResumeLayout(false);
-			this->groupBox21->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_2))->EndInit();
-			this->groupBox3->ResumeLayout(false);
-			this->groupBox3->PerformLayout();
-			this->groupBox2->ResumeLayout(false);
-			this->groupBox2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_r))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_f))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->EndInit();
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->EndInit();
-			this->tabPage4->ResumeLayout(false);
-			this->splitContainer3->Panel1->ResumeLayout(false);
-			this->splitContainer3->Panel2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->EndInit();
-			this->splitContainer3->ResumeLayout(false);
-			this->groupBox5->ResumeLayout(false);
-			this->groupBox5->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_r))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_f))->EndInit();
-			this->groupBox16->ResumeLayout(false);
-			this->groupBox16->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_1))->EndInit();
-			this->groupBox7->ResumeLayout(false);
-			this->groupBox7->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_dist))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_deg))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_dist))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_deg))->EndInit();
-			this->groupBox15->ResumeLayout(false);
-			this->groupBox15->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_1))->EndInit();
-			this->tabControl3->ResumeLayout(false);
-			this->tabPage8->ResumeLayout(false);
-			this->groupBox17->ResumeLayout(false);
-			this->groupBox17->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_2))->EndInit();
-			this->groupBox6->ResumeLayout(false);
-			this->groupBox6->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_2))->EndInit();
-			this->tabPage9->ResumeLayout(false);
-			this->groupBox20->ResumeLayout(false);
-			this->groupBox20->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_2))->EndInit();
-			this->groupBox19->ResumeLayout(false);
-			this->groupBox19->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_2))->EndInit();
-			this->groupBox18->ResumeLayout(false);
-			this->groupBox18->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_0))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_2))->EndInit();
 			this->tabPage5->ResumeLayout(false);
 			this->groupBox14->ResumeLayout(false);
 			this->groupBox13->ResumeLayout(false);
@@ -8347,6 +8370,164 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_Dy2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_Dy1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_Cy1))->EndInit();
+			this->tabPage3->ResumeLayout(false);
+			this->tabControl4->ResumeLayout(false);
+			this->tabPage10->ResumeLayout(false);
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->EndInit();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->EndInit();
+			this->tabPage13->ResumeLayout(false);
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
+			this->groupBox4->ResumeLayout(false);
+			this->groupBox4->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_k_lock_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_preload_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_bTBR_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_dTBR_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_k_lock_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_preload_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_bTBR_f))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_dTBR_f))->EndInit();
+			this->tabPage11->ResumeLayout(false);
+			this->groupBox21->ResumeLayout(false);
+			this->groupBox21->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_y_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_z_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_drag_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_y_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_x_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_2))->EndInit();
+			this->tabPage12->ResumeLayout(false);
+			this->groupBox7->ResumeLayout(false);
+			this->groupBox7->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_dist))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_deg))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_dist))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_deg))->EndInit();
+			this->groupBox15->ResumeLayout(false);
+			this->groupBox15->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_1))->EndInit();
+			this->groupBox16->ResumeLayout(false);
+			this->groupBox16->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_1))->EndInit();
+			this->groupBox5->ResumeLayout(false);
+			this->groupBox5->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_r))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_f))->EndInit();
+			this->tabPage14->ResumeLayout(false);
+			this->groupBox20->ResumeLayout(false);
+			this->groupBox20->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bc_f_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_sc_f_2))->EndInit();
+			this->groupBox17->ResumeLayout(false);
+			this->groupBox17->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_p_f_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_o_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_n_p_i_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_o_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_p_i_2))->EndInit();
+			this->groupBox19->ResumeLayout(false);
+			this->groupBox19->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_bs_f_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_ackermann_2))->EndInit();
+			this->groupBox18->ResumeLayout(false);
+			this->groupBox18->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_arb_f_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_MR_s_f_2))->EndInit();
+			this->groupBox6->ResumeLayout(false);
+			this->groupBox6->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_p_r_f_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_off_r_f_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_r_2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_0))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_2))->EndInit();
 			this->tabPage2->ResumeLayout(false);
 			this->splitContainer2->Panel1->ResumeLayout(false);
 			this->splitContainer2->Panel2->ResumeLayout(false);
@@ -8354,14 +8535,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer2->ResumeLayout(false);
 			this->groupBox9->ResumeLayout(false);
 			this->groupBox9->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_DB))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_BB))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_DB_input))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_gamma_r_static))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_BB_input))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_gamma_f_static))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_r_static))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_f_static))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_DB))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fake_BB))->EndInit();
 			this->groupBox8->ResumeLayout(false);
 			this->groupBox8->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_a_lon_des))->EndInit();
@@ -8395,14 +8576,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
 			this->splitContainer1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_f))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_f))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_f))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_f))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_k_lock_r))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_preload_r))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_bTBR_r))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_diff_dTBR_r))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -8611,6 +8784,14 @@ private: System::ComponentModel::IContainer^ components;
 			input_m_u_fr->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_fr);
 			input_m_u_rl->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_rl);
 			input_m_u_rr->Value = System::Convert::ToDecimal(vehicle_inputs->m_u_rr);
+			input_diff_dTBR_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_dTBR_f);
+			input_diff_dTBR_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_dTBR_r);
+			input_diff_bTBR_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_bTBR_f);
+			input_diff_bTBR_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_bTBR_r);
+			input_diff_preload_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_preload_f);
+			input_diff_preload_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_preload_r);
+			input_diff_k_lock_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_k_lock_f);
+			input_diff_k_lock_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_k_lock_r);
 			input_brake_config->SelectedIndex = static_cast<int>(vehicle_inputs->brake_config) - 1;
 			input_brake_type_f->SelectedIndex = static_cast<int>(vehicle_inputs->brake_type_f) - 1;
 			input_brake_type_r->SelectedIndex = static_cast<int>(vehicle_inputs->brake_type_r) - 1;
@@ -8619,14 +8800,7 @@ private: System::ComponentModel::IContainer^ components;
 			input_diff_type_r->SelectedIndex = static_cast<int>(vehicle_inputs->diff_type_r) - 1;
 			input_diff_lock_f->SelectedIndex = static_cast<int>(vehicle_inputs->diff_lock_f) - 1;
 			input_diff_lock_r->SelectedIndex = static_cast<int>(vehicle_inputs->diff_lock_r) - 1;
-			//input_diff_dTBR_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_dTBR_f);
-			//input_diff_dTBR_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_dTBR_r);
-			//input_diff_bTBR_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_bTBR_f);
-			//input_diff_bTBR_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_bTBR_r);
-			//input_diff_preload_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_preload_f);
-			//input_diff_preload_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_preload_r);
-			//input_diff_k_lock_f->Value = System::Convert::ToDecimal(vehicle_inputs->diff_k_lock_f);
-			//input_diff_k_lock_r->Value = System::Convert::ToDecimal(vehicle_inputs->diff_k_lock_r);
+			
 		
 			input_F_down_2->Value = System::Convert::ToDecimal(vehicle_inputs->F_down_2);
 			input_F_down_1->Value = System::Convert::ToDecimal(vehicle_inputs->F_down_1);
@@ -9075,18 +9249,26 @@ private: System::Void input_force_radius_Click(System::Object^ sender, System::E
 }
 private: System::Void input_drive_config_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (input_drive_config->SelectedIndex == 0) {
-		input_DB_input->Enabled = true;
-		fake_DB->Visible = false;
+		input_DB_input->Visible = true;
+
+		int old = 0;
 
 		input_diff_type_f->Enabled = true;
-		input_diff_type_r->Enabled = true;
-
 		input_diff_lock_f->Enabled = true;
+		old = input_diff_lock_f->SelectedIndex;
+		input_diff_lock_f->SelectedIndex = 0;
+		input_diff_lock_f->SelectedIndex = 1;
+		input_diff_lock_f->SelectedIndex = old;
+
 		input_diff_lock_r->Enabled = true;
+		input_diff_type_r->Enabled = true;
+		old = input_diff_lock_r->SelectedIndex;
+		input_diff_lock_r->SelectedIndex = 0;
+		input_diff_lock_r->SelectedIndex = 1;
+		input_diff_lock_r->SelectedIndex = old;
 	}
 	else if (input_drive_config->SelectedIndex == 1) {
-		input_DB_input->Enabled = false;
-		fake_DB->Visible = true;
+		input_DB_input->Visible = false;
 		fake_DB->Value = 100;
 
 		input_diff_type_f->Enabled = true;
@@ -9094,10 +9276,26 @@ private: System::Void input_drive_config_SelectedIndexChanged(System::Object^ se
 
 		input_diff_lock_f->Enabled = true;
 		input_diff_lock_r->Enabled = false;
+
+		int old = 0;
+
+		old = input_diff_lock_f->SelectedIndex;
+		input_diff_lock_f->SelectedIndex = 0;
+		input_diff_lock_f->SelectedIndex = 1;
+		input_diff_lock_f->SelectedIndex = old;
+
+		input_diff_dTBR_r->Visible = false;
+		input_diff_bTBR_r->Visible = false;
+		input_diff_preload_r->Visible = false;
+		input_diff_k_lock_r->Visible = false;
+
+		fake_dTBR_r->Value = 1;
+		fake_bTBR_r->Value = 1;
+		fake_preload_r->Value = 0;
+		fake_k_lock_r->Value = 0;
 	}
 	else if (input_drive_config->SelectedIndex == 2) {
-		input_DB_input->Enabled = false;
-		fake_DB->Visible = true;
+		input_DB_input->Visible = false;
 		fake_DB->Value = 0;
 
 		input_diff_type_f->Enabled = false;
@@ -9105,27 +9303,41 @@ private: System::Void input_drive_config_SelectedIndexChanged(System::Object^ se
 
 		input_diff_lock_f->Enabled = false;
 		input_diff_lock_r->Enabled = true;
+
+		int old = 0;
+
+		old = input_diff_lock_r->SelectedIndex;
+		input_diff_lock_r->SelectedIndex = 0;
+		input_diff_lock_r->SelectedIndex = 1;
+		input_diff_lock_r->SelectedIndex = old;
+
+		input_diff_dTBR_f->Visible = false;
+		input_diff_bTBR_f->Visible = false;
+		input_diff_preload_f->Visible = false;
+		input_diff_k_lock_f->Visible = false;
+
+		fake_dTBR_f->Value = 1;
+		fake_bTBR_f->Value = 1;
+		fake_preload_f->Value = 0;
+		fake_k_lock_f->Value = 0;
 	}
 }
 private: System::Void input_brake_config_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (input_brake_config->SelectedIndex == 0) {
-		input_BB_input->Enabled = true;
-		fake_BB->Visible = false;
+		input_BB_input->Visible = true;
 
 		input_brake_type_f->Enabled = true;
 		input_brake_type_r->Enabled = true;
 	}
 	else if (input_brake_config->SelectedIndex == 1) {
-		input_BB_input->Enabled = false;
-		fake_BB->Visible = true;
+		input_BB_input->Visible = false;
 		fake_BB->Value = 100;
 
 		input_brake_type_f->Enabled = true;
 		input_brake_type_r->Enabled = false;
 	}
 	else if (input_brake_config->SelectedIndex == 2) {
-		input_BB_input->Enabled = false;
-		fake_BB->Visible = true;
+		input_BB_input->Visible = false;
 		fake_BB->Value = 0;
 
 		input_brake_type_f->Enabled = false;
@@ -9205,6 +9417,106 @@ private: System::Void input_num_delta_d_ValueChanged(System::Object^ sender, Sys
 }
 
 
+private: System::Void input_diff_lock_f_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (input_diff_lock_f->SelectedIndex == 0) {
+		input_diff_dTBR_f->Visible = false;
+		input_diff_bTBR_f->Visible = false;
+		input_diff_preload_f->Visible = false;
+		input_diff_k_lock_f->Visible = false;
+
+		fake_dTBR_f->Value = 1;
+		fake_bTBR_f->Value = 1;
+		fake_preload_f->Value = 0;
+		fake_k_lock_f->Value = 0;
+	}
+	else if (input_diff_lock_f->SelectedIndex == 1) {
+		input_diff_dTBR_f->Visible = true;
+		input_diff_bTBR_f->Visible = true;
+		input_diff_preload_f->Visible = false;
+		input_diff_k_lock_f->Visible = false;
+
+		fake_preload_f->Value = 0;
+		fake_k_lock_f->Value = 0;
+	}
+	else if (input_diff_lock_f->SelectedIndex == 2) {
+		input_diff_dTBR_f->Visible = true;
+		input_diff_bTBR_f->Visible = true;
+		input_diff_preload_f->Visible = true;
+		input_diff_k_lock_f->Visible = false;
+
+		fake_k_lock_f->Value = 0;
+	}
+	else if (input_diff_lock_f->SelectedIndex == 3) {
+		input_diff_dTBR_f->Visible = false;
+		input_diff_bTBR_f->Visible = false;
+		input_diff_preload_f->Visible = true;
+		input_diff_k_lock_f->Visible = true;
+
+		fake_dTBR_f->Value = 100;
+		fake_bTBR_f->Value = 100;
+	}
+	else if (input_diff_lock_f->SelectedIndex == 4) {
+		input_diff_dTBR_f->Visible = false;
+		input_diff_bTBR_f->Visible = false;
+		input_diff_preload_f->Visible = false;
+		input_diff_k_lock_f->Visible = false;
+
+		fake_dTBR_f->Value = 100;
+		fake_bTBR_f->Value = 100;
+		fake_preload_f->Value = 0;
+		fake_k_lock_f->Value = 1;
+	}
+}
+private: System::Void input_diff_lock_r_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (input_diff_lock_r->SelectedIndex == 0) {
+		input_diff_dTBR_r->Visible = false;
+		input_diff_bTBR_r->Visible = false;
+		input_diff_preload_r->Visible = false;
+		input_diff_k_lock_r->Visible = false;
+
+		fake_dTBR_r->Value = 1;
+		fake_bTBR_r->Value = 1;
+		fake_preload_r->Value = 0;
+		fake_k_lock_r->Value = 0;
+	}
+	else if (input_diff_lock_r->SelectedIndex == 1) {
+		input_diff_dTBR_r->Visible = true;
+		input_diff_bTBR_r->Visible = true;
+		input_diff_preload_r->Visible = false;
+		input_diff_k_lock_r->Visible = false;
+
+		fake_preload_r->Value = 0;
+		fake_k_lock_r->Value = 0;
+	}
+	else if (input_diff_lock_r->SelectedIndex == 2) {
+		input_diff_dTBR_r->Visible = true;
+		input_diff_bTBR_r->Visible = true;
+		input_diff_preload_r->Visible = true;
+		input_diff_k_lock_r->Visible = false;
+
+		fake_k_lock_r->Value = 0;
+	}
+	else if (input_diff_lock_r->SelectedIndex == 3) {
+		input_diff_dTBR_r->Visible = false;
+		input_diff_bTBR_r->Visible = false;
+		input_diff_preload_r->Visible = true;
+		input_diff_k_lock_r->Visible = true;
+
+		fake_dTBR_r->Value = 100;
+		fake_bTBR_r->Value = 100;
+	}
+	else if (input_diff_lock_r->SelectedIndex == 4) {
+		input_diff_dTBR_r->Visible = false;
+		input_diff_bTBR_r->Visible = false;
+		input_diff_preload_r->Visible = false;
+		input_diff_k_lock_r->Visible = false;
+
+		fake_dTBR_r->Value = 100;
+		fake_bTBR_r->Value = 100;
+		fake_preload_r->Value = 0;
+		fake_k_lock_r->Value = 1;
+	}
+}
 };
 }
 

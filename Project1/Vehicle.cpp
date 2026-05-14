@@ -200,7 +200,7 @@ Vehicle::Vehicle() {};
         //Main iterative loop
         iter = 0; // Iteration counters for main solver
         F_z_tol = 0.1; // [N] Acceptable wheel load error for the iterative process
-        max_iter = 49; // Maximum number of iterations for the iterative process
+        max_iter = 25; // Maximum number of iterations for the iterative process
         a_lon_tol = 0.01; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
 
 #ifdef _DEBUG
@@ -230,7 +230,7 @@ Vehicle::Vehicle() {};
 
             bias_now = (fl.T + fr.T) / (fl.T + fr.T + rl.T + rr.T);
             iter++;
-            if (iter > max_iter) { cancel_run = 1; }
+            if (iter >= max_iter) { cancel_run = 1; }
             if (iter > 10 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
 
 			if (cancel_run == 1) { break; }
@@ -646,10 +646,10 @@ Vehicle::Vehicle() {};
 
     void Vehicle::yaw_moment() {
         //Yaw moment
-        M_yaw_fl = fl.F_lat * a - fl.F_lon * t_f / 2; // [N*m] Front inner tire yaw moment
-        M_yaw_fr = fr.F_lat * a + fr.F_lon * t_f / 2; // [N*m] Front outer tire yaw moment
-        M_yaw_rl = -rl.F_lat * b - rl.F_lon * t_r / 2; // [N*m] Rear inner tire yaw moment
-        M_yaw_rr = -rr.F_lat * b + rr.F_lon * t_r / 2; // [N*m] Rear outer tire yaw moment
+        M_yaw_fl = fl.F_lat * a + fl.F_lon * t_f / 2; // [N*m] Front inner tire yaw moment
+        M_yaw_fr = fr.F_lat * a - fr.F_lon * t_f / 2; // [N*m] Front outer tire yaw moment
+        M_yaw_rl = -rl.F_lat * b + rl.F_lon * t_r / 2; // [N*m] Rear inner tire yaw moment
+        M_yaw_rr = -rr.F_lat * b - rr.F_lon * t_r / 2; // [N*m] Rear outer tire yaw moment
         M_yaw = M_yaw_fl + M_yaw_fr + M_yaw_rl + M_yaw_rr; // [N*m] Vehicle yaw moment
     }
 
@@ -668,7 +668,6 @@ Vehicle::Vehicle() {};
         //Torques
         fl.set_T(), fr.set_T(), rl.set_T(), rr.set_T();
 
-        // Adjust function to find root of f(x) - target = 0
         auto solve_diffs = [&](diff md, diff sd, Tire& t1, Tire& t2, Tire& t3, Tire& t4) {
             //md = main differential, sd = secondary differential
             //t1 = main tire, t2 = secondary tire on the same axle, t3 and t4 = tires on the other axle
@@ -781,8 +780,6 @@ Vehicle::Vehicle() {};
 
         if (iter != 0 && pedals_input != Pedals_input::Coasting) {
 
-			//check_loads(front_diff, fl, fr), check_loads(rear_diff, rl, rr);
-
             if (bias > 0.5) {
                 if (fl.F_z < fr.F_z) {
                     if (rl.F_z < rr.F_z) {
@@ -860,7 +857,6 @@ Vehicle::Vehicle() {};
             fb_best = g(b_best);
             b_best = abs(fb) < abs(fb_best) ? b_temp : b_best;
             b = b_best;
-            //cout << "b adjusted to: " << b << ", g(a): " << ra << ", g(b): " << rb <<endl;
             expand_iter++;
         }
 
@@ -893,7 +889,6 @@ Vehicle::Vehicle() {};
         for (int iter = 0; iter < max_iter; ++iter) {
             brents_iter_single += 1;
             if (abs(fb) < tol) {
-                //std::cout << "Brent's method converged after " << iter << " iterations" << std::endl;
                 tire.F_x_comb = f(b);
                 tire.set_T();
                 return;
@@ -995,7 +990,6 @@ Vehicle::Vehicle() {};
         }
 
         double x_m = (x_u + x_l) / 2.0;
-        //f((x_m));
         tire.peak_kappa = x_m;
         return;
     }
@@ -1005,40 +999,8 @@ Vehicle::Vehicle() {};
         return round(value * scale) / scale;
     }
 
-    void Vehicle::check_loads(diff& diff, Tire& t1, Tire& t2){
-        if (remainder(iter, 2) == 0) {
-            if (t1.F_z > t2.F_z) {
-                check_load_iter++;
-                if (check_load_iter >= 3) {
-                    t2.F_z = t1.F_z + 0.1;
-                    //check_load_iter = 0;
-                    //diff.bTBR = diff.dTBR = 1;
-                }
-            }
-            else {
-                check_load_iter = 0;
-                diff.bTBR = 2.0;
-                diff.dTBR = 3.0;
-            }   
-        }
-        else {
-            if (t2.F_z > t1.F_z) {
-                check_load_iter++;
-                if (check_load_iter >= 3) {
-                    t1.F_z = t2.F_z + 0.1;
-                    //check_load_iter = 0;
-                    //diff.bTBR = diff.dTBR = 1;
-                }
-            }
-            else {
-                check_load_iter = 0;
-                diff.bTBR = 2.0;
-                diff.dTBR = 3.0;
-            }
-        }
-    }
-
     void Vehicle::output(Vehicle_outputs& vehicle_outputs) {
+
         vehicle_outputs.M_yaw = M_yaw;
         vehicle_outputs.a_lat = a_lat;
         vehicle_outputs.a_lon = a_lon;
@@ -1103,6 +1065,11 @@ Vehicle::Vehicle() {};
 		vehicle_outputs.golden_single = golden_iter_single;
 		vehicle_outputs.golden_total = golden_iter_total;
         vehicle_outputs.iter_total = iter_total;
+#endif
+#ifndef _DEBUG
+        if (cancel_run) {
+            throw std::runtime_error("Single run simulation failed. The vehicle is not able to reach the desired conditions");
+        }
 #endif
     };
 
@@ -1334,4 +1301,5 @@ Vehicle::Vehicle() {};
         carrier.single_run.a_lat = copy.a_lat;
         carrier.single_run.a_lon = copy.a_lon;
         carrier.single_run.M_yaw = copy.M_yaw;
+        carrier.single_run.cancel = copy.cancel_run;
     }

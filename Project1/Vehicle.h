@@ -226,8 +226,6 @@ public:
 
     inline double round_to(double value, int decimals);
 
-	void check_loads(diff& diff, Tire& t1, Tire& t2);
-
     void output(Vehicle_outputs& vehicle_outputs);
 
     void refresh();

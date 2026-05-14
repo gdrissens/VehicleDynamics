@@ -133,13 +133,15 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
 
     chart->Series->Add(s);
 
-    s->Points->AddXY(carrier.single_run.a_lat, carrier.single_run.M_yaw);
+    if (carrier.single_run.cancel == 0) {
+        s->Points->AddXY(carrier.single_run.a_lat, carrier.single_run.M_yaw);
 
-    s->Points[0]->ToolTip =
-        "Single run simulation:" +
-        L"\n\u03B2 = " + carrier.single_run.beta.ToString("F2") + L" \u00B0" +
-        L"\n\u03B4 = " + carrier.single_run.delta.ToString("F1") + L" \u00B0" +
-        L"\nLateral acceleration = " + carrier.single_run.a_lat.ToString("F2") + " g" +
-        L"\nLongitudinal acceleration = " + carrier.single_run.a_lon.ToString("F2") + " g" +
-        L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm";
+        s->Points[0]->ToolTip =
+            "Single run simulation:" +
+            L"\n\u03B2 = " + carrier.single_run.beta.ToString("F2") + L" \u00B0" +
+            L"\n\u03B4 = " + carrier.single_run.delta.ToString("F1") + L" \u00B0" +
+            L"\nLateral acceleration = " + carrier.single_run.a_lat.ToString("F2") + " g" +
+            L"\nLongitudinal acceleration = " + carrier.single_run.a_lon.ToString("F2") + " g" +
+            L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm";
+    }
 }
