@@ -819,8 +819,8 @@ Vehicle::Vehicle() {};
         double b = 1.0;
 
         if (iter >= 5) {
-            a = tire.kappa - 0.1;
-            b = tire.kappa + 0.1;
+            a = std::min(tire.kappa - 0.1, 0.0);
+            b = std::max(tire.kappa + 0.1, 1.0);
         }
 
         auto f = [&](double x) {

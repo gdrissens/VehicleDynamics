@@ -2,13 +2,13 @@
 
 void Tire_selection::select_tire(std::string name, Tire_inputs* tire_inputs) {
 	selected_tire = sto_(name);
-	std::string path = "Tires\\" + selected_tire + ".txt";
+	std::string path = "Files\\Tires\\" + selected_tire + ".txt";
 	load_tire_inputs(*tire_inputs, path);
 }
 
 std::vector<std::string> Tire_selection::load_tire_list()
 {
-	std::string path = "Tire_list.txt";
+	std::string path = "Files\\Tires\\Tire_list.txt";
 	tire_list.clear();
 	if (std::filesystem::exists(path)) {
 		std::ifstream file(path);
@@ -34,16 +34,16 @@ void Tire_selection::save_tire(std::string name, Tire_inputs* tire_inputs) {
 		}
 	}
 	std::sort(tire_list.begin(), tire_list.end());  // alphabetical order
-	std::ofstream file("Tire_list.txt", std::ios::out | std::ios::trunc);
+	std::ofstream file("Files\\Tires\\Tire_list.txt", std::ios::out | std::ios::trunc);
 	for (const auto& line : tire_list)
 	{
 		file << line << '\n';
 	}
 	file.flush();   // force write
 	file.close();   // force release
-	save_tire_inputs(*tire_inputs, "Tires\\" + new_name + ".txt");
+	save_tire_inputs(*tire_inputs, "Files\\Tires\\" + new_name + ".txt");
 	if ((std::find(tire_list.begin(), tire_list.end(), selected_tire) == tire_list.end()) && new_name != selected_tire) {
-		std::filesystem::remove("Tires\\" + selected_tire + ".txt");
+		std::filesystem::remove("Files\\Tires\\" + selected_tire + ".txt");
 	}
 	selected_tire = new_name;
 }
@@ -55,12 +55,12 @@ Tire_selection::file_status Tire_selection::new_tire(Tire_inputs* tire_inputs)
 	{
 		return file_status::DuplicateItem;
 	}
-	std::string path = "Tires\\" + name + ".txt";
+	std::string path = "Files\\Tires\\" + name + ".txt";
 
 	// create folder if it doesn't exist
-	if (!std::filesystem::exists("Tires"))
+	if (!std::filesystem::exists("Files\\Tires"))
 	{
-		std::filesystem::create_directory("Tires");
+		std::filesystem::create_directory("Files\\Tires");
 	}
 	if (std::filesystem::exists(path))
 	{
@@ -70,7 +70,7 @@ Tire_selection::file_status Tire_selection::new_tire(Tire_inputs* tire_inputs)
 	save_tire_inputs(*tire_inputs, path);
 	tire_list.push_back(name);
 	std::sort(tire_list.begin(), tire_list.end());
-	std::ofstream file2("Tire_list.txt");
+	std::ofstream file2("Files\\Tires\\Tire_list.txt");
 	for (const auto& line : tire_list)
 	{
 		file2 << line << '\n';
@@ -91,7 +91,7 @@ Tire_selection::file_status Tire_selection::delete_tire(std::string name)
 		//MessageBox::Show("Tire not found.");
 		return file_status::ItemNotFound;
 	}
-	std::string path = "Tires\\" + delete_name + ".txt";
+	std::string path = "Files\\Tires\\" + delete_name + ".txt";
 
 	if (!std::filesystem::exists(path))
 	{
@@ -100,7 +100,7 @@ Tire_selection::file_status Tire_selection::delete_tire(std::string name)
 	}
 	std::filesystem::remove(path);
 	tire_list.erase(std::remove(tire_list.begin(),tire_list.end(),delete_name),tire_list.end());
-	std::ofstream file("Tire_list.txt", std::ios::out | std::ios::trunc);
+	std::ofstream file("Files\\Tires\\Tire_list.txt", std::ios::out | std::ios::trunc);
 	for (const auto& line : tire_list)
 	{
 		file << line << '\n';

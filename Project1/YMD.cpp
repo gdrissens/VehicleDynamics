@@ -74,7 +74,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             
             s->Points[idx]->ToolTip =
                 L"\u03B2 = " + carrier.beta_iso[j].ToString("F2") + L" \u00B0"
-                L"\n\u03B4 = " + delta[i].ToString("F1") + L" \u00B0" +
+                L"\n\u03B4d = " + delta[i].ToString("F1") + L" \u00B0" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
@@ -111,7 +111,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             
             s->Points[idx]->ToolTip =
                 L"\u03B2 = " + beta[i].ToString("F2") + L" \u00B0"
-                L"\n\u03B4 = " + carrier.delta_iso[j].ToString("F1") + L" \u00B0" +
+                L"\n\u03B4d = " + carrier.delta_iso[j].ToString("F1") + L" \u00B0" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
@@ -139,7 +139,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         s->Points[0]->ToolTip =
             "Single run simulation:" +
             L"\n\u03B2 = " + carrier.single_run.beta.ToString("F2") + L" \u00B0" +
-            L"\n\u03B4 = " + carrier.single_run.delta.ToString("F1") + L" \u00B0" +
+            L"\n\u03B4d = " + carrier.single_run.delta.ToString("F1") + L" \u00B0" +
             L"\nLateral acceleration = " + carrier.single_run.a_lat.ToString("F2") + " g" +
             L"\nLongitudinal acceleration = " + carrier.single_run.a_lon.ToString("F2") + " g" +
             L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm";

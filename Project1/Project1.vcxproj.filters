@@ -72,8 +72,4 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="Vehicle_params_1.txt" />
-    <Text Include="Tire_list.txt" />
-  </ItemGroup>
 </Project>
