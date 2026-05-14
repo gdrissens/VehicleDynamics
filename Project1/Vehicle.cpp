@@ -285,7 +285,7 @@ Vehicle::Vehicle() {};
         b_s = (m * b - (m_u_fl + m_u_fr) * L) / m_s; // [m] Distance from the rear axle to the sprung mass CG
 
         //Steering angles
-        fl.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 - delta_f_static) * pi / 180.0; // [rad] Front outer wheel steering angle (INPUT)
+        fl.delta = -(delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 - delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) * pi / 180.0; // [rad] Front outer wheel steering angle (INPUT)
         fr.delta = (delta_d_deg * delta_d_deg * vehicle_inputs.ackermann_2 + delta_d_deg * vehicle_inputs.ackermann_1 + delta_f_static) * pi / 180.0; // [rad] Front inner wheel steering angle (INPUT)
         rl.delta = (delta_r_static)*pi / 180; // [rad] Rear inner wheel steering angle
         rr.delta = (-delta_r_static) * pi / 180; // [rad] Rear outer wheel steering angleINPUT
@@ -1036,8 +1036,8 @@ Vehicle::Vehicle() {};
         vehicle_outputs.kappa_rl = rl.kappa * 100.0;
         vehicle_outputs.kappa_rr = rr.kappa * 100.0;
 
-        vehicle_outputs.alpha_fl = fl.alpha * 180 / pi;
-        vehicle_outputs.alpha_fr = fr.alpha * 180 / pi;
+        vehicle_outputs.alpha_fl = fl.omega;
+        vehicle_outputs.alpha_fr = fr.omega;
         vehicle_outputs.alpha_rl = rl.alpha * 180 / pi;
         vehicle_outputs.alpha_rr = rr.alpha * 180 / pi;
 
@@ -1047,8 +1047,8 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_rr = rr.T;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = rl.F_x_comb_tar;
-        vehicle_outputs.debug2 = rr.F_x_comb_tar;
+        vehicle_outputs.debug1 = fl.delta * 180 / pi;
+        vehicle_outputs.debug2 = fr.delta * 180 / pi;
         vehicle_outputs.debug3 = rl.T / rr.T;
         vehicle_outputs.debug4 = dW_lat_r;
 

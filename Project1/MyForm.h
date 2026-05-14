@@ -49,9 +49,9 @@ namespace Project1 {
 
 
 
-	private: System::Windows::Forms::TextBox^ textBox31;
+
 	private: System::Windows::Forms::NumericUpDown^ input_beta_deg;
-	private: System::Windows::Forms::TextBox^ Display_corner_or_velocity;
+
 
 
 	private: System::Windows::Forms::NumericUpDown^ input_R;
@@ -677,6 +677,10 @@ private: System::Windows::Forms::NumericUpDown^ fake_k_lock_f;
 private: System::Windows::Forms::NumericUpDown^ fake_preload_f;
 private: System::Windows::Forms::NumericUpDown^ fake_bTBR_f;
 private: System::Windows::Forms::NumericUpDown^ fake_dTBR_f;
+private: System::Windows::Forms::TextBox^ textBox31;
+private: System::Windows::Forms::TextBox^ Display_corner_or_velocity;
+
+
 
 
 
@@ -842,9 +846,9 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -1254,9 +1258,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox37 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
 			this->input_delta_d_deg = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox31 = (gcnew System::Windows::Forms::TextBox());
 			this->input_beta_deg = (gcnew System::Windows::Forms::NumericUpDown());
-			this->Display_corner_or_velocity = (gcnew System::Windows::Forms::TextBox());
 			this->input_R = (gcnew System::Windows::Forms::NumericUpDown());
 			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
@@ -1351,6 +1353,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->textBox31 = (gcnew System::Windows::Forms::TextBox());
+			this->Display_corner_or_velocity = (gcnew System::Windows::Forms::TextBox());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage5->SuspendLayout();
@@ -1649,10 +1653,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage5->Controls->Add(this->groupBox13);
 			this->tabPage5->Controls->Add(this->groupBox12);
 			this->tabPage5->Controls->Add(this->groupBox11);
-			this->tabPage5->Location = System::Drawing::Point(4, 22);
+			this->tabPage5->Location = System::Drawing::Point(4, 35);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1075, 649);
+			this->tabPage5->Size = System::Drawing::Size(1075, 636);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Tires";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -1741,12 +1745,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox80
 			// 
+			this->textBox80->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox80->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox80->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox80->Location = System::Drawing::Point(6, 237);
 			this->textBox80->Multiline = true;
 			this->textBox80->Name = L"textBox80";
+			this->textBox80->ReadOnly = true;
 			this->textBox80->Size = System::Drawing::Size(138, 45);
 			this->textBox80->TabIndex = 10;
 			this->textBox80->Text = L"Tire vertical stiffness [N/mm]";
@@ -1766,12 +1772,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox61
 			// 
+			this->textBox61->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox61->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox61->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox61->Location = System::Drawing::Point(6, 186);
 			this->textBox61->Multiline = true;
 			this->textBox61->Name = L"textBox61";
+			this->textBox61->ReadOnly = true;
 			this->textBox61->Size = System::Drawing::Size(138, 45);
 			this->textBox61->TabIndex = 8;
 			this->textBox61->Text = L"Nominal tire load [N]";
@@ -1804,24 +1812,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox62
 			// 
+			this->textBox62->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox62->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox62->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox62->Location = System::Drawing::Point(6, 138);
 			this->textBox62->Multiline = true;
 			this->textBox62->Name = L"textBox62";
+			this->textBox62->ReadOnly = true;
 			this->textBox62->Size = System::Drawing::Size(138, 45);
 			this->textBox62->TabIndex = 6;
 			this->textBox62->Text = L"Rolling resistance parameter \"b\" [1/N]";
 			// 
 			// textBox63
 			// 
+			this->textBox63->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox63->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox63->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox63->Location = System::Drawing::Point(6, 87);
 			this->textBox63->Multiline = true;
 			this->textBox63->Name = L"textBox63";
+			this->textBox63->ReadOnly = true;
 			this->textBox63->Size = System::Drawing::Size(138, 45);
 			this->textBox63->TabIndex = 4;
 			this->textBox63->Text = L"Rolling resistance parameter \"a\" [-]";
@@ -1854,12 +1866,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox79
 			// 
+			this->textBox79->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox79->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox79->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox79->Location = System::Drawing::Point(6, 32);
 			this->textBox79->Multiline = true;
 			this->textBox79->Name = L"textBox79";
+			this->textBox79->ReadOnly = true;
 			this->textBox79->Size = System::Drawing::Size(138, 45);
 			this->textBox79->TabIndex = 2;
 			this->textBox79->Text = L"Unloaded tire radius [mm]";
@@ -2076,156 +2090,182 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox64
 			// 
+			this->textBox64->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox64->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox64->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox64->Location = System::Drawing::Point(6, 492);
 			this->textBox64->Multiline = true;
 			this->textBox64->Name = L"textBox64";
+			this->textBox64->ReadOnly = true;
 			this->textBox64->Size = System::Drawing::Size(58, 25);
 			this->textBox64->TabIndex = 30;
 			this->textBox64->Text = L"pVx2";
 			// 
 			// textBox65
 			// 
+			this->textBox65->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox65->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox65->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox65->Location = System::Drawing::Point(6, 459);
 			this->textBox65->Multiline = true;
 			this->textBox65->Name = L"textBox65";
+			this->textBox65->ReadOnly = true;
 			this->textBox65->Size = System::Drawing::Size(58, 25);
 			this->textBox65->TabIndex = 28;
 			this->textBox65->Text = L"pVx1";
 			// 
 			// textBox66
 			// 
+			this->textBox66->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox66->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox66->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox66->Location = System::Drawing::Point(6, 426);
 			this->textBox66->Multiline = true;
 			this->textBox66->Name = L"textBox66";
+			this->textBox66->ReadOnly = true;
 			this->textBox66->Size = System::Drawing::Size(58, 25);
 			this->textBox66->TabIndex = 26;
 			this->textBox66->Text = L"pHx2";
 			// 
 			// textBox67
 			// 
+			this->textBox67->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox67->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox67->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox67->Location = System::Drawing::Point(6, 393);
 			this->textBox67->Multiline = true;
 			this->textBox67->Name = L"textBox67";
+			this->textBox67->ReadOnly = true;
 			this->textBox67->Size = System::Drawing::Size(58, 25);
 			this->textBox67->TabIndex = 24;
 			this->textBox67->Text = L"pHx1";
 			// 
 			// textBox68
 			// 
+			this->textBox68->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox68->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox68->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox68->Location = System::Drawing::Point(6, 360);
 			this->textBox68->Multiline = true;
 			this->textBox68->Name = L"textBox68";
+			this->textBox68->ReadOnly = true;
 			this->textBox68->Size = System::Drawing::Size(58, 25);
 			this->textBox68->TabIndex = 22;
 			this->textBox68->Text = L"pKx3";
 			// 
 			// textBox69
 			// 
+			this->textBox69->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox69->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox69->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox69->Location = System::Drawing::Point(6, 327);
 			this->textBox69->Multiline = true;
 			this->textBox69->Name = L"textBox69";
+			this->textBox69->ReadOnly = true;
 			this->textBox69->Size = System::Drawing::Size(58, 25);
 			this->textBox69->TabIndex = 20;
 			this->textBox69->Text = L"pKx2";
 			// 
 			// textBox70
 			// 
+			this->textBox70->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox70->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox70->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox70->Location = System::Drawing::Point(6, 294);
 			this->textBox70->Multiline = true;
 			this->textBox70->Name = L"textBox70";
+			this->textBox70->ReadOnly = true;
 			this->textBox70->Size = System::Drawing::Size(58, 25);
 			this->textBox70->TabIndex = 18;
 			this->textBox70->Text = L"pKx1";
 			// 
 			// textBox71
 			// 
+			this->textBox71->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox71->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox71->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox71->Location = System::Drawing::Point(6, 261);
 			this->textBox71->Multiline = true;
 			this->textBox71->Name = L"textBox71";
+			this->textBox71->ReadOnly = true;
 			this->textBox71->Size = System::Drawing::Size(58, 25);
 			this->textBox71->TabIndex = 16;
 			this->textBox71->Text = L"pEx4";
 			// 
 			// textBox72
 			// 
+			this->textBox72->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox72->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox72->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox72->Location = System::Drawing::Point(6, 228);
 			this->textBox72->Multiline = true;
 			this->textBox72->Name = L"textBox72";
+			this->textBox72->ReadOnly = true;
 			this->textBox72->Size = System::Drawing::Size(58, 25);
 			this->textBox72->TabIndex = 14;
 			this->textBox72->Text = L"pEx3";
 			// 
 			// textBox73
 			// 
+			this->textBox73->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox73->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox73->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox73->Location = System::Drawing::Point(6, 195);
 			this->textBox73->Multiline = true;
 			this->textBox73->Name = L"textBox73";
+			this->textBox73->ReadOnly = true;
 			this->textBox73->Size = System::Drawing::Size(58, 25);
 			this->textBox73->TabIndex = 12;
 			this->textBox73->Text = L"pEx2";
 			// 
 			// textBox74
 			// 
+			this->textBox74->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox74->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox74->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox74->Location = System::Drawing::Point(6, 162);
 			this->textBox74->Multiline = true;
 			this->textBox74->Name = L"textBox74";
+			this->textBox74->ReadOnly = true;
 			this->textBox74->Size = System::Drawing::Size(58, 25);
 			this->textBox74->TabIndex = 10;
 			this->textBox74->Text = L"pEx1";
 			// 
 			// textBox75
 			// 
+			this->textBox75->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox75->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox75->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox75->Location = System::Drawing::Point(6, 129);
 			this->textBox75->Multiline = true;
 			this->textBox75->Name = L"textBox75";
+			this->textBox75->ReadOnly = true;
 			this->textBox75->Size = System::Drawing::Size(58, 25);
 			this->textBox75->TabIndex = 8;
 			this->textBox75->Text = L"pDx3";
 			// 
 			// textBox76
 			// 
+			this->textBox76->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox76->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox76->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox76->Location = System::Drawing::Point(6, 96);
 			this->textBox76->Multiline = true;
 			this->textBox76->Name = L"textBox76";
+			this->textBox76->ReadOnly = true;
 			this->textBox76->Size = System::Drawing::Size(58, 25);
 			this->textBox76->TabIndex = 6;
 			this->textBox76->Text = L"pDx2";
@@ -2245,12 +2285,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox77
 			// 
+			this->textBox77->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox77->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox77->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox77->Location = System::Drawing::Point(6, 63);
 			this->textBox77->Multiline = true;
 			this->textBox77->Name = L"textBox77";
+			this->textBox77->ReadOnly = true;
 			this->textBox77->Size = System::Drawing::Size(58, 25);
 			this->textBox77->TabIndex = 4;
 			this->textBox77->Text = L"pDx1";
@@ -2270,12 +2312,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox78
 			// 
+			this->textBox78->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox78->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox78->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox78->Location = System::Drawing::Point(6, 32);
 			this->textBox78->Multiline = true;
 			this->textBox78->Name = L"textBox78";
+			this->textBox78->ReadOnly = true;
 			this->textBox78->Size = System::Drawing::Size(58, 25);
 			this->textBox78->TabIndex = 2;
 			this->textBox78->Text = L"pCx1";
@@ -2536,192 +2580,224 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox60
 			// 
+			this->textBox60->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox60->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox60->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox60->Location = System::Drawing::Point(6, 591);
 			this->textBox60->Multiline = true;
 			this->textBox60->Name = L"textBox60";
+			this->textBox60->ReadOnly = true;
 			this->textBox60->Size = System::Drawing::Size(58, 25);
 			this->textBox60->TabIndex = 36;
 			this->textBox60->Text = L"pVy4";
 			// 
 			// textBox59
 			// 
+			this->textBox59->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox59->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox59->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox59->Location = System::Drawing::Point(6, 558);
 			this->textBox59->Multiline = true;
 			this->textBox59->Name = L"textBox59";
+			this->textBox59->ReadOnly = true;
 			this->textBox59->Size = System::Drawing::Size(58, 25);
 			this->textBox59->TabIndex = 34;
 			this->textBox59->Text = L"pVy3";
 			// 
 			// textBox58
 			// 
+			this->textBox58->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox58->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox58->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox58->Location = System::Drawing::Point(6, 525);
 			this->textBox58->Multiline = true;
 			this->textBox58->Name = L"textBox58";
+			this->textBox58->ReadOnly = true;
 			this->textBox58->Size = System::Drawing::Size(58, 25);
 			this->textBox58->TabIndex = 32;
 			this->textBox58->Text = L"pVy2";
 			// 
 			// textBox57
 			// 
+			this->textBox57->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox57->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox57->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox57->Location = System::Drawing::Point(6, 492);
 			this->textBox57->Multiline = true;
 			this->textBox57->Name = L"textBox57";
+			this->textBox57->ReadOnly = true;
 			this->textBox57->Size = System::Drawing::Size(58, 25);
 			this->textBox57->TabIndex = 30;
 			this->textBox57->Text = L"pVy1";
 			// 
 			// textBox56
 			// 
+			this->textBox56->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox56->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox56->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox56->Location = System::Drawing::Point(6, 459);
 			this->textBox56->Multiline = true;
 			this->textBox56->Name = L"textBox56";
+			this->textBox56->ReadOnly = true;
 			this->textBox56->Size = System::Drawing::Size(58, 25);
 			this->textBox56->TabIndex = 28;
 			this->textBox56->Text = L"pHy3";
 			// 
 			// textBox55
 			// 
+			this->textBox55->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox55->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox55->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox55->Location = System::Drawing::Point(6, 426);
 			this->textBox55->Multiline = true;
 			this->textBox55->Name = L"textBox55";
+			this->textBox55->ReadOnly = true;
 			this->textBox55->Size = System::Drawing::Size(58, 25);
 			this->textBox55->TabIndex = 26;
 			this->textBox55->Text = L"pHy2";
 			// 
 			// textBox54
 			// 
+			this->textBox54->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox54->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox54->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox54->Location = System::Drawing::Point(6, 393);
 			this->textBox54->Multiline = true;
 			this->textBox54->Name = L"textBox54";
+			this->textBox54->ReadOnly = true;
 			this->textBox54->Size = System::Drawing::Size(58, 25);
 			this->textBox54->TabIndex = 24;
 			this->textBox54->Text = L"pHy1";
 			// 
 			// textBox53
 			// 
+			this->textBox53->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox53->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox53->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox53->Location = System::Drawing::Point(6, 360);
 			this->textBox53->Multiline = true;
 			this->textBox53->Name = L"textBox53";
+			this->textBox53->ReadOnly = true;
 			this->textBox53->Size = System::Drawing::Size(58, 25);
 			this->textBox53->TabIndex = 22;
 			this->textBox53->Text = L"pKy3";
 			// 
 			// textBox52
 			// 
+			this->textBox52->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox52->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox52->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox52->Location = System::Drawing::Point(6, 327);
 			this->textBox52->Multiline = true;
 			this->textBox52->Name = L"textBox52";
+			this->textBox52->ReadOnly = true;
 			this->textBox52->Size = System::Drawing::Size(58, 25);
 			this->textBox52->TabIndex = 20;
 			this->textBox52->Text = L"pKy2";
 			// 
 			// textBox51
 			// 
+			this->textBox51->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox51->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox51->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox51->Location = System::Drawing::Point(6, 294);
 			this->textBox51->Multiline = true;
 			this->textBox51->Name = L"textBox51";
+			this->textBox51->ReadOnly = true;
 			this->textBox51->Size = System::Drawing::Size(58, 25);
 			this->textBox51->TabIndex = 18;
 			this->textBox51->Text = L"pKy1";
 			// 
 			// textBox50
 			// 
+			this->textBox50->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox50->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox50->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox50->Location = System::Drawing::Point(6, 261);
 			this->textBox50->Multiline = true;
 			this->textBox50->Name = L"textBox50";
+			this->textBox50->ReadOnly = true;
 			this->textBox50->Size = System::Drawing::Size(58, 25);
 			this->textBox50->TabIndex = 16;
 			this->textBox50->Text = L"pEy4";
 			// 
 			// textBox49
 			// 
+			this->textBox49->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox49->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox49->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox49->Location = System::Drawing::Point(6, 228);
 			this->textBox49->Multiline = true;
 			this->textBox49->Name = L"textBox49";
+			this->textBox49->ReadOnly = true;
 			this->textBox49->Size = System::Drawing::Size(58, 25);
 			this->textBox49->TabIndex = 14;
 			this->textBox49->Text = L"pEy3";
 			// 
 			// textBox48
 			// 
+			this->textBox48->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox48->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox48->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox48->Location = System::Drawing::Point(6, 195);
 			this->textBox48->Multiline = true;
 			this->textBox48->Name = L"textBox48";
+			this->textBox48->ReadOnly = true;
 			this->textBox48->Size = System::Drawing::Size(58, 25);
 			this->textBox48->TabIndex = 12;
 			this->textBox48->Text = L"pEy2";
 			// 
 			// textBox47
 			// 
+			this->textBox47->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox47->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox47->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox47->Location = System::Drawing::Point(6, 162);
 			this->textBox47->Multiline = true;
 			this->textBox47->Name = L"textBox47";
+			this->textBox47->ReadOnly = true;
 			this->textBox47->Size = System::Drawing::Size(58, 25);
 			this->textBox47->TabIndex = 10;
 			this->textBox47->Text = L"pEy1";
 			// 
 			// textBox46
 			// 
+			this->textBox46->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox46->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox46->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox46->Location = System::Drawing::Point(6, 129);
 			this->textBox46->Multiline = true;
 			this->textBox46->Name = L"textBox46";
+			this->textBox46->ReadOnly = true;
 			this->textBox46->Size = System::Drawing::Size(58, 25);
 			this->textBox46->TabIndex = 8;
 			this->textBox46->Text = L"pDy3";
 			// 
 			// textBox45
 			// 
+			this->textBox45->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox45->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox45->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox45->Location = System::Drawing::Point(6, 96);
 			this->textBox45->Multiline = true;
 			this->textBox45->Name = L"textBox45";
+			this->textBox45->ReadOnly = true;
 			this->textBox45->Size = System::Drawing::Size(58, 25);
 			this->textBox45->TabIndex = 6;
 			this->textBox45->Text = L"pDy2";
@@ -2741,12 +2817,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox43
 			// 
+			this->textBox43->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox43->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox43->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox43->Location = System::Drawing::Point(6, 63);
 			this->textBox43->Multiline = true;
 			this->textBox43->Name = L"textBox43";
+			this->textBox43->ReadOnly = true;
 			this->textBox43->Size = System::Drawing::Size(58, 25);
 			this->textBox43->TabIndex = 4;
 			this->textBox43->Text = L"pDy1";
@@ -2766,12 +2844,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox44
 			// 
+			this->textBox44->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox44->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox44->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox44->Location = System::Drawing::Point(6, 32);
 			this->textBox44->Multiline = true;
 			this->textBox44->Name = L"textBox44";
+			this->textBox44->ReadOnly = true;
 			this->textBox44->Size = System::Drawing::Size(58, 25);
 			this->textBox44->TabIndex = 2;
 			this->textBox44->Text = L"pCy1";
@@ -2871,36 +2951,42 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox14
 			// 
+			this->textBox14->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox14->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox14->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox14->Location = System::Drawing::Point(6, 143);
 			this->textBox14->Multiline = true;
 			this->textBox14->Name = L"textBox14";
+			this->textBox14->ReadOnly = true;
 			this->textBox14->Size = System::Drawing::Size(157, 25);
 			this->textBox14->TabIndex = 6;
 			this->textBox14->Text = L"Rear track [mm]";
 			// 
 			// textBox15
 			// 
+			this->textBox15->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox15->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox15->Location = System::Drawing::Point(6, 85);
 			this->textBox15->Multiline = true;
 			this->textBox15->Name = L"textBox15";
+			this->textBox15->ReadOnly = true;
 			this->textBox15->Size = System::Drawing::Size(157, 25);
 			this->textBox15->TabIndex = 4;
 			this->textBox15->Text = L"Front track [mm]";
 			// 
 			// textBox16
 			// 
+			this->textBox16->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox16->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox16->Location = System::Drawing::Point(6, 32);
 			this->textBox16->Multiline = true;
 			this->textBox16->Name = L"textBox16";
+			this->textBox16->ReadOnly = true;
 			this->textBox16->Size = System::Drawing::Size(157, 25);
 			this->textBox16->TabIndex = 2;
 			this->textBox16->Text = L"Wheelbase [mm]";
@@ -2934,24 +3020,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox8
 			// 
+			this->textBox8->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox8->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox8->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox8->Location = System::Drawing::Point(6, 200);
 			this->textBox8->Multiline = true;
 			this->textBox8->Name = L"textBox8";
+			this->textBox8->ReadOnly = true;
 			this->textBox8->Size = System::Drawing::Size(157, 47);
 			this->textBox8->TabIndex = 16;
 			this->textBox8->Text = L"Height of the center of gravity [mm]";
 			// 
 			// textBox7
 			// 
+			this->textBox7->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox7->Location = System::Drawing::Point(6, 408);
 			this->textBox7->Multiline = true;
 			this->textBox7->Name = L"textBox7";
+			this->textBox7->ReadOnly = true;
 			this->textBox7->Size = System::Drawing::Size(157, 38);
 			this->textBox7->TabIndex = 14;
 			this->textBox7->Text = L"Rear right unsprung masses [kg]";
@@ -2984,12 +3074,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox6
 			// 
+			this->textBox6->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox6->Location = System::Drawing::Point(6, 357);
 			this->textBox6->Multiline = true;
 			this->textBox6->Name = L"textBox6";
+			this->textBox6->ReadOnly = true;
 			this->textBox6->Size = System::Drawing::Size(157, 47);
 			this->textBox6->TabIndex = 12;
 			this->textBox6->Text = L"Rear left unsprung masses [kg]";
@@ -3009,12 +3101,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox5
 			// 
+			this->textBox5->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox5->Location = System::Drawing::Point(6, 306);
 			this->textBox5->Multiline = true;
 			this->textBox5->Name = L"textBox5";
+			this->textBox5->ReadOnly = true;
 			this->textBox5->Size = System::Drawing::Size(157, 47);
 			this->textBox5->TabIndex = 10;
 			this->textBox5->Text = L"Front right unsprung masses [kg]";
@@ -3034,12 +3128,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox4
 			// 
+			this->textBox4->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox4->Location = System::Drawing::Point(6, 253);
 			this->textBox4->Multiline = true;
 			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(157, 47);
 			this->textBox4->TabIndex = 8;
 			this->textBox4->Text = L"Front left unsprung masses [kg]";
@@ -3059,12 +3155,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox3
 			// 
+			this->textBox3->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox3->Location = System::Drawing::Point(6, 143);
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
+			this->textBox3->ReadOnly = true;
 			this->textBox3->Size = System::Drawing::Size(157, 47);
 			this->textBox3->TabIndex = 6;
 			this->textBox3->Text = L"Lateral mass distribution [%right]";
@@ -3083,12 +3181,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox2
 			// 
+			this->textBox2->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox2->Location = System::Drawing::Point(6, 85);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->ReadOnly = true;
 			this->textBox2->Size = System::Drawing::Size(157, 47);
 			this->textBox2->TabIndex = 4;
 			this->textBox2->Text = L"Longitudinal mass distribution [%front]";
@@ -3107,12 +3207,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox1
 			// 
+			this->textBox1->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox1->Location = System::Drawing::Point(6, 32);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->ReadOnly = true;
 			this->textBox1->Size = System::Drawing::Size(157, 47);
 			this->textBox1->TabIndex = 2;
 			this->textBox1->Text = L"Vehicle mass (with driver) [kg]";
@@ -3198,36 +3300,42 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox9
 			// 
+			this->textBox9->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox9->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox9->Location = System::Drawing::Point(6, 143);
 			this->textBox9->Multiline = true;
 			this->textBox9->Name = L"textBox9";
+			this->textBox9->ReadOnly = true;
 			this->textBox9->Size = System::Drawing::Size(102, 44);
 			this->textBox9->TabIndex = 6;
 			this->textBox9->Text = L"Rear brakes mounting";
 			// 
 			// textBox10
 			// 
+			this->textBox10->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox10->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox10->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox10->Location = System::Drawing::Point(6, 85);
 			this->textBox10->Multiline = true;
 			this->textBox10->Name = L"textBox10";
+			this->textBox10->ReadOnly = true;
 			this->textBox10->Size = System::Drawing::Size(102, 49);
 			this->textBox10->TabIndex = 4;
 			this->textBox10->Text = L"Front brakes mounting";
 			// 
 			// textBox11
 			// 
+			this->textBox11->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox11->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox11->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox11->Location = System::Drawing::Point(6, 32);
 			this->textBox11->Multiline = true;
 			this->textBox11->Name = L"textBox11";
+			this->textBox11->ReadOnly = true;
 			this->textBox11->Size = System::Drawing::Size(102, 37);
 			this->textBox11->TabIndex = 2;
 			this->textBox11->Text = L"Brake configuration";
@@ -3279,96 +3387,112 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox186
 			// 
+			this->textBox186->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox186->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox186->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox186->Location = System::Drawing::Point(257, 361);
 			this->textBox186->Multiline = true;
 			this->textBox186->Name = L"textBox186";
+			this->textBox186->ReadOnly = true;
 			this->textBox186->Size = System::Drawing::Size(157, 47);
 			this->textBox186->TabIndex = 30;
 			this->textBox186->Text = L"Rear differential stiffness [Nm/Nm]";
 			// 
 			// textBox187
 			// 
+			this->textBox187->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox187->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox187->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox187->Location = System::Drawing::Point(257, 310);
 			this->textBox187->Multiline = true;
 			this->textBox187->Name = L"textBox187";
+			this->textBox187->ReadOnly = true;
 			this->textBox187->Size = System::Drawing::Size(157, 47);
 			this->textBox187->TabIndex = 28;
 			this->textBox187->Text = L"Rear differential preload [Nm]";
 			// 
 			// textBox188
 			// 
+			this->textBox188->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox188->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox188->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox188->Location = System::Drawing::Point(257, 257);
 			this->textBox188->Multiline = true;
 			this->textBox188->Name = L"textBox188";
+			this->textBox188->ReadOnly = true;
 			this->textBox188->Size = System::Drawing::Size(157, 47);
 			this->textBox188->TabIndex = 26;
 			this->textBox188->Text = L"Rear differential braking TBR";
 			// 
 			// textBox189
 			// 
+			this->textBox189->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox189->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox189->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox189->Location = System::Drawing::Point(257, 206);
 			this->textBox189->Multiline = true;
 			this->textBox189->Name = L"textBox189";
+			this->textBox189->ReadOnly = true;
 			this->textBox189->Size = System::Drawing::Size(157, 47);
 			this->textBox189->TabIndex = 24;
 			this->textBox189->Text = L"Rear differential driving TBR";
 			// 
 			// textBox185
 			// 
+			this->textBox185->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox185->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox185->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox185->Location = System::Drawing::Point(6, 363);
 			this->textBox185->Multiline = true;
 			this->textBox185->Name = L"textBox185";
+			this->textBox185->ReadOnly = true;
 			this->textBox185->Size = System::Drawing::Size(157, 47);
 			this->textBox185->TabIndex = 22;
 			this->textBox185->Text = L"Front differential stiffness [Nm/Nm]";
 			// 
 			// textBox33
 			// 
+			this->textBox33->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox33->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox33->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox33->Location = System::Drawing::Point(6, 312);
 			this->textBox33->Multiline = true;
 			this->textBox33->Name = L"textBox33";
+			this->textBox33->ReadOnly = true;
 			this->textBox33->Size = System::Drawing::Size(157, 47);
 			this->textBox33->TabIndex = 20;
 			this->textBox33->Text = L"Front differential preload [Nm]";
 			// 
 			// textBox30
 			// 
+			this->textBox30->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox30->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox30->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox30->Location = System::Drawing::Point(6, 259);
 			this->textBox30->Multiline = true;
 			this->textBox30->Name = L"textBox30";
+			this->textBox30->ReadOnly = true;
 			this->textBox30->Size = System::Drawing::Size(157, 47);
 			this->textBox30->TabIndex = 18;
 			this->textBox30->Text = L"Front differential braking TBR";
 			// 
 			// textBox32
 			// 
+			this->textBox32->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox32->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox32->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox32->Location = System::Drawing::Point(6, 208);
 			this->textBox32->Multiline = true;
 			this->textBox32->Name = L"textBox32";
+			this->textBox32->ReadOnly = true;
 			this->textBox32->Size = System::Drawing::Size(157, 47);
 			this->textBox32->TabIndex = 14;
 			this->textBox32->Text = L"Front differential driving TBR";
@@ -3407,24 +3531,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox41
 			// 
+			this->textBox41->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox41->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox41->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox41->Location = System::Drawing::Point(257, 140);
 			this->textBox41->Multiline = true;
 			this->textBox41->Name = L"textBox41";
+			this->textBox41->ReadOnly = true;
 			this->textBox41->Size = System::Drawing::Size(102, 65);
 			this->textBox41->TabIndex = 11;
 			this->textBox41->Text = L"Rear differential locking";
 			// 
 			// textBox42
 			// 
+			this->textBox42->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox42->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox42->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox42->Location = System::Drawing::Point(6, 143);
 			this->textBox42->Multiline = true;
 			this->textBox42->Name = L"textBox42";
+			this->textBox42->ReadOnly = true;
 			this->textBox42->Size = System::Drawing::Size(102, 62);
 			this->textBox42->TabIndex = 10;
 			this->textBox42->Text = L"Front differential locking";
@@ -3468,36 +3596,42 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox12
 			// 
+			this->textBox12->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox12->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox12->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox12->Location = System::Drawing::Point(257, 72);
 			this->textBox12->Multiline = true;
 			this->textBox12->Name = L"textBox12";
+			this->textBox12->ReadOnly = true;
 			this->textBox12->Size = System::Drawing::Size(102, 65);
 			this->textBox12->TabIndex = 6;
 			this->textBox12->Text = L"Rear differential mounting";
 			// 
 			// textBox13
 			// 
+			this->textBox13->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox13->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox13->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox13->Location = System::Drawing::Point(6, 75);
 			this->textBox13->Multiline = true;
 			this->textBox13->Name = L"textBox13";
+			this->textBox13->ReadOnly = true;
 			this->textBox13->Size = System::Drawing::Size(102, 62);
 			this->textBox13->TabIndex = 4;
 			this->textBox13->Text = L"Front differential mounting";
 			// 
 			// textBox17
 			// 
+			this->textBox17->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox17->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox17->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox17->Location = System::Drawing::Point(6, 32);
 			this->textBox17->Multiline = true;
 			this->textBox17->Name = L"textBox17";
+			this->textBox17->ReadOnly = true;
 			this->textBox17->Size = System::Drawing::Size(102, 37);
 			this->textBox17->TabIndex = 2;
 			this->textBox17->Text = L"Drive configuration";
@@ -3737,10 +3871,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage11
 			// 
 			this->tabPage11->Controls->Add(this->groupBox21);
-			this->tabPage11->Location = System::Drawing::Point(4, 22);
+			this->tabPage11->Location = System::Drawing::Point(4, 35);
 			this->tabPage11->Name = L"tabPage11";
 			this->tabPage11->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage11->Size = System::Drawing::Size(1061, 604);
+			this->tabPage11->Size = System::Drawing::Size(1061, 591);
 			this->tabPage11->TabIndex = 1;
 			this->tabPage11->Text = L"Aerodynamics";
 			this->tabPage11->UseVisualStyleBackColor = true;
@@ -3967,12 +4101,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox168
 			// 
+			this->textBox168->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox168->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox168->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox168->Location = System::Drawing::Point(392, 164);
 			this->textBox168->Multiline = true;
 			this->textBox168->Name = L"textBox168";
+			this->textBox168->ReadOnly = true;
 			this->textBox168->Size = System::Drawing::Size(49, 25);
 			this->textBox168->TabIndex = 68;
 			this->textBox168->Text = L"* V +";
@@ -3992,12 +4128,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox169
 			// 
+			this->textBox169->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox169->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox169->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox169->Location = System::Drawing::Point(257, 164);
 			this->textBox169->Multiline = true;
 			this->textBox169->Name = L"textBox169";
+			this->textBox169->ReadOnly = true;
 			this->textBox169->Size = System::Drawing::Size(49, 25);
 			this->textBox169->TabIndex = 66;
 			this->textBox169->Text = L"* V² +";
@@ -4017,12 +4155,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox170
 			// 
+			this->textBox170->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox170->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox170->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox170->Location = System::Drawing::Point(6, 164);
 			this->textBox170->Multiline = true;
 			this->textBox170->Name = L"textBox170";
+			this->textBox170->ReadOnly = true;
 			this->textBox170->Size = System::Drawing::Size(165, 26);
 			this->textBox170->TabIndex = 65;
 			this->textBox170->Text = L"Total drag [N]";
@@ -4042,12 +4182,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox171
 			// 
+			this->textBox171->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox171->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox171->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox171->Location = System::Drawing::Point(392, 123);
 			this->textBox171->Multiline = true;
 			this->textBox171->Name = L"textBox171";
+			this->textBox171->ReadOnly = true;
 			this->textBox171->Size = System::Drawing::Size(49, 25);
 			this->textBox171->TabIndex = 62;
 			this->textBox171->Text = L"* V +";
@@ -4067,12 +4209,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox172
 			// 
+			this->textBox172->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox172->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox172->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox172->Location = System::Drawing::Point(257, 123);
 			this->textBox172->Multiline = true;
 			this->textBox172->Name = L"textBox172";
+			this->textBox172->ReadOnly = true;
 			this->textBox172->Size = System::Drawing::Size(49, 25);
 			this->textBox172->TabIndex = 60;
 			this->textBox172->Text = L"* V² +";
@@ -4092,12 +4236,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox173
 			// 
+			this->textBox173->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox173->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox173->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox173->Location = System::Drawing::Point(6, 110);
 			this->textBox173->Multiline = true;
 			this->textBox173->Name = L"textBox173";
+			this->textBox173->ReadOnly = true;
 			this->textBox173->Size = System::Drawing::Size(165, 44);
 			this->textBox173->TabIndex = 59;
 			this->textBox173->Text = L"Lateral downforce distribution [%right]";
@@ -4117,12 +4263,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox174
 			// 
+			this->textBox174->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox174->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox174->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox174->Location = System::Drawing::Point(392, 83);
 			this->textBox174->Multiline = true;
 			this->textBox174->Name = L"textBox174";
+			this->textBox174->ReadOnly = true;
 			this->textBox174->Size = System::Drawing::Size(49, 25);
 			this->textBox174->TabIndex = 56;
 			this->textBox174->Text = L"* V +";
@@ -4142,12 +4290,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox175
 			// 
+			this->textBox175->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox175->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox175->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox175->Location = System::Drawing::Point(257, 83);
 			this->textBox175->Multiline = true;
 			this->textBox175->Name = L"textBox175";
+			this->textBox175->ReadOnly = true;
 			this->textBox175->Size = System::Drawing::Size(49, 25);
 			this->textBox175->TabIndex = 54;
 			this->textBox175->Text = L"* V² +";
@@ -4167,12 +4317,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox176
 			// 
+			this->textBox176->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox176->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox176->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox176->Location = System::Drawing::Point(6, 70);
 			this->textBox176->Multiline = true;
 			this->textBox176->Name = L"textBox176";
+			this->textBox176->ReadOnly = true;
 			this->textBox176->Size = System::Drawing::Size(165, 44);
 			this->textBox176->TabIndex = 53;
 			this->textBox176->Text = L"Longitudinal downforce distribution [%front]";
@@ -4192,12 +4344,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox177
 			// 
+			this->textBox177->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox177->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox177->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox177->Location = System::Drawing::Point(392, 45);
 			this->textBox177->Multiline = true;
 			this->textBox177->Name = L"textBox177";
+			this->textBox177->ReadOnly = true;
 			this->textBox177->Size = System::Drawing::Size(49, 25);
 			this->textBox177->TabIndex = 50;
 			this->textBox177->Text = L"* V +";
@@ -4217,12 +4371,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox178
 			// 
+			this->textBox178->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox178->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox178->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox178->Location = System::Drawing::Point(257, 45);
 			this->textBox178->Multiline = true;
 			this->textBox178->Name = L"textBox178";
+			this->textBox178->ReadOnly = true;
 			this->textBox178->Size = System::Drawing::Size(49, 25);
 			this->textBox178->TabIndex = 48;
 			this->textBox178->Text = L"* V² +";
@@ -4242,12 +4398,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox179
 			// 
+			this->textBox179->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox179->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox179->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox179->Location = System::Drawing::Point(6, 43);
 			this->textBox179->Multiline = true;
 			this->textBox179->Name = L"textBox179";
+			this->textBox179->ReadOnly = true;
 			this->textBox179->Size = System::Drawing::Size(165, 20);
 			this->textBox179->TabIndex = 47;
 			this->textBox179->Text = L"Total downforce [N]";
@@ -4258,10 +4416,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage12->Controls->Add(this->groupBox15);
 			this->tabPage12->Controls->Add(this->groupBox16);
 			this->tabPage12->Controls->Add(this->groupBox5);
-			this->tabPage12->Location = System::Drawing::Point(4, 22);
+			this->tabPage12->Location = System::Drawing::Point(4, 35);
 			this->tabPage12->Name = L"tabPage12";
 			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage12->Size = System::Drawing::Size(1061, 604);
+			this->tabPage12->Size = System::Drawing::Size(1061, 591);
 			this->tabPage12->TabIndex = 2;
 			this->tabPage12->Text = L"Springs";
 			this->tabPage12->UseVisualStyleBackColor = true;
@@ -4287,12 +4445,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox24
 			// 
+			this->textBox24->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox24->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox24->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox24->Location = System::Drawing::Point(6, 199);
 			this->textBox24->Multiline = true;
 			this->textBox24->Name = L"textBox24";
+			this->textBox24->ReadOnly = true;
 			this->textBox24->Size = System::Drawing::Size(138, 64);
 			this->textBox24->TabIndex = 8;
 			this->textBox24->Text = L"Chassis pitch stiffness distribution [%right]";
@@ -4324,24 +4484,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox25
 			// 
+			this->textBox25->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox25->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox25->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox25->Location = System::Drawing::Point(6, 153);
 			this->textBox25->Multiline = true;
 			this->textBox25->Name = L"textBox25";
+			this->textBox25->ReadOnly = true;
 			this->textBox25->Size = System::Drawing::Size(138, 45);
 			this->textBox25->TabIndex = 6;
 			this->textBox25->Text = L"Chassis pitch stiffness [Nm/°]";
 			// 
 			// textBox22
 			// 
+			this->textBox22->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox22->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox22->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox22->Location = System::Drawing::Point(6, 83);
 			this->textBox22->Multiline = true;
 			this->textBox22->Name = L"textBox22";
+			this->textBox22->ReadOnly = true;
 			this->textBox22->Size = System::Drawing::Size(138, 64);
 			this->textBox22->TabIndex = 4;
 			this->textBox22->Text = L"Chassis roll stiffness distribution [%front]";
@@ -4373,12 +4537,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox23
 			// 
+			this->textBox23->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox23->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox23->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox23->Location = System::Drawing::Point(6, 32);
 			this->textBox23->Multiline = true;
 			this->textBox23->Name = L"textBox23";
+			this->textBox23->ReadOnly = true;
 			this->textBox23->Size = System::Drawing::Size(138, 45);
 			this->textBox23->TabIndex = 2;
 			this->textBox23->Text = L"Chassis roll stiffness [Nm/°]";
@@ -4419,12 +4585,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox89
 			// 
+			this->textBox89->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox89->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox89->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox89->Location = System::Drawing::Point(6, 236);
 			this->textBox89->Multiline = true;
 			this->textBox89->Name = L"textBox89";
+			this->textBox89->ReadOnly = true;
 			this->textBox89->Size = System::Drawing::Size(138, 45);
 			this->textBox89->TabIndex = 10;
 			this->textBox89->Text = L"Setup 5 stiffness [N/mm]";
@@ -4444,12 +4612,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox88
 			// 
+			this->textBox88->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox88->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox88->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox88->Location = System::Drawing::Point(6, 185);
 			this->textBox88->Multiline = true;
 			this->textBox88->Name = L"textBox88";
+			this->textBox88->ReadOnly = true;
 			this->textBox88->Size = System::Drawing::Size(138, 45);
 			this->textBox88->TabIndex = 8;
 			this->textBox88->Text = L"Setup 4 stiffness [N/mm]";
@@ -4469,12 +4639,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox87
 			// 
+			this->textBox87->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox87->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox87->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox87->Location = System::Drawing::Point(6, 134);
 			this->textBox87->Multiline = true;
 			this->textBox87->Name = L"textBox87";
+			this->textBox87->ReadOnly = true;
 			this->textBox87->Size = System::Drawing::Size(138, 45);
 			this->textBox87->TabIndex = 6;
 			this->textBox87->Text = L"Setup 3 stiffness [N/mm]";
@@ -4494,12 +4666,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox85
 			// 
+			this->textBox85->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox85->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox85->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox85->Location = System::Drawing::Point(6, 83);
 			this->textBox85->Multiline = true;
 			this->textBox85->Name = L"textBox85";
+			this->textBox85->ReadOnly = true;
 			this->textBox85->Size = System::Drawing::Size(138, 45);
 			this->textBox85->TabIndex = 4;
 			this->textBox85->Text = L"Setup 2 stiffness [N/mm]";
@@ -4519,12 +4693,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox86
 			// 
+			this->textBox86->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox86->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox86->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox86->Location = System::Drawing::Point(6, 32);
 			this->textBox86->Multiline = true;
 			this->textBox86->Name = L"textBox86";
+			this->textBox86->ReadOnly = true;
 			this->textBox86->Size = System::Drawing::Size(138, 45);
 			this->textBox86->TabIndex = 2;
 			this->textBox86->Text = L"Setup 1 stiffness [N/mm]";
@@ -4565,12 +4741,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox90
 			// 
+			this->textBox90->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox90->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox90->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox90->Location = System::Drawing::Point(6, 236);
 			this->textBox90->Multiline = true;
 			this->textBox90->Name = L"textBox90";
+			this->textBox90->ReadOnly = true;
 			this->textBox90->Size = System::Drawing::Size(138, 45);
 			this->textBox90->TabIndex = 10;
 			this->textBox90->Text = L"Setup 5 stiffness [N/mm]";
@@ -4590,12 +4768,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox91
 			// 
+			this->textBox91->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox91->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox91->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox91->Location = System::Drawing::Point(6, 185);
 			this->textBox91->Multiline = true;
 			this->textBox91->Name = L"textBox91";
+			this->textBox91->ReadOnly = true;
 			this->textBox91->Size = System::Drawing::Size(138, 45);
 			this->textBox91->TabIndex = 8;
 			this->textBox91->Text = L"Setup 4 stiffness [N/mm]";
@@ -4615,12 +4795,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox92
 			// 
+			this->textBox92->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox92->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox92->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox92->Location = System::Drawing::Point(6, 134);
 			this->textBox92->Multiline = true;
 			this->textBox92->Name = L"textBox92";
+			this->textBox92->ReadOnly = true;
 			this->textBox92->Size = System::Drawing::Size(138, 45);
 			this->textBox92->TabIndex = 6;
 			this->textBox92->Text = L"Setup 3 stiffness [N/mm]";
@@ -4640,12 +4822,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox93
 			// 
+			this->textBox93->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox93->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox93->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox93->Location = System::Drawing::Point(6, 83);
 			this->textBox93->Multiline = true;
 			this->textBox93->Name = L"textBox93";
+			this->textBox93->ReadOnly = true;
 			this->textBox93->Size = System::Drawing::Size(138, 45);
 			this->textBox93->TabIndex = 4;
 			this->textBox93->Text = L"Setup 2 stiffness [N/mm]";
@@ -4665,12 +4849,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox94
 			// 
+			this->textBox94->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox94->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox94->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox94->Location = System::Drawing::Point(6, 32);
 			this->textBox94->Multiline = true;
 			this->textBox94->Name = L"textBox94";
+			this->textBox94->ReadOnly = true;
 			this->textBox94->Size = System::Drawing::Size(138, 45);
 			this->textBox94->TabIndex = 2;
 			this->textBox94->Text = L"Setup 1 stiffness [N/mm]";
@@ -4692,12 +4878,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox18
 			// 
+			this->textBox18->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox18->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox18->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox18->Location = System::Drawing::Point(6, 83);
 			this->textBox18->Multiline = true;
 			this->textBox18->Name = L"textBox18";
+			this->textBox18->ReadOnly = true;
 			this->textBox18->Size = System::Drawing::Size(138, 45);
 			this->textBox18->TabIndex = 4;
 			this->textBox18->Text = L"Rear springs stiffness [N/mm]";
@@ -4730,12 +4918,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox20
 			// 
+			this->textBox20->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox20->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox20->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox20->Location = System::Drawing::Point(6, 32);
 			this->textBox20->Multiline = true;
 			this->textBox20->Name = L"textBox20";
+			this->textBox20->ReadOnly = true;
 			this->textBox20->Size = System::Drawing::Size(138, 45);
 			this->textBox20->TabIndex = 2;
 			this->textBox20->Text = L"Front springs stiffness [N/mm]";
@@ -4786,12 +4976,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox159
 			// 
+			this->textBox159->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox159->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox159->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox159->Location = System::Drawing::Point(392, 153);
 			this->textBox159->Multiline = true;
 			this->textBox159->Name = L"textBox159";
+			this->textBox159->ReadOnly = true;
 			this->textBox159->Size = System::Drawing::Size(49, 25);
 			this->textBox159->TabIndex = 68;
 			this->textBox159->Text = L"* w";
@@ -4811,12 +5003,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox160
 			// 
+			this->textBox160->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox160->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox160->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox160->Location = System::Drawing::Point(257, 153);
 			this->textBox160->Multiline = true;
 			this->textBox160->Name = L"textBox160";
+			this->textBox160->ReadOnly = true;
 			this->textBox160->Size = System::Drawing::Size(49, 25);
 			this->textBox160->TabIndex = 66;
 			this->textBox160->Text = L"* w² +";
@@ -4836,24 +5030,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox161
 			// 
+			this->textBox161->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox161->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox161->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox161->Location = System::Drawing::Point(6, 153);
 			this->textBox161->Multiline = true;
 			this->textBox161->Name = L"textBox161";
+			this->textBox161->ReadOnly = true;
 			this->textBox161->Size = System::Drawing::Size(165, 25);
 			this->textBox161->TabIndex = 65;
 			this->textBox161->Text = L"Rear bump [°]";
 			// 
 			// textBox129
 			// 
+			this->textBox129->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox129->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox129->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox129->Location = System::Drawing::Point(392, 110);
 			this->textBox129->Multiline = true;
 			this->textBox129->Name = L"textBox129";
+			this->textBox129->ReadOnly = true;
 			this->textBox129->Size = System::Drawing::Size(49, 25);
 			this->textBox129->TabIndex = 62;
 			this->textBox129->Text = L"* w";
@@ -4873,12 +5071,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox130
 			// 
+			this->textBox130->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox130->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox130->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox130->Location = System::Drawing::Point(257, 110);
 			this->textBox130->Multiline = true;
 			this->textBox130->Name = L"textBox130";
+			this->textBox130->ReadOnly = true;
 			this->textBox130->Size = System::Drawing::Size(49, 25);
 			this->textBox130->TabIndex = 60;
 			this->textBox130->Text = L"* w² +";
@@ -4898,24 +5098,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox131
 			// 
+			this->textBox131->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox131->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox131->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox131->Location = System::Drawing::Point(6, 110);
 			this->textBox131->Multiline = true;
 			this->textBox131->Name = L"textBox131";
+			this->textBox131->ReadOnly = true;
 			this->textBox131->Size = System::Drawing::Size(165, 25);
 			this->textBox131->TabIndex = 59;
 			this->textBox131->Text = L"Front bump [°]";
 			// 
 			// textBox153
 			// 
+			this->textBox153->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox153->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox153->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox153->Location = System::Drawing::Point(392, 70);
 			this->textBox153->Multiline = true;
 			this->textBox153->Name = L"textBox153";
+			this->textBox153->ReadOnly = true;
 			this->textBox153->Size = System::Drawing::Size(49, 25);
 			this->textBox153->TabIndex = 56;
 			this->textBox153->Text = L"* δ";
@@ -4935,12 +5139,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox154
 			// 
+			this->textBox154->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox154->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox154->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox154->Location = System::Drawing::Point(257, 70);
 			this->textBox154->Multiline = true;
 			this->textBox154->Name = L"textBox154";
+			this->textBox154->ReadOnly = true;
 			this->textBox154->Size = System::Drawing::Size(49, 25);
 			this->textBox154->TabIndex = 54;
 			this->textBox154->Text = L"* δ² +";
@@ -4960,24 +5166,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox155
 			// 
+			this->textBox155->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox155->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox155->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox155->Location = System::Drawing::Point(6, 70);
 			this->textBox155->Multiline = true;
 			this->textBox155->Name = L"textBox155";
+			this->textBox155->ReadOnly = true;
 			this->textBox155->Size = System::Drawing::Size(165, 23);
 			this->textBox155->TabIndex = 53;
 			this->textBox155->Text = L"Rear steering [°]";
 			// 
 			// textBox156
 			// 
+			this->textBox156->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox156->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox156->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox156->Location = System::Drawing::Point(392, 32);
 			this->textBox156->Multiline = true;
 			this->textBox156->Name = L"textBox156";
+			this->textBox156->ReadOnly = true;
 			this->textBox156->Size = System::Drawing::Size(49, 25);
 			this->textBox156->TabIndex = 50;
 			this->textBox156->Text = L"* δ";
@@ -4997,12 +5207,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox157
 			// 
+			this->textBox157->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox157->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox157->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox157->Location = System::Drawing::Point(257, 32);
 			this->textBox157->Multiline = true;
 			this->textBox157->Name = L"textBox157";
+			this->textBox157->ReadOnly = true;
 			this->textBox157->Size = System::Drawing::Size(49, 25);
 			this->textBox157->TabIndex = 48;
 			this->textBox157->Text = L"* δ² +";
@@ -5022,12 +5234,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox158
 			// 
+			this->textBox158->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox158->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox158->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox158->Location = System::Drawing::Point(6, 32);
 			this->textBox158->Multiline = true;
 			this->textBox158->Name = L"textBox158";
+			this->textBox158->ReadOnly = true;
 			this->textBox158->Size = System::Drawing::Size(165, 32);
 			this->textBox158->TabIndex = 47;
 			this->textBox158->Text = L"Front steering [°]";
@@ -5092,12 +5306,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox108
 			// 
+			this->textBox108->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox108->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox108->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox108->Location = System::Drawing::Point(424, 257);
 			this->textBox108->Multiline = true;
 			this->textBox108->Name = L"textBox108";
+			this->textBox108->ReadOnly = true;
 			this->textBox108->Size = System::Drawing::Size(49, 25);
 			this->textBox108->TabIndex = 80;
 			this->textBox108->Text = L"* φ +";
@@ -5117,12 +5333,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox109
 			// 
+			this->textBox109->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox109->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox109->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox109->Location = System::Drawing::Point(289, 257);
 			this->textBox109->Multiline = true;
 			this->textBox109->Name = L"textBox109";
+			this->textBox109->ReadOnly = true;
 			this->textBox109->Size = System::Drawing::Size(49, 25);
 			this->textBox109->TabIndex = 78;
 			this->textBox109->Text = L"* φ² +";
@@ -5142,12 +5360,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox110
 			// 
+			this->textBox110->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox110->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox110->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox110->Location = System::Drawing::Point(6, 246);
 			this->textBox110->Multiline = true;
 			this->textBox110->Name = L"textBox110";
+			this->textBox110->ReadOnly = true;
 			this->textBox110->Size = System::Drawing::Size(197, 44);
 			this->textBox110->TabIndex = 77;
 			this->textBox110->Text = L"Rear pitch instant center longitudinal position [mm]";
@@ -5167,12 +5387,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox114
 			// 
+			this->textBox114->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox114->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox114->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox114->Location = System::Drawing::Point(424, 216);
 			this->textBox114->Multiline = true;
 			this->textBox114->Name = L"textBox114";
+			this->textBox114->ReadOnly = true;
 			this->textBox114->Size = System::Drawing::Size(49, 25);
 			this->textBox114->TabIndex = 74;
 			this->textBox114->Text = L"* φ +";
@@ -5192,12 +5414,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox115
 			// 
+			this->textBox115->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox115->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox115->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox115->Location = System::Drawing::Point(289, 216);
 			this->textBox115->Multiline = true;
 			this->textBox115->Name = L"textBox115";
+			this->textBox115->ReadOnly = true;
 			this->textBox115->Size = System::Drawing::Size(49, 25);
 			this->textBox115->TabIndex = 72;
 			this->textBox115->Text = L"* φ² +";
@@ -5217,12 +5441,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox116
 			// 
+			this->textBox116->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox116->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox116->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox116->Location = System::Drawing::Point(6, 205);
 			this->textBox116->Multiline = true;
 			this->textBox116->Name = L"textBox116";
+			this->textBox116->ReadOnly = true;
 			this->textBox116->Size = System::Drawing::Size(185, 61);
 			this->textBox116->TabIndex = 71;
 			this->textBox116->Text = L"Front pitch instant center longitudinal position [mm]";
@@ -5242,12 +5468,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox117
 			// 
+			this->textBox117->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox117->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox117->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox117->Location = System::Drawing::Point(424, 173);
 			this->textBox117->Multiline = true;
 			this->textBox117->Name = L"textBox117";
+			this->textBox117->ReadOnly = true;
 			this->textBox117->Size = System::Drawing::Size(49, 25);
 			this->textBox117->TabIndex = 68;
 			this->textBox117->Text = L"* φ +";
@@ -5267,12 +5495,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox118
 			// 
+			this->textBox118->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox118->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox118->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox118->Location = System::Drawing::Point(289, 173);
 			this->textBox118->Multiline = true;
 			this->textBox118->Name = L"textBox118";
+			this->textBox118->ReadOnly = true;
 			this->textBox118->Size = System::Drawing::Size(49, 25);
 			this->textBox118->TabIndex = 66;
 			this->textBox118->Text = L"* φ² +";
@@ -5292,12 +5522,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox119
 			// 
+			this->textBox119->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox119->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox119->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox119->Location = System::Drawing::Point(6, 162);
 			this->textBox119->Multiline = true;
 			this->textBox119->Name = L"textBox119";
+			this->textBox119->ReadOnly = true;
 			this->textBox119->Size = System::Drawing::Size(197, 44);
 			this->textBox119->TabIndex = 65;
 			this->textBox119->Text = L"Right pitch center longitudianl offset [mm]";
@@ -5317,12 +5549,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox120
 			// 
+			this->textBox120->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox120->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox120->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox120->Location = System::Drawing::Point(424, 85);
 			this->textBox120->Multiline = true;
 			this->textBox120->Name = L"textBox120";
+			this->textBox120->ReadOnly = true;
 			this->textBox120->Size = System::Drawing::Size(49, 25);
 			this->textBox120->TabIndex = 62;
 			this->textBox120->Text = L"* φ +";
@@ -5342,12 +5576,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox121
 			// 
+			this->textBox121->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox121->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox121->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox121->Location = System::Drawing::Point(289, 85);
 			this->textBox121->Multiline = true;
 			this->textBox121->Name = L"textBox121";
+			this->textBox121->ReadOnly = true;
 			this->textBox121->Size = System::Drawing::Size(49, 25);
 			this->textBox121->TabIndex = 60;
 			this->textBox121->Text = L"* φ² +";
@@ -5367,12 +5603,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox122
 			// 
+			this->textBox122->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox122->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox122->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox122->Location = System::Drawing::Point(6, 74);
 			this->textBox122->Multiline = true;
 			this->textBox122->Name = L"textBox122";
+			this->textBox122->ReadOnly = true;
 			this->textBox122->Size = System::Drawing::Size(197, 44);
 			this->textBox122->TabIndex = 59;
 			this->textBox122->Text = L"Left pitch center longitudinal offset [mm]";
@@ -5392,12 +5630,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox123
 			// 
+			this->textBox123->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox123->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox123->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox123->Location = System::Drawing::Point(424, 129);
 			this->textBox123->Multiline = true;
 			this->textBox123->Name = L"textBox123";
+			this->textBox123->ReadOnly = true;
 			this->textBox123->Size = System::Drawing::Size(49, 25);
 			this->textBox123->TabIndex = 56;
 			this->textBox123->Text = L"* φ +";
@@ -5417,12 +5657,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox124
 			// 
+			this->textBox124->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox124->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox124->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox124->Location = System::Drawing::Point(289, 129);
 			this->textBox124->Multiline = true;
 			this->textBox124->Name = L"textBox124";
+			this->textBox124->ReadOnly = true;
 			this->textBox124->Size = System::Drawing::Size(49, 25);
 			this->textBox124->TabIndex = 54;
 			this->textBox124->Text = L"* φ² +";
@@ -5442,12 +5684,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox125
 			// 
+			this->textBox125->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox125->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox125->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox125->Location = System::Drawing::Point(6, 118);
 			this->textBox125->Multiline = true;
 			this->textBox125->Name = L"textBox125";
+			this->textBox125->ReadOnly = true;
 			this->textBox125->Size = System::Drawing::Size(197, 44);
 			this->textBox125->TabIndex = 53;
 			this->textBox125->Text = L"Right pitch center height [mm]";
@@ -5467,12 +5711,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox126
 			// 
+			this->textBox126->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox126->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox126->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox126->Location = System::Drawing::Point(424, 43);
 			this->textBox126->Multiline = true;
 			this->textBox126->Name = L"textBox126";
+			this->textBox126->ReadOnly = true;
 			this->textBox126->Size = System::Drawing::Size(49, 25);
 			this->textBox126->TabIndex = 50;
 			this->textBox126->Text = L"* φ +";
@@ -5492,12 +5738,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox127
 			// 
+			this->textBox127->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox127->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox127->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox127->Location = System::Drawing::Point(289, 43);
 			this->textBox127->Multiline = true;
 			this->textBox127->Name = L"textBox127";
+			this->textBox127->ReadOnly = true;
 			this->textBox127->Size = System::Drawing::Size(49, 25);
 			this->textBox127->TabIndex = 48;
 			this->textBox127->Text = L"* φ² +";
@@ -5517,12 +5765,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox128
 			// 
+			this->textBox128->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox128->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox128->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox128->Location = System::Drawing::Point(6, 44);
 			this->textBox128->Multiline = true;
 			this->textBox128->Name = L"textBox128";
+			this->textBox128->ReadOnly = true;
 			this->textBox128->Size = System::Drawing::Size(197, 24);
 			this->textBox128->TabIndex = 47;
 			this->textBox128->Text = L"Left pitch center height [mm]";
@@ -5553,12 +5803,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox132
 			// 
+			this->textBox132->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox132->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox132->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox132->Location = System::Drawing::Point(392, 110);
 			this->textBox132->Multiline = true;
 			this->textBox132->Name = L"textBox132";
+			this->textBox132->ReadOnly = true;
 			this->textBox132->Size = System::Drawing::Size(49, 25);
 			this->textBox132->TabIndex = 62;
 			this->textBox132->Text = L"* w";
@@ -5578,12 +5830,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox133
 			// 
+			this->textBox133->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox133->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox133->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox133->Location = System::Drawing::Point(257, 110);
 			this->textBox133->Multiline = true;
 			this->textBox133->Name = L"textBox133";
+			this->textBox133->ReadOnly = true;
 			this->textBox133->Size = System::Drawing::Size(49, 25);
 			this->textBox133->TabIndex = 60;
 			this->textBox133->Text = L"* w² +";
@@ -5603,24 +5857,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox134
 			// 
+			this->textBox134->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox134->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox134->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox134->Location = System::Drawing::Point(6, 110);
 			this->textBox134->Multiline = true;
 			this->textBox134->Name = L"textBox134";
+			this->textBox134->ReadOnly = true;
 			this->textBox134->Size = System::Drawing::Size(165, 25);
 			this->textBox134->TabIndex = 59;
 			this->textBox134->Text = L"Rear bump steer [°]";
 			// 
 			// textBox147
 			// 
+			this->textBox147->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox147->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox147->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox147->Location = System::Drawing::Point(392, 70);
 			this->textBox147->Multiline = true;
 			this->textBox147->Name = L"textBox147";
+			this->textBox147->ReadOnly = true;
 			this->textBox147->Size = System::Drawing::Size(49, 25);
 			this->textBox147->TabIndex = 56;
 			this->textBox147->Text = L"* w";
@@ -5640,12 +5898,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox148
 			// 
+			this->textBox148->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox148->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox148->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox148->Location = System::Drawing::Point(257, 70);
 			this->textBox148->Multiline = true;
 			this->textBox148->Name = L"textBox148";
+			this->textBox148->ReadOnly = true;
 			this->textBox148->Size = System::Drawing::Size(49, 25);
 			this->textBox148->TabIndex = 54;
 			this->textBox148->Text = L"* w² +";
@@ -5665,24 +5925,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox149
 			// 
+			this->textBox149->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox149->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox149->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox149->Location = System::Drawing::Point(6, 70);
 			this->textBox149->Multiline = true;
 			this->textBox149->Name = L"textBox149";
+			this->textBox149->ReadOnly = true;
 			this->textBox149->Size = System::Drawing::Size(165, 23);
 			this->textBox149->TabIndex = 53;
 			this->textBox149->Text = L"Front bump steer [°]";
 			// 
 			// textBox150
 			// 
+			this->textBox150->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox150->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox150->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox150->Location = System::Drawing::Point(392, 32);
 			this->textBox150->Multiline = true;
 			this->textBox150->Name = L"textBox150";
+			this->textBox150->ReadOnly = true;
 			this->textBox150->Size = System::Drawing::Size(49, 25);
 			this->textBox150->TabIndex = 50;
 			this->textBox150->Text = L"* δd";
@@ -5702,12 +5966,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox151
 			// 
+			this->textBox151->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox151->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox151->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox151->Location = System::Drawing::Point(257, 32);
 			this->textBox151->Multiline = true;
 			this->textBox151->Name = L"textBox151";
+			this->textBox151->ReadOnly = true;
 			this->textBox151->Size = System::Drawing::Size(49, 25);
 			this->textBox151->TabIndex = 48;
 			this->textBox151->Text = L"* δd² +";
@@ -5727,12 +5993,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox152
 			// 
+			this->textBox152->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox152->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox152->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox152->Location = System::Drawing::Point(6, 32);
 			this->textBox152->Multiline = true;
 			this->textBox152->Name = L"textBox152";
+			this->textBox152->ReadOnly = true;
 			this->textBox152->Size = System::Drawing::Size(165, 32);
 			this->textBox152->TabIndex = 47;
 			this->textBox152->Text = L"Ackermann [°]";
@@ -5785,12 +6053,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox135
 			// 
+			this->textBox135->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox135->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox135->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox135->Location = System::Drawing::Point(392, 151);
 			this->textBox135->Multiline = true;
 			this->textBox135->Name = L"textBox135";
+			this->textBox135->ReadOnly = true;
 			this->textBox135->Size = System::Drawing::Size(49, 25);
 			this->textBox135->TabIndex = 68;
 			this->textBox135->Text = L"* w +";
@@ -5810,12 +6080,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox136
 			// 
+			this->textBox136->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox136->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox136->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox136->Location = System::Drawing::Point(257, 151);
 			this->textBox136->Multiline = true;
 			this->textBox136->Name = L"textBox136";
+			this->textBox136->ReadOnly = true;
 			this->textBox136->Size = System::Drawing::Size(49, 25);
 			this->textBox136->TabIndex = 66;
 			this->textBox136->Text = L"* w² +";
@@ -5835,12 +6107,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox137
 			// 
+			this->textBox137->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox137->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox137->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox137->Location = System::Drawing::Point(6, 151);
 			this->textBox137->Multiline = true;
 			this->textBox137->Name = L"textBox137";
+			this->textBox137->ReadOnly = true;
 			this->textBox137->Size = System::Drawing::Size(165, 25);
 			this->textBox137->TabIndex = 65;
 			this->textBox137->Text = L"Rear ARB [mm/mm]";
@@ -5860,12 +6134,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox138
 			// 
+			this->textBox138->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox138->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox138->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox138->Location = System::Drawing::Point(392, 110);
 			this->textBox138->Multiline = true;
 			this->textBox138->Name = L"textBox138";
+			this->textBox138->ReadOnly = true;
 			this->textBox138->Size = System::Drawing::Size(49, 25);
 			this->textBox138->TabIndex = 62;
 			this->textBox138->Text = L"* w +";
@@ -5885,12 +6161,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox139
 			// 
+			this->textBox139->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox139->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox139->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox139->Location = System::Drawing::Point(257, 110);
 			this->textBox139->Multiline = true;
 			this->textBox139->Name = L"textBox139";
+			this->textBox139->ReadOnly = true;
 			this->textBox139->Size = System::Drawing::Size(49, 25);
 			this->textBox139->TabIndex = 60;
 			this->textBox139->Text = L"* w² +";
@@ -5910,12 +6188,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox140
 			// 
+			this->textBox140->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox140->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox140->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox140->Location = System::Drawing::Point(6, 110);
 			this->textBox140->Multiline = true;
 			this->textBox140->Name = L"textBox140";
+			this->textBox140->ReadOnly = true;
 			this->textBox140->Size = System::Drawing::Size(165, 25);
 			this->textBox140->TabIndex = 59;
 			this->textBox140->Text = L"Front ARB [mm/mm]";
@@ -5935,12 +6215,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox141
 			// 
+			this->textBox141->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox141->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox141->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox141->Location = System::Drawing::Point(392, 70);
 			this->textBox141->Multiline = true;
 			this->textBox141->Name = L"textBox141";
+			this->textBox141->ReadOnly = true;
 			this->textBox141->Size = System::Drawing::Size(49, 25);
 			this->textBox141->TabIndex = 56;
 			this->textBox141->Text = L"* w +";
@@ -5960,12 +6242,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox142
 			// 
+			this->textBox142->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox142->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox142->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox142->Location = System::Drawing::Point(257, 70);
 			this->textBox142->Multiline = true;
 			this->textBox142->Name = L"textBox142";
+			this->textBox142->ReadOnly = true;
 			this->textBox142->Size = System::Drawing::Size(49, 25);
 			this->textBox142->TabIndex = 54;
 			this->textBox142->Text = L"* w² +";
@@ -5985,12 +6269,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox143
 			// 
+			this->textBox143->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox143->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox143->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox143->Location = System::Drawing::Point(6, 70);
 			this->textBox143->Multiline = true;
 			this->textBox143->Name = L"textBox143";
+			this->textBox143->ReadOnly = true;
 			this->textBox143->Size = System::Drawing::Size(165, 23);
 			this->textBox143->TabIndex = 53;
 			this->textBox143->Text = L"Rear springs [mm/mm]";
@@ -6010,12 +6296,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox144
 			// 
+			this->textBox144->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox144->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox144->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox144->Location = System::Drawing::Point(392, 32);
 			this->textBox144->Multiline = true;
 			this->textBox144->Name = L"textBox144";
+			this->textBox144->ReadOnly = true;
 			this->textBox144->Size = System::Drawing::Size(49, 25);
 			this->textBox144->TabIndex = 50;
 			this->textBox144->Text = L"* w +";
@@ -6035,12 +6323,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox145
 			// 
+			this->textBox145->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox145->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox145->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox145->Location = System::Drawing::Point(257, 32);
 			this->textBox145->Multiline = true;
 			this->textBox145->Name = L"textBox145";
+			this->textBox145->ReadOnly = true;
 			this->textBox145->Size = System::Drawing::Size(49, 25);
 			this->textBox145->TabIndex = 48;
 			this->textBox145->Text = L"* w² +";
@@ -6060,12 +6350,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox146
 			// 
+			this->textBox146->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox146->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox146->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox146->Location = System::Drawing::Point(6, 32);
 			this->textBox146->Multiline = true;
 			this->textBox146->Name = L"textBox146";
+			this->textBox146->ReadOnly = true;
 			this->textBox146->Size = System::Drawing::Size(165, 32);
 			this->textBox146->TabIndex = 47;
 			this->textBox146->Text = L"Front springs [mm/mm]";
@@ -6130,12 +6422,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox111
 			// 
+			this->textBox111->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox111->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox111->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox111->Location = System::Drawing::Point(424, 248);
 			this->textBox111->Multiline = true;
 			this->textBox111->Name = L"textBox111";
+			this->textBox111->ReadOnly = true;
 			this->textBox111->Size = System::Drawing::Size(49, 25);
 			this->textBox111->TabIndex = 80;
 			this->textBox111->Text = L"* Ψ +";
@@ -6155,12 +6449,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox112
 			// 
+			this->textBox112->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox112->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox112->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox112->Location = System::Drawing::Point(289, 248);
 			this->textBox112->Multiline = true;
 			this->textBox112->Name = L"textBox112";
+			this->textBox112->ReadOnly = true;
 			this->textBox112->Size = System::Drawing::Size(49, 25);
 			this->textBox112->TabIndex = 78;
 			this->textBox112->Text = L"* Ψ² +";
@@ -6180,12 +6476,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox113
 			// 
+			this->textBox113->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox113->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox113->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox113->Location = System::Drawing::Point(6, 235);
 			this->textBox113->Multiline = true;
 			this->textBox113->Name = L"textBox113";
+			this->textBox113->ReadOnly = true;
 			this->textBox113->Size = System::Drawing::Size(197, 44);
 			this->textBox113->TabIndex = 77;
 			this->textBox113->Text = L"Rear roll instant center lateral position [mm]";
@@ -6205,12 +6503,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox105
 			// 
+			this->textBox105->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox105->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox105->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox105->Location = System::Drawing::Point(424, 124);
 			this->textBox105->Multiline = true;
 			this->textBox105->Name = L"textBox105";
+			this->textBox105->ReadOnly = true;
 			this->textBox105->Size = System::Drawing::Size(49, 25);
 			this->textBox105->TabIndex = 74;
 			this->textBox105->Text = L"* Ψ +";
@@ -6230,12 +6530,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox106
 			// 
+			this->textBox106->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox106->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox106->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox106->Location = System::Drawing::Point(289, 124);
 			this->textBox106->Multiline = true;
 			this->textBox106->Name = L"textBox106";
+			this->textBox106->ReadOnly = true;
 			this->textBox106->Size = System::Drawing::Size(49, 25);
 			this->textBox106->TabIndex = 72;
 			this->textBox106->Text = L"* Ψ² +";
@@ -6255,12 +6557,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox107
 			// 
+			this->textBox107->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox107->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox107->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox107->Location = System::Drawing::Point(6, 111);
 			this->textBox107->Multiline = true;
 			this->textBox107->Name = L"textBox107";
+			this->textBox107->ReadOnly = true;
 			this->textBox107->Size = System::Drawing::Size(197, 44);
 			this->textBox107->TabIndex = 71;
 			this->textBox107->Text = L"Front roll instant center lateral position [mm]";
@@ -6280,12 +6584,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox102
 			// 
+			this->textBox102->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox102->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox102->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox102->Location = System::Drawing::Point(424, 209);
 			this->textBox102->Multiline = true;
 			this->textBox102->Name = L"textBox102";
+			this->textBox102->ReadOnly = true;
 			this->textBox102->Size = System::Drawing::Size(49, 25);
 			this->textBox102->TabIndex = 68;
 			this->textBox102->Text = L"* Ψ +";
@@ -6305,12 +6611,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox103
 			// 
+			this->textBox103->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox103->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox103->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox103->Location = System::Drawing::Point(289, 209);
 			this->textBox103->Multiline = true;
 			this->textBox103->Name = L"textBox103";
+			this->textBox103->ReadOnly = true;
 			this->textBox103->Size = System::Drawing::Size(49, 25);
 			this->textBox103->TabIndex = 66;
 			this->textBox103->Text = L"* Ψ² +";
@@ -6330,12 +6638,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox104
 			// 
+			this->textBox104->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox104->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox104->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox104->Location = System::Drawing::Point(6, 196);
 			this->textBox104->Multiline = true;
 			this->textBox104->Name = L"textBox104";
+			this->textBox104->ReadOnly = true;
 			this->textBox104->Size = System::Drawing::Size(197, 44);
 			this->textBox104->TabIndex = 65;
 			this->textBox104->Text = L"Rear roll center lateral offset [mm]";
@@ -6355,12 +6665,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox99
 			// 
+			this->textBox99->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox99->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox99->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox99->Location = System::Drawing::Point(424, 86);
 			this->textBox99->Multiline = true;
 			this->textBox99->Name = L"textBox99";
+			this->textBox99->ReadOnly = true;
 			this->textBox99->Size = System::Drawing::Size(49, 25);
 			this->textBox99->TabIndex = 62;
 			this->textBox99->Text = L"* Ψ +";
@@ -6380,12 +6692,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox100
 			// 
+			this->textBox100->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox100->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox100->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox100->Location = System::Drawing::Point(289, 86);
 			this->textBox100->Multiline = true;
 			this->textBox100->Name = L"textBox100";
+			this->textBox100->ReadOnly = true;
 			this->textBox100->Size = System::Drawing::Size(49, 25);
 			this->textBox100->TabIndex = 60;
 			this->textBox100->Text = L"* Ψ² +";
@@ -6405,12 +6719,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox101
 			// 
+			this->textBox101->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox101->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox101->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox101->Location = System::Drawing::Point(6, 73);
 			this->textBox101->Multiline = true;
 			this->textBox101->Name = L"textBox101";
+			this->textBox101->ReadOnly = true;
 			this->textBox101->Size = System::Drawing::Size(197, 44);
 			this->textBox101->TabIndex = 59;
 			this->textBox101->Text = L"Front roll center lateral offset [mm]";
@@ -6430,12 +6746,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox96
 			// 
+			this->textBox96->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox96->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox96->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox96->Location = System::Drawing::Point(424, 167);
 			this->textBox96->Multiline = true;
 			this->textBox96->Name = L"textBox96";
+			this->textBox96->ReadOnly = true;
 			this->textBox96->Size = System::Drawing::Size(49, 25);
 			this->textBox96->TabIndex = 56;
 			this->textBox96->Text = L"* Ψ +";
@@ -6455,12 +6773,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox97
 			// 
+			this->textBox97->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox97->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox97->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox97->Location = System::Drawing::Point(289, 167);
 			this->textBox97->Multiline = true;
 			this->textBox97->Name = L"textBox97";
+			this->textBox97->ReadOnly = true;
 			this->textBox97->Size = System::Drawing::Size(49, 25);
 			this->textBox97->TabIndex = 54;
 			this->textBox97->Text = L"* Ψ² +";
@@ -6480,12 +6800,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox98
 			// 
+			this->textBox98->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox98->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox98->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox98->Location = System::Drawing::Point(6, 164);
 			this->textBox98->Multiline = true;
 			this->textBox98->Name = L"textBox98";
+			this->textBox98->ReadOnly = true;
 			this->textBox98->Size = System::Drawing::Size(197, 25);
 			this->textBox98->TabIndex = 53;
 			this->textBox98->Text = L"Rear roll center height [mm]";
@@ -6505,12 +6827,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox19
 			// 
+			this->textBox19->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox19->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox19->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox19->Location = System::Drawing::Point(424, 45);
 			this->textBox19->Multiline = true;
 			this->textBox19->Name = L"textBox19";
+			this->textBox19->ReadOnly = true;
 			this->textBox19->Size = System::Drawing::Size(49, 25);
 			this->textBox19->TabIndex = 50;
 			this->textBox19->Text = L"* Ψ +";
@@ -6530,12 +6854,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox21
 			// 
+			this->textBox21->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox21->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox21->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox21->Location = System::Drawing::Point(289, 45);
 			this->textBox21->Multiline = true;
 			this->textBox21->Name = L"textBox21";
+			this->textBox21->ReadOnly = true;
 			this->textBox21->Size = System::Drawing::Size(49, 25);
 			this->textBox21->TabIndex = 48;
 			this->textBox21->Text = L"* Ψ² +";
@@ -6555,12 +6881,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox95
 			// 
+			this->textBox95->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox95->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox95->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox95->Location = System::Drawing::Point(6, 45);
 			this->textBox95->Multiline = true;
 			this->textBox95->Name = L"textBox95";
+			this->textBox95->ReadOnly = true;
 			this->textBox95->Size = System::Drawing::Size(197, 28);
 			this->textBox95->TabIndex = 47;
 			this->textBox95->Text = L"Front roll center height [mm]";
@@ -6568,10 +6896,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Location = System::Drawing::Point(4, 35);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 649);
+			this->tabPage2->Size = System::Drawing::Size(1075, 636);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -6591,7 +6919,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -6642,12 +6970,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox84
 			// 
+			this->textBox84->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox84->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox84->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox84->Location = System::Drawing::Point(6, 390);
 			this->textBox84->Multiline = true;
 			this->textBox84->Name = L"textBox84";
+			this->textBox84->ReadOnly = true;
 			this->textBox84->Size = System::Drawing::Size(102, 40);
 			this->textBox84->TabIndex = 27;
 			this->textBox84->Text = L"Rear ARB setup";
@@ -6666,12 +6996,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox83
 			// 
+			this->textBox83->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox83->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox83->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox83->Location = System::Drawing::Point(6, 348);
 			this->textBox83->Multiline = true;
 			this->textBox83->Name = L"textBox83";
+			this->textBox83->ReadOnly = true;
 			this->textBox83->Size = System::Drawing::Size(102, 40);
 			this->textBox83->TabIndex = 25;
 			this->textBox83->Text = L"Front ARB setup";
@@ -6689,12 +7021,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox81
 			// 
+			this->textBox81->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox81->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox81->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox81->Location = System::Drawing::Point(6, 302);
 			this->textBox81->Multiline = true;
 			this->textBox81->Name = L"textBox81";
+			this->textBox81->ReadOnly = true;
 			this->textBox81->Size = System::Drawing::Size(47, 39);
 			this->textBox81->TabIndex = 23;
 			this->textBox81->Text = L"Rear tires";
@@ -6712,24 +7046,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox82
 			// 
+			this->textBox82->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox82->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox82->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox82->Location = System::Drawing::Point(6, 254);
 			this->textBox82->Multiline = true;
 			this->textBox82->Name = L"textBox82";
+			this->textBox82->ReadOnly = true;
 			this->textBox82->Size = System::Drawing::Size(47, 42);
 			this->textBox82->TabIndex = 21;
 			this->textBox82->Text = L"Front tires";
 			// 
 			// textBox36
 			// 
+			this->textBox36->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox36->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox36->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox36->Location = System::Drawing::Point(6, 220);
 			this->textBox36->Multiline = true;
 			this->textBox36->Name = L"textBox36";
+			this->textBox36->ReadOnly = true;
 			this->textBox36->Size = System::Drawing::Size(157, 27);
 			this->textBox36->TabIndex = 18;
 			this->textBox36->Text = L"Drive bias [%front]";
@@ -6748,12 +7086,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox27
 			// 
+			this->textBox27->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox27->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox27->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox27->Location = System::Drawing::Point(6, 145);
 			this->textBox27->Multiline = true;
 			this->textBox27->Name = L"textBox27";
+			this->textBox27->ReadOnly = true;
 			this->textBox27->Size = System::Drawing::Size(157, 37);
 			this->textBox27->TabIndex = 16;
 			this->textBox27->Text = L"Rear camber [°]";
@@ -6774,12 +7114,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox28
 			// 
+			this->textBox28->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox28->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox28->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox28->Location = System::Drawing::Point(6, 183);
 			this->textBox28->Multiline = true;
 			this->textBox28->Name = L"textBox28";
+			this->textBox28->ReadOnly = true;
 			this->textBox28->Size = System::Drawing::Size(157, 27);
 			this->textBox28->TabIndex = 8;
 			this->textBox28->Text = L"Brake bias [%front]";
@@ -6799,12 +7141,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox29
 			// 
+			this->textBox29->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox29->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox29->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox29->Location = System::Drawing::Point(6, 111);
 			this->textBox29->Multiline = true;
 			this->textBox29->Name = L"textBox29";
+			this->textBox29->ReadOnly = true;
 			this->textBox29->Size = System::Drawing::Size(157, 37);
 			this->textBox29->TabIndex = 6;
 			this->textBox29->Text = L"Front camber [°]";
@@ -6825,12 +7169,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox34
 			// 
+			this->textBox34->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox34->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox34->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox34->Location = System::Drawing::Point(6, 78);
 			this->textBox34->Multiline = true;
 			this->textBox34->Name = L"textBox34";
+			this->textBox34->ReadOnly = true;
 			this->textBox34->Size = System::Drawing::Size(157, 20);
 			this->textBox34->TabIndex = 4;
 			this->textBox34->Text = L"Rear toe [°]";
@@ -6851,12 +7197,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox35
 			// 
+			this->textBox35->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox35->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox35->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox35->Location = System::Drawing::Point(6, 44);
 			this->textBox35->Multiline = true;
 			this->textBox35->Name = L"textBox35";
+			this->textBox35->ReadOnly = true;
 			this->textBox35->Size = System::Drawing::Size(157, 30);
 			this->textBox35->TabIndex = 2;
 			this->textBox35->Text = L"Front toe [°]";
@@ -6961,12 +7309,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox184
 			// 
+			this->textBox184->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox184->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox184->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox184->Location = System::Drawing::Point(6, 216);
 			this->textBox184->Multiline = true;
 			this->textBox184->Name = L"textBox184";
+			this->textBox184->ReadOnly = true;
 			this->textBox184->Size = System::Drawing::Size(157, 39);
 			this->textBox184->TabIndex = 13;
 			this->textBox184->Text = L"Longitudinal acceleration [g]";
@@ -7015,12 +7365,14 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox38
 			// 
+			this->textBox38->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox38->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox38->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox38->Location = System::Drawing::Point(6, 335);
 			this->textBox38->Multiline = true;
 			this->textBox38->Name = L"textBox38";
+			this->textBox38->ReadOnly = true;
 			this->textBox38->Size = System::Drawing::Size(102, 30);
 			this->textBox38->TabIndex = 19;
 			this->textBox38->Text = L"Steering input";
@@ -7040,24 +7392,28 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox37
 			// 
+			this->textBox37->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox37->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox37->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox37->Location = System::Drawing::Point(6, 277);
 			this->textBox37->Multiline = true;
 			this->textBox37->Name = L"textBox37";
+			this->textBox37->ReadOnly = true;
 			this->textBox37->Size = System::Drawing::Size(102, 19);
 			this->textBox37->TabIndex = 17;
 			this->textBox37->Text = L"Pedals input";
 			// 
 			// textBox26
 			// 
+			this->textBox26->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox26->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox26->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox26->Location = System::Drawing::Point(6, 165);
 			this->textBox26->Multiline = true;
 			this->textBox26->Name = L"textBox26";
+			this->textBox26->ReadOnly = true;
 			this->textBox26->Size = System::Drawing::Size(157, 47);
 			this->textBox26->TabIndex = 16;
 			this->textBox26->Text = L"Steering wheel angle [°]";
@@ -7078,18 +7434,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_delta_d_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 60, 0, 0, 0 });
 			this->input_delta_d_deg->ValueChanged += gcnew System::EventHandler(this, &MyForm::input_delta_d_deg_ValueChanged);
 			// 
-			// textBox31
-			// 
-			this->textBox31->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox31->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox31->Location = System::Drawing::Point(6, 108);
-			this->textBox31->Multiline = true;
-			this->textBox31->Name = L"textBox31";
-			this->textBox31->Size = System::Drawing::Size(157, 47);
-			this->textBox31->TabIndex = 6;
-			this->textBox31->Text = L"Chassis slip angle (β) [°]";
-			// 
 			// input_beta_deg
 			// 
 			this->input_beta_deg->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
@@ -7105,18 +7449,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_beta_deg->TabIndex = 5;
 			this->input_beta_deg->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
 			this->input_beta_deg->ValueChanged += gcnew System::EventHandler(this, &MyForm::input_beta_deg_ValueChanged);
-			// 
-			// Display_corner_or_velocity
-			// 
-			this->Display_corner_or_velocity->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->Display_corner_or_velocity->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Display_corner_or_velocity->Location = System::Drawing::Point(6, 62);
-			this->Display_corner_or_velocity->Multiline = true;
-			this->Display_corner_or_velocity->Name = L"Display_corner_or_velocity";
-			this->Display_corner_or_velocity->Size = System::Drawing::Size(157, 20);
-			this->Display_corner_or_velocity->TabIndex = 4;
-			this->Display_corner_or_velocity->Text = L"Vehicle velocity [km/h]";
 			// 
 			// input_R
 			// 
@@ -7140,7 +7472,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 643);
+			this->tabControl2->Size = System::Drawing::Size(565, 630);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -7161,7 +7493,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 604);
+			this->tabPage6->Size = System::Drawing::Size(557, 591);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Outputs";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -7885,10 +8217,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage7
 			// 
 			this->tabPage7->Controls->Add(this->splitContainer4);
-			this->tabPage7->Location = System::Drawing::Point(4, 22);
+			this->tabPage7->Location = System::Drawing::Point(4, 35);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(557, 604);
+			this->tabPage7->Size = System::Drawing::Size(557, 591);
 			this->tabPage7->TabIndex = 1;
 			this->tabPage7->Text = L"YMD";
 			this->tabPage7->UseVisualStyleBackColor = true;
@@ -7907,8 +8239,8 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer4.Panel2
 			// 
 			this->splitContainer4->Panel2->Controls->Add(this->YMD);
-			this->splitContainer4->Size = System::Drawing::Size(551, 598);
-			this->splitContainer4->SplitterDistance = 92;
+			this->splitContainer4->Size = System::Drawing::Size(551, 585);
+			this->splitContainer4->SplitterDistance = 90;
 			this->splitContainer4->TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -7944,7 +8276,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 92);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 90);
 			this->tableLayoutPanel2->TabIndex = 13;
 			// 
 			// input_con_delta_d
@@ -7954,7 +8286,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_con_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_con_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
-			this->input_con_delta_d->Location = System::Drawing::Point(458, 49);
+			this->input_con_delta_d->Location = System::Drawing::Point(458, 48);
 			this->input_con_delta_d->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
 			this->input_con_delta_d->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->input_con_delta_d->Name = L"input_con_delta_d";
@@ -7964,14 +8296,16 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox40
 			// 
+			this->textBox40->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox40->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox40->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox40->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox40->Location = System::Drawing::Point(367, 49);
+			this->textBox40->Location = System::Drawing::Point(367, 48);
 			this->textBox40->Multiline = true;
 			this->textBox40->Name = L"textBox40";
-			this->textBox40->Size = System::Drawing::Size(85, 40);
+			this->textBox40->ReadOnly = true;
+			this->textBox40->Size = System::Drawing::Size(85, 39);
 			this->textBox40->TabIndex = 15;
 			this->textBox40->Text = L"Concentration of δ isolines";
 			// 
@@ -7992,6 +8326,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox39
 			// 
+			this->textBox39->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox39->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox39->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox39->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -7999,7 +8334,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox39->Location = System::Drawing::Point(367, 3);
 			this->textBox39->Multiline = true;
 			this->textBox39->Name = L"textBox39";
-			this->textBox39->Size = System::Drawing::Size(85, 40);
+			this->textBox39->ReadOnly = true;
+			this->textBox39->Size = System::Drawing::Size(85, 39);
 			this->textBox39->TabIndex = 13;
 			this->textBox39->Text = L"Concentration of β isolines";
 			// 
@@ -8010,7 +8346,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_max_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_max_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->input_max_delta_d->Location = System::Drawing::Point(94, 49);
+			this->input_max_delta_d->Location = System::Drawing::Point(94, 48);
 			this->input_max_delta_d->Name = L"input_max_delta_d";
 			this->input_max_delta_d->Size = System::Drawing::Size(85, 27);
 			this->input_max_delta_d->TabIndex = 9;
@@ -8041,7 +8377,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_num_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			this->input_num_delta_d->Location = System::Drawing::Point(276, 49);
+			this->input_num_delta_d->Location = System::Drawing::Point(276, 48);
 			this->input_num_delta_d->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 27, 0, 0, 0 });
 			this->input_num_delta_d->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
 			this->input_num_delta_d->Name = L"input_num_delta_d";
@@ -8053,19 +8389,22 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox182
 			// 
+			this->textBox182->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox182->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox182->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox182->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox182->Location = System::Drawing::Point(185, 49);
+			this->textBox182->Location = System::Drawing::Point(185, 48);
 			this->textBox182->Multiline = true;
 			this->textBox182->Name = L"textBox182";
-			this->textBox182->Size = System::Drawing::Size(85, 40);
+			this->textBox182->ReadOnly = true;
+			this->textBox182->Size = System::Drawing::Size(85, 39);
 			this->textBox182->TabIndex = 12;
 			this->textBox182->Text = L"Number of δd isolines";
 			// 
 			// textBox180
 			// 
+			this->textBox180->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox180->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox180->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox180->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -8073,7 +8412,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox180->Location = System::Drawing::Point(3, 3);
 			this->textBox180->Multiline = true;
 			this->textBox180->Name = L"textBox180";
-			this->textBox180->Size = System::Drawing::Size(85, 40);
+			this->textBox180->ReadOnly = true;
+			this->textBox180->Size = System::Drawing::Size(85, 39);
 			this->textBox180->TabIndex = 6;
 			this->textBox180->Text = L"Maximum β [°]";
 			// 
@@ -8092,19 +8432,22 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// textBox183
 			// 
+			this->textBox183->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox183->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox183->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox183->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox183->Location = System::Drawing::Point(3, 49);
+			this->textBox183->Location = System::Drawing::Point(3, 48);
 			this->textBox183->Multiline = true;
 			this->textBox183->Name = L"textBox183";
-			this->textBox183->Size = System::Drawing::Size(85, 40);
+			this->textBox183->ReadOnly = true;
+			this->textBox183->Size = System::Drawing::Size(85, 39);
 			this->textBox183->TabIndex = 10;
 			this->textBox183->Text = L"Maximum δd [°]";
 			// 
 			// textBox181
 			// 
+			this->textBox181->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox181->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox181->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox181->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -8112,26 +8455,27 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox181->Location = System::Drawing::Point(185, 3);
 			this->textBox181->Multiline = true;
 			this->textBox181->Name = L"textBox181";
-			this->textBox181->Size = System::Drawing::Size(85, 40);
+			this->textBox181->ReadOnly = true;
+			this->textBox181->Size = System::Drawing::Size(85, 39);
 			this->textBox181->TabIndex = 8;
 			this->textBox181->Text = L"Number of β isolines";
 			// 
 			// YMD
 			// 
-			chartArea2->BackColor = System::Drawing::Color::White;
-			chartArea2->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea2);
+			chartArea3->BackColor = System::Drawing::Color::White;
+			chartArea3->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea3);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend2->Name = L"Legend1";
-			this->YMD->Legends->Add(legend2);
+			legend3->Name = L"Legend1";
+			this->YMD->Legends->Add(legend3);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			this->YMD->Size = System::Drawing::Size(551, 502);
+			this->YMD->Size = System::Drawing::Size(551, 491);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title2->Name = L"Title1";
-			this->YMD->Titles->Add(title2);
+			title3->Name = L"Title1";
+			this->YMD->Titles->Add(title3);
 			// 
 			// debugPage
 			// 
@@ -8146,10 +8490,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->debugPage->Controls->Add(this->output_debug3);
 			this->debugPage->Controls->Add(this->output_debug2);
 			this->debugPage->Controls->Add(this->output_debug1);
-			this->debugPage->Location = System::Drawing::Point(4, 22);
+			this->debugPage->Location = System::Drawing::Point(4, 35);
 			this->debugPage->Name = L"debugPage";
 			this->debugPage->Padding = System::Windows::Forms::Padding(3);
-			this->debugPage->Size = System::Drawing::Size(1075, 649);
+			this->debugPage->Size = System::Drawing::Size(1075, 636);
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
@@ -8320,6 +8664,35 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->Size = System::Drawing::Size(1184, 675);
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
+			// 
+			// textBox31
+			// 
+			this->textBox31->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox31->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox31->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox31->Location = System::Drawing::Point(6, 108);
+			this->textBox31->Multiline = true;
+			this->textBox31->Name = L"textBox31";
+			this->textBox31->ReadOnly = true;
+			this->textBox31->Size = System::Drawing::Size(157, 47);
+			this->textBox31->TabIndex = 6;
+			this->textBox31->Text = L"Chassis slip angle (β) [°]";
+			// 
+			// Display_corner_or_velocity
+			// 
+			this->Display_corner_or_velocity->BackColor = System::Drawing::SystemColors::Window;
+			this->Display_corner_or_velocity->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->Display_corner_or_velocity->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Display_corner_or_velocity->ForeColor = System::Drawing::SystemColors::WindowText;
+			this->Display_corner_or_velocity->Location = System::Drawing::Point(6, 62);
+			this->Display_corner_or_velocity->Multiline = true;
+			this->Display_corner_or_velocity->Name = L"Display_corner_or_velocity";
+			this->Display_corner_or_velocity->ReadOnly = true;
+			this->Display_corner_or_velocity->Size = System::Drawing::Size(157, 20);
+			this->Display_corner_or_velocity->TabIndex = 4;
+			this->Display_corner_or_velocity->Text = L"Vehicle velocity [km/h]";
 			// 
 			// MyForm
 			// 
