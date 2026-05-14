@@ -96,11 +96,11 @@ private:
 
         //Roll suspension parameters
     double h_r_f = 0.0, h_r_r = 0.0, off_r_f = 0.0, off_r_r = 0.0, n_r_fl = 0.0, n_r_fr = 0.0, n_r_rl = 0.0, n_r_rr = 0.0,
-        p_r_fl = 0.0, p_r_fr = 0.0, p_r_rl = 0.0, p_r_rr = 0.0, q_r_fl = 0.0, q_r_fr = 0.0, q_r_rl = 0.0, q_r_rr = 0.0;
+         q_r_fl = 0.0, q_r_fr = 0.0, q_r_rl = 0.0, q_r_rr = 0.0;
 
     //Pitch suspension parameters
     double h_p_l = 0.0, h_p_r = 0.0, n_p_fl = 0.0, n_p_fr = 0.0, n_p_rl = 0.0, n_p_rr = 0.0,
-        p_p_fl = 0.0, p_p_fr = 0.0, p_p_rl = 0.0, p_p_rr = 0.0, q_p_fl = 0.0, q_p_fr = 0.0, q_p_rl = 0.0, q_p_rr = 0.0;
+         q_p_fl = 0.0, q_p_fr = 0.0, q_p_rl = 0.0, q_p_rr = 0.0;
 
     //Suspension stiffnesses
 

@@ -419,14 +419,10 @@ Vehicle::Vehicle() {};
         n_r_fr = t_f / 2 + off_r_f; // [m] Front roll center distance from the front outer wheel
         n_r_rl = t_r / 2 - off_r_r; // [m] Rear roll center distance from the rear inner wheel
         n_r_rr = t_r / 2 + off_r_r; // [m] Rear roll center distance from the rear outer wheel
-        p_r_fl = (psi_deg * psi_deg * vehicle_inputs.p_r_f_2 + psi_deg * vehicle_inputs.p_r_f_1 + vehicle_inputs.p_r_f_0) / 1000.0; // [m] Front inner roll instantaneous center height                               INPUT
-        p_r_fr = (-psi_deg * psi_deg * vehicle_inputs.p_r_f_2 - psi_deg * vehicle_inputs.p_r_f_1 + vehicle_inputs.p_r_f_0) / 1000.0; // [m] Front outer roll instantaneous center height                              INPUT
-        p_r_rl = (psi_deg * psi_deg * vehicle_inputs.p_r_r_2 + psi_deg * vehicle_inputs.p_r_r_1 + vehicle_inputs.p_r_r_0) / 1000.0; // [m] Rear inner roll instantaneous center height                                INPUT
-        p_r_rr = (-psi_deg * psi_deg * vehicle_inputs.p_r_r_2 - psi_deg * vehicle_inputs.p_r_r_1 + vehicle_inputs.p_r_r_0) / 1000.0; // [m] Rear outer roll instantaneous center height                               INPUT
-        q_r_fl = p_r_fl / h_r_f * n_r_fl; // [m] Front inner roll instantaneous center distance from the wheel medium plane
-        q_r_fr = p_r_fr / h_r_f * n_r_fr; // [m] Front outer roll instantaneous center distance from the wheel medium plane
-        q_r_rl = p_r_rl / h_r_r * n_r_rl; // [m] Rear inner roll instantaneous center distance from the wheel medium plane
-        q_r_rr = p_r_rr / h_r_r * n_r_rr; // [m] Rear outer roll instantaneous center distance from the wheel medium plane
+        q_r_fl = (psi_deg * psi_deg * vehicle_inputs.q_r_f_2 + psi_deg * vehicle_inputs.q_r_f_1 + vehicle_inputs.q_r_f_0) / 1000.0; // [m] FFront inner roll instantaneous center distance from the wheel medium plane                               INPUT
+        q_r_fr = (-psi_deg * psi_deg * vehicle_inputs.q_r_f_2 - psi_deg * vehicle_inputs.q_r_f_1 + vehicle_inputs.q_r_f_0) / 1000.0; // [m] Front outer roll instantaneous center distance from the wheel medium plane                              INPUT
+        q_r_rl = (psi_deg * psi_deg * vehicle_inputs.q_r_r_2 + psi_deg * vehicle_inputs.q_r_r_1 + vehicle_inputs.q_r_r_0) / 1000.0; // [m] Rear inner roll instantaneous center distance from the wheel medium plane                                INPUT
+        q_r_rr = (-psi_deg * psi_deg * vehicle_inputs.q_r_r_2 - psi_deg * vehicle_inputs.q_r_r_1 + vehicle_inputs.q_r_r_0) / 1000.0; // [m] Rear outer roll instantaneous center distance from the wheel medium plane                               INPUT
 
         //Pitch suspension parameters
         h_p_l = (phi_deg * phi_deg * vehicle_inputs.h_p_i_2 + phi_deg * vehicle_inputs.h_p_i_1 + vehicle_inputs.h_p_i_0) / 1000.0; // [m] Height of the inner pitch center                                           INPUT
@@ -435,14 +431,10 @@ Vehicle::Vehicle() {};
         n_p_fr = (phi_deg * phi_deg * vehicle_inputs.n_p_i_2 + phi_deg * vehicle_inputs.n_p_i_1 + vehicle_inputs.n_p_i_0) / 1000.0; // [m] Outer pitch center distance from the front axle                         INPUT
         n_p_rl = (phi_deg * phi_deg * vehicle_inputs.n_p_o_2 + phi_deg * vehicle_inputs.n_p_o_1 + vehicle_inputs.n_p_o_0) / 1000.0; // [m] Inner pitch center distance from the rear axle                           INPUT
         n_p_rr = (phi_deg * phi_deg * vehicle_inputs.n_p_o_2 + phi_deg * vehicle_inputs.n_p_o_1 + vehicle_inputs.n_p_o_0) / 1000.0; // [m] Outer pitch center distance from the rear axle                          INPUT
-        p_p_fl = (phi_deg * phi_deg * vehicle_inputs.p_p_f_2 + phi_deg * vehicle_inputs.p_p_f_1 + vehicle_inputs.p_p_f_0) / 1000.0; // [m] Front inner pitch instantaneous center height                             INPUT
-        p_p_fr = (phi_deg * phi_deg * vehicle_inputs.p_p_f_2 + phi_deg * vehicle_inputs.p_p_f_1 + vehicle_inputs.p_p_f_0) / 1000.0; // [m] Front outer pitch instantaneous center height                            INPUT
-        p_p_rl = (phi_deg * phi_deg * vehicle_inputs.p_p_r_2 + phi_deg * vehicle_inputs.p_p_r_1 + vehicle_inputs.p_p_r_0) / 1000.0; // [m] Rear inner pitch instantaneous center height                              INPUT
-        p_p_rr = (phi_deg * phi_deg * vehicle_inputs.p_p_r_2 + phi_deg * vehicle_inputs.p_p_r_1 + vehicle_inputs.p_p_r_0) / 1000.0; // [m] Rear outer pitch instantaneous center height                             INPUT
-        q_p_fl = p_p_fl / h_p_l * n_p_fl; // [m] Front inner pitch instantaneous center distance from the front axle
-        q_p_fr = p_p_fr / h_p_r * n_p_fr; // [m] Front outer pitch instantaneous center distance from the front axle
-        q_p_rl = p_p_rl / h_p_l * n_p_rl; // [m] Rear inner pitch instantaneous center distance from the rear axle
-        q_p_rr = p_p_rr / h_p_r * n_p_rr; // [m] Rear outer pitch instantaneous center distance from the rear axle
+        q_p_fl = (phi_deg * phi_deg * vehicle_inputs.q_p_f_2 + phi_deg * vehicle_inputs.q_p_f_1 + vehicle_inputs.q_p_f_0) / 1000.0; // [m] Front inner pitch instantaneous center distance from the front axle                             INPUT
+        q_p_fr = (phi_deg * phi_deg * vehicle_inputs.q_p_f_2 + phi_deg * vehicle_inputs.q_p_f_1 + vehicle_inputs.q_p_f_0) / 1000.0; // [m] Front outer pitch instantaneous center distance from the front axle                            INPUT
+        q_p_rl = (phi_deg * phi_deg * vehicle_inputs.q_p_r_2 + phi_deg * vehicle_inputs.q_p_r_1 + vehicle_inputs.q_p_r_0) / 1000.0; // [m] Rear inner pitch instantaneous center distance from the rear axle                              INPUT
+        q_p_rr = (phi_deg * phi_deg * vehicle_inputs.q_p_r_2 + phi_deg * vehicle_inputs.q_p_r_1 + vehicle_inputs.q_p_r_0) / 1000.0; // [m] Rear outer pitch instantaneous center distance from the rear axle                             INPUT
 
         //Suspension stiffnesses
 
@@ -1087,9 +1079,9 @@ Vehicle::Vehicle() {};
         F_rad = 0.0, a_rad = 0.0;
         h_CG_s = 0.0, h_CG_u_fl = 0.0, h_CG_u_fr = 0.0, h_CG_u_rl = 0.0, h_CG_u_rr = 0.0, h_CG_u = 0.0;
         h_r_f = 0.0, h_r_r = 0.0, off_r_f = 0.0, off_r_r = 0.0, n_r_fl = 0.0, n_r_fr = 0.0, n_r_rl = 0.0, n_r_rr = 0.0,
-                    p_r_fl = 0.0, p_r_fr = 0.0, p_r_rl = 0.0, p_r_rr = 0.0, q_r_fl = 0.0, q_r_fr = 0.0, q_r_rl = 0.0, q_r_rr = 0.0;
+                    q_r_fl = 0.0, q_r_fr = 0.0, q_r_rl = 0.0, q_r_rr = 0.0;
         h_p_l = 0.0, h_p_r = 0.0, n_p_fl = 0.0, n_p_fr = 0.0, n_p_rl = 0.0, n_p_rr = 0.0,
-                    p_p_fl = 0.0, p_p_fr = 0.0, p_p_rl = 0.0, p_p_rr = 0.0, q_p_fl = 0.0, q_p_fr = 0.0, q_p_rl = 0.0, q_p_rr = 0.0;
+                    q_p_fl = 0.0, q_p_fr = 0.0, q_p_rl = 0.0, q_p_rr = 0.0;
         k_r_C = 0.0, k_r_C_f = 0.0, k_r_C_r = 0.0, k_p_C = 0.0, k_p_C_i = 0.0, k_p_C_o = 0.0;
         MR_s_fl = 0.0, MR_s_fr = 0.0, MR_s_rl = 0.0, MR_s_rr = 0.0, MR_arb_fl = 0.0, MR_arb_fr = 0.0, MR_arb_rl = 0.0, MR_arb_rr = 0.0;
         K_susp_fl = 0.0, K_susp_fr = 0.0, K_susp_rl = 0.0, K_susp_rr = 0.0, K_arb_fl = 0.0, K_arb_fr = 0.0, K_arb_rl = 0.0, K_arb_rr = 0.0;
