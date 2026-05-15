@@ -8,6 +8,7 @@
 #include "Tire.h"
 #include "YMD.h"
 #include "Tire_selection.h"
+#include "Spring_selection.h"
 #include "Simulation_controller.h"
 
 namespace Project1 {
@@ -34,6 +35,7 @@ namespace Project1 {
 		Vehicle* vehicle;
 		YMD_Carrier* YMD_carrier;
 		Tire_selection* tire_selection;
+		Spring_selection* spring_selection;
 		Simulation_controller* sim_controller;
 
 	private: System::Windows::Forms::Label^ label3;
@@ -169,6 +171,7 @@ private: System::Windows::Forms::Button^ tire_delete;
 private: System::Windows::Forms::Button^ tire_new;
 private: System::Windows::Forms::ComboBox^ tire_name;
 private: System::Collections::Generic::List<System::String^>^ tire_list;
+private: System::Collections::Generic::List<System::String^>^ spring_list;
 private: System::Windows::Forms::ComboBox^ input_rear_tires_selection;
 private: System::Windows::Forms::TextBox^ textBox81;
 private: System::Windows::Forms::ComboBox^ input_front_tires_selection;
@@ -265,35 +268,39 @@ private: System::Windows::Forms::Label^ output_V;
 private: System::Windows::Forms::Label^ output_bias_now;
 private: System::Windows::Forms::Label^ output_iter;
 private: System::Windows::Forms::Label^ output_a_rad;
+private: System::Windows::Forms::ComboBox^ input_rear_arb_setup;
 
 
 
-private: System::Windows::Forms::ComboBox^ input_rear_arb;
+
+
 private: System::Windows::Forms::TextBox^ textBox84;
-private: System::Windows::Forms::ComboBox^ input_front_arb;
+private: System::Windows::Forms::ComboBox^ input_front_arb_setup;
+
+
 private: System::Windows::Forms::TextBox^ textBox83;
-private: System::Windows::Forms::GroupBox^ groupBox15;
-private: System::Windows::Forms::NumericUpDown^ input_f_arb_1;
-private: System::Windows::Forms::TextBox^ textBox86;
-private: System::Windows::Forms::NumericUpDown^ input_f_arb_5;
-private: System::Windows::Forms::TextBox^ textBox89;
-private: System::Windows::Forms::NumericUpDown^ input_f_arb_4;
-private: System::Windows::Forms::TextBox^ textBox88;
-private: System::Windows::Forms::NumericUpDown^ input_f_arb_3;
-private: System::Windows::Forms::TextBox^ textBox87;
-private: System::Windows::Forms::NumericUpDown^ input_f_arb_2;
-private: System::Windows::Forms::TextBox^ textBox85;
-private: System::Windows::Forms::GroupBox^ groupBox16;
-private: System::Windows::Forms::NumericUpDown^ input_r_arb_5;
-private: System::Windows::Forms::TextBox^ textBox90;
-private: System::Windows::Forms::NumericUpDown^ input_r_arb_4;
-private: System::Windows::Forms::TextBox^ textBox91;
-private: System::Windows::Forms::NumericUpDown^ input_r_arb_3;
-private: System::Windows::Forms::TextBox^ textBox92;
-private: System::Windows::Forms::NumericUpDown^ input_r_arb_2;
-private: System::Windows::Forms::TextBox^ textBox93;
-private: System::Windows::Forms::NumericUpDown^ input_r_arb_1;
-private: System::Windows::Forms::TextBox^ textBox94;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 private: System::Windows::Forms::GroupBox^ groupBox6;
 
 
@@ -679,6 +686,25 @@ private: System::Windows::Forms::NumericUpDown^ fake_bTBR_f;
 private: System::Windows::Forms::NumericUpDown^ fake_dTBR_f;
 private: System::Windows::Forms::TextBox^ textBox31;
 private: System::Windows::Forms::TextBox^ Display_corner_or_velocity;
+private: System::Windows::Forms::GroupBox^ groupBox10;
+private: System::Windows::Forms::ComboBox^ spring_name;
+private: System::Windows::Forms::Button^ spring_save;
+private: System::Windows::Forms::Button^ spring_delete;
+private: System::Windows::Forms::Button^ spring_new;
+private: System::Windows::Forms::ComboBox^ input_front_arb_selection;
+private: System::Windows::Forms::ComboBox^ input_rear_arb_selection;
+private: System::Windows::Forms::ComboBox^ spring_setups;
+private: System::Windows::Forms::Button^ Spring_remove;
+private: System::Windows::Forms::Button^ spring_add;
+private: System::Windows::Forms::NumericUpDown^ spring_stiffness;
+private: System::Windows::Forms::Label^ label18;
+private: System::Windows::Forms::Label^ label20;
+private: System::Windows::Forms::Label^ label19;
+private: System::Windows::Forms::GroupBox^ groupBox22;
+private: System::Windows::Forms::Label^ label21;
+private: System::Windows::Forms::Label^ label23;
+private: System::Windows::Forms::Label^ label22;
+
 
 
 
@@ -717,9 +743,11 @@ private: System::Windows::Forms::TextBox^ Display_corner_or_velocity;
 			vehicle_outputs = new Vehicle_outputs();
 			tire_inputs = new Tire_inputs();
 			tire_list = gcnew System::Collections::Generic::List<System::String^>();
+			spring_list = gcnew System::Collections::Generic::List<System::String^>();
 			vehicle = new Vehicle();
 			YMD_carrier = new YMD_Carrier();
 			tire_selection = new Tire_selection();
+			spring_selection = new Spring_selection();
 			sim_controller = new Simulation_controller();
 			//
 			//TODO: Adicione o código do construtor aqui
@@ -1048,6 +1076,24 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_F_down_2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox179 = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage12 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox22 = (gcnew System::Windows::Forms::GroupBox());
+			this->label23 = (gcnew System::Windows::Forms::Label());
+			this->label22 = (gcnew System::Windows::Forms::Label());
+			this->input_front_arb_selection = (gcnew System::Windows::Forms::ComboBox());
+			this->input_rear_arb_selection = (gcnew System::Windows::Forms::ComboBox());
+			this->groupBox10 = (gcnew System::Windows::Forms::GroupBox());
+			this->label21 = (gcnew System::Windows::Forms::Label());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->Spring_remove = (gcnew System::Windows::Forms::Button());
+			this->spring_add = (gcnew System::Windows::Forms::Button());
+			this->spring_stiffness = (gcnew System::Windows::Forms::NumericUpDown());
+			this->spring_setups = (gcnew System::Windows::Forms::ComboBox());
+			this->spring_name = (gcnew System::Windows::Forms::ComboBox());
+			this->spring_save = (gcnew System::Windows::Forms::Button());
+			this->spring_delete = (gcnew System::Windows::Forms::Button());
+			this->spring_new = (gcnew System::Windows::Forms::Button());
 			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
 			this->input_k_p_C_dist = (gcnew System::Windows::Forms::NumericUpDown());
@@ -1057,28 +1103,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_k_r_C_dist = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_k_r_C_deg = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox23 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox15 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_f_arb_5 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox89 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_4 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox88 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_3 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox87 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox85 = (gcnew System::Windows::Forms::TextBox());
-			this->input_f_arb_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox86 = (gcnew System::Windows::Forms::TextBox());
-			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_r_arb_5 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox90 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_4 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox91 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_3 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox92 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox93 = (gcnew System::Windows::Forms::TextBox());
-			this->input_r_arb_1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox94 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
 			this->input_k_susp_r = (gcnew System::Windows::Forms::NumericUpDown());
@@ -1224,9 +1248,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
 			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
-			this->input_rear_arb = (gcnew System::Windows::Forms::ComboBox());
+			this->input_rear_arb_setup = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox84 = (gcnew System::Windows::Forms::TextBox());
-			this->input_front_arb = (gcnew System::Windows::Forms::ComboBox());
+			this->input_front_arb_setup = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox83 = (gcnew System::Windows::Forms::TextBox());
 			this->input_rear_tires_selection = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox81 = (gcnew System::Windows::Forms::TextBox());
@@ -1456,23 +1480,14 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_2))->BeginInit();
 			this->tabPage12->SuspendLayout();
+			this->groupBox22->SuspendLayout();
+			this->groupBox10->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->spring_stiffness))->BeginInit();
 			this->groupBox7->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_dist))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_deg))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_dist))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_deg))->BeginInit();
-			this->groupBox15->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_1))->BeginInit();
-			this->groupBox16->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_1))->BeginInit();
 			this->groupBox5->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_r))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_f))->BeginInit();
@@ -1653,10 +1668,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage5->Controls->Add(this->groupBox13);
 			this->tabPage5->Controls->Add(this->groupBox12);
 			this->tabPage5->Controls->Add(this->groupBox11);
-			this->tabPage5->Location = System::Drawing::Point(4, 22);
+			this->tabPage5->Location = System::Drawing::Point(4, 35);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1075, 649);
+			this->tabPage5->Size = System::Drawing::Size(1075, 636);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Tires";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -1674,12 +1689,12 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox14->Size = System::Drawing::Size(241, 113);
 			this->groupBox14->TabIndex = 55;
 			this->groupBox14->TabStop = false;
-			this->groupBox14->Text = L"Tire selection";
+			this->groupBox14->Text = L"Tire profile";
 			// 
 			// tire_name
 			// 
 			this->tire_name->FormattingEnabled = true;
-			this->tire_name->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"batata" });
+			this->tire_name->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"\t" });
 			this->tire_name->Location = System::Drawing::Point(6, 26);
 			this->tire_name->Name = L"tire_name";
 			this->tire_name->Size = System::Drawing::Size(229, 34);
@@ -3239,7 +3254,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage13->Location = System::Drawing::Point(4, 22);
 			this->tabPage13->Name = L"tabPage13";
 			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage13->Size = System::Drawing::Size(1061, 604);
+			this->tabPage13->Size = System::Drawing::Size(1061, 617);
 			this->tabPage13->TabIndex = 3;
 			this->tabPage13->Text = L"Brakes and Differentials";
 			this->tabPage13->UseVisualStyleBackColor = true;
@@ -3263,6 +3278,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_brake_type_r
 			// 
+			this->input_brake_type_r->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_brake_type_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_brake_type_r->FormattingEnabled = true;
@@ -3271,10 +3287,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_brake_type_r->Name = L"input_brake_type_r";
 			this->input_brake_type_r->Size = System::Drawing::Size(121, 27);
 			this->input_brake_type_r->TabIndex = 9;
-			this->input_brake_type_r->Text = L"Select";
 			// 
 			// input_brake_type_f
 			// 
+			this->input_brake_type_f->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_brake_type_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_brake_type_f->FormattingEnabled = true;
@@ -3283,10 +3299,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_brake_type_f->Name = L"input_brake_type_f";
 			this->input_brake_type_f->Size = System::Drawing::Size(121, 27);
 			this->input_brake_type_f->TabIndex = 8;
-			this->input_brake_type_f->Text = L"Select";
 			// 
 			// input_brake_config
 			// 
+			this->input_brake_config->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_brake_config->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_brake_config->FormattingEnabled = true;
@@ -3295,7 +3311,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_brake_config->Name = L"input_brake_config";
 			this->input_brake_config->Size = System::Drawing::Size(121, 27);
 			this->input_brake_config->TabIndex = 7;
-			this->input_brake_config->Text = L"Select";
 			this->input_brake_config->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_brake_config_SelectedIndexChanged);
 			// 
 			// textBox9
@@ -3499,6 +3514,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_diff_lock_r
 			// 
+			this->input_diff_lock_r->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_diff_lock_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_diff_lock_r->FormattingEnabled = true;
@@ -3510,11 +3526,11 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_diff_lock_r->Name = L"input_diff_lock_r";
 			this->input_diff_lock_r->Size = System::Drawing::Size(121, 27);
 			this->input_diff_lock_r->TabIndex = 13;
-			this->input_diff_lock_r->Text = L"Select";
 			this->input_diff_lock_r->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_diff_lock_r_SelectedIndexChanged);
 			// 
 			// input_diff_lock_f
 			// 
+			this->input_diff_lock_f->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_diff_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_diff_lock_f->FormattingEnabled = true;
@@ -3526,7 +3542,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_diff_lock_f->Name = L"input_diff_lock_f";
 			this->input_diff_lock_f->Size = System::Drawing::Size(121, 27);
 			this->input_diff_lock_f->TabIndex = 12;
-			this->input_diff_lock_f->Text = L"Select";
 			this->input_diff_lock_f->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_diff_lock_f_SelectedIndexChanged);
 			// 
 			// textBox41
@@ -3559,6 +3574,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_diff_type_r
 			// 
+			this->input_diff_type_r->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_diff_type_r->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_diff_type_r->FormattingEnabled = true;
@@ -3567,10 +3583,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_diff_type_r->Name = L"input_diff_type_r";
 			this->input_diff_type_r->Size = System::Drawing::Size(121, 27);
 			this->input_diff_type_r->TabIndex = 9;
-			this->input_diff_type_r->Text = L"Select";
 			// 
 			// input_diff_type_f
 			// 
+			this->input_diff_type_f->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_diff_type_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_diff_type_f->FormattingEnabled = true;
@@ -3579,10 +3595,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_diff_type_f->Name = L"input_diff_type_f";
 			this->input_diff_type_f->Size = System::Drawing::Size(121, 27);
 			this->input_diff_type_f->TabIndex = 8;
-			this->input_diff_type_f->Text = L"Select";
 			// 
 			// input_drive_config
 			// 
+			this->input_drive_config->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_drive_config->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_drive_config->FormattingEnabled = true;
@@ -3591,7 +3607,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_drive_config->Name = L"input_drive_config";
 			this->input_drive_config->Size = System::Drawing::Size(121, 27);
 			this->input_drive_config->TabIndex = 7;
-			this->input_drive_config->Text = L"Select";
 			this->input_drive_config->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_drive_config_SelectedIndexChanged);
 			// 
 			// textBox12
@@ -3874,7 +3889,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage11->Location = System::Drawing::Point(4, 22);
 			this->tabPage11->Name = L"tabPage11";
 			this->tabPage11->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage11->Size = System::Drawing::Size(1061, 604);
+			this->tabPage11->Size = System::Drawing::Size(1061, 617);
 			this->tabPage11->TabIndex = 1;
 			this->tabPage11->Text = L"Aerodynamics";
 			this->tabPage11->UseVisualStyleBackColor = true;
@@ -4412,17 +4427,229 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabPage12
 			// 
+			this->tabPage12->Controls->Add(this->groupBox22);
+			this->tabPage12->Controls->Add(this->groupBox10);
 			this->tabPage12->Controls->Add(this->groupBox7);
-			this->tabPage12->Controls->Add(this->groupBox15);
-			this->tabPage12->Controls->Add(this->groupBox16);
 			this->tabPage12->Controls->Add(this->groupBox5);
-			this->tabPage12->Location = System::Drawing::Point(4, 22);
+			this->tabPage12->Location = System::Drawing::Point(4, 35);
 			this->tabPage12->Name = L"tabPage12";
 			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage12->Size = System::Drawing::Size(1061, 604);
+			this->tabPage12->Size = System::Drawing::Size(1061, 591);
 			this->tabPage12->TabIndex = 2;
 			this->tabPage12->Text = L"Springs";
 			this->tabPage12->UseVisualStyleBackColor = true;
+			// 
+			// groupBox22
+			// 
+			this->groupBox22->Controls->Add(this->label23);
+			this->groupBox22->Controls->Add(this->label22);
+			this->groupBox22->Controls->Add(this->input_front_arb_selection);
+			this->groupBox22->Controls->Add(this->input_rear_arb_selection);
+			this->groupBox22->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox22->Location = System::Drawing::Point(253, 263);
+			this->groupBox22->Name = L"groupBox22";
+			this->groupBox22->Size = System::Drawing::Size(241, 158);
+			this->groupBox22->TabIndex = 57;
+			this->groupBox22->TabStop = false;
+			this->groupBox22->Text = L"Select ARB";
+			// 
+			// label23
+			// 
+			this->label23->AutoSize = true;
+			this->label23->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->label23->Location = System::Drawing::Point(6, 94);
+			this->label23->Name = L"label23";
+			this->label23->Size = System::Drawing::Size(70, 19);
+			this->label23->TabIndex = 58;
+			this->label23->Text = L"Rear ARB";
+			// 
+			// label22
+			// 
+			this->label22->AutoSize = true;
+			this->label22->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->label22->Location = System::Drawing::Point(6, 32);
+			this->label22->Name = L"label22";
+			this->label22->Size = System::Drawing::Size(73, 19);
+			this->label22->TabIndex = 18;
+			this->label22->Text = L"Front ARB";
+			// 
+			// input_front_arb_selection
+			// 
+			this->input_front_arb_selection->FormattingEnabled = true;
+			this->input_front_arb_selection->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"No ARB" });
+			this->input_front_arb_selection->Location = System::Drawing::Point(6, 54);
+			this->input_front_arb_selection->Name = L"input_front_arb_selection";
+			this->input_front_arb_selection->Size = System::Drawing::Size(229, 34);
+			this->input_front_arb_selection->TabIndex = 9;
+			this->input_front_arb_selection->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_front_arb_selection_SelectedIndexChanged);
+			// 
+			// input_rear_arb_selection
+			// 
+			this->input_rear_arb_selection->FormattingEnabled = true;
+			this->input_rear_arb_selection->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"No ARB" });
+			this->input_rear_arb_selection->Location = System::Drawing::Point(6, 113);
+			this->input_rear_arb_selection->Name = L"input_rear_arb_selection";
+			this->input_rear_arb_selection->Size = System::Drawing::Size(229, 34);
+			this->input_rear_arb_selection->TabIndex = 57;
+			this->input_rear_arb_selection->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_rear_arb_selection_SelectedIndexChanged);
+			// 
+			// groupBox10
+			// 
+			this->groupBox10->Controls->Add(this->label21);
+			this->groupBox10->Controls->Add(this->label20);
+			this->groupBox10->Controls->Add(this->label19);
+			this->groupBox10->Controls->Add(this->label18);
+			this->groupBox10->Controls->Add(this->Spring_remove);
+			this->groupBox10->Controls->Add(this->spring_add);
+			this->groupBox10->Controls->Add(this->spring_stiffness);
+			this->groupBox10->Controls->Add(this->spring_setups);
+			this->groupBox10->Controls->Add(this->spring_name);
+			this->groupBox10->Controls->Add(this->spring_save);
+			this->groupBox10->Controls->Add(this->spring_delete);
+			this->groupBox10->Controls->Add(this->spring_new);
+			this->groupBox10->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox10->Location = System::Drawing::Point(253, 6);
+			this->groupBox10->Name = L"groupBox10";
+			this->groupBox10->Size = System::Drawing::Size(241, 251);
+			this->groupBox10->TabIndex = 56;
+			this->groupBox10->TabStop = false;
+			this->groupBox10->Text = L"Create ARB";
+			// 
+			// label21
+			// 
+			this->label21->AutoSize = true;
+			this->label21->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->label21->Location = System::Drawing::Point(2, 32);
+			this->label21->Name = L"label21";
+			this->label21->Size = System::Drawing::Size(76, 19);
+			this->label21->TabIndex = 17;
+			this->label21->Text = L"ARB name";
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->label20->Location = System::Drawing::Point(171, 215);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(59, 19);
+			this->label20->TabIndex = 16;
+			this->label20->Text = L"[N/mm]";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->label19->Location = System::Drawing::Point(171, 183);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(59, 19);
+			this->label19->TabIndex = 15;
+			this->label19->Text = L"[N/mm]";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->label18->Location = System::Drawing::Point(26, 158);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(183, 19);
+			this->label18->TabIndex = 14;
+			this->label18->Text = L"Add setup or remove setup";
+			// 
+			// Spring_remove
+			// 
+			this->Spring_remove->Font = (gcnew System::Drawing::Font(L"Calibri", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Spring_remove->Location = System::Drawing::Point(10, 215);
+			this->Spring_remove->Name = L"Spring_remove";
+			this->Spring_remove->Size = System::Drawing::Size(63, 27);
+			this->Spring_remove->TabIndex = 13;
+			this->Spring_remove->Text = L"Remove";
+			this->Spring_remove->UseVisualStyleBackColor = true;
+			this->Spring_remove->Click += gcnew System::EventHandler(this, &MyForm::Spring_remove_Click);
+			// 
+			// spring_add
+			// 
+			this->spring_add->Font = (gcnew System::Drawing::Font(L"Calibri", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->spring_add->Location = System::Drawing::Point(10, 181);
+			this->spring_add->Name = L"spring_add";
+			this->spring_add->Size = System::Drawing::Size(63, 27);
+			this->spring_add->TabIndex = 12;
+			this->spring_add->Text = L"Add";
+			this->spring_add->UseVisualStyleBackColor = true;
+			this->spring_add->Click += gcnew System::EventHandler(this, &MyForm::spring_add_Click);
+			// 
+			// spring_stiffness
+			// 
+			this->spring_stiffness->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->spring_stiffness->DecimalPlaces = 2;
+			this->spring_stiffness->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->spring_stiffness->Location = System::Drawing::Point(95, 180);
+			this->spring_stiffness->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->spring_stiffness->Name = L"spring_stiffness";
+			this->spring_stiffness->Size = System::Drawing::Size(74, 27);
+			this->spring_stiffness->TabIndex = 11;
+			this->spring_stiffness->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			// 
+			// spring_setups
+			// 
+			this->spring_setups->BackColor = System::Drawing::SystemColors::Window;
+			this->spring_setups->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->spring_setups->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->spring_setups->FormattingEnabled = true;
+			this->spring_setups->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"10", L"15", L"20", L"400" });
+			this->spring_setups->Location = System::Drawing::Point(95, 213);
+			this->spring_setups->Name = L"spring_setups";
+			this->spring_setups->Size = System::Drawing::Size(74, 27);
+			this->spring_setups->TabIndex = 9;
+			// 
+			// spring_name
+			// 
+			this->spring_name->FormattingEnabled = true;
+			this->spring_name->Location = System::Drawing::Point(4, 54);
+			this->spring_name->Name = L"spring_name";
+			this->spring_name->Size = System::Drawing::Size(229, 34);
+			this->spring_name->TabIndex = 8;
+			this->spring_name->SelectionChangeCommitted += gcnew System::EventHandler(this, &MyForm::spring_name_SelectionChangeCommitted);
+			// 
+			// spring_save
+			// 
+			this->spring_save->Font = (gcnew System::Drawing::Font(L"Calibri", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->spring_save->Location = System::Drawing::Point(148, 94);
+			this->spring_save->Name = L"spring_save";
+			this->spring_save->Size = System::Drawing::Size(42, 35);
+			this->spring_save->TabIndex = 7;
+			this->spring_save->Text = L"Save";
+			this->spring_save->UseVisualStyleBackColor = true;
+			this->spring_save->Click += gcnew System::EventHandler(this, &MyForm::spring_save_Click);
+			// 
+			// spring_delete
+			// 
+			this->spring_delete->Font = (gcnew System::Drawing::Font(L"Calibri", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->spring_delete->Location = System::Drawing::Point(95, 94);
+			this->spring_delete->Name = L"spring_delete";
+			this->spring_delete->Size = System::Drawing::Size(47, 35);
+			this->spring_delete->TabIndex = 5;
+			this->spring_delete->Text = L"Delete";
+			this->spring_delete->UseVisualStyleBackColor = true;
+			this->spring_delete->Click += gcnew System::EventHandler(this, &MyForm::spring_delete_Click);
+			// 
+			// spring_new
+			// 
+			this->spring_new->Font = (gcnew System::Drawing::Font(L"Calibri", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->spring_new->Location = System::Drawing::Point(47, 94);
+			this->spring_new->Name = L"spring_new";
+			this->spring_new->Size = System::Drawing::Size(42, 35);
+			this->spring_new->TabIndex = 4;
+			this->spring_new->Text = L"New";
+			this->spring_new->UseVisualStyleBackColor = true;
+			this->spring_new->Click += gcnew System::EventHandler(this, &MyForm::spring_new_Click);
 			// 
 			// groupBox7
 			// 
@@ -4549,318 +4776,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox23->TabIndex = 2;
 			this->textBox23->Text = L"Chassis roll stiffness [Nm/°]";
 			// 
-			// groupBox15
-			// 
-			this->groupBox15->Controls->Add(this->input_f_arb_5);
-			this->groupBox15->Controls->Add(this->textBox89);
-			this->groupBox15->Controls->Add(this->input_f_arb_4);
-			this->groupBox15->Controls->Add(this->textBox88);
-			this->groupBox15->Controls->Add(this->input_f_arb_3);
-			this->groupBox15->Controls->Add(this->textBox87);
-			this->groupBox15->Controls->Add(this->input_f_arb_2);
-			this->groupBox15->Controls->Add(this->textBox85);
-			this->groupBox15->Controls->Add(this->input_f_arb_1);
-			this->groupBox15->Controls->Add(this->textBox86);
-			this->groupBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox15->Location = System::Drawing::Point(253, 6);
-			this->groupBox15->Name = L"groupBox15";
-			this->groupBox15->Size = System::Drawing::Size(241, 285);
-			this->groupBox15->TabIndex = 20;
-			this->groupBox15->TabStop = false;
-			this->groupBox15->Text = L"Front ARB";
-			// 
-			// input_f_arb_5
-			// 
-			this->input_f_arb_5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_5->DecimalPlaces = 2;
-			this->input_f_arb_5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_5->Location = System::Drawing::Point(150, 245);
-			this->input_f_arb_5->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_5->Name = L"input_f_arb_5";
-			this->input_f_arb_5->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_5->TabIndex = 9;
-			this->input_f_arb_5->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox89
-			// 
-			this->textBox89->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox89->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox89->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox89->Location = System::Drawing::Point(6, 236);
-			this->textBox89->Multiline = true;
-			this->textBox89->Name = L"textBox89";
-			this->textBox89->ReadOnly = true;
-			this->textBox89->Size = System::Drawing::Size(138, 45);
-			this->textBox89->TabIndex = 10;
-			this->textBox89->Text = L"Setup 5 stiffness [N/mm]";
-			// 
-			// input_f_arb_4
-			// 
-			this->input_f_arb_4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_4->DecimalPlaces = 2;
-			this->input_f_arb_4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_4->Location = System::Drawing::Point(150, 194);
-			this->input_f_arb_4->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_4->Name = L"input_f_arb_4";
-			this->input_f_arb_4->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_4->TabIndex = 7;
-			this->input_f_arb_4->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox88
-			// 
-			this->textBox88->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox88->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox88->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox88->Location = System::Drawing::Point(6, 185);
-			this->textBox88->Multiline = true;
-			this->textBox88->Name = L"textBox88";
-			this->textBox88->ReadOnly = true;
-			this->textBox88->Size = System::Drawing::Size(138, 45);
-			this->textBox88->TabIndex = 8;
-			this->textBox88->Text = L"Setup 4 stiffness [N/mm]";
-			// 
-			// input_f_arb_3
-			// 
-			this->input_f_arb_3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_3->DecimalPlaces = 2;
-			this->input_f_arb_3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_3->Location = System::Drawing::Point(150, 143);
-			this->input_f_arb_3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_3->Name = L"input_f_arb_3";
-			this->input_f_arb_3->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_3->TabIndex = 5;
-			this->input_f_arb_3->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox87
-			// 
-			this->textBox87->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox87->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox87->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox87->Location = System::Drawing::Point(6, 134);
-			this->textBox87->Multiline = true;
-			this->textBox87->Name = L"textBox87";
-			this->textBox87->ReadOnly = true;
-			this->textBox87->Size = System::Drawing::Size(138, 45);
-			this->textBox87->TabIndex = 6;
-			this->textBox87->Text = L"Setup 3 stiffness [N/mm]";
-			// 
-			// input_f_arb_2
-			// 
-			this->input_f_arb_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_2->DecimalPlaces = 2;
-			this->input_f_arb_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_2->Location = System::Drawing::Point(150, 92);
-			this->input_f_arb_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_2->Name = L"input_f_arb_2";
-			this->input_f_arb_2->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_2->TabIndex = 3;
-			this->input_f_arb_2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox85
-			// 
-			this->textBox85->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox85->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox85->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox85->Location = System::Drawing::Point(6, 83);
-			this->textBox85->Multiline = true;
-			this->textBox85->Name = L"textBox85";
-			this->textBox85->ReadOnly = true;
-			this->textBox85->Size = System::Drawing::Size(138, 45);
-			this->textBox85->TabIndex = 4;
-			this->textBox85->Text = L"Setup 2 stiffness [N/mm]";
-			// 
-			// input_f_arb_1
-			// 
-			this->input_f_arb_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_f_arb_1->DecimalPlaces = 2;
-			this->input_f_arb_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_f_arb_1->Location = System::Drawing::Point(150, 41);
-			this->input_f_arb_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_f_arb_1->Name = L"input_f_arb_1";
-			this->input_f_arb_1->Size = System::Drawing::Size(74, 27);
-			this->input_f_arb_1->TabIndex = 0;
-			this->input_f_arb_1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox86
-			// 
-			this->textBox86->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox86->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox86->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox86->Location = System::Drawing::Point(6, 32);
-			this->textBox86->Multiline = true;
-			this->textBox86->Name = L"textBox86";
-			this->textBox86->ReadOnly = true;
-			this->textBox86->Size = System::Drawing::Size(138, 45);
-			this->textBox86->TabIndex = 2;
-			this->textBox86->Text = L"Setup 1 stiffness [N/mm]";
-			// 
-			// groupBox16
-			// 
-			this->groupBox16->Controls->Add(this->input_r_arb_5);
-			this->groupBox16->Controls->Add(this->textBox90);
-			this->groupBox16->Controls->Add(this->input_r_arb_4);
-			this->groupBox16->Controls->Add(this->textBox91);
-			this->groupBox16->Controls->Add(this->input_r_arb_3);
-			this->groupBox16->Controls->Add(this->textBox92);
-			this->groupBox16->Controls->Add(this->input_r_arb_2);
-			this->groupBox16->Controls->Add(this->textBox93);
-			this->groupBox16->Controls->Add(this->input_r_arb_1);
-			this->groupBox16->Controls->Add(this->textBox94);
-			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox16->Location = System::Drawing::Point(253, 293);
-			this->groupBox16->Name = L"groupBox16";
-			this->groupBox16->Size = System::Drawing::Size(241, 285);
-			this->groupBox16->TabIndex = 21;
-			this->groupBox16->TabStop = false;
-			this->groupBox16->Text = L"Rear ARB";
-			// 
-			// input_r_arb_5
-			// 
-			this->input_r_arb_5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_5->DecimalPlaces = 2;
-			this->input_r_arb_5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_5->Location = System::Drawing::Point(150, 245);
-			this->input_r_arb_5->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_5->Name = L"input_r_arb_5";
-			this->input_r_arb_5->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_5->TabIndex = 9;
-			this->input_r_arb_5->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox90
-			// 
-			this->textBox90->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox90->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox90->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox90->Location = System::Drawing::Point(6, 236);
-			this->textBox90->Multiline = true;
-			this->textBox90->Name = L"textBox90";
-			this->textBox90->ReadOnly = true;
-			this->textBox90->Size = System::Drawing::Size(138, 45);
-			this->textBox90->TabIndex = 10;
-			this->textBox90->Text = L"Setup 5 stiffness [N/mm]";
-			// 
-			// input_r_arb_4
-			// 
-			this->input_r_arb_4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_4->DecimalPlaces = 2;
-			this->input_r_arb_4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_4->Location = System::Drawing::Point(150, 194);
-			this->input_r_arb_4->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_4->Name = L"input_r_arb_4";
-			this->input_r_arb_4->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_4->TabIndex = 7;
-			this->input_r_arb_4->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox91
-			// 
-			this->textBox91->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox91->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox91->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox91->Location = System::Drawing::Point(6, 185);
-			this->textBox91->Multiline = true;
-			this->textBox91->Name = L"textBox91";
-			this->textBox91->ReadOnly = true;
-			this->textBox91->Size = System::Drawing::Size(138, 45);
-			this->textBox91->TabIndex = 8;
-			this->textBox91->Text = L"Setup 4 stiffness [N/mm]";
-			// 
-			// input_r_arb_3
-			// 
-			this->input_r_arb_3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_3->DecimalPlaces = 2;
-			this->input_r_arb_3->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_3->Location = System::Drawing::Point(150, 143);
-			this->input_r_arb_3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_3->Name = L"input_r_arb_3";
-			this->input_r_arb_3->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_3->TabIndex = 5;
-			this->input_r_arb_3->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox92
-			// 
-			this->textBox92->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox92->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox92->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox92->Location = System::Drawing::Point(6, 134);
-			this->textBox92->Multiline = true;
-			this->textBox92->Name = L"textBox92";
-			this->textBox92->ReadOnly = true;
-			this->textBox92->Size = System::Drawing::Size(138, 45);
-			this->textBox92->TabIndex = 6;
-			this->textBox92->Text = L"Setup 3 stiffness [N/mm]";
-			// 
-			// input_r_arb_2
-			// 
-			this->input_r_arb_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_2->DecimalPlaces = 2;
-			this->input_r_arb_2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_2->Location = System::Drawing::Point(150, 92);
-			this->input_r_arb_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_2->Name = L"input_r_arb_2";
-			this->input_r_arb_2->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_2->TabIndex = 3;
-			this->input_r_arb_2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox93
-			// 
-			this->textBox93->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox93->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox93->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox93->Location = System::Drawing::Point(6, 83);
-			this->textBox93->Multiline = true;
-			this->textBox93->Name = L"textBox93";
-			this->textBox93->ReadOnly = true;
-			this->textBox93->Size = System::Drawing::Size(138, 45);
-			this->textBox93->TabIndex = 4;
-			this->textBox93->Text = L"Setup 2 stiffness [N/mm]";
-			// 
-			// input_r_arb_1
-			// 
-			this->input_r_arb_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_r_arb_1->DecimalPlaces = 2;
-			this->input_r_arb_1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_r_arb_1->Location = System::Drawing::Point(150, 41);
-			this->input_r_arb_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_r_arb_1->Name = L"input_r_arb_1";
-			this->input_r_arb_1->Size = System::Drawing::Size(74, 27);
-			this->input_r_arb_1->TabIndex = 0;
-			this->input_r_arb_1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 95373, 0, 0, 196608 });
-			// 
-			// textBox94
-			// 
-			this->textBox94->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox94->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox94->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox94->Location = System::Drawing::Point(6, 32);
-			this->textBox94->Multiline = true;
-			this->textBox94->Name = L"textBox94";
-			this->textBox94->ReadOnly = true;
-			this->textBox94->Size = System::Drawing::Size(138, 45);
-			this->textBox94->TabIndex = 2;
-			this->textBox94->Text = L"Setup 1 stiffness [N/mm]";
-			// 
 			// groupBox5
 			// 
 			this->groupBox5->Controls->Add(this->textBox18);
@@ -4940,7 +4855,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage14->Location = System::Drawing::Point(4, 22);
 			this->tabPage14->Name = L"tabPage14";
 			this->tabPage14->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage14->Size = System::Drawing::Size(1061, 604);
+			this->tabPage14->Size = System::Drawing::Size(1061, 617);
 			this->tabPage14->TabIndex = 4;
 			this->tabPage14->Text = L"Kinematics";
 			this->tabPage14->UseVisualStyleBackColor = true;
@@ -6925,9 +6840,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// groupBox9
 			// 
-			this->groupBox9->Controls->Add(this->input_rear_arb);
+			this->groupBox9->Controls->Add(this->input_rear_arb_setup);
 			this->groupBox9->Controls->Add(this->textBox84);
-			this->groupBox9->Controls->Add(this->input_front_arb);
+			this->groupBox9->Controls->Add(this->input_front_arb_setup);
 			this->groupBox9->Controls->Add(this->textBox83);
 			this->groupBox9->Controls->Add(this->input_rear_tires_selection);
 			this->groupBox9->Controls->Add(this->textBox81);
@@ -6956,17 +6871,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox9->TabStop = false;
 			this->groupBox9->Text = L"Setup";
 			// 
-			// input_rear_arb
+			// input_rear_arb_setup
 			// 
-			this->input_rear_arb->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_rear_arb_setup->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->input_rear_arb_setup->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_rear_arb->FormattingEnabled = true;
-			this->input_rear_arb->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1/5", L"2/5", L"3/5", L"4/5", L"5/5" });
-			this->input_rear_arb->Location = System::Drawing::Point(114, 398);
-			this->input_rear_arb->Name = L"input_rear_arb";
-			this->input_rear_arb->Size = System::Drawing::Size(121, 27);
-			this->input_rear_arb->TabIndex = 28;
-			this->input_rear_arb->Text = L"Select";
+			this->input_rear_arb_setup->FormattingEnabled = true;
+			this->input_rear_arb_setup->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
+				L"1/5", L"2/5", L"3/5", L"4/5", L"5/5",
+					L"No ARB"
+			});
+			this->input_rear_arb_setup->Location = System::Drawing::Point(114, 398);
+			this->input_rear_arb_setup->Name = L"input_rear_arb_setup";
+			this->input_rear_arb_setup->Size = System::Drawing::Size(121, 27);
+			this->input_rear_arb_setup->TabIndex = 28;
 			// 
 			// textBox84
 			// 
@@ -6982,17 +6900,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox84->TabIndex = 27;
 			this->textBox84->Text = L"Rear ARB setup";
 			// 
-			// input_front_arb
+			// input_front_arb_setup
 			// 
-			this->input_front_arb->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->input_front_arb_setup->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->input_front_arb_setup->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->input_front_arb->FormattingEnabled = true;
-			this->input_front_arb->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1/5", L"2/5", L"3/5", L"4/5", L"5/5" });
-			this->input_front_arb->Location = System::Drawing::Point(114, 358);
-			this->input_front_arb->Name = L"input_front_arb";
-			this->input_front_arb->Size = System::Drawing::Size(121, 27);
-			this->input_front_arb->TabIndex = 26;
-			this->input_front_arb->Text = L"Select";
+			this->input_front_arb_setup->FormattingEnabled = true;
+			this->input_front_arb_setup->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
+				L"1/5", L"2/5", L"3/5", L"4/5", L"5/5",
+					L"No ARB"
+			});
+			this->input_front_arb_setup->Location = System::Drawing::Point(114, 358);
+			this->input_front_arb_setup->Name = L"input_front_arb_setup";
+			this->input_front_arb_setup->Size = System::Drawing::Size(121, 27);
+			this->input_front_arb_setup->TabIndex = 26;
 			// 
 			// textBox83
 			// 
@@ -7010,6 +6931,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_rear_tires_selection
 			// 
+			this->input_rear_tires_selection->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_rear_tires_selection->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_rear_tires_selection->FormattingEnabled = true;
@@ -7017,7 +6939,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_rear_tires_selection->Name = L"input_rear_tires_selection";
 			this->input_rear_tires_selection->Size = System::Drawing::Size(176, 27);
 			this->input_rear_tires_selection->TabIndex = 24;
-			this->input_rear_tires_selection->Text = L"Select";
 			// 
 			// textBox81
 			// 
@@ -7035,6 +6956,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_front_tires_selection
 			// 
+			this->input_front_tires_selection->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_front_tires_selection->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_front_tires_selection->FormattingEnabled = true;
@@ -7042,7 +6964,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_front_tires_selection->Name = L"input_front_tires_selection";
 			this->input_front_tires_selection->Size = System::Drawing::Size(176, 27);
 			this->input_front_tires_selection->TabIndex = 22;
-			this->input_front_tires_selection->Text = L"Select";
 			// 
 			// textBox82
 			// 
@@ -7352,6 +7273,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_steering_input
 			// 
+			this->input_steering_input->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_steering_input->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_steering_input->FormattingEnabled = true;
@@ -7360,7 +7282,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_steering_input->Name = L"input_steering_input";
 			this->input_steering_input->Size = System::Drawing::Size(121, 27);
 			this->input_steering_input->TabIndex = 20;
-			this->input_steering_input->Text = L"Select";
 			this->input_steering_input->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_steering_input_SelectedIndexChanged);
 			// 
 			// textBox38
@@ -7379,6 +7300,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// input_pedals_input
 			// 
+			this->input_pedals_input->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->input_pedals_input->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_pedals_input->FormattingEnabled = true;
@@ -7387,7 +7309,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_pedals_input->Name = L"input_pedals_input";
 			this->input_pedals_input->Size = System::Drawing::Size(121, 27);
 			this->input_pedals_input->TabIndex = 18;
-			this->input_pedals_input->Text = L"Select";
 			this->input_pedals_input->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::input_pedals_input_SelectedIndexChanged);
 			// 
 			// textBox37
@@ -8816,26 +8737,17 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_F_down_2))->EndInit();
 			this->tabPage12->ResumeLayout(false);
+			this->groupBox22->ResumeLayout(false);
+			this->groupBox22->PerformLayout();
+			this->groupBox10->ResumeLayout(false);
+			this->groupBox10->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->spring_stiffness))->EndInit();
 			this->groupBox7->ResumeLayout(false);
 			this->groupBox7->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_dist))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_p_C_deg))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_dist))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_r_C_deg))->EndInit();
-			this->groupBox15->ResumeLayout(false);
-			this->groupBox15->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_f_arb_1))->EndInit();
-			this->groupBox16->ResumeLayout(false);
-			this->groupBox16->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_r_arb_1))->EndInit();
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox5->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_k_susp_r))->EndInit();
@@ -8982,8 +8894,6 @@ private: System::ComponentModel::IContainer^ components;
 			vehicle_inputs->steering_input = static_cast<Steering_input>(input_steering_input->SelectedIndex + 1);
 			vehicle_inputs->front_tires_selection = sto_(msclr::interop::marshal_as<std::string>(input_front_tires_selection->Text));
 			vehicle_inputs->rear_tires_selection = sto_(msclr::interop::marshal_as<std::string>(input_rear_tires_selection->Text));
-			vehicle_inputs->front_arb = static_cast<Arb_setup>(input_front_arb->SelectedIndex + 1);
-			vehicle_inputs->rear_arb = static_cast<Arb_setup>(input_rear_arb->SelectedIndex + 1);
 			vehicle_inputs->force_velocity = input_force_velocity->Checked;
 			vehicle_inputs->max_beta = System::Convert::ToDouble(input_max_beta->Value);
 			vehicle_inputs->num_beta = System::Convert::ToDouble(input_num_beta->Value);
@@ -9048,16 +8958,12 @@ private: System::ComponentModel::IContainer^ components;
 			vehicle_inputs->k_r_C_dist = System::Convert::ToDouble(input_k_r_C_dist->Value);
 			vehicle_inputs->k_p_C_deg = System::Convert::ToDouble(input_k_p_C_deg->Value);
 			vehicle_inputs->k_p_C_dist = System::Convert::ToDouble(input_k_p_C_dist->Value);
-			vehicle_inputs->f_arb_1 = System::Convert::ToDouble(input_f_arb_1->Value);
-			vehicle_inputs->f_arb_2 = System::Convert::ToDouble(input_f_arb_2->Value);
-			vehicle_inputs->f_arb_3 = System::Convert::ToDouble(input_f_arb_3->Value);
-			vehicle_inputs->f_arb_4 = System::Convert::ToDouble(input_f_arb_4->Value);
-			vehicle_inputs->f_arb_5 = System::Convert::ToDouble(input_f_arb_5->Value);
-			vehicle_inputs->r_arb_1 = System::Convert::ToDouble(input_r_arb_1->Value);
-			vehicle_inputs->r_arb_2 = System::Convert::ToDouble(input_r_arb_2->Value);
-			vehicle_inputs->r_arb_3 = System::Convert::ToDouble(input_r_arb_3->Value);
-			vehicle_inputs->r_arb_4 = System::Convert::ToDouble(input_r_arb_4->Value);
-			vehicle_inputs->r_arb_5 = System::Convert::ToDouble(input_r_arb_5->Value);
+			vehicle_inputs->front_arb_selection = System::Convert::ToInt32(input_front_arb_selection->SelectedIndex);
+			vehicle_inputs->rear_arb_selection = System::Convert::ToInt32(input_rear_arb_selection->SelectedIndex);
+			vehicle_inputs->front_arb_setup = System::Convert::ToInt32(input_front_arb_setup->SelectedIndex);
+			vehicle_inputs->rear_arb_setup = System::Convert::ToInt32(input_rear_arb_setup->SelectedIndex);
+			vehicle_inputs->k_arb_f = spring_selection->front_ARB[vehicle_inputs->front_arb_setup];
+			vehicle_inputs->k_arb_r = spring_selection->rear_ARB[vehicle_inputs->rear_arb_setup];
 		
 			vehicle_inputs->h_r_f_2 = System::Convert::ToDouble(input_h_r_f_2->Value);
 			vehicle_inputs->h_r_f_1 = System::Convert::ToDouble(input_h_r_f_1->Value);
@@ -9146,8 +9052,6 @@ private: System::ComponentModel::IContainer^ components;
 			input_steering_input->SelectedIndex = static_cast<int>(vehicle_inputs->steering_input) - 1;
 			input_front_tires_selection->Text = gcnew System::String(_tos(vehicle_inputs->front_tires_selection).c_str());
 			input_rear_tires_selection->Text = gcnew System::String(_tos(vehicle_inputs->rear_tires_selection).c_str());
-			input_front_arb->SelectedIndex = static_cast<int>(vehicle_inputs->front_arb) - 1;
-			input_rear_arb->SelectedIndex = static_cast<int>(vehicle_inputs->rear_arb) - 1;
 			input_force_velocity->Checked = vehicle_inputs->force_velocity;
 			input_max_beta->Value = System::Convert::ToDecimal(vehicle_inputs->max_beta);
 			input_num_beta->Value = System::Convert::ToDecimal(vehicle_inputs->num_beta);
@@ -9213,16 +9117,10 @@ private: System::ComponentModel::IContainer^ components;
 			input_k_r_C_dist->Value = System::Convert::ToDecimal(vehicle_inputs->k_r_C_dist);
 			input_k_p_C_deg->Value = System::Convert::ToDecimal(vehicle_inputs->k_p_C_deg);
 			input_k_p_C_dist->Value = System::Convert::ToDecimal(vehicle_inputs->k_p_C_dist);
-			input_f_arb_1->Value = System::Convert::ToDecimal(vehicle_inputs->f_arb_1);
-			input_f_arb_2->Value = System::Convert::ToDecimal(vehicle_inputs->f_arb_2);
-			input_f_arb_3->Value = System::Convert::ToDecimal(vehicle_inputs->f_arb_3);
-			input_f_arb_4->Value = System::Convert::ToDecimal(vehicle_inputs->f_arb_4);
-			input_f_arb_5->Value = System::Convert::ToDecimal(vehicle_inputs->f_arb_5);
-			input_r_arb_1->Value = System::Convert::ToDecimal(vehicle_inputs->r_arb_1);
-			input_r_arb_2->Value = System::Convert::ToDecimal(vehicle_inputs->r_arb_2);
-			input_r_arb_3->Value = System::Convert::ToDecimal(vehicle_inputs->r_arb_3);
-			input_r_arb_4->Value = System::Convert::ToDecimal(vehicle_inputs->r_arb_4);
-			input_r_arb_5->Value = System::Convert::ToDecimal(vehicle_inputs->r_arb_5);
+			input_front_arb_selection->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->front_arb_selection);
+			input_rear_arb_selection->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->rear_arb_selection);
+			input_front_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->front_arb_setup);
+			input_rear_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->rear_arb_setup);
 
 			input_h_r_f_2->Value = System::Convert::ToDecimal(vehicle_inputs->h_r_f_2);
 			input_h_r_f_1->Value = System::Convert::ToDecimal(vehicle_inputs->h_r_f_1);
@@ -9534,6 +9432,137 @@ private: System::ComponentModel::IContainer^ components;
 			}
 		}
 
+		String^ selected_spring;
+
+		void read_spring_inputs() {
+			spring_selection->spring_inputs.clear();
+			for each (System::Object ^ item in spring_setups->Items) {
+				double value = System::Convert::ToDouble(item);
+				spring_selection->spring_inputs.push_back(value);
+				std::sort(spring_selection->spring_inputs.begin(), spring_selection->spring_inputs.end());
+			}
+		};
+
+		void write_spring_inputs() {
+			spring_setups->Items->Clear();
+			for (const auto& value : spring_selection->spring_inputs) {
+				spring_setups->Items->Add(System::Convert::ToString(value));
+				spring_setups->SelectedIndex = 0;
+			}
+		};
+
+		void select_spring() {
+			String^ name = System::Convert::ToString(spring_name->SelectedItem)->Replace(" ", "_");
+			spring_selection->select_spring(msclr::interop::marshal_as<std::string>(name));
+			write_spring_inputs();
+		}
+
+		void load_spring_list()
+		{
+			spring_list->Clear();
+			for (const auto& s : spring_selection->load_spring_list())
+			{
+				spring_list->Add((gcnew System::String(s.c_str()))->Replace("_", " "));
+			}
+			spring_name->Items->Clear();
+			input_front_arb_selection->Items->Clear();
+			input_rear_arb_selection->Items->Clear();
+			spring_name->Items->AddRange(spring_list->ToArray());
+			input_front_arb_selection->Items->Add("No ARB");
+			input_rear_arb_selection->Items->Add("No ARB");
+			input_front_arb_selection->Items->AddRange(spring_list->ToArray());
+			input_rear_arb_selection->Items->AddRange(spring_list->ToArray());
+		}
+
+		void save_spring() {
+			String^ past_name = Convert::ToString(spring_name->SelectedItem)->Replace(" ", "_");
+			read_spring_inputs();
+			String^ name = spring_name->Text->Replace(" ", "_");
+			spring_selection->save_spring(msclr::interop::marshal_as<std::string>(name));
+			load_spring_list();
+
+			input_front_arb_selection->SelectedIndex = vehicle_inputs->front_arb_selection;
+			input_rear_arb_selection->SelectedIndex = vehicle_inputs->rear_arb_selection;
+
+			front_arb_setup();
+			rear_arb_setup();
+		}
+
+		void new_spring()
+		{
+			read_spring_inputs();
+			try { spring_selection->new_spring(spring_selection->spring_inputs); }
+			catch (const std::exception& e) {
+				MessageBox::Show(gcnew System::String(e.what()), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				return;
+			}
+				load_spring_list();
+				spring_name->SelectedItem = "New spring";
+		}
+
+		void delete_spring()
+		{
+			String^ name = spring_name->Text;
+			System::Windows::Forms::DialogResult result =
+				System::Windows::Forms::MessageBox::Show(
+					"Do you want to delete the spring '" + name + "'?",
+					"Warning",
+					System::Windows::Forms::MessageBoxButtons::YesNo,
+					System::Windows::Forms::MessageBoxIcon::Warning
+				);
+
+			if (result == System::Windows::Forms::DialogResult::Yes)
+			{
+				try {
+					spring_selection->delete_spring(msclr::interop::marshal_as<std::string>(name->Replace(" ", "_")));
+				}
+				catch (const std::exception& e) {
+					MessageBox::Show(gcnew System::String(e.what()), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				load_spring_list();
+				spring_name->SelectedItem = spring_list[0];
+				if (input_front_arb_selection->Text == name) { input_front_arb_selection->Text = spring_list[0]; }
+				if (input_rear_arb_selection->Text == name) { input_rear_arb_selection->Text = spring_list[0]; }
+			}
+		}
+
+		void front_arb_setup() {
+			spring_selection->select_front_arb(sto_(msclr::interop::marshal_as<std::string>(input_front_arb_selection->Text)));
+			if (input_front_arb_selection->SelectedIndex == 0) {
+				input_front_arb_setup->Enabled = false;
+				input_front_arb_setup->Items->Clear();
+				input_front_arb_setup->Items->Add("No ARB");
+			}
+			else {
+				input_front_arb_setup->Enabled = true;
+				input_front_arb_setup->Items->Clear();
+				for (int i = 0; i < spring_selection->front_ARB.size(); i++) {
+					input_front_arb_setup->Items->Add("Setup " + (i + 1) + "/" + spring_selection->front_ARB.size());
+				}
+			}
+			input_front_arb_setup->SelectedIndex = 0;
+			vehicle_inputs->front_arb_setup = 0;
+		}
+
+		void rear_arb_setup() {
+			spring_selection->select_rear_arb(sto_(msclr::interop::marshal_as<std::string>(input_rear_arb_selection->Text)));
+			if (input_rear_arb_selection->SelectedIndex == 0) {
+				input_rear_arb_setup->Enabled = false;
+				input_rear_arb_setup->Items->Clear();
+				input_rear_arb_setup->Items->Add("No ARB");
+			}
+			else {
+				input_rear_arb_setup->Enabled = true;
+				input_rear_arb_setup->Items->Clear();
+				for (int i = 0; i < spring_selection->rear_ARB.size(); i++) {
+					input_rear_arb_setup->Items->Add("Setup " + (i + 1) + "/" + spring_selection->rear_ARB.size());
+				}
+			}
+			input_rear_arb_setup->SelectedIndex = 0;
+			vehicle_inputs->rear_arb_setup = 0;
+		}
+
 #pragma endregion
 private: System::Void RUN_Click(System::Object^ sender, System::EventArgs^ e) {
 	read_inputs();
@@ -9574,11 +9603,15 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 	catch (const std::exception& e) {
 		MessageBox::Show(gcnew System::String(e.what()), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
-	write_inputs();
-	write_outputs();
+	
 	load_tire_list();
 	tire_name->Text = tire_list[0];
 	select_tire();
+	load_spring_list();
+	spring_name->Text = spring_list[0];
+	select_spring();
+	write_inputs();
+	write_outputs();
 	if (!input_force_velocity->Checked) { 
 		input_force_radius->Checked = true; 
 		input_R->Visible = true;
@@ -9902,6 +9935,53 @@ private: System::Void input_diff_lock_r_SelectedIndexChanged(System::Object^ sen
 		fake_preload_r->Value = 0;
 		fake_k_lock_r->Value = 1;
 	}
+}
+private: System::Void spring_new_Click(System::Object^ sender, System::EventArgs^ e) {
+	new_spring();
+}
+private: System::Void spring_delete_Click(System::Object^ sender, System::EventArgs^ e) {
+	delete_spring();
+}
+private: System::Void spring_save_Click(System::Object^ sender, System::EventArgs^ e) {
+	save_spring();
+}
+private: System::Void spring_name_SelectionChangeCommitted(System::Object^ sender, System::EventArgs^ e) {
+	select_spring();
+}
+private: System::Void spring_add_Click(System::Object^ sender, System::EventArgs^ e) {
+	bool cancel = false;
+	for each (System::Object ^ item in spring_setups->Items) {
+		if ((System::Convert::ToDouble(spring_stiffness->Value) == System::Convert::ToDouble(item))) {
+			cancel = true;
+			break;
+		}
+	}
+	if (!cancel){ spring_setups->Items->Add(spring_stiffness->Value); }
+	
+	save_spring();
+	write_spring_inputs();
+}
+private: System::Void Spring_remove_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (spring_setups->Items->Count <= 1)
+	{
+		MessageBox::Show("The ARB has only one setup.");
+	}
+	else {
+		spring_setups->Items->Remove(spring_setups->Text);
+		save_spring();
+		write_spring_inputs();
+	}
+	
+}
+private: System::Void input_front_arb_selection_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	front_arb_setup();
+	input_front_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->front_arb_setup);
+	input_rear_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->rear_arb_setup);
+}
+private: System::Void input_rear_arb_selection_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	rear_arb_setup();
+	input_front_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->front_arb_setup);
+	input_rear_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->rear_arb_setup);
 }
 };
 }

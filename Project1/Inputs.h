@@ -25,7 +25,6 @@ struct Vehicle_inputs {
 	std::string front_tires_selection, rear_tires_selection;
 	Pedals_input pedals_input;
 	Steering_input steering_input;
-	Arb_setup front_arb, rear_arb;
 
 	//Vehicle inputs
 	double m, x, y, L, t_f, t_r, h_CG, m_u_fl, m_u_fr, m_u_rl, m_u_rr;
@@ -36,7 +35,8 @@ struct Vehicle_inputs {
 
 	//Suspension inputs
 	double k_susp_f, k_susp_r, k_r_C_deg, k_r_C_dist, k_p_C_deg, k_p_C_dist;
-	double f_arb_1, f_arb_2, f_arb_3, f_arb_4, f_arb_5, r_arb_1, r_arb_2, r_arb_3, r_arb_4, r_arb_5;
+	double k_arb_f, k_arb_r;
+	int front_arb_selection = 0, rear_arb_selection = 0, front_arb_setup = 0, rear_arb_setup = 0;
 	
 	double h_r_f_2, h_r_f_1, h_r_f_0; // Front roll center height (funtion of roll angle)
 	double off_r_f_2, off_r_f_1, off_r_f_0; // Front roll center lateral offset from the wheel center (function of roll angle)
@@ -82,3 +82,7 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name);
 void save_tire_inputs(const Tire_inputs& tire_struct, const std::string& file_name);
 
 bool load_tire_inputs(Tire_inputs& tire_struct, const std::string& file_name);
+
+void save_spring_inputs(std::vector<double> spring_inputs, const std::string& file_name);
+
+std::vector<double> load_spring_inputs(const std::string& file_name);

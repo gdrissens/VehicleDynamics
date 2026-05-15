@@ -75,12 +75,6 @@ void Vehicle_repository::validate(const Vehicle_inputs& vehicle_inputs) {
 	if (vehicle_inputs.k_p_C_dist < 0 || vehicle_inputs.k_p_C_dist > 100) {
 		throw ("Chassis torsional pitch stiffness distribution must be between 0% and 100%.");
 	}
-	if (vehicle_inputs.f_arb_1 <= 0 || vehicle_inputs.f_arb_2 <= 0 || vehicle_inputs.f_arb_3 <= 0 || vehicle_inputs.f_arb_4 <= 0 || vehicle_inputs.f_arb_5 <= 0) {
-		throw ("Front anti-rol bar stiffnesses must be greater than zero.");
-	}
-	if (vehicle_inputs.r_arb_1 <= 0 || vehicle_inputs.r_arb_2 <= 0 || vehicle_inputs.r_arb_3 <= 0 || vehicle_inputs.r_arb_4 <= 0 || vehicle_inputs.r_arb_5 <= 0) {
-		throw ("Rear anti-rol bar stiffnesses must be greater than zero.");
-	}
 	if (vehicle_inputs.front_tires_selection.empty() || vehicle_inputs.rear_tires_selection.empty()) {
 		throw ("Tire selections cannot be empty.");
 	}

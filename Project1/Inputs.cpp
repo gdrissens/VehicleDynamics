@@ -32,8 +32,6 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "steering_input" << '=' << static_cast<int>(vehicle_inputs.steering_input) << '\n';
     ostream << "front_tires" << '=' << vehicle_inputs.front_tires_selection << '\n';
     ostream << "rear_tires" << '=' << vehicle_inputs.rear_tires_selection << '\n';
-    ostream << "front_arb" << '=' << static_cast<int>(vehicle_inputs.front_arb) << '\n';
-    ostream << "rear_arb" << '=' << static_cast<int>(vehicle_inputs.rear_arb) << '\n';
 	ostream << "force_velocity" << '=' << vehicle_inputs.force_velocity << '\n';
     ostream << "max_beta" << '=' << vehicle_inputs.max_beta << '\n';
 	ostream << "num_beta" << '=' << vehicle_inputs.num_beta << '\n';
@@ -98,16 +96,12 @@ void save_inputs(const Vehicle_inputs& vehicle_inputs, const std::string& file_n
     ostream << "k_r_C_dist" << '=' << vehicle_inputs.k_r_C_dist << '\n';
     ostream << "k_p_C_deg" << '=' << vehicle_inputs.k_p_C_deg << '\n';
     ostream << "k_p_C_dist" << '=' << vehicle_inputs.k_p_C_dist << '\n';
-    ostream << "f_arb_1" << '=' << vehicle_inputs.f_arb_1 << '\n';
-    ostream << "f_arb_2" << '=' << vehicle_inputs.f_arb_2 << '\n';
-    ostream << "f_arb_3" << '=' << vehicle_inputs.f_arb_3 << '\n';
-    ostream << "f_arb_4" << '=' << vehicle_inputs.f_arb_4 << '\n';
-    ostream << "f_arb_5" << '=' << vehicle_inputs.f_arb_5 << '\n';
-    ostream << "r_arb_1" << '=' << vehicle_inputs.r_arb_1 << '\n';
-    ostream << "r_arb_2" << '=' << vehicle_inputs.r_arb_2 << '\n';
-    ostream << "r_arb_3" << '=' << vehicle_inputs.r_arb_3 << '\n';
-    ostream << "r_arb_4" << '=' << vehicle_inputs.r_arb_4 << '\n';
-    ostream << "r_arb_5" << '=' << vehicle_inputs.r_arb_5 << '\n';
+    ostream << "front_arb_selection" << '=' << vehicle_inputs.front_arb_selection << '\n';
+    ostream << "rear_arb_selection" << '=' << vehicle_inputs.rear_arb_selection << '\n';
+    ostream << "front_arb_setup" << '=' << vehicle_inputs.front_arb_setup << '\n';
+    ostream << "rear_arb_setup" << '=' << vehicle_inputs.rear_arb_setup << '\n';
+    ostream << "k_arb_f" << '=' << vehicle_inputs.k_arb_f << '\n';
+    ostream << "k_arb_r" << '=' << vehicle_inputs.k_arb_r << '\n';
 
 	ostream << "h_r_f_2" << '=' << vehicle_inputs.h_r_f_2 << '\n';
 	ostream << "h_r_f_1" << '=' << vehicle_inputs.h_r_f_1 << '\n';
@@ -203,8 +197,6 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "steering_input") vehicle_inputs.steering_input = static_cast<Steering_input>(std::stoi(value));
         else if (name == "front_tires") vehicle_inputs.front_tires_selection = (value);
         else if (name == "rear_tires") vehicle_inputs.rear_tires_selection = (value);
-        else if (name == "front_arb") vehicle_inputs.front_arb = static_cast<Arb_setup>(std::stoi(value));
-        else if (name == "rear_arb") vehicle_inputs.rear_arb = static_cast<Arb_setup>(std::stoi(value));
 		else if (name == "force_velocity") vehicle_inputs.force_velocity = (value == "1" || value == "true" || value == "True" || value == "TRUE");
         else if (name == "max_beta") vehicle_inputs.max_beta = std::stod(value);
 		else if (name == "num_beta") vehicle_inputs.num_beta = std::stod(value);
@@ -269,16 +261,12 @@ bool load_inputs(Vehicle_inputs& vehicle_inputs, const std::string& file_name) {
         else if (name == "k_r_C_dist") vehicle_inputs.k_r_C_dist = stod(value);
         else if (name == "k_p_C_deg") vehicle_inputs.k_p_C_deg = stod(value);
         else if (name == "k_p_C_dist") vehicle_inputs.k_p_C_dist = stod(value);
-        else if (name == "f_arb_1") vehicle_inputs.f_arb_1 = stod(value);
-        else if (name == "f_arb_2") vehicle_inputs.f_arb_2 = stod(value);
-        else if (name == "f_arb_3") vehicle_inputs.f_arb_3 = stod(value);
-        else if (name == "f_arb_4") vehicle_inputs.f_arb_4 = stod(value);
-        else if (name == "f_arb_5") vehicle_inputs.f_arb_5 = stod(value);
-        else if (name == "r_arb_1") vehicle_inputs.r_arb_1 = stod(value);
-        else if (name == "r_arb_2") vehicle_inputs.r_arb_2 = stod(value);
-        else if (name == "r_arb_3") vehicle_inputs.r_arb_3 = stod(value);
-        else if (name == "r_arb_4") vehicle_inputs.r_arb_4 = stod(value);
-        else if (name == "r_arb_5") vehicle_inputs.r_arb_5 = stod(value);
+        else if (name == "front_arb_selection") vehicle_inputs.front_arb_selection = stod(value);
+		else if (name == "rear_arb_selection") vehicle_inputs.rear_arb_selection = stod(value);
+        else if (name == "front_arb_setup") vehicle_inputs.front_arb_setup = stod(value);
+        else if (name == "rear_arb_setup") vehicle_inputs.rear_arb_setup = stod(value);
+        else if (name == "k_arb_f") vehicle_inputs.k_arb_f = stod(value);
+        else if (name == "k_arb_r") vehicle_inputs.k_arb_r = stod(value);
 
         if (name == "h_r_f_2") vehicle_inputs.h_r_f_2 = stod(value);
         else if (name == "h_r_f_1") vehicle_inputs.h_r_f_1 = stod(value);
@@ -453,4 +441,34 @@ bool load_tire_inputs(Tire_inputs& tire_struct, const std::string& file_name) {
         else if (name == "F_z_o") tire_struct.F_z_o = std::stod(value);
         else if (name == "K_T") tire_struct.K_T = std::stod(value);
     }
+}
+
+void save_spring_inputs(std::vector<double> spring_inputs, const std::string& file_name) {
+    std::ofstream ostream(file_name);
+
+    std::sort(spring_inputs.begin(), spring_inputs.end());  // ascending order
+
+    for (size_t i = 0; i < spring_inputs.size(); ++i) {
+        ostream << spring_inputs[i] << '\n';
+    }
+}
+
+std::vector<double> load_spring_inputs(const std::string& file_name) {
+    std::ifstream file(file_name);
+
+    std::vector<double> spring_inputs;
+
+    if (!file.is_open())
+        return spring_inputs;
+    std::string line;
+    spring_inputs.clear();
+
+    while (std::getline(file, line))
+    {
+        spring_inputs.push_back(std::stod(line));
+    }
+
+    std::sort(spring_inputs.begin(), spring_inputs.end());  // ascending order
+
+    return spring_inputs;
 }

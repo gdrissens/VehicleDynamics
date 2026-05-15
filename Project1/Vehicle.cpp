@@ -160,22 +160,8 @@ Vehicle::Vehicle() {};
         //Springs and anti-roll bars
         k_susp_f = vehicle_inputs.k_susp_f * 1000.0; // [N/m] Front suspension spring stiffness (INPUT)
         k_susp_r = vehicle_inputs.k_susp_r * 1000.0; // [N/m] Rear suspension spring stiffness (INPUT)
-		switch (vehicle_inputs.front_arb) {
-            case Arb_setup::one: k_arb_f = vehicle_inputs.f_arb_1 * 1000.0; break; // [N/m] Front anti-roll bar stiffness (INPUT)
-            case Arb_setup::two: k_arb_f = vehicle_inputs.f_arb_2 * 1000.0; break; // [N/m] Front anti-roll bar stiffness (INPUT)
-            case Arb_setup::three: k_arb_f = vehicle_inputs.f_arb_3 * 1000.0; break; // [N/m] Front anti-roll bar stiffness (INPUT)
-            case Arb_setup::four: k_arb_f = vehicle_inputs.f_arb_4 * 1000.0; break; // [N/m] Front anti-roll bar stiffness (INPUT)
-            case Arb_setup::five: k_arb_f = vehicle_inputs.f_arb_5 * 1000.0; break; // [N/m] Front anti-roll bar stiffness (INPUT)
-            default: k_arb_f = (vehicle_inputs.f_arb_1) * 1000.0; break;
-        }
-        switch (vehicle_inputs.rear_arb) {
-            case Arb_setup::one: k_arb_r = vehicle_inputs.r_arb_1 * 1000.0; break; // [N/m] Rear anti-roll bar stiffness (INPUT)
-            case Arb_setup::two: k_arb_r = vehicle_inputs.r_arb_2 * 1000.0; break; // [N/m] Rear anti-roll bar stiffness (INPUT)
-            case Arb_setup::three: k_arb_r = vehicle_inputs.r_arb_3 * 1000.0; break; // [N/m] Rear anti-roll bar stiffness (INPUT)
-            case Arb_setup::four: k_arb_r = vehicle_inputs.r_arb_4 * 1000.0; break; // [N/m] Rear anti-roll bar stiffness (INPUT)
-            case Arb_setup::five: k_arb_r = vehicle_inputs.r_arb_5 * 1000.0; break; // [N/m] Rear anti-roll bar stiffness (INPUT)
-            default: k_arb_r = (vehicle_inputs.r_arb_1) * 1000.0; break;
-		}
+        k_arb_f = vehicle_inputs.k_arb_f * 1000;
+        k_arb_r = vehicle_inputs.k_arb_r * 1000;
 
         //Vehicle speed
         V_input = vehicle_inputs.V_input; // [km/h] Vehicle speed input (INPUT)

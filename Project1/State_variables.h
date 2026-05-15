@@ -30,11 +30,3 @@ enum class Steering_input {
 	Steering = 1,
 	Straight = 2,
 };
-
-enum class Arb_setup{
-	one=1,
-	two=2,
-	three=3,
-	four=4,
-	five=5
-};
