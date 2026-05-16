@@ -704,6 +704,20 @@ private: System::Windows::Forms::GroupBox^ groupBox22;
 private: System::Windows::Forms::Label^ label21;
 private: System::Windows::Forms::Label^ label23;
 private: System::Windows::Forms::Label^ label22;
+private: System::Windows::Forms::GroupBox^ groupBox16;
+private: System::Windows::Forms::GroupBox^ groupBox15;
+private: System::Windows::Forms::TextBox^ textBox85;
+private: System::Windows::Forms::TextBox^ textBox86;
+private: System::Windows::Forms::TextBox^ textBox87;
+private: System::Windows::Forms::TextBox^ textBox88;
+private: System::Windows::Forms::TextBox^ textBox89;
+private: System::Windows::Forms::TextBox^ textBox90;
+private: System::Windows::Forms::Label^ output_h_CG_s;
+private: System::Windows::Forms::Label^ output_m_s;
+private: System::Windows::Forms::Label^ output_h_CG_u_rr;
+private: System::Windows::Forms::Label^ output_h_CG_u_rl;
+private: System::Windows::Forms::Label^ output_h_CG_u_fr;
+private: System::Windows::Forms::Label^ output_h_CG_u_fl;
 
 
 
@@ -874,9 +888,9 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -970,6 +984,28 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl4 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage10 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
+			this->output_h_CG_s = (gcnew System::Windows::Forms::Label());
+			this->output_m_s = (gcnew System::Windows::Forms::Label());
+			this->textBox89 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox90 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox15 = (gcnew System::Windows::Forms::GroupBox());
+			this->output_h_CG_u_rr = (gcnew System::Windows::Forms::Label());
+			this->output_h_CG_u_rl = (gcnew System::Windows::Forms::Label());
+			this->output_h_CG_u_fr = (gcnew System::Windows::Forms::Label());
+			this->output_h_CG_u_fl = (gcnew System::Windows::Forms::Label());
+			this->textBox85 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox86 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox87 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox88 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m_u_fl = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_m_u_rr = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_m_u_fr = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->input_m_u_rl = (gcnew System::Windows::Forms::NumericUpDown());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->input_t_r = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_t_f = (gcnew System::Windows::Forms::NumericUpDown());
@@ -979,15 +1015,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_rr = (gcnew System::Windows::Forms::NumericUpDown());
 			this->input_h_CG = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_rl = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_fr = (gcnew System::Windows::Forms::NumericUpDown());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->input_m_u_fl = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->input_y = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -1427,16 +1455,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3->SuspendLayout();
 			this->tabControl4->SuspendLayout();
 			this->tabPage10->SuspendLayout();
+			this->groupBox16->SuspendLayout();
+			this->groupBox15->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_r))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_f))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->BeginInit();
 			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->BeginInit();
@@ -1634,7 +1664,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->RUN->Name = L"RUN";
 			this->RUN->Size = System::Drawing::Size(97, 78);
 			this->RUN->TabIndex = 0;
-			this->RUN->Text = L"RUN";
+			this->RUN->Text = L"SINGLE RUN";
 			this->RUN->UseVisualStyleBackColor = false;
 			this->RUN->Click += gcnew System::EventHandler(this, &MyForm::RUN_Click);
 			// 
@@ -1689,7 +1719,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox14->Size = System::Drawing::Size(241, 113);
 			this->groupBox14->TabIndex = 55;
 			this->groupBox14->TabStop = false;
-			this->groupBox14->Text = L"Tire profile";
+			this->groupBox14->Text = L"Tire name";
 			// 
 			// tire_name
 			// 
@@ -2898,6 +2928,8 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabPage10
 			// 
+			this->tabPage10->Controls->Add(this->groupBox16);
+			this->tabPage10->Controls->Add(this->groupBox15);
 			this->tabPage10->Controls->Add(this->groupBox2);
 			this->tabPage10->Controls->Add(this->groupBox1);
 			this->tabPage10->Location = System::Drawing::Point(4, 35);
@@ -2907,6 +2939,296 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage10->TabIndex = 0;
 			this->tabPage10->Text = L"Mass and Size";
 			this->tabPage10->UseVisualStyleBackColor = true;
+			// 
+			// groupBox16
+			// 
+			this->groupBox16->Controls->Add(this->output_h_CG_s);
+			this->groupBox16->Controls->Add(this->output_m_s);
+			this->groupBox16->Controls->Add(this->textBox89);
+			this->groupBox16->Controls->Add(this->textBox90);
+			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox16->Location = System::Drawing::Point(6, 264);
+			this->groupBox16->Name = L"groupBox16";
+			this->groupBox16->Size = System::Drawing::Size(241, 137);
+			this->groupBox16->TabIndex = 17;
+			this->groupBox16->TabStop = false;
+			this->groupBox16->Text = L"Sprung mass";
+			// 
+			// output_h_CG_s
+			// 
+			this->output_h_CG_s->AutoSize = true;
+			this->output_h_CG_s->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->output_h_CG_s->Location = System::Drawing::Point(152, 91);
+			this->output_h_CG_s->Name = L"output_h_CG_s";
+			this->output_h_CG_s->Size = System::Drawing::Size(57, 19);
+			this->output_h_CG_s->TabIndex = 20;
+			this->output_h_CG_s->Text = L"label25";
+			// 
+			// output_m_s
+			// 
+			this->output_m_s->AutoSize = true;
+			this->output_m_s->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->output_m_s->Location = System::Drawing::Point(152, 38);
+			this->output_m_s->Name = L"output_m_s";
+			this->output_m_s->Size = System::Drawing::Size(57, 19);
+			this->output_m_s->TabIndex = 19;
+			this->output_m_s->Text = L"label24";
+			// 
+			// textBox89
+			// 
+			this->textBox89->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox89->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox89->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox89->Location = System::Drawing::Point(6, 83);
+			this->textBox89->Multiline = true;
+			this->textBox89->Name = L"textBox89";
+			this->textBox89->ReadOnly = true;
+			this->textBox89->Size = System::Drawing::Size(157, 48);
+			this->textBox89->TabIndex = 18;
+			this->textBox89->Text = L"Sprung masses CG height";
+			// 
+			// textBox90
+			// 
+			this->textBox90->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox90->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox90->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox90->Location = System::Drawing::Point(2, 38);
+			this->textBox90->Multiline = true;
+			this->textBox90->Name = L"textBox90";
+			this->textBox90->ReadOnly = true;
+			this->textBox90->Size = System::Drawing::Size(157, 25);
+			this->textBox90->TabIndex = 17;
+			this->textBox90->Text = L"Sprung masses";
+			// 
+			// groupBox15
+			// 
+			this->groupBox15->Controls->Add(this->output_h_CG_u_rr);
+			this->groupBox15->Controls->Add(this->output_h_CG_u_rl);
+			this->groupBox15->Controls->Add(this->output_h_CG_u_fr);
+			this->groupBox15->Controls->Add(this->output_h_CG_u_fl);
+			this->groupBox15->Controls->Add(this->textBox85);
+			this->groupBox15->Controls->Add(this->textBox86);
+			this->groupBox15->Controls->Add(this->textBox87);
+			this->groupBox15->Controls->Add(this->textBox88);
+			this->groupBox15->Controls->Add(this->textBox4);
+			this->groupBox15->Controls->Add(this->textBox7);
+			this->groupBox15->Controls->Add(this->input_m_u_fl);
+			this->groupBox15->Controls->Add(this->input_m_u_rr);
+			this->groupBox15->Controls->Add(this->input_m_u_fr);
+			this->groupBox15->Controls->Add(this->textBox5);
+			this->groupBox15->Controls->Add(this->textBox6);
+			this->groupBox15->Controls->Add(this->input_m_u_rl);
+			this->groupBox15->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox15->Location = System::Drawing::Point(253, 7);
+			this->groupBox15->Name = L"groupBox15";
+			this->groupBox15->Size = System::Drawing::Size(497, 251);
+			this->groupBox15->TabIndex = 17;
+			this->groupBox15->TabStop = false;
+			this->groupBox15->Text = L"Unsprung masses";
+			// 
+			// output_h_CG_u_rr
+			// 
+			this->output_h_CG_u_rr->AutoSize = true;
+			this->output_h_CG_u_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->output_h_CG_u_rr->Location = System::Drawing::Point(413, 200);
+			this->output_h_CG_u_rr->Name = L"output_h_CG_u_rr";
+			this->output_h_CG_u_rr->Size = System::Drawing::Size(57, 19);
+			this->output_h_CG_u_rr->TabIndex = 24;
+			this->output_h_CG_u_rr->Text = L"label28";
+			// 
+			// output_h_CG_u_rl
+			// 
+			this->output_h_CG_u_rl->AutoSize = true;
+			this->output_h_CG_u_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->output_h_CG_u_rl->Location = System::Drawing::Point(413, 147);
+			this->output_h_CG_u_rl->Name = L"output_h_CG_u_rl";
+			this->output_h_CG_u_rl->Size = System::Drawing::Size(57, 19);
+			this->output_h_CG_u_rl->TabIndex = 23;
+			this->output_h_CG_u_rl->Text = L"label29";
+			// 
+			// output_h_CG_u_fr
+			// 
+			this->output_h_CG_u_fr->AutoSize = true;
+			this->output_h_CG_u_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->output_h_CG_u_fr->Location = System::Drawing::Point(413, 95);
+			this->output_h_CG_u_fr->Name = L"output_h_CG_u_fr";
+			this->output_h_CG_u_fr->Size = System::Drawing::Size(57, 19);
+			this->output_h_CG_u_fr->TabIndex = 22;
+			this->output_h_CG_u_fr->Text = L"label27";
+			// 
+			// output_h_CG_u_fl
+			// 
+			this->output_h_CG_u_fl->AutoSize = true;
+			this->output_h_CG_u_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->output_h_CG_u_fl->Location = System::Drawing::Point(413, 42);
+			this->output_h_CG_u_fl->Name = L"output_h_CG_u_fl";
+			this->output_h_CG_u_fl->Size = System::Drawing::Size(57, 19);
+			this->output_h_CG_u_fl->TabIndex = 21;
+			this->output_h_CG_u_fl->Text = L"label26";
+			// 
+			// textBox85
+			// 
+			this->textBox85->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox85->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox85->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox85->Location = System::Drawing::Point(264, 33);
+			this->textBox85->Multiline = true;
+			this->textBox85->Name = L"textBox85";
+			this->textBox85->ReadOnly = true;
+			this->textBox85->Size = System::Drawing::Size(157, 47);
+			this->textBox85->TabIndex = 15;
+			this->textBox85->Text = L"Front left unsprung mass CG height";
+			// 
+			// textBox86
+			// 
+			this->textBox86->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox86->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox86->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox86->Location = System::Drawing::Point(264, 188);
+			this->textBox86->Multiline = true;
+			this->textBox86->Name = L"textBox86";
+			this->textBox86->ReadOnly = true;
+			this->textBox86->Size = System::Drawing::Size(157, 38);
+			this->textBox86->TabIndex = 18;
+			this->textBox86->Text = L"Rear right unsprung mass CG height";
+			// 
+			// textBox87
+			// 
+			this->textBox87->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox87->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox87->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox87->Location = System::Drawing::Point(264, 86);
+			this->textBox87->Multiline = true;
+			this->textBox87->Name = L"textBox87";
+			this->textBox87->ReadOnly = true;
+			this->textBox87->Size = System::Drawing::Size(157, 47);
+			this->textBox87->TabIndex = 16;
+			this->textBox87->Text = L"Front right unsprung mass CG height";
+			// 
+			// textBox88
+			// 
+			this->textBox88->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox88->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox88->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox88->Location = System::Drawing::Point(264, 137);
+			this->textBox88->Multiline = true;
+			this->textBox88->Name = L"textBox88";
+			this->textBox88->ReadOnly = true;
+			this->textBox88->Size = System::Drawing::Size(157, 47);
+			this->textBox88->TabIndex = 17;
+			this->textBox88->Text = L"Rear left unsprung mass CG height";
+			// 
+			// textBox4
+			// 
+			this->textBox4->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox4->Location = System::Drawing::Point(6, 33);
+			this->textBox4->Multiline = true;
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
+			this->textBox4->Size = System::Drawing::Size(157, 47);
+			this->textBox4->TabIndex = 8;
+			this->textBox4->Text = L"Front left unsprung masses [kg]";
+			// 
+			// textBox7
+			// 
+			this->textBox7->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox7->Location = System::Drawing::Point(6, 188);
+			this->textBox7->Multiline = true;
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->ReadOnly = true;
+			this->textBox7->Size = System::Drawing::Size(157, 38);
+			this->textBox7->TabIndex = 14;
+			this->textBox7->Text = L"Rear right unsprung masses [kg]";
+			// 
+			// input_m_u_fl
+			// 
+			this->input_m_u_fl->DecimalPlaces = 2;
+			this->input_m_u_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_fl->Location = System::Drawing::Point(173, 42);
+			this->input_m_u_fl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_fl->Name = L"input_m_u_fl";
+			this->input_m_u_fl->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_fl->TabIndex = 7;
+			this->input_m_u_fl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// input_m_u_rr
+			// 
+			this->input_m_u_rr->DecimalPlaces = 2;
+			this->input_m_u_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_rr->Location = System::Drawing::Point(173, 197);
+			this->input_m_u_rr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_rr->Name = L"input_m_u_rr";
+			this->input_m_u_rr->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_rr->TabIndex = 13;
+			this->input_m_u_rr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// input_m_u_fr
+			// 
+			this->input_m_u_fr->DecimalPlaces = 2;
+			this->input_m_u_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_fr->Location = System::Drawing::Point(173, 95);
+			this->input_m_u_fr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_fr->Name = L"input_m_u_fr";
+			this->input_m_u_fr->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_fr->TabIndex = 9;
+			this->input_m_u_fr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
+			// 
+			// textBox5
+			// 
+			this->textBox5->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox5->Location = System::Drawing::Point(6, 86);
+			this->textBox5->Multiline = true;
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->ReadOnly = true;
+			this->textBox5->Size = System::Drawing::Size(157, 47);
+			this->textBox5->TabIndex = 10;
+			this->textBox5->Text = L"Front right unsprung masses [kg]";
+			// 
+			// textBox6
+			// 
+			this->textBox6->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox6->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox6->Location = System::Drawing::Point(6, 137);
+			this->textBox6->Multiline = true;
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->ReadOnly = true;
+			this->textBox6->Size = System::Drawing::Size(157, 47);
+			this->textBox6->TabIndex = 12;
+			this->textBox6->Text = L"Rear left unsprung masses [kg]";
+			// 
+			// input_m_u_rl
+			// 
+			this->input_m_u_rl->DecimalPlaces = 2;
+			this->input_m_u_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_m_u_rl->Location = System::Drawing::Point(173, 146);
+			this->input_m_u_rl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_m_u_rl->Name = L"input_m_u_rl";
+			this->input_m_u_rl->Size = System::Drawing::Size(66, 27);
+			this->input_m_u_rl->TabIndex = 11;
+			this->input_m_u_rl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
 			// 
 			// groupBox2
 			// 
@@ -2918,7 +3240,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox2->Controls->Add(this->textBox16);
 			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox2->Location = System::Drawing::Point(253, 7);
+			this->groupBox2->Location = System::Drawing::Point(253, 264);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(241, 190);
 			this->groupBox2->TabIndex = 17;
@@ -3009,15 +3331,7 @@ private: System::ComponentModel::IContainer^ components;
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->textBox8);
-			this->groupBox1->Controls->Add(this->textBox7);
-			this->groupBox1->Controls->Add(this->input_m_u_rr);
 			this->groupBox1->Controls->Add(this->input_h_CG);
-			this->groupBox1->Controls->Add(this->textBox6);
-			this->groupBox1->Controls->Add(this->input_m_u_rl);
-			this->groupBox1->Controls->Add(this->textBox5);
-			this->groupBox1->Controls->Add(this->input_m_u_fr);
-			this->groupBox1->Controls->Add(this->textBox4);
-			this->groupBox1->Controls->Add(this->input_m_u_fl);
 			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->input_y);
 			this->groupBox1->Controls->Add(this->textBox2);
@@ -3028,10 +3342,10 @@ private: System::ComponentModel::IContainer^ components;
 				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(6, 7);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(241, 452);
+			this->groupBox1->Size = System::Drawing::Size(241, 251);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Mass";
+			this->groupBox1->Text = L"Total mass";
 			// 
 			// textBox8
 			// 
@@ -3047,33 +3361,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox8->TabIndex = 16;
 			this->textBox8->Text = L"Height of the center of gravity [mm]";
 			// 
-			// textBox7
-			// 
-			this->textBox7->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox7->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox7->Location = System::Drawing::Point(6, 408);
-			this->textBox7->Multiline = true;
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->ReadOnly = true;
-			this->textBox7->Size = System::Drawing::Size(157, 38);
-			this->textBox7->TabIndex = 14;
-			this->textBox7->Text = L"Rear right unsprung masses [kg]";
-			// 
-			// input_m_u_rr
-			// 
-			this->input_m_u_rr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_rr->DecimalPlaces = 2;
-			this->input_m_u_rr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_rr->Location = System::Drawing::Point(169, 418);
-			this->input_m_u_rr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_rr->Name = L"input_m_u_rr";
-			this->input_m_u_rr->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_rr->TabIndex = 13;
-			this->input_m_u_rr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
 			// input_h_CG
 			// 
 			this->input_h_CG->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
@@ -3086,87 +3373,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_h_CG->Size = System::Drawing::Size(66, 27);
 			this->input_h_CG->TabIndex = 15;
 			this->input_h_CG->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 236, 0, 0, 0 });
-			// 
-			// textBox6
-			// 
-			this->textBox6->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox6->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox6->Location = System::Drawing::Point(6, 357);
-			this->textBox6->Multiline = true;
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->ReadOnly = true;
-			this->textBox6->Size = System::Drawing::Size(157, 47);
-			this->textBox6->TabIndex = 12;
-			this->textBox6->Text = L"Rear left unsprung masses [kg]";
-			// 
-			// input_m_u_rl
-			// 
-			this->input_m_u_rl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_rl->DecimalPlaces = 2;
-			this->input_m_u_rl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_rl->Location = System::Drawing::Point(169, 367);
-			this->input_m_u_rl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_rl->Name = L"input_m_u_rl";
-			this->input_m_u_rl->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_rl->TabIndex = 11;
-			this->input_m_u_rl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
-			// textBox5
-			// 
-			this->textBox5->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox5->Location = System::Drawing::Point(6, 306);
-			this->textBox5->Multiline = true;
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->ReadOnly = true;
-			this->textBox5->Size = System::Drawing::Size(157, 47);
-			this->textBox5->TabIndex = 10;
-			this->textBox5->Text = L"Front right unsprung masses [kg]";
-			// 
-			// input_m_u_fr
-			// 
-			this->input_m_u_fr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_fr->DecimalPlaces = 2;
-			this->input_m_u_fr->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_fr->Location = System::Drawing::Point(169, 316);
-			this->input_m_u_fr->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_fr->Name = L"input_m_u_fr";
-			this->input_m_u_fr->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_fr->TabIndex = 9;
-			this->input_m_u_fr->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
-			// 
-			// textBox4
-			// 
-			this->textBox4->BackColor = System::Drawing::SystemColors::Window;
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(6, 253);
-			this->textBox4->Multiline = true;
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(157, 47);
-			this->textBox4->TabIndex = 8;
-			this->textBox4->Text = L"Front left unsprung masses [kg]";
-			// 
-			// input_m_u_fl
-			// 
-			this->input_m_u_fl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_m_u_fl->DecimalPlaces = 2;
-			this->input_m_u_fl->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_m_u_fl->Location = System::Drawing::Point(169, 263);
-			this->input_m_u_fl->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_m_u_fl->Name = L"input_m_u_fl";
-			this->input_m_u_fl->Size = System::Drawing::Size(66, 27);
-			this->input_m_u_fl->TabIndex = 7;
-			this->input_m_u_fl->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 11, 0, 0, 0 });
 			// 
 			// textBox3
 			// 
@@ -3254,7 +3460,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage13->Location = System::Drawing::Point(4, 22);
 			this->tabPage13->Name = L"tabPage13";
 			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage13->Size = System::Drawing::Size(1061, 617);
+			this->tabPage13->Size = System::Drawing::Size(1061, 604);
 			this->tabPage13->TabIndex = 3;
 			this->tabPage13->Text = L"Brakes and Differentials";
 			this->tabPage13->UseVisualStyleBackColor = true;
@@ -3889,7 +4095,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage11->Location = System::Drawing::Point(4, 22);
 			this->tabPage11->Name = L"tabPage11";
 			this->tabPage11->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage11->Size = System::Drawing::Size(1061, 617);
+			this->tabPage11->Size = System::Drawing::Size(1061, 604);
 			this->tabPage11->TabIndex = 1;
 			this->tabPage11->Text = L"Aerodynamics";
 			this->tabPage11->UseVisualStyleBackColor = true;
@@ -4431,10 +4637,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage12->Controls->Add(this->groupBox10);
 			this->tabPage12->Controls->Add(this->groupBox7);
 			this->tabPage12->Controls->Add(this->groupBox5);
-			this->tabPage12->Location = System::Drawing::Point(4, 35);
+			this->tabPage12->Location = System::Drawing::Point(4, 22);
 			this->tabPage12->Name = L"tabPage12";
 			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage12->Size = System::Drawing::Size(1061, 591);
+			this->tabPage12->Size = System::Drawing::Size(1061, 604);
 			this->tabPage12->TabIndex = 2;
 			this->tabPage12->Text = L"Springs";
 			this->tabPage12->UseVisualStyleBackColor = true;
@@ -4855,7 +5061,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage14->Location = System::Drawing::Point(4, 22);
 			this->tabPage14->Name = L"tabPage14";
 			this->tabPage14->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage14->Size = System::Drawing::Size(1061, 617);
+			this->tabPage14->Size = System::Drawing::Size(1061, 604);
 			this->tabPage14->TabIndex = 4;
 			this->tabPage14->Text = L"Kinematics";
 			this->tabPage14->UseVisualStyleBackColor = true;
@@ -7445,7 +7651,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage6->Size = System::Drawing::Size(557, 591);
 			this->tabPage6->TabIndex = 0;
-			this->tabPage6->Text = L"Outputs";
+			this->tabPage6->Text = L"Single run";
 			this->tabPage6->UseVisualStyleBackColor = true;
 			// 
 			// output_R
@@ -8412,20 +8618,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea1->BackColor = System::Drawing::Color::White;
-			chartArea1->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea1);
+			chartArea3->BackColor = System::Drawing::Color::White;
+			chartArea3->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea3);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend1->Name = L"Legend1";
-			this->YMD->Legends->Add(legend1);
+			legend3->Name = L"Legend1";
+			this->YMD->Legends->Add(legend3);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title1->Name = L"Title1";
-			this->YMD->Titles->Add(title1);
+			title3->Name = L"Title1";
+			this->YMD->Titles->Add(title3);
 			// 
 			// debugPage
 			// 
@@ -8679,6 +8885,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage3->ResumeLayout(false);
 			this->tabControl4->ResumeLayout(false);
 			this->tabPage10->ResumeLayout(false);
+			this->groupBox16->ResumeLayout(false);
+			this->groupBox16->PerformLayout();
+			this->groupBox15->ResumeLayout(false);
+			this->groupBox15->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_t_r))->EndInit();
@@ -8686,11 +8900,7 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_L))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rr))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_CG))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_rl))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fr))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m_u_fl))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_y))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_x))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_m))->EndInit();
@@ -9240,6 +9450,14 @@ private: System::ComponentModel::IContainer^ components;
 			output_T_fr->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_fr));
 			output_T_rl->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_rl));
 			output_T_rr->Text = System::String::Format("{0:F2} Nm", System::Convert::ToDouble(vehicle_outputs->T_rr));
+
+			output_h_CG_u_fl->Text = System::String::Format("{0:F2} mm", System::Convert::ToDouble(vehicle_outputs->h_CG_u_fl));
+			output_h_CG_u_fr->Text = System::String::Format("{0:F2} mm", System::Convert::ToDouble(vehicle_outputs->h_CG_u_fr));
+			output_h_CG_u_rl->Text = System::String::Format("{0:F2} mm", System::Convert::ToDouble(vehicle_outputs->h_CG_u_rl));
+			output_h_CG_u_rr->Text = System::String::Format("{0:F2} mm", System::Convert::ToDouble(vehicle_outputs->h_CG_u_rr));
+
+			output_h_CG_s->Text = System::String::Format("{0:F2} mm", System::Convert::ToDouble(vehicle_outputs->h_CG_s));
+			output_m_s->Text = System::String::Format("{0:F2} kg", System::Convert::ToDouble(vehicle_outputs->m_s));
 		
 #ifdef _DEBUG
 			//Debug outputs

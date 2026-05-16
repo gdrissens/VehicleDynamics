@@ -5,6 +5,7 @@ struct Vehicle_outputs {
 	double F_x_comb_fl, F_x_comb_fr, F_x_comb_rl, F_x_comb_rr, F_y_comb_fl, F_y_comb_fr, F_y_comb_rl, F_y_comb_rr;
 	double F_lon_fl, F_lon_fr, F_lon_rl, F_lon_rr, F_lat_fl, F_lat_fr, F_lat_rl, F_lat_rr;
 	double F_z_fl, F_z_fr, F_z_rl, F_z_rr, T_fl, T_fr, T_rl, T_rr;
+	double h_CG_s, m_s, h_CG_u_fl, h_CG_u_fr, h_CG_u_rl, h_CG_u_rr;
 
 #ifdef _DEBUG	
 	double debug1, debug2, debug3, debug4;

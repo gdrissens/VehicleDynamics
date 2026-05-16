@@ -50,7 +50,7 @@ void Spring_selection::save_spring(std::string name) {
 
 void Spring_selection::new_spring(std::vector<double> spring_inputs)
 {
-	std::string name = "New_spring";
+	std::string name = "New_ARB";
 	if (std::find(spring_list.begin(), spring_list.end(), name) != spring_list.end())
 	{
 		throw std::invalid_argument("Duplicate spring name.");

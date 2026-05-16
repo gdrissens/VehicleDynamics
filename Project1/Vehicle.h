@@ -165,10 +165,10 @@ private:
     double psi = 0.0, psi_deg = 0.0;
 
     //Total lateral load transfer
-    double dW_lat_f = 0.0, dW_lat_r = 0.0;
+    double dW_lat_f = 0.0, dW_lat_r = 0.0, dW_lat_dist = 0.0;
 
     //Elastic lateral load transfer
-    double dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0;
+    double dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0, dW_lat_k_dist = 0.0;
 
     //Yaw moment
     double M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;

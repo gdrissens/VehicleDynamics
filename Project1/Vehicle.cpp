@@ -217,14 +217,13 @@ Vehicle::Vehicle() {};
             bias_now = (fl.T + fr.T) / (fl.T + fr.T + rl.T + rr.T);
             iter++;
             if (iter >= max_iter) { cancel_run = 1; }
-            if (iter > 10 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
+            if (iter >= 10 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
 
 			if (cancel_run == 1) { break; }
 
         } while (fl.F_z_err > F_z_tol || fr.F_z_err > F_z_tol || rl.F_z_err > F_z_tol || rr.F_z_err > F_z_tol);
 
         yaw_moment();
-        //if ((a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
     }
 
     void Vehicle::vehicle_parameters() {
@@ -390,7 +389,8 @@ Vehicle::Vehicle() {};
         h_CG_u_rl = rl.r; // [m] Height of the unsprung mass CG
         h_CG_u_rr = rr.r; // [m] Height of the unsprung mass CG    
         h_CG_u = (h_CG_u_fl * m_u_fl + h_CG_u_fr * m_u_fr + h_CG_u_rl * m_u_rl + h_CG_u_rr * m_u_rr) / m_u; // [m] Height of the unsprung masses CG
-        h_CG_s = (m * h_CG - m_u * h_CG_u) / m_s; // [m] Height of the sprung mass CG           
+        h_CG_s = (m * h_CG - m_u * h_CG_u) / m_s; // [m] Height of the sprung mass CG    
+
     }
 
     void Vehicle::suspension_kinematics(){
@@ -583,12 +583,14 @@ Vehicle::Vehicle() {};
         //Total lateral load transfer
         dW_lat_f = psi * K_r_tot_f * t_f + (dW_lat_g_fl / (K_susp_fl + K_arb_fl) + dW_lat_g_fr / (K_susp_fr + K_arb_fr)) * K_r_tot_f; // [N] Front lateral load transfer
         dW_lat_r = psi * K_r_tot_r * t_r + (dW_lat_g_rl / (K_susp_rl + K_arb_rl) + dW_lat_g_rr / (K_susp_rr + K_arb_rr)) * K_r_tot_r; // [N] Rear lateral load transfer
+		dW_lat_dist = dW_lat_f / (dW_lat_f + dW_lat_r); // [%front] Lateral load transfer distribution to the front axle
 
         //Elastic lateral load transfer
         dW_lat_k_fl = dW_lat_f - dW_lat_g_fl; // [N] Front inner elastic lateral load transfer
         dW_lat_k_fr = dW_lat_f - dW_lat_g_fr; // [N] Front outer elastic lateral load transfer
         dW_lat_k_rl = dW_lat_r - dW_lat_g_rl; // [N] Rear inner elastic lateral load transfer
         dW_lat_k_rr = dW_lat_r - dW_lat_g_rr; // [N] Rear outer elastic lateral load transfer
+		dW_lat_k_dist = (dW_lat_k_fl + dW_lat_k_fr) / (dW_lat_k_fl + dW_lat_k_fr + dW_lat_k_rl + dW_lat_k_rr); // [%front] Elastic lateral load transfer distribution to the front axle
     }
 
     void Vehicle::update_wheel_loads_and_displacements() {
@@ -1022,8 +1024,8 @@ Vehicle::Vehicle() {};
         vehicle_outputs.kappa_rl = rl.kappa * 100.0;
         vehicle_outputs.kappa_rr = rr.kappa * 100.0;
 
-        vehicle_outputs.alpha_fl = fl.omega;
-        vehicle_outputs.alpha_fr = fr.omega;
+        vehicle_outputs.alpha_fl = fl.alpha * 180 / pi;
+        vehicle_outputs.alpha_fr = fr.alpha * 180 / pi;
         vehicle_outputs.alpha_rl = rl.alpha * 180 / pi;
         vehicle_outputs.alpha_rr = rr.alpha * 180 / pi;
 
@@ -1032,10 +1034,18 @@ Vehicle::Vehicle() {};
         vehicle_outputs.T_rl = rl.T;
         vehicle_outputs.T_rr = rr.T;
 
+        vehicle_outputs.h_CG_u_fl = h_CG_u_fl * 1000;
+        vehicle_outputs.h_CG_u_fr = h_CG_u_fr * 1000;
+        vehicle_outputs.h_CG_u_rl = h_CG_u_rl * 1000;
+        vehicle_outputs.h_CG_u_rr = h_CG_u_rr * 1000;
+
+        vehicle_outputs.h_CG_s = h_CG_s * 1000;
+        vehicle_outputs.m_s = m_s;
+
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = fl.delta * 180 / pi;
-        vehicle_outputs.debug2 = fr.delta * 180 / pi;
-        vehicle_outputs.debug3 = rl.T / rr.T;
+        vehicle_outputs.debug1 = dW_lat_k_dist;
+        vehicle_outputs.debug2 = dW_lat_dist;
+        vehicle_outputs.debug3 = dW_lat_f;
         vehicle_outputs.debug4 = dW_lat_r;
 
 		vehicle_outputs.brents_single = brents_iter_single;
@@ -1087,8 +1097,8 @@ Vehicle::Vehicle() {};
                     dW_lat_g_fl = 0.0, dW_lat_g_fr = 0.0, dW_lat_g_rl = 0.0, dW_lat_g_rr = 0.0;
         M_r_s_fl = 0.0, M_r_s_fr = 0.0, M_r_s_rl = 0.0, M_r_s_rr = 0.0, M_r_u_fl = 0.0, M_r_u_fr = 0.0, M_r_u_rl = 0.0, M_r_u_rr = 0.0, M_r_s = 0.0, M_r_u = 0.0;
         psi = 0.0, psi_deg = 0.0;
-        dW_lat_f = 0.0, dW_lat_r = 0.0;
-        dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0;
+        dW_lat_f = 0.0, dW_lat_r = 0.0, dW_lat_dist = 0.0;
+        dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0, dW_lat_k_dist = 0.0;
         M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
         brents_iter_single = 0, golden_iter_single = 0;
         cancel_run = 0, invert_run = 0;
