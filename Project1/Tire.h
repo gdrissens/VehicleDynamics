@@ -49,7 +49,7 @@ public:
 
     void set_F_y();
 
-    void set_F_x_comb(int lon_sign);
+    void set_F_x_comb();
 
     void set_F_y_comb(double a_rad);
 

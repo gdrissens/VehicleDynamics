@@ -643,7 +643,7 @@ Vehicle::Vehicle() {};
         fl.set_F_x(), fr.set_F_x(), rl.set_F_x(), rr.set_F_x();
 
         //Longitudinal modified Nicolas-Comstock
-        fl.set_F_x_comb(lon_sign), fr.set_F_x_comb(lon_sign), rl.set_F_x_comb(lon_sign), rr.set_F_x_comb(lon_sign);
+        fl.set_F_x_comb(), fr.set_F_x_comb(), rl.set_F_x_comb(), rr.set_F_x_comb();
 
         //Torques
         fl.set_T(), fr.set_T(), rl.set_T(), rr.set_T();
@@ -683,7 +683,7 @@ Vehicle::Vehicle() {};
                 }
                 t2.set_kappa_x();
                 t2.set_F_x();
-                t2.set_F_x_comb(lon_sign);
+                t2.set_F_x_comb();
                 t2.set_T();
             }
 
@@ -710,7 +710,7 @@ Vehicle::Vehicle() {};
                 }
                 t4.set_kappa_x();
                 t4.set_F_x();
-                t4.set_F_x_comb(lon_sign);
+                t4.set_F_x_comb();
                 t4.set_T();
             }
 
@@ -755,8 +755,6 @@ Vehicle::Vehicle() {};
                
 
         };
-
-        
 
         if (iter != 0 && pedals_input != Pedals_input::Coasting) {
 
@@ -805,17 +803,29 @@ Vehicle::Vehicle() {};
         double tol = 0.01; int max_iter = 100;
         double a = -0.1;
         double b = 1.0;
+        if (lon_sign > 0) {
+            a = -0.1;
+            b = 1.0;
 
-        if (iter >= 5) {
-            a = std::min(tire.kappa - 0.1, 0.0);
-            b = std::max(tire.kappa + 0.1, 1.0);
+            if (iter >= 5) {
+                a = std::min(tire.kappa - 0.1, 0.0);
+                b = std::max(tire.kappa + 0.1, 1.0);
+            }
         }
+        else if (lon_sign < 0) {
+			a = -1.0;
+			b = 0.1;
+			if (iter >= 5) {
+				a = std::max(tire.kappa - 0.1, -1.0);
+				b = std::min(tire.kappa + 0.1, 0.0);
+			}
+		}
 
         auto f = [&](double x) {
             tire.kappa = x;
             tire.set_kappa_x();
             tire.set_F_x();
-            tire.set_F_x_comb(lon_sign);
+            tire.set_F_x_comb();
             return tire.F_x_comb;
             };
 
@@ -934,7 +944,7 @@ Vehicle::Vehicle() {};
             tire.kappa = x;
             tire.set_kappa_x();
             tire.set_F_x();
-            tire.set_F_x_comb(lon_sign);
+            tire.set_F_x_comb();
             return tire.F_x_comb;
             };
 
@@ -1043,9 +1053,9 @@ Vehicle::Vehicle() {};
         vehicle_outputs.m_s = m_s;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = dW_lat_k_dist;
-        vehicle_outputs.debug2 = dW_lat_dist;
-        vehicle_outputs.debug3 = dW_lat_f;
+        vehicle_outputs.debug1 = M_p_s_fl;
+        vehicle_outputs.debug2 = M_p_u_fl;
+        vehicle_outputs.debug3 = T;
         vehicle_outputs.debug4 = dW_lat_r;
 
 		vehicle_outputs.brents_single = brents_iter_single;

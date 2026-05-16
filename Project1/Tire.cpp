@@ -90,7 +90,7 @@ void Tire::set_Pacejka() {
     K_x_kappa = F_z * (p_Kx1 + p_Kx2 * df_z) * exp(p_Kx3 * df_z); // [N/rad] Longitudinal slip stiffness
     B_x = K_x_kappa / (C_x * D_x); // [-] Longitudinal stiffness factor B
     S_Hx = (p_Hx1 + p_Hx2 * df_z) * 1e-10; // [rad] Horizontal shift
-    S_Vx = F_z * (p_Vx1 + p_Vx2 * df_z) * 0.0; // [N] Vertical shift
+    S_Vx = F_z * (p_Vx1 + p_Vx2 * df_z) * 1e-10; // [N] Vertical shift
 }
 
 void Tire::set_kappa_x() {
@@ -98,15 +98,15 @@ void Tire::set_kappa_x() {
 }
 
 void Tire::set_F_x() {
-    F_x = D_x * sin(C_x * atan(B_x * ((1 - E_x) * kappa_x + E_x / B_x * atan(B_x * kappa_x)))); // [N] Tire longitudinal force
+    F_x = S_Vx + D_x * sin(C_x * atan(B_x * ((1 - E_x) * kappa_x + E_x / B_x * atan(B_x * kappa_x)))); // [N] Tire longitudinal force
 }
 
 void Tire::set_F_y() {
     F_y = S_Vy + D_y * sin(C_y * atan(B_y * ((1 - E_y) * alpha_y + E_y / B_y * atan(B_y * alpha_y)))); // [N] Tire lateral force        
 }
 
-void Tire::set_F_x_comb(int lon_sign) {
-    F_x_comb = lon_sign * round_to(F_x * abs(F_y) / sqrt(kappa * kappa * F_y * F_y + F_x * F_x * tan(alpha) * tan(alpha)) * sqrt((1 - abs(kappa)) * (1 - abs(kappa)) * cos(alpha) * cos(alpha) * F_x * F_x + kappa * kappa * K_y_alpha * K_y_alpha) / (K_y_alpha), 3); // [N] Tire combined longitudinal force
+void Tire::set_F_x_comb() {
+    F_x_comb = round_to(F_x * abs(F_y) / sqrt(kappa * kappa * F_y * F_y + F_x * F_x * tan(alpha) * tan(alpha)) * sqrt((1 - abs(kappa)) * (1 - abs(kappa)) * cos(alpha) * cos(alpha) * F_x * F_x + kappa * kappa * K_y_alpha * K_y_alpha) / (K_y_alpha), 3); // [N] Tire combined longitudinal force
 }
 
 void Tire::set_F_y_comb(double lat_sign) {
@@ -117,8 +117,10 @@ void Tire::set_F_y_comb(double lat_sign) {
 void Tire::set_T() { T = F_x_comb * r; }
 
 void Tire::set_T_r(int lon_sign, Actuator_type brakes, Actuator_type diff) {
-    if ((lon_sign > 0 && diff == Actuator_type::Inboard) || (lon_sign < 0 && brakes == Actuator_type::Inboard)) { T_r = T * lon_sign; } // [N*m] Reaction torque
-    else { T_r = 0; }
+    if ((lon_sign > 0 && diff == Actuator_type::Inboard) || (lon_sign < 0 && brakes == Actuator_type::Inboard)) { 
+        T_r = T * lon_sign; // [N*m] Reaction torque
+    } 
+    else { T_r = 0; } // [N*m] Reaction torque
 }
 
 void Tire::set_F_lat() { F_lat = F_y_comb * cos(delta) + AXLE * (F_x_comb - F_rr) * sin(delta); } // [N] Lateral force        
