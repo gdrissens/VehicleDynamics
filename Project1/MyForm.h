@@ -888,9 +888,9 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -1698,10 +1698,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage5->Controls->Add(this->groupBox13);
 			this->tabPage5->Controls->Add(this->groupBox12);
 			this->tabPage5->Controls->Add(this->groupBox11);
-			this->tabPage5->Location = System::Drawing::Point(4, 35);
+			this->tabPage5->Location = System::Drawing::Point(4, 22);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1075, 636);
+			this->tabPage5->Size = System::Drawing::Size(1075, 649);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Tires";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -4637,10 +4637,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage12->Controls->Add(this->groupBox10);
 			this->tabPage12->Controls->Add(this->groupBox7);
 			this->tabPage12->Controls->Add(this->groupBox5);
-			this->tabPage12->Location = System::Drawing::Point(4, 22);
+			this->tabPage12->Location = System::Drawing::Point(4, 35);
 			this->tabPage12->Name = L"tabPage12";
 			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage12->Size = System::Drawing::Size(1061, 604);
+			this->tabPage12->Size = System::Drawing::Size(1061, 591);
 			this->tabPage12->TabIndex = 2;
 			this->tabPage12->Text = L"Springs";
 			this->tabPage12->UseVisualStyleBackColor = true;
@@ -7017,10 +7017,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 35);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 636);
+			this->tabPage2->Size = System::Drawing::Size(1075, 649);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -7040,7 +7040,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -7628,7 +7628,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 630);
+			this->tabControl2->Size = System::Drawing::Size(565, 643);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -7649,7 +7649,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 591);
+			this->tabPage6->Size = System::Drawing::Size(557, 604);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Single run";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -8618,20 +8618,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea3->BackColor = System::Drawing::Color::White;
-			chartArea3->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea3);
+			chartArea1->BackColor = System::Drawing::Color::White;
+			chartArea1->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea1);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend3->Name = L"Legend1";
-			this->YMD->Legends->Add(legend3);
+			legend1->Name = L"Legend1";
+			this->YMD->Legends->Add(legend1);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title3->Name = L"Title1";
-			this->YMD->Titles->Add(title3);
+			title1->Name = L"Title1";
+			this->YMD->Titles->Add(title1);
 			// 
 			// debugPage
 			// 
@@ -9587,6 +9587,8 @@ private: System::ComponentModel::IContainer^ components;
 			tire_name->Items->AddRange(tire_list->ToArray());
 			input_front_tires_selection->Items->AddRange(tire_list->ToArray());
 			input_rear_tires_selection->Items->AddRange(tire_list->ToArray());
+			input_front_tires_selection->SelectedIndex = 0;
+			input_rear_tires_selection->SelectedIndex = 0;
 		}
 
 		void save_tire() {
@@ -9690,6 +9692,10 @@ private: System::ComponentModel::IContainer^ components;
 			input_rear_arb_selection->Items->Add("No ARB");
 			input_front_arb_selection->Items->AddRange(spring_list->ToArray());
 			input_rear_arb_selection->Items->AddRange(spring_list->ToArray());
+			input_front_arb_selection->SelectedIndex = 0;
+			input_rear_arb_selection->SelectedIndex = 0;
+			front_arb_setup();
+			rear_arb_setup();
 		}
 
 		void save_spring() {
@@ -9698,12 +9704,6 @@ private: System::ComponentModel::IContainer^ components;
 			String^ name = spring_name->Text->Replace(" ", "_");
 			spring_selection->save_spring(msclr::interop::marshal_as<std::string>(name));
 			load_spring_list();
-
-			input_front_arb_selection->SelectedIndex = vehicle_inputs->front_arb_selection;
-			input_rear_arb_selection->SelectedIndex = vehicle_inputs->rear_arb_selection;
-
-			front_arb_setup();
-			rear_arb_setup();
 		}
 
 		void new_spring()
@@ -9760,7 +9760,6 @@ private: System::ComponentModel::IContainer^ components;
 				}
 			}
 			input_front_arb_setup->SelectedIndex = 0;
-			vehicle_inputs->front_arb_setup = 0;
 		}
 
 		void rear_arb_setup() {
@@ -9778,7 +9777,6 @@ private: System::ComponentModel::IContainer^ components;
 				}
 			}
 			input_rear_arb_setup->SelectedIndex = 0;
-			vehicle_inputs->rear_arb_setup = 0;
 		}
 
 #pragma endregion
@@ -9841,6 +9839,10 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 		input_V_input->Visible = true;
 		Display_corner_or_velocity->Text = "Vehicle velocity [km/h]";
 	}
+
+	input_front_arb_setup->SelectedIndex = vehicle_inputs->front_arb_setup;
+	input_rear_arb_setup->SelectedIndex = vehicle_inputs->rear_arb_setup;
+
 }
 private: System::Void tire_save_Click(System::Object^ sender, System::EventArgs^ e) {
 	save_tire();
@@ -10193,13 +10195,9 @@ private: System::Void Spring_remove_Click(System::Object^ sender, System::EventA
 }
 private: System::Void input_front_arb_selection_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	front_arb_setup();
-	input_front_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->front_arb_setup);
-	input_rear_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->rear_arb_setup);
 }
 private: System::Void input_rear_arb_selection_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	rear_arb_setup();
-	input_front_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->front_arb_setup);
-	input_rear_arb_setup->SelectedIndex = System::Convert::ToInt32(vehicle_inputs->rear_arb_setup);
 }
 };
 }

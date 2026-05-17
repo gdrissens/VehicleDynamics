@@ -78,8 +78,7 @@ private:
 
     //Accelerations
 
-
-        //Lateral accelerations
+    //Lateral accelerations
     double F_lat = 0.0, a_lat = 0.0;
 
     //Longitudinal accelerations
@@ -88,6 +87,9 @@ private:
 
     //Cornering radial accelerations
     double F_rad = 0.0, a_rad = 0.0;
+
+	//Yaw velocity
+	double r = 0.0;
 
     //Sprung and unsprung masses CG location
     double h_CG_s = 0.0, h_CG_u_fl = 0.0, h_CG_u_fr = 0.0, h_CG_u_rl = 0.0, h_CG_u_rr = 0.0, h_CG_u = 0.0;
@@ -169,6 +171,12 @@ private:
 
     //Elastic lateral load transfer
     double dW_lat_k_fl = 0.0, dW_lat_k_fr = 0.0, dW_lat_k_rl = 0.0, dW_lat_k_rr = 0.0, dW_lat_k_dist = 0.0;
+
+    //Bump steer
+	double delta_bs_fl = 0.0, delta_bs_fr = 0.0, delta_bs_rl = 0.0, delta_bs_rr = 0.0;
+
+	//Camber change
+	double gamma_bc_fl = 0.0, gamma_bc_fr = 0.0, gamma_bc_rl = 0.0, gamma_bc_rr = 0.0, gamma_sc_fl = 0.0, gamma_sc_fr = 0.0, gamma_sc_rl = 0.0, gamma_sc_rr = 0.0;
 
     //Yaw moment
     double M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
