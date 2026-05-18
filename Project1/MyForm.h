@@ -3457,10 +3457,10 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->tabPage13->Controls->Add(this->groupBox3);
 			this->tabPage13->Controls->Add(this->groupBox4);
-			this->tabPage13->Location = System::Drawing::Point(4, 22);
+			this->tabPage13->Location = System::Drawing::Point(4, 35);
 			this->tabPage13->Name = L"tabPage13";
 			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage13->Size = System::Drawing::Size(1061, 604);
+			this->tabPage13->Size = System::Drawing::Size(1061, 591);
 			this->tabPage13->TabIndex = 3;
 			this->tabPage13->Text = L"Brakes and Differentials";
 			this->tabPage13->UseVisualStyleBackColor = true;
@@ -3920,7 +3920,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_diff_k_lock_f->DecimalPlaces = 2;
 			this->input_diff_k_lock_f->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->input_diff_k_lock_f->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
 			this->input_diff_k_lock_f->Location = System::Drawing::Point(169, 371);
+			this->input_diff_k_lock_f->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->input_diff_k_lock_f->Name = L"input_diff_k_lock_f";
 			this->input_diff_k_lock_f->Size = System::Drawing::Size(66, 27);
 			this->input_diff_k_lock_f->TabIndex = 23;
@@ -4092,10 +4094,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage11
 			// 
 			this->tabPage11->Controls->Add(this->groupBox21);
-			this->tabPage11->Location = System::Drawing::Point(4, 22);
+			this->tabPage11->Location = System::Drawing::Point(4, 35);
 			this->tabPage11->Name = L"tabPage11";
 			this->tabPage11->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage11->Size = System::Drawing::Size(1061, 604);
+			this->tabPage11->Size = System::Drawing::Size(1061, 591);
 			this->tabPage11->TabIndex = 1;
 			this->tabPage11->Text = L"Aerodynamics";
 			this->tabPage11->UseVisualStyleBackColor = true;
@@ -5058,10 +5060,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage14->Controls->Add(this->groupBox19);
 			this->tabPage14->Controls->Add(this->groupBox18);
 			this->tabPage14->Controls->Add(this->groupBox6);
-			this->tabPage14->Location = System::Drawing::Point(4, 22);
+			this->tabPage14->Location = System::Drawing::Point(4, 35);
 			this->tabPage14->Name = L"tabPage14";
 			this->tabPage14->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage14->Size = System::Drawing::Size(1061, 604);
+			this->tabPage14->Size = System::Drawing::Size(1061, 591);
 			this->tabPage14->TabIndex = 4;
 			this->tabPage14->Text = L"Kinematics";
 			this->tabPage14->UseVisualStyleBackColor = true;
@@ -7017,10 +7019,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Location = System::Drawing::Point(4, 35);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 649);
+			this->tabPage2->Size = System::Drawing::Size(1075, 636);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -7040,7 +7042,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -7628,7 +7630,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 643);
+			this->tabControl2->Size = System::Drawing::Size(565, 630);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -7649,7 +7651,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 604);
+			this->tabPage6->Size = System::Drawing::Size(557, 591);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Single run";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -8376,7 +8378,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage7->Location = System::Drawing::Point(4, 22);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(557, 604);
+			this->tabPage7->Size = System::Drawing::Size(557, 617);
 			this->tabPage7->TabIndex = 1;
 			this->tabPage7->Text = L"YMD";
 			this->tabPage7->UseVisualStyleBackColor = true;
@@ -8395,8 +8397,8 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer4.Panel2
 			// 
 			this->splitContainer4->Panel2->Controls->Add(this->YMD);
-			this->splitContainer4->Size = System::Drawing::Size(551, 598);
-			this->splitContainer4->SplitterDistance = 92;
+			this->splitContainer4->Size = System::Drawing::Size(551, 611);
+			this->splitContainer4->SplitterDistance = 94;
 			this->splitContainer4->TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -8432,7 +8434,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 92);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(551, 94);
 			this->tableLayoutPanel2->TabIndex = 13;
 			// 
 			// input_con_delta_d
@@ -8442,7 +8444,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_con_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_con_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 65536 });
-			this->input_con_delta_d->Location = System::Drawing::Point(458, 49);
+			this->input_con_delta_d->Location = System::Drawing::Point(458, 50);
 			this->input_con_delta_d->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
 			this->input_con_delta_d->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			this->input_con_delta_d->Name = L"input_con_delta_d";
@@ -8457,11 +8459,11 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox40->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox40->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox40->Location = System::Drawing::Point(367, 49);
+			this->textBox40->Location = System::Drawing::Point(367, 50);
 			this->textBox40->Multiline = true;
 			this->textBox40->Name = L"textBox40";
 			this->textBox40->ReadOnly = true;
-			this->textBox40->Size = System::Drawing::Size(85, 40);
+			this->textBox40->Size = System::Drawing::Size(85, 41);
 			this->textBox40->TabIndex = 15;
 			this->textBox40->Text = L"Concentration of δ isolines";
 			// 
@@ -8491,7 +8493,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox39->Multiline = true;
 			this->textBox39->Name = L"textBox39";
 			this->textBox39->ReadOnly = true;
-			this->textBox39->Size = System::Drawing::Size(85, 40);
+			this->textBox39->Size = System::Drawing::Size(85, 41);
 			this->textBox39->TabIndex = 13;
 			this->textBox39->Text = L"Concentration of β isolines";
 			// 
@@ -8502,7 +8504,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_max_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_max_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->input_max_delta_d->Location = System::Drawing::Point(94, 49);
+			this->input_max_delta_d->Location = System::Drawing::Point(94, 50);
 			this->input_max_delta_d->Name = L"input_max_delta_d";
 			this->input_max_delta_d->Size = System::Drawing::Size(85, 27);
 			this->input_max_delta_d->TabIndex = 9;
@@ -8533,7 +8535,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_num_delta_d->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->input_num_delta_d->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			this->input_num_delta_d->Location = System::Drawing::Point(276, 49);
+			this->input_num_delta_d->Location = System::Drawing::Point(276, 50);
 			this->input_num_delta_d->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 27, 0, 0, 0 });
 			this->input_num_delta_d->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
 			this->input_num_delta_d->Name = L"input_num_delta_d";
@@ -8550,11 +8552,11 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox182->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox182->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox182->Location = System::Drawing::Point(185, 49);
+			this->textBox182->Location = System::Drawing::Point(185, 50);
 			this->textBox182->Multiline = true;
 			this->textBox182->Name = L"textBox182";
 			this->textBox182->ReadOnly = true;
-			this->textBox182->Size = System::Drawing::Size(85, 40);
+			this->textBox182->Size = System::Drawing::Size(85, 41);
 			this->textBox182->TabIndex = 12;
 			this->textBox182->Text = L"Number of δd isolines";
 			// 
@@ -8569,7 +8571,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox180->Multiline = true;
 			this->textBox180->Name = L"textBox180";
 			this->textBox180->ReadOnly = true;
-			this->textBox180->Size = System::Drawing::Size(85, 40);
+			this->textBox180->Size = System::Drawing::Size(85, 41);
 			this->textBox180->TabIndex = 6;
 			this->textBox180->Text = L"Maximum β [°]";
 			// 
@@ -8593,11 +8595,11 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox183->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->textBox183->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox183->Location = System::Drawing::Point(3, 49);
+			this->textBox183->Location = System::Drawing::Point(3, 50);
 			this->textBox183->Multiline = true;
 			this->textBox183->Name = L"textBox183";
 			this->textBox183->ReadOnly = true;
-			this->textBox183->Size = System::Drawing::Size(85, 40);
+			this->textBox183->Size = System::Drawing::Size(85, 41);
 			this->textBox183->TabIndex = 10;
 			this->textBox183->Text = L"Maximum δd [°]";
 			// 
@@ -8612,7 +8614,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox181->Multiline = true;
 			this->textBox181->Name = L"textBox181";
 			this->textBox181->ReadOnly = true;
-			this->textBox181->Size = System::Drawing::Size(85, 40);
+			this->textBox181->Size = System::Drawing::Size(85, 41);
 			this->textBox181->TabIndex = 8;
 			this->textBox181->Text = L"Number of β isolines";
 			// 
@@ -8627,7 +8629,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			this->YMD->Size = System::Drawing::Size(551, 502);
+			this->YMD->Size = System::Drawing::Size(551, 513);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
 			title1->Name = L"Title1";

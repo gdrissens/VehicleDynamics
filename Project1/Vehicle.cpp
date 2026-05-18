@@ -174,6 +174,8 @@ Vehicle::Vehicle() {};
 
         refresh();
 
+        cancel_run = 0;
+
         vehicle_parameters();
 
         ackermann_diagram();
@@ -187,7 +189,7 @@ Vehicle::Vehicle() {};
         iter = 0; // Iteration counters for main solver
         F_z_tol = 0.1; // [N] Acceptable wheel load error for the iterative process
         max_iter = 25; // Maximum number of iterations for the iterative process
-        a_lon_tol = 0.02; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
+        a_lon_tol = 0.01; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
 
 #ifdef _DEBUG
 		if (vehicle_inputs.force_debug_iter) { max_iter = vehicle_inputs.debug_iter; }
@@ -209,7 +211,7 @@ Vehicle::Vehicle() {};
 
             longitudinal_load_transfer();
 
-			if (iter <= 1) { F_lat = fl.F_lat = fr.F_lat = rl.F_lat = rr.F_lat = 0.0; } // Prevents lateral load transfer in the first iteration to improve convergence
+			if (iter <= 1 && vehicle_inputs.force_velocity) { F_lat = fl.F_lat = fr.F_lat = rl.F_lat = rr.F_lat = 0.0; } // Prevents lateral load transfer in the first iteration to improve convergence
 
             lateral_load_transfer();
 
@@ -224,9 +226,11 @@ Vehicle::Vehicle() {};
 
 			if (cancel_run == 1) { break; }
 
-        } while (fl.F_z_err > F_z_tol || fr.F_z_err > F_z_tol || rl.F_z_err > F_z_tol || rr.F_z_err > F_z_tol);
+        } while (fl.F_z_err > F_z_tol || fr.F_z_err > F_z_tol || rl.F_z_err > F_z_tol || rr.F_z_err > F_z_tol || a_lon_tol < abs(a_lon_des - a_lon));
 
         if (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol) { cancel_run = 1; }
+
+        if (abs(fl.kappa) > 1.0 || abs(fr.kappa) > 1.0 || abs(rl.kappa) > 1.0 || abs(rr.kappa) > 1.0) { cancel_run = 1; }
 
         yaw_moment();
     }
@@ -356,7 +360,7 @@ Vehicle::Vehicle() {};
         fl.set_T(), fr.set_T(), rl.set_T(), rr.set_T();
 
 		//Conditions to select the main tire for torque distribution based on vertical load and driver input (for driving or braking)
-        if (iter != 0 && pedals_input != Pedals_input::Coasting) {
+        if (pedals_input != Pedals_input::Coasting && iter >= 1) {
 
             if (bias > 0.5) {
                 if (fl.F_z < fr.F_z) {
@@ -437,9 +441,9 @@ Vehicle::Vehicle() {};
             R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
 			ackermann_diagram();
         }
-        else {
-            //R = abs(R) * lat_sign;
-            //ackermann_diagram();
+        else if (!vehicle_inputs.force_velocity && iter <= 1) {
+            R = abs(R) * lat_sign;
+            ackermann_diagram();
         }
     }
 
@@ -518,7 +522,7 @@ Vehicle::Vehicle() {};
         //Aerodynamics
 
                //Vehicle speed
-        V_skid = sqrt(a_rad * g * R); // [m/s] Vehicle skid speed
+        V_skid = sqrt(abs(a_rad * g * R)); // [m/s] Vehicle skid speed
 
         if (!vehicle_inputs.force_velocity) {
             V = V_skid; // [m/s] Vehicle speed
@@ -754,7 +758,7 @@ Vehicle::Vehicle() {};
         }
 		lock_mdT = abs(t1.T - t2.T);
 
-		mdT = slip_mdT * tanh(lock_mdT / slip_mdT) * lon_sign; //Compares locked and slipping torque differences for the main differential
+		mdT = slip_mdT * tanh((lock_mdT + 1e-10) / slip_mdT) * lon_sign; //Compares locked and slipping torque differences for the main differential
 
 		//Compute torque difference for the secondary differential when slipping
         if (sd.lock == Actuator_lock::Tracloc) {
@@ -1051,7 +1055,7 @@ Vehicle::Vehicle() {};
         vehicle_outputs.m_s = m_s;
 
 #ifdef _DEBUG   
-        vehicle_outputs.debug1 = fl.omega;
+        vehicle_outputs.debug1 = cancel_run;
         vehicle_outputs.debug2 = fr.omega;
         vehicle_outputs.debug3 = rl.omega;
         vehicle_outputs.debug4 = rr.omega;
@@ -1159,7 +1163,6 @@ Vehicle::Vehicle() {};
         std::vector<double> BETA_ISODELTA(0);
         std::vector<int> CANCEL_ISODELTA(0);
 
-
         for (double j = 0; j <= num_delta_d; j++) {
 
             copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * j / num_delta_d - 1), con_delta_d), 2 * j / num_delta_d - 1);
@@ -1177,10 +1180,14 @@ Vehicle::Vehicle() {};
 
                 beta_past = copy.beta_deg;
                 copy.beta_deg = max_beta * copysign(pow(abs(2 * i / num_beta / 2 - 1), con_beta), 2 * i / num_beta / 2 - 1);
+                if (!vehicle_inputs.force_velocity) { copy.R = vehicle_inputs.R; }
                 
                 BETA_ISODELTA.push_back(copy.beta_deg);
 
                 copy.solver();
+
+                if (!vehicle_inputs.force_velocity && copy.delta_d_deg == 0 && copy.beta_deg == 0) { copy.cancel_run = 1; }
+
 				brents_iter_total += copy.brents_iter_single;
 				golden_iter_total += copy.golden_iter_single;
 				iter_total += copy.iter;
@@ -1201,6 +1208,7 @@ Vehicle::Vehicle() {};
                 if (abs(copy.M_yaw) > carrier.max_M_yaw) { 
                     carrier.max_M_yaw = round_to(abs(copy.M_yaw) / 10000.0, 1) * 10000.0; 
                 }
+
             }
 
 			A_LAT_ISODELTA_2.push_back(A_LAT_ISODELTA);
@@ -1254,10 +1262,14 @@ Vehicle::Vehicle() {};
 
                 delta_d_past = copy.delta_d_deg;
                 copy.delta_d_deg = max_delta_d * copysign(pow(abs(2 * i / num_delta_d / 2 - 1), con_delta_d), 2 * i / num_delta_d / 2 - 1);
+                if (!vehicle_inputs.force_velocity) { copy.R = vehicle_inputs.R; }
 
                 DELTA_ISOBETA.push_back(copy.delta_d_deg);
 
                 copy.solver();
+
+                if (!vehicle_inputs.force_velocity && copy.delta_d_deg == 0 && copy.beta_deg == 0) { copy.cancel_run = 1; }
+
                 brents_iter_total += copy.brents_iter_single;
 				golden_iter_total += copy.golden_iter_single;
 				iter_total += copy.iter;
