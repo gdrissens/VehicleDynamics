@@ -106,8 +106,11 @@ private:
 
     //Suspension stiffnesses
 
-        //Chassis torsional stiffness
-    double k_r_C_deg = 0.0, k_r_C = 0.0, k_r_C_dist = 0.0, k_r_C_f = 0.0, k_r_C_r = 0.0, k_p_C_deg = 0.0, k_p_C = 0.0, k_p_C_dist = 0.0, k_p_C_i = 0.0, k_p_C_o = 0.0;
+    //Chassis roll stiffness
+    double k_r_C_deg = 0.0, k_r_C = 0.0, k_r_C_dist = 0.0, k_r_C_f = 0.0, k_r_C_r = 0.0;
+
+	//Chassis pitch stiffness
+    double k_p_C_deg = 0.0, k_p_C = 0.0, k_p_C_dist = 0.0, k_p_C_l = 0.0, k_p_C_r = 0.0;
 
     //Springs and anti-roll bars
     double k_susp_f = 0.0, k_susp_r = 0.0, k_arb_f = 0.0, k_arb_r = 0.0;
@@ -226,7 +229,7 @@ public:
 
     void solver();
 
-    void solve_kappa();
+    void Vehicle::solve_diffs (diff md, diff sd, Tire& t1, Tire& t2, Tire& t3, Tire& t4);
 
     void brents_method(Tire& tire);
 
