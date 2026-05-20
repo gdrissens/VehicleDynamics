@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <string>
 #include "Inputs.h"
 
@@ -10,9 +9,11 @@
 
         void validate(const Vehicle_inputs& vehicle_inputs);
 
+        void upgrade_version(Vehicle_inputs& vehicle_inputs);
+
     private:
 
-        void upgrade_version(Vehicle_inputs& vehicle_inputs);
+        
     };
 
 

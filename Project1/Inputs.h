@@ -15,7 +15,7 @@ struct Tire_inputs {
 
 struct Vehicle_inputs {
 
-	int version = 0.0;
+	int version = 0;
 
 	//Simulation inputs
 	double R = 0.0, V_input = 0.0, beta_deg = 0.0, delta_d_deg = 0.0;
