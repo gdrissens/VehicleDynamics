@@ -441,7 +441,7 @@ Vehicle::Vehicle() {};
             R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
 			ackermann_diagram();
         }
-        else if (!vehicle_inputs.force_velocity && iter <= 1) {
+        else if (!vehicle_inputs.force_velocity) {
             R = abs(R) * lat_sign;
             ackermann_diagram();
         }
