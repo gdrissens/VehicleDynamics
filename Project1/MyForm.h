@@ -9891,6 +9891,10 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 	input_front_arb_setup->SelectedIndex = vehicle_inputs->front_arb_setup;
 	input_rear_arb_setup->SelectedIndex = vehicle_inputs->rear_arb_setup;
 
+#ifdef _DEBUG
+	MessageBox::Show("DEBUG MODE ACTIVE", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+#endif
+
 }
 private: System::Void tire_save_Click(System::Object^ sender, System::EventArgs^ e) {
 	save_tire();
