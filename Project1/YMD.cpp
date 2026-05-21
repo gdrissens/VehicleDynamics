@@ -52,6 +52,9 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         std::vector<double>& x = carrier.a_lat_isobeta[j];
         std::vector<double>& y = carrier.M_yaw_isobeta[j];
         std::vector<double>& a_lon = carrier.a_lon_isobeta[j];
+        std::vector<double>& R = carrier.R_isobeta[j];
+        std::vector<double>& V = carrier.V_isobeta[j];
+        std::vector<double>& r = carrier.r_isobeta[j];
         std::vector<double>& delta = carrier.delta_isobeta[j];
         std::vector<double>& control = carrier.control[j];
         std::vector<int>& cancel = carrier.cancel_isobeta[j];
@@ -74,7 +77,10 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             
             s->Points[idx]->ToolTip =
                 L"\u03B2 = " + carrier.beta_iso[j].ToString("F2") + L" \u00B0"
-                L"\n\u03B4d = " + delta[i].ToString("F1") + L" \u00B0" +
+                L"\n\u03B4d = " + delta[i].ToString("F2") + L" \u00B0" +
+                "\nCornering radius = " + R[i].ToString("F2") + " m" +
+                "\nVehicle velocity = " + V[i].ToString("F2") + " km/h" +
+                "\nYaw rate = " + r[i].ToString("F2") + " \u00B0/s" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
@@ -91,6 +97,9 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         std::vector<double>& x = carrier.a_lat_isodelta[j];
         std::vector<double>& y = carrier.M_yaw_isodelta[j];
 		std::vector<double>& a_lon = carrier.a_lon_isodelta[j];
+        std::vector<double>& R = carrier.R_isodelta[j];
+        std::vector<double>& V = carrier.V_isodelta[j];
+        std::vector<double>& r = carrier.r_isodelta[j];
         std::vector<double>& beta = carrier.beta_isodelta[j];
 		std::vector<double>& stability = carrier.stability[j];
         std::vector<int>& cancel = carrier.cancel_isodelta[j];
@@ -111,7 +120,10 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             
             s->Points[idx]->ToolTip =
                 L"\u03B2 = " + beta[i].ToString("F2") + L" \u00B0"
-                L"\n\u03B4d = " + carrier.delta_iso[j].ToString("F1") + L" \u00B0" +
+                L"\n\u03B4d = " + carrier.delta_iso[j].ToString("F2") + L" \u00B0" +
+                "\nCornering radius = " + R[i].ToString("F2") + " m" +
+                "\nVehicle velocity = " + V[i].ToString("F2") + " km/h" +
+                "\nYaw rate = " + r[i].ToString("F2") + " \u00B0/s" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
@@ -139,7 +151,10 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         s->Points[0]->ToolTip =
             "Single run simulation:" +
             L"\n\u03B2 = " + carrier.single_run.beta.ToString("F2") + L" \u00B0" +
-            L"\n\u03B4d = " + carrier.single_run.delta.ToString("F1") + L" \u00B0" +
+            L"\n\u03B4d = " + carrier.single_run.delta.ToString("F2") + L" \u00B0" +
+            L"\nCornering radius = " + carrier.single_run.R.ToString("F2") + " m" +
+            L"\nVehicle velocity = " + carrier.single_run.V.ToString("F2") + " km/h" +
+            L"\nYaw rate = " + carrier.single_run.r.ToString("F2") + " \u00B0/s" +
             L"\nLateral acceleration = " + carrier.single_run.a_lat.ToString("F2") + " g" +
             L"\nLongitudinal acceleration = " + carrier.single_run.a_lon.ToString("F2") + " g" +
             L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm";

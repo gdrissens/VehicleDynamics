@@ -188,7 +188,7 @@ Vehicle::Vehicle() {};
         //Main iterative loop
         iter = 0; // Iteration counters for main solver
         F_z_tol = 0.1; // [N] Acceptable wheel load error for the iterative process
-        max_iter = 25; // Maximum number of iterations for the iterative process
+        max_iter = 50; // Maximum number of iterations for the iterative process
         a_lon_tol = 0.01; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
 
 #ifdef _DEBUG
@@ -231,6 +231,8 @@ Vehicle::Vehicle() {};
         if (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol) { cancel_run = 1; }
 
         if (abs(fl.kappa) > 1.0 || abs(fr.kappa) > 1.0 || abs(rl.kappa) > 1.0 || abs(rr.kappa) > 1.0) { cancel_run = 1; }
+
+        R = abs(R);
 
         yaw_moment();
     }
@@ -428,7 +430,8 @@ Vehicle::Vehicle() {};
         F_rad = fl.F_rad + fr.F_rad + rl.F_rad + rr.F_rad - F_drag * sin(beta); // [N] Total cornering radial force
         a_rad = (abs(F_rad / W) < 1e-10) ? 1e-10 : F_rad / W; // [g] Vehicle cornering radial acceleration
 
-        r = a_lat * W / V; // [rad/s] Vehicle yaw velocity
+        r = a_lat * g / V; // [rad/s] Vehicle yaw velocity
+		r_deg = r * 180 / pi; // [deg/s] Vehicle yaw velocity
 
         //Set corner side
 		if (a_lat >= 0) {
@@ -438,7 +441,7 @@ Vehicle::Vehicle() {};
             lat_sign = -1;
         }
         if (vehicle_inputs.force_velocity) {
-            R = V_input * V_input / (a_rad * g); // [m] Cornering radius (from CG)
+            R = V_input / 3.6 * V_input / 3.6 / (a_rad * g); // [m] Cornering radius (from CG)
 			ackermann_diagram();
         }
         else if (!vehicle_inputs.force_velocity) {
@@ -994,6 +997,7 @@ Vehicle::Vehicle() {};
     void Vehicle::output(Vehicle_outputs& vehicle_outputs) {
 
         vehicle_outputs.M_yaw = M_yaw;
+        vehicle_outputs.r_deg = r_deg;
         vehicle_outputs.a_lat = a_lat;
         vehicle_outputs.a_lon = a_lon;
         vehicle_outputs.a_rad = a_rad;
@@ -1067,7 +1071,7 @@ Vehicle::Vehicle() {};
         vehicle_outputs.iter_total = iter_total;
 #endif
 #ifndef _DEBUG
-        if (cancel_run) {
+        if (pedals_input != Pedals_input::Coasting && cancel_run) {
             throw std::runtime_error("Single run simulation failed. The vehicle is not able to reach the desired conditions");
         }
 #endif
@@ -1085,7 +1089,7 @@ Vehicle::Vehicle() {};
         F_lat = 0.0, a_lat = 0.0;
         F_lon = 0.0, a_lon = 0.0, a_lon_des = 0.0;
         F_rad = 0.0, a_rad = 0.0;
-        r = 0.0;
+        r = 0.0, r_deg = 0.0;
         h_CG_s = 0.0, h_CG_u_fl = 0.0, h_CG_u_fr = 0.0, h_CG_u_rl = 0.0, h_CG_u_rr = 0.0, h_CG_u = 0.0;
         h_r_f = 0.0, h_r_r = 0.0, off_r_f = 0.0, off_r_r = 0.0, n_r_fl = 0.0, n_r_fr = 0.0, n_r_rl = 0.0, n_r_rr = 0.0,
                     q_r_fl = 0.0, q_r_fr = 0.0, q_r_rl = 0.0, q_r_rr = 0.0;
@@ -1152,6 +1156,9 @@ Vehicle::Vehicle() {};
         std::vector <std::vector<double>> A_LAT_ISODELTA_2(0);
         std::vector <std::vector<double>> A_LON_ISODELTA_2(0);
         std::vector <std::vector<double>> M_YAW_ISODELTA_2(0);
+        std::vector <std::vector<double>> R_ISODELTA_2(0);
+        std::vector <std::vector<double>> V_ISODELTA_2(0);
+        std::vector <std::vector<double>> r_ISODELTA_2(0);
         std::vector <std::vector<double>> STABILITY_2(0);
         std::vector <std::vector<double>> BETA_ISODELTA_2(0);
         std::vector <std::vector<int>> CANCEL_ISODELTA_2(0);
@@ -1159,6 +1166,9 @@ Vehicle::Vehicle() {};
         std::vector<double> A_LAT_ISODELTA(0);
 		std::vector<double> A_LON_ISODELTA(0);
         std::vector<double> M_YAW_ISODELTA(0);
+        std::vector<double> R_ISODELTA(0);
+        std::vector<double> V_ISODELTA(0);
+        std::vector<double> r_ISODELTA(0);
         std::vector<double> STABILITY(0);
         std::vector<double> BETA_ISODELTA(0);
         std::vector<int> CANCEL_ISODELTA(0);
@@ -1170,6 +1180,9 @@ Vehicle::Vehicle() {};
 			A_LAT_ISODELTA.clear();
 			A_LON_ISODELTA.clear();
 			M_YAW_ISODELTA.clear();
+            R_ISODELTA.clear();
+            V_ISODELTA.clear();
+            r_ISODELTA.clear();
 			STABILITY.clear();
             BETA_ISODELTA.clear();
             CANCEL_ISODELTA.clear();
@@ -1195,7 +1208,10 @@ Vehicle::Vehicle() {};
                 A_LAT_ISODELTA.push_back(round_to(copy.a_lat, 2));
                 A_LON_ISODELTA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISODELTA.push_back(copy.M_yaw);
-                
+				R_ISODELTA.push_back(copy.R);
+                V_ISODELTA.push_back(copy.V_kmh);
+                r_ISODELTA.push_back(copy.r_deg);
+
                 CANCEL_ISODELTA.push_back(copy.cancel_run);
 
                 if (i != 0) stability = (M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_deg - beta_past);
@@ -1214,6 +1230,9 @@ Vehicle::Vehicle() {};
 			A_LAT_ISODELTA_2.push_back(A_LAT_ISODELTA);
 			A_LON_ISODELTA_2.push_back(A_LON_ISODELTA);
 			M_YAW_ISODELTA_2.push_back(M_YAW_ISODELTA);
+            R_ISODELTA_2.push_back(R_ISODELTA);
+            V_ISODELTA_2.push_back(V_ISODELTA);
+            r_ISODELTA_2.push_back(r_ISODELTA);
             BETA_ISODELTA_2.push_back(BETA_ISODELTA);
             CANCEL_ISODELTA_2.push_back(CANCEL_ISODELTA);
 			STABILITY_2.push_back(STABILITY);
@@ -1222,6 +1241,9 @@ Vehicle::Vehicle() {};
 		carrier.a_lat_isodelta = A_LAT_ISODELTA_2;
 		carrier.a_lon_isodelta = A_LON_ISODELTA_2;
         carrier.M_yaw_isodelta = M_YAW_ISODELTA_2;
+        carrier.R_isodelta = R_ISODELTA_2;
+        carrier.V_isodelta = V_ISODELTA_2;
+        carrier.r_isodelta = r_ISODELTA_2;
         carrier.beta_isodelta = BETA_ISODELTA_2;
         carrier.cancel_isodelta = CANCEL_ISODELTA_2;
 		carrier.stability = STABILITY_2;
@@ -1234,6 +1256,9 @@ Vehicle::Vehicle() {};
         std::vector <std::vector<double>> A_LAT_ISOBETA_2(0);
 		std::vector <std::vector<double>> A_LON_ISOBETA_2(0);
         std::vector <std::vector<double>> M_YAW_ISOBETA_2(0);
+        std::vector <std::vector<double>> R_ISOBETA_2(0);
+        std::vector <std::vector<double>> V_ISOBETA_2(0);
+        std::vector <std::vector<double>> r_ISOBETA_2(0);
         std::vector <std::vector<double>> CONTROL_2(0);
         std::vector <std::vector<double>> DELTA_ISOBETA_2(0);
         std::vector <std::vector<int>> CANCEL_ISOBETA_2(0);
@@ -1241,6 +1266,9 @@ Vehicle::Vehicle() {};
         std::vector<double> A_LAT_ISOBETA(0);
 		std::vector<double> A_LON_ISOBETA(0);
         std::vector<double> M_YAW_ISOBETA(0);
+        std::vector<double> R_ISOBETA(0);
+        std::vector<double> V_ISOBETA(0);
+        std::vector<double> r_ISOBETA(0);   
         std::vector<double> CONTROL(0);
         std::vector<double> DELTA_ISOBETA(0);
         std::vector<int> CANCEL_ISOBETA(0);
@@ -1252,6 +1280,9 @@ Vehicle::Vehicle() {};
             A_LAT_ISOBETA.clear();
 			A_LON_ISOBETA.clear();
 			M_YAW_ISOBETA.clear();
+            R_ISOBETA.clear();
+            V_ISOBETA.clear();
+            r_ISOBETA.clear();
 			CONTROL.clear();
             DELTA_ISOBETA.clear();
             CANCEL_ISOBETA.clear();
@@ -1277,7 +1308,10 @@ Vehicle::Vehicle() {};
                 A_LAT_ISOBETA.push_back(round_to(copy.a_lat, 2));
 				A_LON_ISOBETA.push_back(round_to(copy.a_lon, 2));
                 M_YAW_ISOBETA.push_back(copy.M_yaw);
-                
+                R_ISOBETA.push_back(copy.R);
+                V_ISOBETA.push_back(copy.V_kmh);
+                r_ISOBETA.push_back(copy.r_deg);
+
                 CANCEL_ISOBETA.push_back(copy.cancel_run);
 
                 if (i != 0) control = (M_YAW_ISOBETA[i] - M_YAW_ISOBETA[i - 1]) / (copy.delta_d_deg - delta_d_past);
@@ -1287,6 +1321,9 @@ Vehicle::Vehicle() {};
             A_LAT_ISOBETA_2.push_back(A_LAT_ISOBETA);
 			A_LON_ISOBETA_2.push_back(A_LON_ISOBETA);
             M_YAW_ISOBETA_2.push_back(M_YAW_ISOBETA);
+            R_ISOBETA_2.push_back(R_ISOBETA);
+            V_ISOBETA_2.push_back(V_ISOBETA);
+            r_ISOBETA_2.push_back(r_ISOBETA);
             DELTA_ISOBETA_2.push_back(DELTA_ISOBETA);
             CANCEL_ISOBETA_2.push_back(CANCEL_ISOBETA);
 			CONTROL_2.push_back(CONTROL);
@@ -1297,6 +1334,9 @@ Vehicle::Vehicle() {};
         carrier.a_lat_isobeta = A_LAT_ISOBETA_2;
 		carrier.a_lon_isobeta = A_LON_ISOBETA_2;
         carrier.M_yaw_isobeta = M_YAW_ISOBETA_2;
+        carrier.R_isobeta = R_ISOBETA_2;
+        carrier.V_isobeta = V_ISOBETA_2;
+        carrier.r_isobeta = r_ISOBETA_2;
         carrier.delta_isobeta = DELTA_ISOBETA_2;
         carrier.cancel_isobeta = CANCEL_ISOBETA_2;
 		carrier.control = CONTROL_2;
@@ -1312,6 +1352,9 @@ Vehicle::Vehicle() {};
         carrier.single_run.a_lat = copy.a_lat;
         carrier.single_run.a_lon = copy.a_lon;
         carrier.single_run.M_yaw = copy.M_yaw;
+        carrier.single_run.R = copy.R;
+        carrier.single_run.V = copy.V_kmh;
+        carrier.single_run.r = copy.r_deg;
         carrier.single_run.cancel = copy.cancel_run;
 
     }

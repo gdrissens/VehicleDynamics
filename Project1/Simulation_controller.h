@@ -16,6 +16,6 @@ class Simulation_controller
 
 		void run_YMD(Vehicle_inputs& inputs, Vehicle_outputs& outputs, YMD_Carrier& YMD_carrier);
 
-		void load_form(Vehicle_inputs& inputs, Vehicle_outputs& outputs);
+		void load_form(Vehicle_inputs& inputs, Vehicle_outputs& outputs, YMD_Carrier& YMD_carrier);
 };
 

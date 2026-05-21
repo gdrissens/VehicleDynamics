@@ -89,7 +89,7 @@ private:
     double F_rad = 0.0, a_rad = 0.0;
 
 	//Yaw velocity
-	double r = 0.0;
+    double r = 0.0, r_deg = 0.0;
 
     //Sprung and unsprung masses CG location
     double h_CG_s = 0.0, h_CG_u_fl = 0.0, h_CG_u_fr = 0.0, h_CG_u_rl = 0.0, h_CG_u_rr = 0.0, h_CG_u = 0.0;
