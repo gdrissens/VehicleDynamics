@@ -22,7 +22,7 @@ private:
     //Driver input
     Pedals_input pedals_input = Pedals_input::Coasting;
     Steering_input steering_input = Steering_input::Straight;
-	int lon_sign = 1.0, lat_sign = 1.0;
+	int lon_sign = 1, lat_sign = 1;
 
     //Drive and Brake bias
 	Actuator_config drive_config = Actuator_config::All, brake_config = Actuator_config::All;
@@ -185,13 +185,12 @@ private:
     double M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
 
     //Solver parameters
-    int iter = 0, iter_total = 0, check_load_iter = 0, check_lock_iter = 0;
-    double max_iter = 0.0, F_z_tol = 0.0, a_lon_tol = 0.0;
-    bool batata = false;
+    int iter = 0, iter_total = 0, max_iter = 0, iter_check_a_lon = 0;
+    double F_z_tol = 0.0, a_lon_tol = 0.0;
 
     //YMD parameters
     double max_beta = 0.0, num_beta = 0.0, con_beta = 0.0, max_delta_d = 0.0, num_delta_d = 0.0, con_delta_d = 0.0;
-    int cancel_run = 0, invert_run = 0;
+    int cancel_run = 0;
 
 	//Debug variables
 	int brents_iter_single = 0, brents_iter_total = 0, golden_iter_single = 0, golden_iter_total = 0;

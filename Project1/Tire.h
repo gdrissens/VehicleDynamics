@@ -10,8 +10,8 @@ public:
 
     Tire();
 
-    int AXLE = 0.0;
-    int SIDE = 0.0;
+    int AXLE = 0;
+    int SIDE = 0;
 
     void set_position(char axle, char side);
 

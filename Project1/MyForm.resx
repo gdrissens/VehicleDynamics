@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="splitContainer2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="textBox91.Text" xml:space="preserve">
     <value>This software uses the SAE Z-DOWN axis system orientation:
 
@@ -137,7 +134,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAm4AAADzCAYAAAA/z5qnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAnOJJREFUeF7tvQW0HFX2vv2t9Z9hjBlsgGCDu2uCu7u7u7tLgru7DZAAwUkIcSMk
+        vgAADr4B6kKxwAAAnOJJREFUeF7tvQW0HFX2vv2t9Z9hjBlsgGCDu2uCu7u7u7tLgru7DZAAwUkIcSMk
         xI1ABIgnEAgEkhADht/5zrOrdvXpuufevpr0Dftd6133dnd1dek5T+195P9zJpPJZKpSt9xys/vnv5ZM
         X5lMJtOik4GbyWQylZCBm8lkKhcZuJlMJlMJGbiZTKZykYGbyWQylZCBm8lkKhcZuJlMJlMJGbiZTKZy
         kYGbyWQylZCBm8lkKhcZuJlMJlMJGbiZTKZykYGbyWQylZCBm8lkKhcZuJlMJlMJGbiZTKZykYGbyWQy
@@ -809,4 +806,7 @@
         uJlMJpPJZDI1Ehm4mUwmk8lkMjUSGbiZTCaTyWQyNQo59/8DlOod9xydka4AAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="splitContainer2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

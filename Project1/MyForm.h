@@ -892,9 +892,9 @@ private: System::ComponentModel::IContainer^ components;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -1282,6 +1282,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox95 = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
+			this->input_force_debug_iter = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
 			this->input_rear_arb_setup = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox84 = (gcnew System::Windows::Forms::TextBox());
@@ -1321,6 +1322,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_beta_deg = (gcnew System::Windows::Forms::NumericUpDown());
 			this->Display_corner_or_velocity = (gcnew System::Windows::Forms::TextBox());
 			this->input_R = (gcnew System::Windows::Forms::NumericUpDown());
+			this->input_debug_iter = (gcnew System::Windows::Forms::NumericUpDown());
 			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->output_r_deg = (gcnew System::Windows::Forms::Label());
@@ -1398,8 +1400,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox181 = (gcnew System::Windows::Forms::TextBox());
 			this->YMD = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->debugPage = (gcnew System::Windows::Forms::TabPage());
-			this->input_force_debug_iter = (gcnew System::Windows::Forms::CheckBox());
-			this->input_debug_iter = (gcnew System::Windows::Forms::NumericUpDown());
 			this->output_iter_total = (gcnew System::Windows::Forms::Label());
 			this->output_golden_total = (gcnew System::Windows::Forms::Label());
 			this->output_golden_single = (gcnew System::Windows::Forms::Label());
@@ -1620,6 +1620,7 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_d_deg))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_beta_deg))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_R))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_debug_iter))->BeginInit();
 			this->tabControl2->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
@@ -1637,7 +1638,6 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_max_beta))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->YMD))->BeginInit();
 			this->debugPage->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_debug_iter))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
 			this->splitContainer1->Panel2->SuspendLayout();
@@ -7080,8 +7080,10 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// splitContainer2.Panel1
 			// 
+			this->splitContainer2->Panel1->Controls->Add(this->input_force_debug_iter);
 			this->splitContainer2->Panel1->Controls->Add(this->groupBox9);
 			this->splitContainer2->Panel1->Controls->Add(this->groupBox8);
+			this->splitContainer2->Panel1->Controls->Add(this->input_debug_iter);
 			this->splitContainer2->Panel1MinSize = 450;
 			// 
 			// splitContainer2.Panel2
@@ -7090,6 +7092,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
+			// 
+			// input_force_debug_iter
+			// 
+			this->input_force_debug_iter->AutoSize = true;
+			this->input_force_debug_iter->Font = (gcnew System::Drawing::Font(L"Calibri", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_force_debug_iter->Location = System::Drawing::Point(78, 567);
+			this->input_force_debug_iter->Name = L"input_force_debug_iter";
+			this->input_force_debug_iter->Size = System::Drawing::Size(114, 19);
+			this->input_force_debug_iter->TabIndex = 26;
+			this->input_force_debug_iter->Text = L"Force debug iter";
+			this->input_force_debug_iter->UseVisualStyleBackColor = true;
 			// 
 			// groupBox9
 			// 
@@ -7666,6 +7680,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_R->Size = System::Drawing::Size(66, 27);
 			this->input_R->TabIndex = 3;
 			this->input_R->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9125, 0, 0, 196608 });
+			// 
+			// input_debug_iter
+			// 
+			this->input_debug_iter->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->input_debug_iter->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->input_debug_iter->Location = System::Drawing::Point(100, 534);
+			this->input_debug_iter->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
+			this->input_debug_iter->Name = L"input_debug_iter";
+			this->input_debug_iter->Size = System::Drawing::Size(66, 27);
+			this->input_debug_iter->TabIndex = 9;
+			this->input_debug_iter->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
 			// 
 			// tabControl2
 			// 
@@ -8675,25 +8701,23 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea2->BackColor = System::Drawing::Color::White;
-			chartArea2->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea2);
+			chartArea1->BackColor = System::Drawing::Color::White;
+			chartArea1->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea1);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend2->Name = L"Legend1";
-			this->YMD->Legends->Add(legend2);
+			legend1->Name = L"Legend1";
+			this->YMD->Legends->Add(legend1);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title2->Name = L"Title1";
-			this->YMD->Titles->Add(title2);
+			title1->Name = L"Title1";
+			this->YMD->Titles->Add(title1);
 			// 
 			// debugPage
 			// 
-			this->debugPage->Controls->Add(this->input_force_debug_iter);
-			this->debugPage->Controls->Add(this->input_debug_iter);
 			this->debugPage->Controls->Add(this->output_iter_total);
 			this->debugPage->Controls->Add(this->output_golden_total);
 			this->debugPage->Controls->Add(this->output_golden_single);
@@ -8710,30 +8734,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->debugPage->TabIndex = 5;
 			this->debugPage->Text = L"Debug";
 			this->debugPage->UseVisualStyleBackColor = true;
-			// 
-			// input_force_debug_iter
-			// 
-			this->input_force_debug_iter->AutoSize = true;
-			this->input_force_debug_iter->Font = (gcnew System::Drawing::Font(L"Calibri", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_force_debug_iter->Location = System::Drawing::Point(331, 75);
-			this->input_force_debug_iter->Name = L"input_force_debug_iter";
-			this->input_force_debug_iter->Size = System::Drawing::Size(114, 19);
-			this->input_force_debug_iter->TabIndex = 26;
-			this->input_force_debug_iter->Text = L"Force debug iter";
-			this->input_force_debug_iter->UseVisualStyleBackColor = true;
-			// 
-			// input_debug_iter
-			// 
-			this->input_debug_iter->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->input_debug_iter->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->input_debug_iter->Location = System::Drawing::Point(353, 42);
-			this->input_debug_iter->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10000, 0, 0, 0 });
-			this->input_debug_iter->Name = L"input_debug_iter";
-			this->input_debug_iter->Size = System::Drawing::Size(66, 27);
-			this->input_debug_iter->TabIndex = 9;
-			this->input_debug_iter->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 49, 0, 0, 0 });
 			// 
 			// output_iter_total
 			// 
@@ -9098,6 +9098,7 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_h_r_f_2))->EndInit();
 			this->tabPage2->ResumeLayout(false);
 			this->splitContainer2->Panel1->ResumeLayout(false);
+			this->splitContainer2->Panel1->PerformLayout();
 			this->splitContainer2->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->EndInit();
 			this->splitContainer2->ResumeLayout(false);
@@ -9118,6 +9119,7 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_delta_d_deg))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_beta_deg))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_R))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_debug_iter))->EndInit();
 			this->tabControl2->ResumeLayout(false);
 			this->tabPage6->ResumeLayout(false);
 			this->tabPage6->PerformLayout();
@@ -9139,7 +9141,6 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->YMD))->EndInit();
 			this->debugPage->ResumeLayout(false);
 			this->debugPage->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->input_debug_iter))->EndInit();
 			this->splitContainer1->Panel1->ResumeLayout(false);
 			this->splitContainer1->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
@@ -9874,6 +9875,8 @@ private: System::Void MyForm_FormClosing_1(System::Object^ sender, System::Windo
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 #ifndef _DEBUG
 	this->tabControl1->TabPages->Remove(this->debugPage);
+	input_debug_iter->Visible = false;
+	input_force_debug_iter->Visible = false;
 #endif
 	try {
 		sim_controller->load_form(*vehicle_inputs, *vehicle_outputs, *YMD_carrier);

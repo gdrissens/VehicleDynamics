@@ -187,8 +187,9 @@ Vehicle::Vehicle() {};
 
         //Main iterative loop
         iter = 0; // Iteration counters for main solver
+        iter_check_a_lon = 10; // Iteration at which longitudinal acceleration will be checked
+        max_iter = 25; // Maximum number of iterations for the iterative process
         F_z_tol = 0.1; // [N] Acceptable wheel load error for the iterative process
-        max_iter = 50; // Maximum number of iterations for the iterative process
         a_lon_tol = 0.01; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
 
 #ifdef _DEBUG
@@ -222,7 +223,7 @@ Vehicle::Vehicle() {};
             iter++;
 
             if (iter >= max_iter) { cancel_run = 1; }
-            if (iter >= 10 && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
+            if (iter >= iter_check_a_lon && (a_lon < a_lon_des - a_lon_tol || a_lon > a_lon_des + a_lon_tol)) { cancel_run = 1; }
 
 			if (cancel_run == 1) { break; }
 
@@ -828,6 +829,10 @@ Vehicle::Vehicle() {};
         double tol = 0.01; int max_iter = 30;
         double a = -0.1;
         double b = 1.0;
+        double a_past = 0.0;
+        double b_past = 0.0;
+        int expand_iter = 0;
+        int expand_iter_max = 10;
 
         auto f = [&](double x) {
             tire.kappa = x;
@@ -844,26 +849,51 @@ Vehicle::Vehicle() {};
             a = -0.1;
             b = 1.0;
 
+            expand_iter = 0;
             if (iter >= 3) {
-                a = std::min(tire.kappa - 0.1, 0.0);
-                b = std::max(tire.kappa + 0.1, 1.0);
-            }
-            if (g(a) * g(b) > 0) {
-                a = -0.1;
-                b = 1.0;
+                a = std::max(tire.kappa - 0.1, -0.1);
+                b = std::min(tire.kappa + 0.1, 1.0);
+                
+                while (g(a) * g(b) > 0) {
+
+                    a = std::max(a - 0.1, -0.1);
+                    b = std::min(b + 0.1, 1.0);
+                    expand_iter++;
+
+					if (expand_iter >= expand_iter_max) {
+						break; // Prevents infinite loop if no root is found after a certain number of expansions
+					}
+
+					if (a <= -0.1 && b >= 1.0) {
+						break; // Prevents infinite loop if no root is found within the range
+					}
+                }
             }
         }
         else if (lon_sign < 0) {
 			a = -1.0;
-			b = 0.1;
+			b = 0.0;
+
+            expand_iter = 0;
 			if (iter >= 3) {
 				a = std::max(tire.kappa - 0.1, -1.0);
 				b = std::min(tire.kappa + 0.1, 0.0);
+                
+                while (g(a) * g(b) > 0) {
+
+                    a = std::max(a - 0.1, -1.0);
+                    b = std::min(b + 0.1, 0.0);
+                    expand_iter++;
+
+					if (expand_iter >= expand_iter_max) {
+						break; // Prevents infinite loop if no root is found after a certain number of expansions
+					}
+
+                    if (a <= -1.0 && b >= 0.0) {
+                        break; // Prevents infinite loop if no root is found within the range
+                    }
+                }
 			}
-            if (g(a) * g(b) > 0) {
-                a = -1.0;
-                b = 0.1;
-            }
 		}
 
         double fa, fb, s, fs;
@@ -1060,7 +1090,7 @@ Vehicle::Vehicle() {};
 
 #ifdef _DEBUG   
         vehicle_outputs.debug1 = cancel_run;
-        vehicle_outputs.debug2 = fr.omega;
+        vehicle_outputs.debug2 = F_drag;
         vehicle_outputs.debug3 = rl.omega;
         vehicle_outputs.debug4 = rr.omega;
 
@@ -1120,7 +1150,7 @@ Vehicle::Vehicle() {};
 		gamma_bc_fl = 0.0, gamma_bc_fr = 0.0, gamma_bc_rl = 0.0, gamma_bc_rr = 0.0, gamma_sc_fl = 0.0, gamma_sc_fr = 0.0, gamma_sc_rl = 0.0, gamma_sc_rr = 0.0;
         M_yaw_fl = 0.0, M_yaw_fr = 0.0, M_yaw_rl = 0.0, M_yaw_rr = 0.0, M_yaw = 0.0;
         brents_iter_single = 0, golden_iter_single = 0;
-        cancel_run = 0, invert_run = 0;
+        cancel_run = 0;
     }
 
     void Vehicle::YMD(YMD_Carrier& carrier) {
@@ -1217,11 +1247,11 @@ Vehicle::Vehicle() {};
                 if (i != 0) stability = (M_YAW_ISODELTA[i] - M_YAW_ISODELTA[i - 1]) / (copy.beta_deg - beta_past);
                 STABILITY.push_back(stability);
 
-				if (abs(copy.a_lat) > carrier.max_a_lat) {
+				if (copy.cancel_run == 0 && abs(copy.a_lat) > carrier.max_a_lat) {
 					carrier.max_a_lat = round_to(abs(copy.a_lat), 1); 
                     carrier.max_a_lat += (remainder(carrier.max_a_lat, 0.2) == 0.0 ? 0.2 : 0.1);
                 }
-                if (abs(copy.M_yaw) > carrier.max_M_yaw) { 
+                if (copy.cancel_run == 0 && abs(copy.M_yaw) > carrier.max_M_yaw) {
                     carrier.max_M_yaw = round_to(abs(copy.M_yaw) / 10000.0, 1) * 10000.0; 
                 }
 
