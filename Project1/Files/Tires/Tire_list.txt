@@ -2,4 +2,3 @@ Hoosier_18x7,5-10_10_psi
 Hoosier_18x7,5-10_12_psi
 Hoosier_18x7,5-10_14_psi
 Hoosier_18x7,5-10_8_psi
-New_tire

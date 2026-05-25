@@ -66,7 +66,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         s->ChartArea = "Main";
         s->Color = Color::FromArgb(255, 255, 255 - intensity, 0);
         s->MarkerStyle = MarkerStyle::Circle;
-        s->MarkerSize = 3;
+        s->MarkerSize = 4;
 
         chart->Series->Add(s);
 
@@ -80,11 +80,11 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
                 L"\n\u03B4d = " + delta[i].ToString("F2") + L" \u00B0" +
                 "\nCornering radius = " + R[i].ToString("F2") + " m" +
                 "\nVehicle velocity = " + V[i].ToString("F2") + " km/h" +
-                "\nYaw rate = " + r[i].ToString("F2") + " \u00B0/s" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
-                "\nControl = " + control[i].ToString("F2") + L" Nm/\u00B0";
+                "\nControl = " + control[i].ToString("F2") + L" Nm/\u00B0" +
+                "\nYaw rate = " + r[i].ToString("F2") + " \u00B0/s";
                
         }
     }
@@ -110,7 +110,7 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
         s->ChartArea = "Main";
         s->Color = Color::FromArgb(255, 0, intensity, 255);
         s->MarkerStyle = MarkerStyle::Circle;
-        s->MarkerSize = 3;
+        s->MarkerSize = 4;
 
         chart->Series->Add(s);
 
@@ -123,11 +123,11 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
                 L"\n\u03B4d = " + carrier.delta_iso[j].ToString("F2") + L" \u00B0" +
                 "\nCornering radius = " + R[i].ToString("F2") + " m" +
                 "\nVehicle velocity = " + V[i].ToString("F2") + " km/h" +
-                "\nYaw rate = " + r[i].ToString("F2") + " \u00B0/s" +
                 "\nLateral acceleration = " + x[i].ToString("F2") + " g" +
                 "\nLongitudinal acceleration = " + a_lon[i].ToString("F2") + " g" +
                 "\nYaw moment = " + y[i].ToString("F2") + " Nm" +
-				"\nStability = " + stability[i].ToString("F2") + L" Nm/\u00B0";
+                "\nStability = " + stability[i].ToString("F2") + L" Nm/\u00B0" +
+                "\nYaw rate = " + r[i].ToString("F2") + " \u00B0/s";
                 
         }
     }
@@ -154,9 +154,9 @@ void YMD_plot(Chart^ chart, YMD_Carrier& carrier)
             L"\n\u03B4d = " + carrier.single_run.delta.ToString("F2") + L" \u00B0" +
             L"\nCornering radius = " + carrier.single_run.R.ToString("F2") + " m" +
             L"\nVehicle velocity = " + carrier.single_run.V.ToString("F2") + " km/h" +
-            L"\nYaw rate = " + carrier.single_run.r.ToString("F2") + " \u00B0/s" +
             L"\nLateral acceleration = " + carrier.single_run.a_lat.ToString("F2") + " g" +
             L"\nLongitudinal acceleration = " + carrier.single_run.a_lon.ToString("F2") + " g" +
-            L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm";
+            L"\nYaw moment = " + carrier.single_run.M_yaw.ToString("F2") + " Nm" +
+            L"\nYaw rate = " + carrier.single_run.r.ToString("F2") + " \u00B0/s";
     }
 }

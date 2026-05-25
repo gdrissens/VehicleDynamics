@@ -872,7 +872,7 @@ Vehicle::Vehicle() {};
         }
         else if (lon_sign < 0) {
 			a = -1.0;
-			b = 0.0;
+			b = 0.1;
 
             expand_iter = 0;
 			if (iter >= 3) {
@@ -882,7 +882,7 @@ Vehicle::Vehicle() {};
                 while (g(a) * g(b) > 0) {
 
                     a = std::max(a - 0.1, -1.0);
-                    b = std::min(b + 0.1, 0.0);
+                    b = std::min(b + 0.1, 0.1);
                     expand_iter++;
 
 					if (expand_iter >= expand_iter_max) {

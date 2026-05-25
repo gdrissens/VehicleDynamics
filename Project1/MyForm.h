@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <msclr/marshal_cppstd.h>
+#include <stdlib.h>
 #include "Inputs.h"
 #include "Outputs.h"
 #include "Vehicle.h"
@@ -721,6 +722,10 @@ private: System::Windows::Forms::PictureBox^ pictureBox1;
 private: System::Windows::Forms::GroupBox^ groupBox23;
 private: System::Windows::Forms::TextBox^ textBox91;
 private: System::Windows::Forms::Label^ output_r_deg;
+private: System::Windows::Forms::TextBox^ textBox92;
+private: System::Windows::Forms::LinkLabel^ linkLabelThesis;
+private: System::Windows::Forms::LinkLabel^ linkLabelUserGuide;
+
 
 
 
@@ -892,14 +897,16 @@ private: System::ComponentModel::IContainer^ components;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->linkLabelThesis = (gcnew System::Windows::Forms::LinkLabel());
+			this->textBox92 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox23 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox91 = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -1415,6 +1422,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->linkLabelUserGuide = (gcnew System::Windows::Forms::LinkLabel());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -1695,6 +1703,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->linkLabelUserGuide);
+			this->tabPage1->Controls->Add(this->linkLabelThesis);
+			this->tabPage1->Controls->Add(this->textBox92);
 			this->tabPage1->Controls->Add(this->groupBox23);
 			this->tabPage1->Location = System::Drawing::Point(4, 35);
 			this->tabPage1->Name = L"tabPage1";
@@ -1703,6 +1714,29 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Welcome";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// linkLabelThesis
+			// 
+			this->linkLabelThesis->AutoSize = true;
+			this->linkLabelThesis->BackColor = System::Drawing::SystemColors::Control;
+			this->linkLabelThesis->Location = System::Drawing::Point(544, 173);
+			this->linkLabelThesis->Name = L"linkLabelThesis";
+			this->linkLabelThesis->Size = System::Drawing::Size(64, 26);
+			this->linkLabelThesis->TabIndex = 3;
+			this->linkLabelThesis->TabStop = true;
+			this->linkLabelThesis->Text = L"Thesis";
+			this->linkLabelThesis->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &MyForm::linkLabelThesis_LinkClicked);
+			// 
+			// textBox92
+			// 
+			this->textBox92->Font = (gcnew System::Drawing::Font(L"Calibri", 12));
+			this->textBox92->Location = System::Drawing::Point(453, 6);
+			this->textBox92->Multiline = true;
+			this->textBox92->Name = L"textBox92";
+			this->textBox92->ReadOnly = true;
+			this->textBox92->Size = System::Drawing::Size(429, 212);
+			this->textBox92->TabIndex = 2;
+			this->textBox92->Text = resources->GetString(L"textBox92.Text");
 			// 
 			// groupBox23
 			// 
@@ -1759,7 +1793,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox14->Controls->Add(this->tire_new);
 			this->groupBox14->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox14->Location = System::Drawing::Point(392, 300);
+			this->groupBox14->Location = System::Drawing::Point(6, 6);
 			this->groupBox14->Name = L"groupBox14";
 			this->groupBox14->Size = System::Drawing::Size(241, 113);
 			this->groupBox14->TabIndex = 55;
@@ -1826,7 +1860,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox13->Controls->Add(this->textBox79);
 			this->groupBox13->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox13->Location = System::Drawing::Point(392, 6);
+			this->groupBox13->Location = System::Drawing::Point(639, 9);
 			this->groupBox13->Name = L"groupBox13";
 			this->groupBox13->Size = System::Drawing::Size(241, 286);
 			this->groupBox13->TabIndex = 54;
@@ -2002,7 +2036,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox12->Controls->Add(this->textBox78);
 			this->groupBox12->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox12->Location = System::Drawing::Point(199, 6);
+			this->groupBox12->Location = System::Drawing::Point(446, 9);
 			this->groupBox12->Name = L"groupBox12";
 			this->groupBox12->Size = System::Drawing::Size(187, 529);
 			this->groupBox12->TabIndex = 53;
@@ -2454,7 +2488,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox11->Controls->Add(this->textBox44);
 			this->groupBox11->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox11->Location = System::Drawing::Point(6, 6);
+			this->groupBox11->Location = System::Drawing::Point(253, 9);
 			this->groupBox11->Name = L"groupBox11";
 			this->groupBox11->Size = System::Drawing::Size(187, 624);
 			this->groupBox11->TabIndex = 19;
@@ -2993,7 +3027,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox16->Controls->Add(this->textBox90);
 			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox16->Location = System::Drawing::Point(6, 264);
+			this->groupBox16->Location = System::Drawing::Point(253, 260);
 			this->groupBox16->Name = L"groupBox16";
 			this->groupBox16->Size = System::Drawing::Size(241, 137);
 			this->groupBox16->TabIndex = 17;
@@ -3285,7 +3319,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox2->Controls->Add(this->textBox16);
 			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox2->Location = System::Drawing::Point(253, 264);
+			this->groupBox2->Location = System::Drawing::Point(6, 260);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(241, 190);
 			this->groupBox2->TabIndex = 17;
@@ -3505,7 +3539,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage13->Location = System::Drawing::Point(4, 22);
 			this->tabPage13->Name = L"tabPage13";
 			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage13->Size = System::Drawing::Size(1061, 617);
+			this->tabPage13->Size = System::Drawing::Size(1061, 604);
 			this->tabPage13->TabIndex = 3;
 			this->tabPage13->Text = L"Brakes and Differentials";
 			this->tabPage13->UseVisualStyleBackColor = true;
@@ -4142,7 +4176,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage11->Location = System::Drawing::Point(4, 22);
 			this->tabPage11->Name = L"tabPage11";
 			this->tabPage11->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage11->Size = System::Drawing::Size(1061, 617);
+			this->tabPage11->Size = System::Drawing::Size(1061, 604);
 			this->tabPage11->TabIndex = 1;
 			this->tabPage11->Text = L"Aerodynamics";
 			this->tabPage11->UseVisualStyleBackColor = true;
@@ -4687,7 +4721,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage12->Location = System::Drawing::Point(4, 22);
 			this->tabPage12->Name = L"tabPage12";
 			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage12->Size = System::Drawing::Size(1061, 617);
+			this->tabPage12->Size = System::Drawing::Size(1061, 604);
 			this->tabPage12->TabIndex = 2;
 			this->tabPage12->Text = L"Springs";
 			this->tabPage12->UseVisualStyleBackColor = true;
@@ -5108,7 +5142,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage14->Location = System::Drawing::Point(4, 22);
 			this->tabPage14->Name = L"tabPage14";
 			this->tabPage14->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage14->Size = System::Drawing::Size(1061, 617);
+			this->tabPage14->Size = System::Drawing::Size(1061, 604);
 			this->tabPage14->TabIndex = 4;
 			this->tabPage14->Text = L"Kinematics";
 			this->tabPage14->UseVisualStyleBackColor = true;
@@ -7064,10 +7098,10 @@ private: System::ComponentModel::IContainer^ components;
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->splitContainer2);
-			this->tabPage2->Location = System::Drawing::Point(4, 35);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1075, 636);
+			this->tabPage2->Size = System::Drawing::Size(1075, 649);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Simulation";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -7089,7 +7123,7 @@ private: System::ComponentModel::IContainer^ components;
 			// splitContainer2.Panel2
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->tabControl2);
-			this->splitContainer2->Size = System::Drawing::Size(1069, 630);
+			this->splitContainer2->Size = System::Drawing::Size(1069, 643);
 			this->splitContainer2->SplitterDistance = 500;
 			this->splitContainer2->TabIndex = 22;
 			// 
@@ -7701,7 +7735,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl2->Location = System::Drawing::Point(0, 0);
 			this->tabControl2->Name = L"tabControl2";
 			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(565, 630);
+			this->tabControl2->Size = System::Drawing::Size(565, 643);
 			this->tabControl2->TabIndex = 0;
 			// 
 			// tabPage6
@@ -7723,7 +7757,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage6->Location = System::Drawing::Point(4, 35);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(557, 591);
+			this->tabPage6->Size = System::Drawing::Size(557, 604);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Single run";
 			this->tabPage6->UseVisualStyleBackColor = true;
@@ -8532,6 +8566,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_con_delta_d->Size = System::Drawing::Size(90, 27);
 			this->input_con_delta_d->TabIndex = 16;
 			this->input_con_delta_d->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_con_delta_d->Visible = false;
 			// 
 			// textBox40
 			// 
@@ -8547,6 +8582,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox40->Size = System::Drawing::Size(85, 40);
 			this->textBox40->TabIndex = 15;
 			this->textBox40->Text = L"Concentration of δ isolines";
+			this->textBox40->Visible = false;
 			// 
 			// input_con_beta
 			// 
@@ -8562,6 +8598,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->input_con_beta->Size = System::Drawing::Size(90, 27);
 			this->input_con_beta->TabIndex = 14;
 			this->input_con_beta->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->input_con_beta->Visible = false;
 			// 
 			// textBox39
 			// 
@@ -8577,6 +8614,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox39->Size = System::Drawing::Size(85, 40);
 			this->textBox39->TabIndex = 13;
 			this->textBox39->Text = L"Concentration of β isolines";
+			this->textBox39->Visible = false;
 			// 
 			// input_max_delta_d
 			// 
@@ -8701,20 +8739,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea1->BackColor = System::Drawing::Color::White;
-			chartArea1->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea1);
+			chartArea3->BackColor = System::Drawing::Color::White;
+			chartArea3->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea3);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend1->Name = L"Legend1";
-			this->YMD->Legends->Add(legend1);
+			legend3->Name = L"Legend1";
+			this->YMD->Legends->Add(legend3);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 502);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title1->Name = L"Title1";
-			this->YMD->Titles->Add(title1);
+			title3->Name = L"Title1";
+			this->YMD->Titles->Add(title3);
 			// 
 			// debugPage
 			// 
@@ -8878,6 +8916,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
 			// 
+			// linkLabelUserGuide
+			// 
+			this->linkLabelUserGuide->AutoSize = true;
+			this->linkLabelUserGuide->BackColor = System::Drawing::SystemColors::Control;
+			this->linkLabelUserGuide->Location = System::Drawing::Point(694, 173);
+			this->linkLabelUserGuide->Name = L"linkLabelUserGuide";
+			this->linkLabelUserGuide->Size = System::Drawing::Size(105, 26);
+			this->linkLabelUserGuide->TabIndex = 4;
+			this->linkLabelUserGuide->TabStop = true;
+			this->linkLabelUserGuide->Text = L"User Guide";
+			this->linkLabelUserGuide->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &MyForm::linkLabelUserGuide_LinkClicked);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -8894,6 +8944,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->panel1->ResumeLayout(false);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
 			this->groupBox23->ResumeLayout(false);
 			this->groupBox23->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -10176,7 +10227,7 @@ private: System::Void input_diff_lock_f_SelectedIndexChanged(System::Object^ sen
 		fake_dTBR_f->Value = 100;
 		fake_bTBR_f->Value = 100;
 		fake_preload_f->Value = 0;
-		fake_k_lock_f->Value = 1;
+		fake_k_lock_f->Value = 0;
 	}
 }
 private: System::Void input_diff_lock_r_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -10226,7 +10277,7 @@ private: System::Void input_diff_lock_r_SelectedIndexChanged(System::Object^ sen
 		fake_dTBR_r->Value = 100;
 		fake_bTBR_r->Value = 100;
 		fake_preload_r->Value = 0;
-		fake_k_lock_r->Value = 1;
+		fake_k_lock_r->Value = 0;
 	}
 }
 private: System::Void spring_new_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -10271,6 +10322,16 @@ private: System::Void input_front_arb_selection_SelectedIndexChanged(System::Obj
 }
 private: System::Void input_rear_arb_selection_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	rear_arb_setup();
+}
+private: System::Void linkLabelThesis_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	System::String^ pdfPath = "Files\\Welcome_tab\\Gustavo_Drissen_Thesis.pdf";
+
+	System::Diagnostics::Process::Start(pdfPath);
+}
+private: System::Void linkLabelUserGuide_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	System::String^ pdfPath = "Files\\Welcome_tab\\User_guide.pdf";
+
+	System::Diagnostics::Process::Start(pdfPath);
 }
 };
 }

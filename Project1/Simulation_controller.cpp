@@ -23,6 +23,6 @@ void Simulation_controller::run_YMD(Vehicle_inputs& inputs, Vehicle_outputs& out
 
 void Simulation_controller::load_form(Vehicle_inputs& inputs, Vehicle_outputs& outputs, YMD_Carrier& YMD_carrier) {
 	if (load_inputs(inputs, "Files\\Vehicles\\Vehicle_params_1.txt")) {
-		run_simulation(inputs, outputs);	
+		run_YMD(inputs, outputs, YMD_carrier);
 	}
 }
