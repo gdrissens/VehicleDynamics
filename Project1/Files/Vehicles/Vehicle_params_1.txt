@@ -1,6 +1,6 @@
-V_input=70
+V_input=40
 R=60
-beta_deg=1.5
+beta_deg=0.5
 delta_d_deg=20
 delta_f_static=0
 delta_r_static=0
@@ -44,7 +44,7 @@ diff_dTBR_r=3
 diff_bTBR_f=2
 diff_bTBR_r=2
 diff_preload_f=50
-diff_preload_r=20
+diff_preload_r=200
 diff_k_lock_f=1
 diff_k_lock_r=0.5
 F_down_2=0.1702

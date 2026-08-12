@@ -740,8 +740,11 @@ Vehicle::Vehicle() {};
         if (md.lock == Actuator_lock::Tracloc) {
             slip_mdT = abs(t1.T + t2.T) * md.k_lock + md.preload;
         }
+        else if (md.lock == Actuator_lock::Ramp) {
+            slip_mdT = std::max(abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1), md.preload);
+        }
         else {
-            slip_mdT = abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1) + md.preload;
+            slip_mdT = abs(t1.T + t2.T) * (mTBR - 1) / (mTBR + 1);
         }
 
         //Compute torque difference for the main differential when locked
@@ -768,8 +771,11 @@ Vehicle::Vehicle() {};
         if (sd.lock == Actuator_lock::Tracloc) {
             slip_sdT = abs(t3.T + t4.T) * sd.k_lock + sd.preload;
         }
+        else if (sd.lock == Actuator_lock::Ramp) {
+            slip_sdT = std::max(abs(t1.T + t2.T) * (sTBR - 1) / (sTBR + 1), sd.preload);
+        }
         else {
-            slip_sdT = abs(t3.T + t4.T) * (sTBR - 1) / (sTBR + 1) + sd.preload;
+            slip_sdT = abs(t3.T + t4.T) * (sTBR - 1) / (sTBR + 1);
         }
 
 		//Compute torque difference for the secondary differential when locked

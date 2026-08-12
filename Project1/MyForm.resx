@@ -118,13 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox92.Text" xml:space="preserve">
-    <value>This software uses a quasi-steady state numerical model based on a Bachelor’s thesis written by Gustavo Drissen Silva to simulate physical phenomena related to Vehicle Dynamics (link to the thesis below). It is recommended to read the thesis before using the software.
+    <value>This software uses a quasi-steady state numerical model based on a Bachelor’s thesis written by Gustavo Drissen Silva to simulate physical phenomena related to Vehicle Dynamics (link to the thesis below). Additions to the numerical model have been documented in a separate document (link to additions document below). It is recommended to read the thesis and the additions document before using the software.
 A user guide was also developed to help navigate and operate the interface (link to the user guide below).
 </value>
   </data>
-  <metadata name="splitContainer2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="textBox91.Text" xml:space="preserve">
     <value>This software uses the SAE Z-DOWN axis system orientation:
 
@@ -817,4 +814,80 @@ A user guide was also developed to help navigate and operate the interface (link
   <metadata name="splitContainer2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAADpmDAA6Zg0BOmYNDjpmDSY6Zg1IOmYNbTpmDZI6Zg2xOmYNwDpmDbI6Zg10OmYNITFm
+        KAA7ZgsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADhk
+        DQA6Zg0AOWYMBDpmDRg6Zg08OmYNajpmDZg6Zg3BOmYN3zpmDfM6Zg38OmYN/zpmDf86Zg3/OmYN/zpm
+        Dfw6Zg3QOmYNUDhkDAI6ZQ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOWYNADlm
+        DQE6Zg0QOmYNNjpmDW46Zg2oOmYN1jpmDfM6Zg3+OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Df86Zg3/OmYN/zpmDf86Zg3qOmYNUDpmDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6ZQ0AOmQNATpm
+        DRc6Zg1LOmYNjDpmDcc6Zg3vOmYN/jpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Df86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3OOmYNIgAAAAAAAAAAAAAAAAAAAAA6Zg0AO2cNBjpm
+        DTU6Zg2JOmYN0jpmDfc6Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Df86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDfw6Zg10AAAAAAAAAAA6Zg0AOWUMAjpm
+        DTQ6Zg2eOmYN6zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Df86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDbEAAAAAOmYMADpm
+        CwQ6Zg1mOmYN5DpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Df86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDfo6Zg30OmYN7zpmDe86Zg30OmYN/DpmDf86Zg3/OmYNxTll
+        DAA8Zw0AOmYNXzpmDfE6Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Df86Zg3/OmYN+zpmDeo6Zg3POmYNsDpmDY86Zg1sOmYNUDpmDTw6Zg0zOmYNMzpmDTw6Zg1ZOmYNlDpm
+        Dd86Zg22OmYNADpmDSg6Zg3bOmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpm
+        Dfw6Zg3mOmYNvTpmDYk6Zg1VOmYNLTpmDRM6Zg0FPGoNADxpDQAAAAAAAAAAAAAAAAAAAAAAAAAAADpm
+        DQA6Zg0COmYNJDpmDCU5bA4AOmYNhTpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3/OmYN+jpm
+        Ddo6Zg2hOmYNYDpmDSo6Zg0KOmUNADplDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAADpmDB46Zg3TOmYN/zpmDf86Zg3/OmYN/zpmDf86Zg3+OmYN5jpm
+        DaY6Zg1YOmYNHTlmDQM5Zg4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOmYNWzpmDfc6Zg3/OmYN/zpmDf86Zg35OmYNzDpm
+        DXk6Zg0rOmYNBTpmDgA+YggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6Zg2cOmYN/zpmDf86Zg36OmYNwTpm
+        DV06Zg0VMWkUADlnDgAAAAAAAAAAAAAAAAAAAAACAAAADwAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADpmDc86Zg3/OmYN2zpm
+        DWo6Zg0SOWUNADpmDQAAAAAAAAAAAAAAAAYAAAAmAAAAXQAAAJoAAACtAAAAHAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOmYN5Tpm
+        Da86Zg0rOmYTADpmDgAAAAAAAAAAAQAAABsAAABcAAAAqQAAAOMAAAD8AAAA/wAAAIwAAAACAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAA6Zg1XOmYNFTpmDQAAAAAAAAAABAAAADEAAACHAAAA1gAAAPsAAAD/AAAA/wAAAP8AAAD3AAAARwAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAC8AAACWAAAA5wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        APsAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAB6AAAA4gAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAIkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtAAAAtgAAAPwAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD+AAAA6AAAAK4AAABkAAAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMQAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD4AAAAygAAAHoAAAAuAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmW+UAQT//ACZb
+        6wUmW+sRJlvrHidc6yYnXOsnJ1zrJydc6yQmW+sLJlzrACNZ7QAAAAAAAAAA/AAAAP8AAAD/AAAA/wAA
+        AP8AAADxAAAAsQAAAFQAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJlnpACZZ6QEmWuoOJlvrLCZb
+        61cmW+uGJlvrryZb68wmW+vdJlvr5SZb6+YmW+vmJlvr5SZb65cmWusIJlrrAAAAAAAAAADdAAAA/wAA
+        AP8AAAD1AAAAqwAAAEQAAAAJAAAAAAAAAAAAAAAAAAAAACVa6gAmW+sAJlvrBiZb6yQmW+tYJlvrkyZb
+        68UmW+vpJlvr+yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/JlvrvyZa6wwmWusAAAAAAAAA
+        AI8AAAD/AAAA3QAAAF0AAAAKAAAAAAAAAAAAAAAAAAAAACdb6wAnW+sDJlvrISZb62ImW+urJlvr4SZb
+        6/smW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/4mW+tvJlvsACVb
+        6QAAAAAAAAAALwAAAKkAAAA+AAAAAAAAAAAAAAAAL1/rACVa6gAmWuoIJlvrPSZb65QmW+vcJlvr/CZb
+        6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr0Cdb
+        6x0nW+sAAAAAAAAAAAAAAAABAAAACQAAAAEAAAAAKVvrACZb6gAmW+oIJlvrSSZb660mW+vvJlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb
+        6/omW+tnJlzrACda6gAAAAAAAAAAAAAAAAAAAAAAAAAAACZb6QAmWu0AJlvrKCZb66EmW+vyJlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb
+        6/8mW+v/JlvrriZb6w8mW+sAAAAAAAAAAAAAAAAAAAAAAAAAAAAmXOsAJlvrACZb6z0mW+vSJlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb
+        6/8mW+v/Jlvr/yZb69ImW+stJlvrACRb7QAAAAAAAAAAAAAAAAAAAAAAAAAAACZc6wAmXOsBJlvrlyZb
+        6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+vWJlvrPSZc6wAlWusAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJlvrACZa
+        6wAmW+snJlvrsiZb6/wmW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+v9JlvruiZb6zEoXukAJVrrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAJ1rnACZb6wAmW+sSJlvreyZb6+QmW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+v/Jlvr5CZb634mW+sVJlzqACZV6wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAACZc6wAmXOoCJlvrMSZb65ImW+veJlvr+yZb6/8mW+v/Jlvr/yZb
+        6/8mW+v/Jlvr/yZb6/8mW+v8Jlvr4CZb65ImW+swJ1zrAidb6wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmW+sAJlrqAyZb6ykmW+ttJlvrqSZb
+        69AmW+vhJlvr4iZb6+EmW+vSJlvrrCZb63AmW+srJlvrBCZb6wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA///AB//8AAH/wAAB/gAAAPgAAADgAAAAwAAAAMAAAACAAAf4gAD//wAH
+        //8AP///AfH//weB//8cAf//MAP//8AD//+AA///AAP//wAP+AcAfwADAfgAAwfAAAcfAAAHHAAAD/gA
+        AA/wAAAf4AAAP/AAAH/4AAD//AAB//8AB/8=
+</value>
+  </data>
 </root>

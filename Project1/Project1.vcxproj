@@ -156,6 +156,7 @@
     <ClCompile Include="YMD.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Simulation_controller.h" />
     <ClInclude Include="Spring_selection.h" />
     <ClInclude Include="State_variables.h" />
