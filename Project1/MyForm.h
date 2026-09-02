@@ -906,6 +906,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->RUN = (gcnew System::Windows::Forms::Button());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->linkLabelAdditions = (gcnew System::Windows::Forms::LinkLabel());
 			this->linkLabelUserGuide = (gcnew System::Windows::Forms::LinkLabel());
 			this->linkLabelThesis = (gcnew System::Windows::Forms::LinkLabel());
 			this->textBox92 = (gcnew System::Windows::Forms::TextBox());
@@ -1424,7 +1425,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
-			this->linkLabelAdditions = (gcnew System::Windows::Forms::LinkLabel());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -1717,6 +1717,18 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Welcome";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// linkLabelAdditions
+			// 
+			this->linkLabelAdditions->AutoSize = true;
+			this->linkLabelAdditions->BackColor = System::Drawing::SystemColors::Control;
+			this->linkLabelAdditions->Location = System::Drawing::Point(633, 205);
+			this->linkLabelAdditions->Name = L"linkLabelAdditions";
+			this->linkLabelAdditions->Size = System::Drawing::Size(64, 26);
+			this->linkLabelAdditions->TabIndex = 5;
+			this->linkLabelAdditions->TabStop = true;
+			this->linkLabelAdditions->Text = L"Thesis";
+			this->linkLabelAdditions->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &MyForm::linkLabelAdditions_LinkClicked);
 			// 
 			// linkLabelUserGuide
 			// 
@@ -8931,18 +8943,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->splitContainer1->SplitterDistance = 97;
 			this->splitContainer1->TabIndex = 2;
 			// 
-			// linkLabelAdditions
-			// 
-			this->linkLabelAdditions->AutoSize = true;
-			this->linkLabelAdditions->BackColor = System::Drawing::SystemColors::Control;
-			this->linkLabelAdditions->Location = System::Drawing::Point(633, 205);
-			this->linkLabelAdditions->Name = L"linkLabelAdditions";
-			this->linkLabelAdditions->Size = System::Drawing::Size(64, 26);
-			this->linkLabelAdditions->TabIndex = 5;
-			this->linkLabelAdditions->TabStop = true;
-			this->linkLabelAdditions->Text = L"Thesis";
-			this->linkLabelAdditions->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &MyForm::linkLabelAdditions_LinkClicked);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -8953,7 +8953,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Software do diabo v1";
+			this->Text = L"Software do diabo 1.0";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing_1);
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
