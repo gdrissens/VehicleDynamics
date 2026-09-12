@@ -898,9 +898,9 @@ private: System::ComponentModel::IContainer^ components;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Title^ title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Title^ title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->RUN_YMD = (gcnew System::Windows::Forms::Button());
 			this->RUN = (gcnew System::Windows::Forms::Button());
@@ -1722,19 +1722,19 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->linkLabelAdditions->AutoSize = true;
 			this->linkLabelAdditions->BackColor = System::Drawing::SystemColors::Control;
-			this->linkLabelAdditions->Location = System::Drawing::Point(633, 205);
+			this->linkLabelAdditions->Location = System::Drawing::Point(608, 203);
 			this->linkLabelAdditions->Name = L"linkLabelAdditions";
-			this->linkLabelAdditions->Size = System::Drawing::Size(64, 26);
+			this->linkLabelAdditions->Size = System::Drawing::Size(93, 26);
 			this->linkLabelAdditions->TabIndex = 5;
 			this->linkLabelAdditions->TabStop = true;
-			this->linkLabelAdditions->Text = L"Thesis";
+			this->linkLabelAdditions->Text = L"Additions";
 			this->linkLabelAdditions->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &MyForm::linkLabelAdditions_LinkClicked);
 			// 
 			// linkLabelUserGuide
 			// 
 			this->linkLabelUserGuide->AutoSize = true;
 			this->linkLabelUserGuide->BackColor = System::Drawing::SystemColors::Control;
-			this->linkLabelUserGuide->Location = System::Drawing::Point(761, 203);
+			this->linkLabelUserGuide->Location = System::Drawing::Point(747, 203);
 			this->linkLabelUserGuide->Name = L"linkLabelUserGuide";
 			this->linkLabelUserGuide->Size = System::Drawing::Size(105, 26);
 			this->linkLabelUserGuide->TabIndex = 4;
@@ -8766,20 +8766,20 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// YMD
 			// 
-			chartArea1->BackColor = System::Drawing::Color::White;
-			chartArea1->Name = L"ChartArea1";
-			this->YMD->ChartAreas->Add(chartArea1);
+			chartArea3->BackColor = System::Drawing::Color::White;
+			chartArea3->Name = L"ChartArea1";
+			this->YMD->ChartAreas->Add(chartArea3);
 			this->YMD->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend1->Name = L"Legend1";
-			this->YMD->Legends->Add(legend1);
+			legend3->Name = L"Legend1";
+			this->YMD->Legends->Add(legend3);
 			this->YMD->Location = System::Drawing::Point(0, 0);
 			this->YMD->Name = L"YMD";
 			this->YMD->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
 			this->YMD->Size = System::Drawing::Size(551, 513);
 			this->YMD->TabIndex = 0;
 			this->YMD->Text = L"chart1";
-			title1->Name = L"Title1";
-			this->YMD->Titles->Add(title1);
+			title3->Name = L"Title1";
+			this->YMD->Titles->Add(title3);
 			// 
 			// debugPage
 			// 
@@ -10350,7 +10350,7 @@ private: System::Void linkLabelUserGuide_LinkClicked(System::Object^ sender, Sys
 	System::Diagnostics::Process::Start(pdfPath);
 }
 private: System::Void linkLabelAdditions_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
-	   System::String^ pdfPath = "Files\\Welcome_tab\\Additions_to_Protto_VD_software_v1.pdf";
+	   System::String^ pdfPath = "Files\\Welcome_tab\\Additions_to_Protto_VD_software_1.0.pdf";
 
 	   System::Diagnostics::Process::Start(pdfPath);
 }

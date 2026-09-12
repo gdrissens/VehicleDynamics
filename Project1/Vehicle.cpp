@@ -189,7 +189,7 @@ Vehicle::Vehicle() {};
         iter = 0; // Iteration counters for main solver
         iter_check_a_lon = 10; // Iteration at which longitudinal acceleration will be checked
         max_iter = 25; // Maximum number of iterations for the iterative process
-        F_z_tol = 0.1; // [N] Acceptable wheel load error for the iterative process
+        F_z_tol = 0.5; // [N] Acceptable wheel load error for the iterative process
         a_lon_tol = 0.01; // [g] Acceptable longitudinal acceleration error for main solver not to be terminated
 
 #ifdef _DEBUG
